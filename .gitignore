@@ -1,1 +1,3 @@
 arf-env/
+notebooks/models*
+*.pdf*
