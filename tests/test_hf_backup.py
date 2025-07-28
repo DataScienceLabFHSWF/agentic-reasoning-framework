@@ -7,9 +7,16 @@ from agentic_reasoning.config import FrameworkConfig, ModelConfig
 from agentic_reasoning.backup_manager import BackupModelManager
 from agentic_reasoning.model_providers import HuggingFaceProvider, ModelResponse
 
+# Check if HuggingFace dependencies are available
+try:
+    from agentic_reasoning.model_providers.huggingface import HF_AVAILABLE
+except ImportError:
+    HF_AVAILABLE = False
 
-class TestBackupModelManager:
-    """Tests for BackupModelManager."""
+
+@pytest.mark.skipif(not HF_AVAILABLE, reason="HuggingFace dependencies not available")
+class TestBackupModelManagerWithHF:
+    """Tests for BackupModelManager with actual HuggingFace integration."""
     
     @pytest.fixture
     def config(self):
@@ -41,13 +48,46 @@ class TestBackupModelManager:
         return BackupModelManager(config)
     
     @pytest.mark.asyncio
-    async def test_initialization(self, manager):
-        """Test manager initialization."""
+    async def test_initialization_with_mocked_hf(self, manager):
+        """Test manager initialization with mocked HuggingFace."""
         with patch.object(HuggingFaceProvider, 'initialize', new_callable=AsyncMock):
             await manager.initialize()
             assert manager._initialized
             assert len(manager.backup_llms) == 1
             assert len(manager.backup_embeddings) == 1
+
+
+class TestBackupModelManagerGeneric:
+    """Generic tests for BackupModelManager (no HF dependencies required)."""
+    
+    @pytest.fixture
+    def config(self):
+        """Create test configuration."""
+        return FrameworkConfig(
+            primary_llm=ModelConfig(name="disabled", provider="none", enabled=False),
+            primary_embeddings=ModelConfig(name="disabled", provider="none", enabled=False),
+            backup_llm=[
+                ModelConfig(
+                    name="test-model",
+                    provider="huggingface",
+                    model_kwargs={"model_type": "text-generation"},
+                    enabled=True
+                )
+            ],
+            backup_embeddings=[
+                ModelConfig(
+                    name="test-embedding-model",
+                    provider="huggingface",
+                    model_kwargs={"model_type": "embedding"},
+                    enabled=True
+                )
+            ]
+        )
+    
+    @pytest.fixture
+    def manager(self, config):
+        """Create test manager."""
+        return BackupModelManager(config)
     
     @pytest.mark.asyncio
     async def test_generate_with_backup_success(self, manager):
@@ -85,6 +125,15 @@ class TestBackupModelManager:
             health_results = await manager.health_check_all()
             assert len(health_results) == 2  # One backup LLM + one backup embedding
             assert all(status for status in health_results.values())
+    
+    @pytest.mark.asyncio
+    async def test_generate_all_models_fail(self, manager):
+        """Test behavior when all models fail."""
+        with patch.object(HuggingFaceProvider, 'initialize', new_callable=AsyncMock), \
+             patch.object(HuggingFaceProvider, 'generate', new_callable=AsyncMock, side_effect=Exception("Model failed")):
+            
+            with pytest.raises(RuntimeError, match="All language models failed"):
+                await manager.generate_with_backup("test prompt")
 
 
 class TestHuggingFaceProvider:
@@ -111,11 +160,18 @@ class TestHuggingFaceProvider:
         assert provider.get_provider_name() == "huggingface"
     
     @pytest.mark.asyncio
-    async def test_is_available_not_initialized(self, provider):
-        """Test availability check when not initialized."""
-        with patch.object(provider, 'initialize', new_callable=AsyncMock, side_effect=Exception("Test error")):
+    async def test_is_available_dependencies_missing(self, provider):
+        """Test availability check when dependencies are missing."""
+        if not HF_AVAILABLE:
             result = await provider.is_available()
             assert not result
+    
+    @pytest.mark.asyncio
+    async def test_initialize_dependencies_missing(self, provider):
+        """Test initialization when dependencies are missing."""
+        if not HF_AVAILABLE:
+            with pytest.raises(RuntimeError, match="HuggingFace dependencies not available"):
+                await provider.initialize()
 
 
 class TestFrameworkConfig:
@@ -138,3 +194,19 @@ class TestFrameworkConfig:
         assert config.backup_config.retry_delay == 1.0
         assert config.backup_config.fallback_enabled is True
         assert config.backup_config.timeout == 30.0
+    
+    def test_custom_config(self):
+        """Test custom configuration."""
+        config = FrameworkConfig(
+            backup_llm=[
+                ModelConfig(
+                    name="custom-model",
+                    provider="huggingface",
+                    model_kwargs={"temperature": 0.5},
+                    enabled=True
+                )
+            ]
+        )
+        assert len(config.backup_llm) == 1
+        assert config.backup_llm[0].name == "custom-model"
+        assert config.backup_llm[0].model_kwargs["temperature"] == 0.5

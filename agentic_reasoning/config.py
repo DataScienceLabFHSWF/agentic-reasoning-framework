@@ -1,7 +1,7 @@
 """Configuration management for the agentic reasoning framework."""
 
 from typing import Dict, List, Optional, Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from pydantic_settings import BaseSettings
 
 
@@ -84,6 +84,7 @@ class FrameworkConfig(BaseSettings):
     log_level: str = Field(default="INFO", description="Logging level")
     enable_tracing: bool = Field(default=True, description="Enable LangSmith tracing")
     
-    class Config:
-        env_prefix = "ARF_"  # Agentic Reasoning Framework
-        env_file = ".env"
+    model_config = ConfigDict(
+        env_prefix="ARF_",  # Agentic Reasoning Framework
+        env_file=".env"
+    )

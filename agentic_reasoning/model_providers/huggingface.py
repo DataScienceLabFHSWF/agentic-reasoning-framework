@@ -3,15 +3,28 @@
 import asyncio
 import logging
 from typing import Any, Dict, List, Optional, AsyncGenerator
-import torch
-from transformers import (
-    AutoTokenizer, 
-    AutoModelForCausalLM, 
-    AutoModel,
-    pipeline,
-    Pipeline
-)
-from sentence_transformers import SentenceTransformer
+
+try:
+    import torch
+    from transformers import (
+        AutoTokenizer, 
+        AutoModelForCausalLM, 
+        AutoModel,
+        pipeline,
+        Pipeline
+    )
+    from sentence_transformers import SentenceTransformer
+    HF_AVAILABLE = True
+except ImportError:
+    # Mock classes for when dependencies are not available
+    torch = None
+    AutoTokenizer = None
+    AutoModelForCausalLM = None
+    AutoModel = None
+    pipeline = None
+    Pipeline = None
+    SentenceTransformer = None
+    HF_AVAILABLE = False
 
 from .base import ModelProvider, ModelResponse
 
@@ -23,10 +36,14 @@ class HuggingFaceProvider(ModelProvider):
     
     def __init__(self, model_name: str, **kwargs):
         super().__init__(model_name, **kwargs)
-        self.tokenizer: Optional[AutoTokenizer] = None
+        
+        if not HF_AVAILABLE:
+            logger.warning("HuggingFace dependencies not available. Install with: pip install transformers torch sentence-transformers")
+        
+        self.tokenizer: Optional[Any] = None
         self.model: Optional[Any] = None
-        self.pipeline: Optional[Pipeline] = None
-        self.embedding_model: Optional[SentenceTransformer] = None
+        self.pipeline: Optional[Any] = None
+        self.embedding_model: Optional[Any] = None
         self.device = kwargs.get("device", "cpu")
         self.max_length = kwargs.get("max_length", 512)
         self.temperature = kwargs.get("temperature", 0.7)
@@ -34,6 +51,9 @@ class HuggingFaceProvider(ModelProvider):
     
     async def initialize(self) -> None:
         """Initialize the HuggingFace model."""
+        if not HF_AVAILABLE:
+            raise RuntimeError("HuggingFace dependencies not available. Install with: pip install transformers torch sentence-transformers")
+        
         try:
             logger.info(f"Initializing HuggingFace model: {self.model_name}")
             
@@ -74,6 +94,9 @@ class HuggingFaceProvider(ModelProvider):
     async def generate(self, prompt: str, **kwargs) -> ModelResponse:
         """Generate a response using HuggingFace model."""
         await self.ensure_initialized()
+        
+        if not HF_AVAILABLE:
+            raise RuntimeError("HuggingFace dependencies not available")
         
         if not self.pipeline:
             raise RuntimeError("Text generation pipeline not initialized")
@@ -119,6 +142,9 @@ class HuggingFaceProvider(ModelProvider):
         """Generate embeddings using HuggingFace model."""
         await self.ensure_initialized()
         
+        if not HF_AVAILABLE:
+            raise RuntimeError("HuggingFace dependencies not available")
+        
         if not self.embedding_model:
             raise RuntimeError("Embedding model not initialized")
         
@@ -148,6 +174,10 @@ class HuggingFaceProvider(ModelProvider):
     
     async def is_available(self) -> bool:
         """Check if the HuggingFace model is available."""
+        if not HF_AVAILABLE:
+            logger.warning("HuggingFace dependencies not available")
+            return False
+        
         try:
             if not self._initialized:
                 await self.initialize()
