@@ -7,3 +7,7 @@ notebooks/models/.locks/models--sentence-transformers--all-MiniLM-L6-v2/53aa5117
 *.pyc*
 src/ma-rag/utils/chroma/*
 src/ma-rag/markdown/*
+*.md*
+src/agent-rag-streamlit/chroma_db/*
+src/agent-rag-streamlit/.env
+src/agent-rag-streamlit/tests/src/agent-rag-streamlit/chroma_db/chroma.sqlite3
