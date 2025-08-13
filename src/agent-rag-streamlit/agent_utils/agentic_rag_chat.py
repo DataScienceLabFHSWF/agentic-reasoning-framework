@@ -32,7 +32,7 @@ class AgenticRAGChat:
         self,
         chroma_dir: str,
         processed_dir: str,
-        router_model: str = "gpt-oss:20b",
+        router_model: str = "llama3.1:latest",
         summarizer_model: str = "llama3.1:latest",
         general_model: str = "llama3.1:latest",
         temperature: float = 0.0,

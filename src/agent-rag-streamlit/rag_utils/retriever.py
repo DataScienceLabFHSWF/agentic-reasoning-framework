@@ -124,13 +124,31 @@ def combine_retrieval_scores(
     
     return final_docs
 
-# --- Main retrieval method with proper scoring ---
-def hybrid_retrieve(query: str, chroma_dir: str, processed_dir: str, k: int = 5) -> List[Document]:
+# --- Main retrieval method with configurable weights ---
+def hybrid_retrieve(
+    query: str, 
+    chroma_dir: str, 
+    processed_dir: str, 
+    k: int = 5,
+    vector_weight: float = 0.5,  # Changed default to prioritize vector
+    bm25_weight: float = 0.5     # Changed default to disable BM25
+) -> List[Document]:
     """
-    Hybrid retrieval with proper relevance scoring
-    Returns documents with score, vector_score, and bm25_score in metadata
+    Hybrid retrieval with configurable relevance scoring weights
+    
+    Args:
+        query: Search query
+        chroma_dir: Directory containing Chroma vector database
+        processed_dir: Directory containing processed markdown files for BM25
+        k: Number of documents to retrieve
+        vector_weight: Weight for vector similarity scores (default: 1.0)
+        bm25_weight: Weight for BM25 scores (default: 0.0)
+    
+    Returns:
+        List of documents with score, vector_score, and bm25_score in metadata
     """
     logger.info(f"Starting hybrid retrieval for query: '{query[:50]}...'")
+    logger.info(f"Using weights - Vector: {vector_weight}, BM25: {bm25_weight}")
     
     try:
         # Get scored documents from both retrievers
@@ -142,9 +160,14 @@ def hybrid_retrieve(query: str, chroma_dir: str, processed_dir: str, k: int = 5)
         bm25_docs = get_bm25_scores(query, processed_dir, k)
         logger.info(f"BM25 retriever found {len(bm25_docs)} documents")
         
-        # Combine and score
+        # Combine and score with specified weights
         logger.info("Combining retrieval results...")
-        combined_docs = combine_retrieval_scores(vector_docs, bm25_docs)
+        combined_docs = combine_retrieval_scores(
+            vector_docs, 
+            bm25_docs, 
+            vector_weight=vector_weight,
+            bm25_weight=bm25_weight
+        )
         
         # Return top k documents
         result_docs = [doc for doc, score in combined_docs[:k]]
@@ -152,7 +175,9 @@ def hybrid_retrieve(query: str, chroma_dir: str, processed_dir: str, k: int = 5)
         logger.info(f"Hybrid retrieval completed, returning {len(result_docs)} documents")
         for i, doc in enumerate(result_docs):
             score = doc.metadata.get('score', 0.0)
-            logger.info(f"  Result {i+1}: score={score:.3f}")
+            vector_score = doc.metadata.get('vector_score', 0.0)
+            bm25_score = doc.metadata.get('bm25_score', 0.0)
+            logger.info(f"  Result {i+1}: total={score:.3f} (vector={vector_score:.3f}, bm25={bm25_score:.3f})")
         
         return result_docs
         
@@ -166,4 +191,4 @@ def load_hybrid_retriever(chroma_dir: str, processed_dir: str, k: int = 5) -> En
     logger.warning("Using legacy load_hybrid_retriever - scores will not be available")
     retriever_vector = load_vector_retriever(chroma_dir, k)
     retriever_bm25 = load_bm25_retriever(processed_dir, k)
-    return EnsembleRetriever(retrievers=[retriever_vector, retriever_bm25], weights=[0.5, 0.5])
+    return EnsembleRetriever(retrievers=[retriever_vector, retriever_bm25], weights=[0.5,0.5])

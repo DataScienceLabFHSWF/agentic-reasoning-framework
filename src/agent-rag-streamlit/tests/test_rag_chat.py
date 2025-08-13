@@ -15,10 +15,10 @@ print("This may take a moment as we load all models into memory...")
 rag_chat = create_rag_chat(
     chroma_dir=CHROMA_DIR,
     processed_dir=PROCESSED_DIR,
-    router_model="gpt-oss:20b",        # Reasoning model for routing
-    summarizer_model="llama3.1:latest", # Summarization model
-    general_model="llama3.1:latest",     # General conversation model
-    relevance_threshold=0.5              # Minimum relevance score for using docs
+    router_model="qwen3:14b",        # Reasoning model for routing
+    summarizer_model="mistral:latest", # Summarization model
+    general_model="qwen3:14b",     # General conversation model
+    relevance_threshold=0.3              # Minimum relevance score for using docs
 )
 
 print("All models loaded! Starting chat...")

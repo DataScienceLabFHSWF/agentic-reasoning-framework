@@ -38,7 +38,9 @@ class RetrieverAgent:
                 query=query,
                 chroma_dir=self.chroma_dir,
                 processed_dir=self.processed_dir,
-                k=self.k
+                k=self.k,
+                vector_weight=0.75,  # Prioritize vector scores
+                bm25_weight=0.25     # Disable BM25 scores
             )
             
             doc_count = len(retrieved_docs)
