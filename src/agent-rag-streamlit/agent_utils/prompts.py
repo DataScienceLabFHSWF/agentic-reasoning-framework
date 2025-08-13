@@ -1,55 +1,75 @@
 """
 prompts.py
-Prompt templates for the RAG chat workflow
+Promptvorlagen für den RAG-Chat-Workflow
 """
 
 from langchain_core.prompts import ChatPromptTemplate
 
 
 ROUTER_PROMPT = ChatPromptTemplate.from_template("""
-You are analyzing why retrieved documents did not meet the relevance threshold for a RAG query.
+Du analysierst, warum die abgerufenen Dokumente den Relevanzschwellenwert für eine RAG-Anfrage nicht erreicht haben.
 
-Query: {query}
-Maximum Relevance Score: {max_score}
-Threshold: {threshold}
+Anfrage: {query}
+Maximaler Relevanzwert: {max_score}
+Schwellenwert: {threshold}
 
-The documents were deemed not relevant enough. Provide a brief analysis of why the retrieved documents 
-might not be suitable for answering this query. This will help inform the general response.
+Die Dokumente wurden als nicht relevant genug eingestuft. Erstelle eine kurze Analyse, warum die abgerufenen Dokumente
+möglicherweise nicht geeignet sind, um diese Anfrage zu beantworten. Dies dient dazu, die allgemeine Antwort zu verbessern.
 
-Keep your analysis concise and factual.
+Halte deine Analyse prägnant und sachlich.
 """)
 
 
 GENERAL_PROMPT = ChatPromptTemplate.from_template("""
-The user asked a question but the retrieved documents from the knowledge base were not relevant enough to provide a reliable answer.
+Der Nutzer hat eine Frage gestellt, aber die abgerufenen Dokumente aus der Wissensdatenbank waren nicht relevant genug, 
+um eine verlässliche Antwort zu geben.
 
-User Query: {query}
-Document Relevance Issue: {context}
+Benutzeranfrage: {query}
+Problem mit der Dokumentenrelevanz: {context}
 
-Please respond in one of these ways:
-1. If you can answer from your general knowledge, provide a helpful response and mention that this is from general knowledge, not the specific documents
-2. If the query is very specific to documents that should be in the knowledge base, suggest the user rephrase their question or provide more specific terms
-3. If it's a general conversation query, respond naturally
+Bitte antworte auf eine der folgenden Arten:
+1. Falls du aus deinem allgemeinen Wissen antworten kannst, gib eine hilfreiche Antwort und erwähne, dass diese auf allgemeinem Wissen basiert, nicht auf den spezifischen Dokumenten.
+2. Falls die Anfrage sehr spezifisch zu Dokumenten ist, die in der Wissensdatenbank vorhanden sein sollten, schlage dem Nutzer vor, die Frage umzuformulieren oder präzisere Begriffe zu verwenden.
+3. Falls es sich um eine allgemeine Gesprächsanfrage handelt, antworte natürlich.
 
-Be helpful and honest about the limitations.
+Sei hilfreich und ehrlich in Bezug auf die Einschränkungen.
 
-Response:
+Antwort:
 """)
 
-
 SUMMARIZER_PROMPT = ChatPromptTemplate.from_template("""
-Based on the following highly relevant documents (relevance score above threshold), provide a concise and accurate answer to the user's question.
+Basierend auf den folgenden, als hoch relevant eingestuften Dokumenten (Relevanzwert über dem Schwellenwert) 
+erstelle bitte eine prägnante und genaue Antwort auf die Frage des Nutzers – zuerst auf Englisch, dann auf Deutsch.
 
-User Question: {query}
+Frage des Nutzers: {query}
 
-Relevant Documents:
+Relevante Dokumente:
 {context}
 
-Instructions:
-- Provide a clear, concise answer based on the information in the documents
-- The documents have been verified as relevant to the query
-- Be factual and cite specific information from the documents when possible
-- Keep the response conversational and helpful
+Anweisungen:
+- Gib zuerst eine klare, prägnante Antwort auf Englisch
+- Gib danach die gleiche Antwort auf Deutsch
+- Beide Antworten basieren auf den Informationen in den Dokumenten
+- Die Dokumente wurden als relevant für die Anfrage bestätigt
+- Sei sachlich und zitiere spezifische Informationen aus den Dokumenten, wenn möglich
+- Halte die Antwort dennoch gesprächig und hilfreich
 
-Answer:
+Beispiel:
+---
+Frage des Nutzers: What does the German Atomic Energy Act say about decommissioning nuclear facilities?
+Relevante Dokumente: 
+"The Atomic Energy Act (Atomgesetz) of Germany requires that nuclear facilities may only be decommissioned once all nuclear fuel has been removed and a decommissioning license (Abbaugenehmigung) has been granted by the competent authority."
+
+Antwort (Englisch):
+Under the German Atomic Energy Act, nuclear facilities can only be decommissioned after all nuclear fuel has been removed and a decommissioning license has been issued by the competent authority.
+
+Antwort (Deutsch):
+Nach dem deutschen Atomgesetz dürfen kerntechnische Anlagen nur stillgelegt werden, wenn alle Kernbrennstoffe entfernt wurden und die zuständige Behörde eine Abbaugenehmigung erteilt hat.
+---
+
+Jetzt beantworte bitte die aktuelle Frage im gleichen Format.
+
+Antwort (Englisch):
+
+Antwort (Deutsch):
 """)
