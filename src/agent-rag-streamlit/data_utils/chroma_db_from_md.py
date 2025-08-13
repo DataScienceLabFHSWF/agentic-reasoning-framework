@@ -23,7 +23,7 @@ def load_hf_embeddings_from_env() -> HuggingFaceEmbeddings:
         raise ValueError("Hugging Face cache folder environment variable not set. Please set HF_HOME, TRANSFORMERS_CACHE, or HUGGINGFACE_HUB_CACHE in your .env file.")
 
     embedding_model = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_name="intfloat/multilingual-e5-large-instruct",
         cache_folder=cache_folder,
     )
     return embedding_model

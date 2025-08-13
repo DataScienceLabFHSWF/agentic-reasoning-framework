@@ -20,14 +20,14 @@ def load_bm25_retriever(processed_dir: str, k: int = 5) -> BM25Retriever:
 
 # --- Load Chroma retriever ---
 def load_vector_retriever(chroma_dir: str, k: int = 5) -> Chroma:
-    embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embedding_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
     vectorstore = Chroma(persist_directory=chroma_dir, embedding_function=embedding_model)
     return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": k})
 
 # --- Get vector similarity scores ---
 def get_vector_scores(query: str, chroma_dir: str, k: int = 5) -> List[Tuple[Document, float]]:
     """Get documents with similarity scores from vector store"""
-    embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    embedding_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
     vectorstore = Chroma(persist_directory=chroma_dir, embedding_function=embedding_model)
     
     # Use similarity_search_with_score to get actual scores

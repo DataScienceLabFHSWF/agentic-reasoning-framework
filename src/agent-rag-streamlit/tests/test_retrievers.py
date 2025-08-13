@@ -7,7 +7,7 @@ from rag_utils.retriever import hybrid_retrieve
 from langchain.schema import Document
 
 # --- Define input ---
-query = "What are the regulations for nuclear waste storage in Germany?"
+query = "Welche Regelungen gelten für die Lagerung von Atommüll in Deutschland??"
 chroma_dir = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
 processed_dir = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
 
