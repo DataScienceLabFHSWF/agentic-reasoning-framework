@@ -58,7 +58,7 @@ PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-
 ROUTER_MODEL = "qwen3:14b"
 SUMMARIZER_MODEL = "mistral:latest"
 GENERAL_MODEL = "qwen3:14b"
-RELEVANCE_THRESHOLD = 0.3
+RELEVANCE_THRESHOLD = 0.15
 
 def show_agent_status(agent_type: str, status: str, details: str = ""):
     """Display agent status with professional styling"""
