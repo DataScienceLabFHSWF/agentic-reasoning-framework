@@ -57,7 +57,7 @@ CHROMA_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag
 PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
 ROUTER_MODEL = "qwen3:14b"
 SUMMARIZER_MODEL = "mistral:latest"
-GENERAL_MODEL = "qwen3:14b"
+GENERAL_MODEL = "mistral:latest"
 RELEVANCE_THRESHOLD = 0.15
 
 def show_agent_status(agent_type: str, status: str, details: str = ""):
