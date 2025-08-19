@@ -15,6 +15,8 @@ from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
 from .model_factory import create_model
 from .intent_agent import IntentClassificationAgent
+from .follow_up_agent import FollowUpAgent
+from .human_intervention_agent import HumanInterventionAgent
 
 # Configure logging
 logging.basicConfig(
@@ -48,7 +50,7 @@ class AgenticRAGChat:
         self.relevance_threshold = relevance_threshold
         self.force_german = force_german
 
-        logger.info("Initializing Agentic RAG Chat")
+        logger.info("Initializing Enhanced Agentic RAG Chat with Follow-up and Human Intervention")
         logger.info(f"Intent model: {intent_model}")
         logger.info(f"Router model: {router_model}")
         logger.info(f"Summarizer model: {summarizer_model}")
@@ -62,25 +64,29 @@ class AgenticRAGChat:
         self.summarizer_llm = self._preload_model(summarizer_model, temperature, "Summarizer")
         self.general_llm = self._preload_model(general_model, temperature, "General")
         
-        # Initialize agents
+        # Initialize agents (including new ones)
         logger.info("Initializing agents...")
         self.intent_agent = IntentClassificationAgent(self.intent_llm)
         self.router_agent = RouterAgent(self.router_llm, relevance_threshold)
         self.retriever_agent = RetrieverAgent(chroma_dir, processed_dir, k=retrieval_k)
         self.summarizer_agent = SummarizerAgent(self.summarizer_llm)
         self.general_agent = GeneralAgent(self.general_llm)
+        self.follow_up_agent = FollowUpAgent(self.general_llm)  # Reuse general model
+        self.human_intervention_agent = HumanInterventionAgent(self.general_llm)  # Reuse general model
         
         # Initialize workflow
-        logger.info("Building workflow...")
+        logger.info("Building enhanced workflow...")
         self.workflow = RAGWorkflow(
             intent_agent=self.intent_agent,
             router_agent=self.router_agent,
             retriever_agent=self.retriever_agent,
             summarizer_agent=self.summarizer_agent,
-            general_agent=self.general_agent
+            general_agent=self.general_agent,
+            follow_up_agent=self.follow_up_agent,
+            human_intervention_agent=self.human_intervention_agent
         )
         
-        logger.info("All models loaded and ready. Agentic RAG Chat initialized successfully")
+        logger.info("All models loaded and ready. Enhanced Agentic RAG Chat initialized successfully")
     
     def _preload_model(self, model_name: str, temperature: float, model_type: str):
         """Preload model and test with a simple query to ensure it's ready"""
@@ -109,25 +115,34 @@ class AgenticRAGChat:
         """
         logger.info(f"Processing user input: '{user_input[:50]}...'")
         
-        # Create initial state
+        # Create initial state with chat history
         initial_state = ChatState(
             messages=[HumanMessage(content=user_input)],
             query=user_input,
-            is_corpus_relevant=None,  # New field
-            intent_reasoning=None,    # New field
+            is_corpus_relevant=None,
+            intent_reasoning=None,
+            is_follow_up=None,         # New field
+            follow_up_context=None,    # New field
+            human_intervention=None,   # New field
             is_relevant=False,
             retrieved_docs=[],
             max_relevance_score=0.0,
             answer="",
-            chat_history=self.chat_history
+            chat_history=self.chat_history,  # Pass chat history
+            previous_context=None      # New field
         )
         
         try:
-            # Run the workflow
+            # Run the enhanced workflow
             result = self.workflow.invoke(initial_state)
             
             # Extract the answer
             answer = result["answer"]
+            
+            # Add human intervention explanation if present
+            if result.get("human_intervention_explanation"):
+                explanation = result["human_intervention_explanation"]
+                answer = f"{explanation}\n\n{answer}"
             
             # Enforce German response if enabled
             if self.force_german and not self._is_german_response(answer):
@@ -142,7 +157,7 @@ class AgenticRAGChat:
                 self.chat_history = self.chat_history[-10:]
                 logger.info("Chat history trimmed to last 10 exchanges")
             
-            logger.info("Chat response generated successfully")
+            logger.info("Enhanced chat response generated successfully")
             return answer
             
         except Exception as e:
@@ -150,9 +165,13 @@ class AgenticRAGChat:
             return f"I encountered an error while processing your request: {str(e)}"
     
     def start_chat(self):
-        """Start an interactive chat loop"""
-        logger.info("Starting interactive chat session")
-        print("RAG Chat Assistant is ready! Type 'quit', 'exit', or 'bye' to end the conversation.\n")
+        """Start an interactive chat loop with enhanced features"""
+        logger.info("Starting enhanced interactive chat session")
+        print("Enhanced RAG Chat Assistant is ready!")
+        print("Features:")
+        print("- Ask follow-up questions naturally")
+        print("- Use commands: !rag (force search), !context (use only context), !general (general response)")
+        print("- Type 'quit', 'exit', or 'bye' to end the conversation.\n")
         
         while True:
             try:

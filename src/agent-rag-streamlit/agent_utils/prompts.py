@@ -34,20 +34,58 @@ Unsere Wissensdatenbank enthält hauptsächlich:
 - Genehmigungsinhaber und Betreiber deutscher Kernkraftwerke
 - Technische Sicherheitssysteme und Notfallmaßnahmen
 
+CHAT-VERLAUF (falls vorhanden):
+{chat_history}
+
 AUFGABE:
-Analysiere die folgende Benutzeranfrage und entscheide, ob sie für unsere spezialisierte Nuklear-Wissensdatenbank relevant ist.
+Analysiere die folgende Benutzeranfrage und klassifiziere sie:
 
 Benutzeranfrage: {query}
 
-BEWERTUNGSKRITERIEN:
-- RELEVANT: Fragen zu deutschen Kernkraftwerken, Atomrecht, Nuklearsicherheit, Genehmigungen, Stilllegung, Atommüll
-- NICHT RELEVANT: Allgemeine Gespräche, andere Energieformen, ausländische Nuklearanlagen, grundlegende Physik ohne Nuklearbezug
+KLASSIFIZIERUNGSOPTIONEN:
+1. FOLLOW_UP: Wenn die Anfrage eine Nachfrage zu einem vorherigen Thema ist (z.B. "Was bedeutet das?", "Erzähl mir mehr darüber", "Wie funktioniert das?", "Welche Details gibt es dazu?")
+2. RELEVANT: Neue Fragen zu deutschen Kernkraftwerken, Atomrecht, Nuklearsicherheit, Genehmigungen, Stilllegung, Atommüll
+3. NOT RELEVANT: Allgemeine Gespräche, andere Energieformen, ausländische Nuklearanlagen, grundlegende Physik ohne Nuklearbezug
 
-Antworte mit "RELEVANT" oder "NOT RELEVANT" und gib eine kurze Begründung.
+Antworte mit "FOLLOW_UP", "RELEVANT" oder "NOT RELEVANT" und gib eine kurze Begründung.
 
 Antwort:
 """)
 
+FOLLOW_UP_PROMPT = ChatPromptTemplate.from_template("""
+Du beantwortest eine Nachfrage basierend auf dem vorherigen Gesprächskontext über deutsche Kernkraftwerke und Nuklearsicherheit.
+
+VORHERIGER KONTEXT:
+{previous_context}
+
+AKTUELLE NACHFRAGE:
+{query}
+
+ANWEISUNGEN:
+1. Verwende den vorherigen Kontext, um die Nachfrage zu beantworten
+2. Falls der Kontext nicht ausreicht, gib das ehrlich zu und schlage vor, eine spezifischere Frage zu stellen
+3. Antworte ausschließlich auf Deutsch
+4. Beziehe dich direkt auf die vorherigen Informationen
+5. Sei hilfreich und ermutige weitere Fragen
+
+Antwort:
+""")
+
+HUMAN_INTERVENTION_PROMPT = ChatPromptTemplate.from_template("""
+Der Benutzer möchte den Workflow manuell steuern.
+
+Benutzerbefehl: {command}
+Aktuelle Anfrage: {query}
+
+Verfügbare Optionen:
+- "force_rag": Erzwinge RAG-Suche auch bei niedriger Relevanz
+- "use_context": Verwende nur den Chat-Verlauf ohne neue Suche
+- "general": Behandle als allgemeine Frage
+
+Erkläre dem Benutzer, welche Option gewählt wurde und warum.
+
+Antwort:
+""")
 
 GENERAL_PROMPT = ChatPromptTemplate.from_template("""
 Der Nutzer hat eine Frage gestellt, aber die Anfrage ist nicht relevant für unsere spezialisierte Nuklear-Wissensdatenbank, oder die abgerufenen Dokumente waren nicht relevant genug.
