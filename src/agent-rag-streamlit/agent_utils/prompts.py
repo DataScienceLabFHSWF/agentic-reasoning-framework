@@ -20,26 +20,57 @@ Halte deine Analyse prägnant und sachlich.
 """)
 
 
-GENERAL_PROMPT = ChatPromptTemplate.from_template("""
-Der Nutzer hat eine Frage gestellt, aber die abgerufenen Dokumente aus der Wissensdatenbank waren nicht relevant genug, 
-um eine verlässliche Antwort zu geben.
+INTENT_CLASSIFICATION_PROMPT = ChatPromptTemplate.from_template("""
+Du bist ein Assistent zur Intentionsklassifikation für ein spezialisiertes RAG-System über deutsche Kerntechnik und Nuklearsicherheit.
+
+DOKUMENTENÜBERSICHT:
+Unsere Wissensdatenbank enthält hauptsächlich:
+- Sicherheitsberichte kerntechnischer Anlagen (z.B. KRB II - Kernkraftwerk Gundremmingen)
+- Atomrechtliche Bestimmungen und Genehmigungsverfahren
+- Technische Spezifikationen von Kernkraftwerken (Reaktortypen, Leistung, Blöcke)
+- Stilllegungsverfahren und Rückbau kerntechnischer Anlagen
+- Strahlenschutz und Überwachungsmaßnahmen
+- Zwischen- und Endlagerung radioaktiver Abfälle
+- Genehmigungsinhaber und Betreiber deutscher Kernkraftwerke
+- Technische Sicherheitssysteme und Notfallmaßnahmen
+
+AUFGABE:
+Analysiere die folgende Benutzeranfrage und entscheide, ob sie für unsere spezialisierte Nuklear-Wissensdatenbank relevant ist.
 
 Benutzeranfrage: {query}
-Problem mit der Dokumentenrelevanz: {context}
 
-Bitte antworte auf eine der folgenden Arten:
-1. Falls du aus deinem allgemeinen Wissen antworten kannst, gib eine hilfreiche Antwort und erwähne, dass diese auf allgemeinem Wissen basiert, nicht auf den spezifischen Dokumenten.
-2. Falls die Anfrage sehr spezifisch zu Dokumenten ist, die in der Wissensdatenbank vorhanden sein sollten, schlage dem Nutzer vor, die Frage umzuformulieren oder präzisere Begriffe zu verwenden.
-3. Falls es sich um eine allgemeine Gesprächsanfrage handelt, antworte natürlich.
+BEWERTUNGSKRITERIEN:
+- RELEVANT: Fragen zu deutschen Kernkraftwerken, Atomrecht, Nuklearsicherheit, Genehmigungen, Stilllegung, Atommüll
+- NICHT RELEVANT: Allgemeine Gespräche, andere Energieformen, ausländische Nuklearanlagen, grundlegende Physik ohne Nuklearbezug
 
-Sei hilfreich und ehrlich in Bezug auf die Einschränkungen.
+Antworte mit "RELEVANT" oder "NOT RELEVANT" und gib eine kurze Begründung.
+
+Antwort:
+""")
+
+
+GENERAL_PROMPT = ChatPromptTemplate.from_template("""
+Der Nutzer hat eine Frage gestellt, aber die Anfrage ist nicht relevant für unsere spezialisierte Nuklear-Wissensdatenbank, oder die abgerufenen Dokumente waren nicht relevant genug.
+
+Benutzeranfrage: {query}
+Kontext: {context}
+
+ANWEISUNGEN:
+1. Falls die Anfrage nicht nuklearspezifisch ist: Erkläre höflich, dass du auf deutsche Kernkraftwerke und Nuklearsicherheit spezialisiert bist
+2. Falls die Dokumente nicht relevant genug waren: Schlage vor, die Frage spezifischer zu formulieren mit Begriffen wie:
+   - Spezifische Anlagennamen (z.B. "KRB II", "Gundremmingen")
+   - Atomrechtliche Begriffe (z.B. "Genehmigung", "Stilllegung", "Rückbau")
+   - Technische Aspekte (z.B. "Reaktortyp", "Leistung", "Sicherheitssysteme")
+3. Biete Beispiele für relevante Fragen an
+
+Sei höflich, hilfreich und ermutige den Nutzer, spezifischere nuklearbezogene Fragen zu stellen.
 
 Antwort:
 """)
 
 SUMMARIZER_PROMPT = ChatPromptTemplate.from_template("""
 Basierend auf den folgenden, als hoch relevant eingestuften Dokumenten (Relevanzwert über dem Schwellenwert) 
-erstelle bitte eine prägnante und genaue Antwort auf die Frage des Nutzers – zuerst auf Englisch, dann auf Deutsch.
+erstelle bitte eine prägnante und genaue Antwort auf die Frage des Nutzers auf Deutsch.
 
 Frage des Nutzers: {query}
 
@@ -47,29 +78,12 @@ Relevante Dokumente:
 {context}
 
 Anweisungen:
-- Gib zuerst eine klare, prägnante Antwort auf Englisch
-- Gib danach die gleiche Antwort auf Deutsch
-- Beide Antworten basieren auf den Informationen in den Dokumenten
+- Antworte ausschließlich auf Deutsch
+- Die Antwort basiert auf den Informationen in den Dokumenten
 - Die Dokumente wurden als relevant für die Anfrage bestätigt
 - Sei sachlich und zitiere spezifische Informationen aus den Dokumenten, wenn möglich
 - Halte die Antwort dennoch gesprächig und hilfreich
+- Verwende deutsche Fachbegriffe für nukleartechnische Konzepte
 
-Beispiel:
----
-Frage des Nutzers: What does the German Atomic Energy Act say about decommissioning nuclear facilities?
-Relevante Dokumente: 
-"The Atomic Energy Act (Atomgesetz) of Germany requires that nuclear facilities may only be decommissioned once all nuclear fuel has been removed and a decommissioning license (Abbaugenehmigung) has been granted by the competent authority."
-
-Antwort (Englisch):
-Under the German Atomic Energy Act, nuclear facilities can only be decommissioned after all nuclear fuel has been removed and a decommissioning license has been issued by the competent authority.
-
-Antwort (Deutsch):
-Nach dem deutschen Atomgesetz dürfen kerntechnische Anlagen nur stillgelegt werden, wenn alle Kernbrennstoffe entfernt wurden und die zuständige Behörde eine Abbaugenehmigung erteilt hat.
----
-
-Jetzt beantworte bitte die aktuelle Frage im gleichen Format.
-
-Antwort (Englisch):
-
-Antwort (Deutsch):
+Antwort:
 """)
