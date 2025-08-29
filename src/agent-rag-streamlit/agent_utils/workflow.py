@@ -4,6 +4,7 @@ LangGraph workflow definition for RAG chat
 """
 
 import logging
+import os
 from langgraph.graph import StateGraph, END
 
 from .chat_state import ChatState
@@ -12,6 +13,7 @@ from .retriever_agent import RetrieverAgent
 from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
 from .intent_agent import IntentClassificationAgent
+from .final_answer_agent import FinalAnswerAgent # New import
 
 logger = logging.getLogger(__name__)
 
@@ -25,13 +27,18 @@ class RAGWorkflow:
         router_agent: RouterAgent,
         retriever_agent: RetrieverAgent,
         summarizer_agent: SummarizerAgent,
-        general_agent: GeneralAgent
+        general_agent: GeneralAgent,
+        final_answer_agent: FinalAnswerAgent # New agent parameter
     ):
         self.intent_agent = intent_agent
         self.router_agent = router_agent
         self.retriever_agent = retriever_agent
         self.summarizer_agent = summarizer_agent
         self.general_agent = general_agent
+        self.final_answer_agent = final_answer_agent # Assign the new agent
+        
+        # Check for the final_eval environment variable
+        self.final_eval = os.getenv("final_eval", "verbose")
         
         logger.info("Building RAG workflow with intent classification")
         self.workflow = self._build_workflow()
@@ -51,6 +58,7 @@ class RAGWorkflow:
         workflow.add_node("router", self.router_agent.route_query)
         workflow.add_node("summarizer", self.summarizer_agent.summarize_response)
         workflow.add_node("general_response", self.general_agent.general_response)
+        workflow.add_node("final_answer", self.final_answer_agent.get_final_answer) # New node
         
         # Define the flow: classify intent first
         workflow.set_entry_point("intent_classifier")
@@ -78,8 +86,16 @@ class RAGWorkflow:
             }
         )
         
+        # Conditional edge after summarizer, based on a parameter/env variable
+        if self.final_eval == "succinct":
+            workflow.add_edge("summarizer", "final_answer")
+            workflow.add_edge("final_answer", END)
+            logger.info("Succinct evaluation mode enabled. Final answer node added.")
+        else:
+            workflow.add_edge("summarizer", END)
+            logger.info("Verbose mode enabled. Final answer node bypassed.")
+        
         # End points
-        workflow.add_edge("summarizer", END)
         workflow.add_edge("general_response", END)
         
         logger.info("Workflow graph constructed: intent -> [retrieve -> route -> [summarize|general]] | general")

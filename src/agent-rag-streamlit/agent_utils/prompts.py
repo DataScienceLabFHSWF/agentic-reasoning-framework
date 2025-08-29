@@ -87,3 +87,16 @@ Anweisungen:
 
 Antwort:
 """)
+
+
+FINAL_ANSWER_PROMPT = ChatPromptTemplate.from_template("""
+Basierend auf der folgenden zusammengefassten Antwort, gib eine finale, extrem prägnante Antwort auf die ursprüngliche Frage.
+Deine Antwort sollte so kurz wie möglich sein, idealerweise nur ein oder zwei Wörter, eine Zahl oder eine Entität.
+Füge keinen zusätzlichen Text oder Erklärungen hinzu. Der Zweck dieser Ausgabe ist die automatisierte Auswertung, nicht die menschliche Lesbarkeit.
+
+Ursprüngliche Frage: {query}
+Zusammengefasste Antwort: {summarized_answer}
+
+Deine Antwort sollte so kurz wie möglich sein, idealerweise nur ein oder zwei Wörter, eine Zahl oder eine Entität.                                                       
+Finale Antwort:
+""")

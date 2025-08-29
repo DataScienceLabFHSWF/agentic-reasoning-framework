@@ -4,6 +4,7 @@ Main RAG chat class that orchestrates the workflow
 """
 
 import logging
+import os
 from typing import List, Dict
 from langchain_core.messages import HumanMessage
 
@@ -13,6 +14,7 @@ from .router_agent import RouterAgent
 from .retriever_agent import RetrieverAgent
 from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
+from .final_answer_agent import FinalAnswerAgent # New import
 from .model_factory import create_model
 from .intent_agent import IntentClassificationAgent
 
@@ -37,6 +39,7 @@ class AgenticRAGChat:
         router_model: str = "llama3.1:latest",
         summarizer_model: str = "llama3.1:latest",
         general_model: str = "llama3.1:latest",
+        final_answer_model: str = "llama3.1:latest", # New parameter
         temperature: float = 0.0,
         retrieval_k: int = 3,
         relevance_threshold: float = 0.5,
@@ -53,6 +56,7 @@ class AgenticRAGChat:
         logger.info(f"Router model: {router_model}")
         logger.info(f"Summarizer model: {summarizer_model}")
         logger.info(f"General model: {general_model}")
+        logger.info(f"Final answer model: {final_answer_model}")
         logger.info(f"Relevance threshold: {relevance_threshold}")
         
         # Preload all models into memory
@@ -61,6 +65,7 @@ class AgenticRAGChat:
         self.router_llm = self._preload_model(router_model, temperature, "Router")
         self.summarizer_llm = self._preload_model(summarizer_model, temperature, "Summarizer")
         self.general_llm = self._preload_model(general_model, temperature, "General")
+        self.final_answer_llm = self._preload_model(final_answer_model, temperature, "Final Answer") # New model loading
         
         # Initialize agents
         logger.info("Initializing agents...")
@@ -69,6 +74,7 @@ class AgenticRAGChat:
         self.retriever_agent = RetrieverAgent(chroma_dir, processed_dir, k=retrieval_k)
         self.summarizer_agent = SummarizerAgent(self.summarizer_llm)
         self.general_agent = GeneralAgent(self.general_llm)
+        self.final_answer_agent = FinalAnswerAgent(self.final_answer_llm) # New agent initialization
         
         # Initialize workflow
         logger.info("Building workflow...")
@@ -77,7 +83,8 @@ class AgenticRAGChat:
             router_agent=self.router_agent,
             retriever_agent=self.retriever_agent,
             summarizer_agent=self.summarizer_agent,
-            general_agent=self.general_agent
+            general_agent=self.general_agent,
+            final_answer_agent=self.final_answer_agent # Pass the new agent to workflow
         )
         
         logger.info("All models loaded and ready. Agentic RAG Chat initialized successfully")
@@ -128,11 +135,6 @@ class AgenticRAGChat:
             
             # Extract the answer
             answer = result["answer"]
-            
-            # Enforce German response if enabled
-            if self.force_german and not self._is_german_response(answer):
-                logger.info("Enforcing German response")
-                answer = self._ensure_german_response(answer, user_input)
             
             # Update chat history
             self.chat_history.append({"user": user_input, "assistant": answer})
@@ -191,35 +193,6 @@ class AgenticRAGChat:
         """Clear the chat history"""
         self.chat_history.clear()
         logger.info("Chat history cleared")
-    
-    def _is_german_response(self, text: str) -> bool:
-        """Check if response is primarily in German"""
-        german_indicators = ['der', 'die', 'das', 'und', 'oder', 'aber', 'ich', 'Sie', 'wir', 'sind', 'haben', 'können', 'Kernkraftwerk', 'Genehmigung', 'Anlage']
-        words = text.lower().split()
-        if len(words) < 5:
-            return True
-        german_count = sum(1 for word in words if any(indicator in word for indicator in german_indicators))
-        return german_count / len(words) > 0.25
-
-    def _ensure_german_response(self, response: str, query: str) -> str:
-        """Ensure response is in German"""
-        try:
-            german_prompt = f"""
-            Bitte antworte auf die folgende Frage ausschließlich auf Deutsch:
-            
-            Frage: {query}
-            
-            Falls bereits eine Antwort vorhanden ist, übersetze sie ins Deutsche:
-            {response}
-            
-            Deutsche Antwort:
-            """
-            german_response = self.general_llm.invoke([{"role": "user", "content": german_prompt}])
-            return german_response.content
-        except Exception as e:
-            logger.error(f"German enforcement failed: {e}")
-            return f"Entschuldigung, es gab einen Fehler bei der Verarbeitung Ihrer Anfrage."
-
 
 def create_rag_chat(
     chroma_dir: str,
@@ -228,6 +201,7 @@ def create_rag_chat(
     router_model: str = "gpt-oss:20b",
     summarizer_model: str = "llama3.1:latest",
     general_model: str = "llama3.1:latest",
+    final_answer_model: str = "llama3.1:latest", # New parameter
     temperature: float = 0.0,
     retrieval_k: int = 3,
     relevance_threshold: float = 0.5
@@ -242,6 +216,7 @@ def create_rag_chat(
         router_model: Model for routing decisions
         summarizer_model: Model for summarization
         general_model: Model for general responses
+        final_answer_model: Model for the succinct final answer
         temperature: Temperature for response generation
         retrieval_k: Number of documents to retrieve
         relevance_threshold: Minimum relevance score to use RAG
@@ -256,6 +231,7 @@ def create_rag_chat(
         router_model=router_model,
         summarizer_model=summarizer_model,
         general_model=general_model,
+        final_answer_model=final_answer_model,
         temperature=temperature,
         retrieval_k=retrieval_k,
         relevance_threshold=relevance_threshold

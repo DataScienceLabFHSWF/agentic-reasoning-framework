@@ -1,0 +1,430 @@
+{
+  "dataset1": [
+    {
+      "question": "Welcher Reaktortyp ist das Kernkraftwerk Grafenrheinfeld (KKG)?",
+      "answer": "Druckwasserreaktor",
+      "level": "simple",
+      "justification": "Der Reaktortyp ist im einführenden Abschnitt des KKG eindeutig angegeben, es ist keine Synthese nötig.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Welches Unternehmen betreibt das Kernkraftwerk Grafenrheinfeld (KKG)?",
+      "answer": "E.ON Kernkraft GmbH",
+      "level": "simple",
+      "justification": "Der Betreiber wird im einleitenden Abschnitt des KKG klar genannt.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "In welchem Jahr ging das Kernkraftwerk Grafenrheinfeld in den kommerziellen Betrieb?",
+      "answer": "1982",
+      "level": "simple",
+      "justification": "Das Jahr des kommerziellen Betriebsbeginns ist im KKG‑Bericht direkt angegeben.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Wie heißt das Standort‑Zwischenlager am KKG, das 88 Stellplätze besitzt?",
+      "answer": "KKG‑BELLA",
+      "level": "simple",
+      "justification": "Der Name des Standort‑Zwischenlagers wird in den KKG‑Dokumenten klar erwähnt.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Wofür steht die Abkürzung RBZ in den KKG‑Unterlagen?",
+      "answer": "Reststoffbehandlungszentrum",
+      "level": "simple",
+      "justification": "Die vollständige Bezeichnung des RBZ ist in der Beschreibung der Abfallbehandlungsanlagen angegeben.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Nennen Sie zwei der Schutzziele für den Nachbetrieb des KKG.",
+      "answer": "Kontrolle der Reaktivität und Kühlung der Brennelemente",
+      "level": "medium",
+      "justification": "Die Ziele sind als Liste im Sicherheitsbericht aufgeführt; es müssen zwei ausgewählt werden.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 9–10"
+    },
+    {
+      "question": "Welche Teilsektion der Abbauphase 1 des KKG entspricht dem kernbrennstofffreien Zustand?",
+      "answer": "Abschnitt 1C",
+      "level": "medium",
+      "justification": "Man muss die drei Abschnitte der Abbauphase 1 verstehen und denjenigen mit kernbrennstofffreier Anlage identifizieren.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Was beschreibt der Begriff ‘Sicherer Einschluss’ laut Glossar der UVU?",
+      "answer": "Eine Stilllegungsstrategie, bei der die Anlage für eine gewisse Zeit (typischerweise 30 Jahre) sicher eingeschlossen wird",
+      "level": "medium",
+      "justification": "Man muss das Glossar der UVU konsultieren und die Definition wiedergeben.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Welche Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen nennt das UVU‑Glossar?",
+      "answer": "Sievert",
+      "level": "medium",
+      "justification": "Das Glossar liefert die Definition dieser Einheit.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "In welcher Naturlandschaft liegt der Standort des KRB II und wie breit ist diese dort?",
+      "answer": "Im Donauried, etwa 8 km breit",
+      "level": "medium",
+      "justification": "Man muss den Standortabschnitt des KRB II lesen, um sowohl Region als auch Breite zu ermitteln.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Welches Projekt gliedert den Abbau in zwei Phasen und welches in drei Teilvorhaben?",
+      "answer": "Das KKG nutzt zwei Abbauphasen, das KRB II drei Teilvorhaben",
+      "level": "hard",
+      "justification": "Die Antwort erfordert den Vergleich der Strukturen zweier unterschiedlicher Projekte.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10; Sicherheitsbericht KRB II, Kapitel 3"
+    },
+    {
+      "question": "Nennen Sie das Jahr der ersten nuklearen Kettenreaktion in Block B des Gundremmingen und das Jahr, in dem das KKG in Betrieb ging.",
+      "answer": "1984 und 1982",
+      "level": "hard",
+      "justification": "Man kombiniert historische Daten aus zwei Berichten.",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Nennen Sie zwei Gebäude, in denen das Reststoffbehandlungszentrum (RBZ) des KKG hauptsächlich eingerichtet ist.",
+      "answer": "Reaktorgebäude‑Ringraum und Reaktorhilfsanlagengebäude",
+      "level": "hard",
+      "justification": "Die Lage des RBZ muss aus der Beschreibung der Reststoffbehandlung entnommen werden.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Welches der beiden Werke, KKG oder KRB II, hat vor der Stilllegung mehr Strom produziert?",
+      "answer": "KRB II",
+      "level": "hard",
+      "justification": "Man muss die Produktionsdaten aus zwei Berichten vergleichen.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Welchen Baulinien der KWU gehören KKG bzw. KRB II an?",
+      "answer": "KKG: Baulinie 3 (Vor‑Konvoi); KRB II: Baulinie 72",
+      "level": "hard",
+      "justification": "Die jeweiligen Baulinien sind in beiden Berichten zu entnehmen und zu unterscheiden.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34"
+    }
+  ],
+  "dataset2": [
+    {
+      "question": "Wie viele Millionen Megawattstunden Strom hat das KKG bis zum 27. Juni 2015 produziert?",
+      "answer": 333,
+      "level": "simple",
+      "justification": "Die Produktionszahl ist im KKG direkt angegeben, es braucht keine Berechnung.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "In welchem Jahr fand die erste nukleare Kettenreaktion im Block B des Gundremmingen statt?",
+      "answer": 1984,
+      "level": "simple",
+      "justification": "Das Jahr der ersten Kettenreaktion ist in der historischen Tabelle des KRB II eindeutig aufgeführt.",
+      "source": "Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Wie viele Stellplätze hat das Standort‑Zwischenlager KKG‑BELLA?",
+      "answer": 88,
+      "level": "simple",
+      "justification": "Die Kapazität des KKG‑BELLA ist in der Kurzbeschreibung klar angegeben.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Wie hoch ist die installierte elektrische Leistung in Megawatt für jede der beiden Einheiten des Gundremmingen KRB II?",
+      "answer": 1344,
+      "level": "simple",
+      "justification": "Die installierte Leistung je Einheit ist in der Beschreibung des KRB II angegeben.",
+      "source": "Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Über wie viele Jahre ist der Betrieb des Zwischenlagers KKG‑BELLA ab 2006 genehmigt?",
+      "answer": 40,
+      "level": "simple",
+      "justification": "Die Genehmigungsdauer für KKG‑BELLA ist in den KKG‑Dokumenten explizit genannt.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Wie hoch ist die thermische Leistung in Megawatt jeder Reaktoreinheit des Gundremmingen KRB II?",
+      "answer": 3840,
+      "level": "medium",
+      "justification": "Die thermische Leistung muss aus der Reaktorbeschreibung im KRB II entnommen werden.",
+      "source": "Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "In wie viele Phasen ist der Abbau des KKG unterteilt?",
+      "answer": 2,
+      "level": "medium",
+      "justification": "Es muss im Stilllegungsplan nachgeschlagen werden, um die Anzahl der Phasen zu bestimmen.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10"
+    },
+    {
+      "question": "Wie viele Abschnitte sind für die Abbauphase 1 des KKG beschrieben?",
+      "answer": 3,
+      "level": "medium",
+      "justification": "Die drei Abschnitte (1A, 1B, 1C) sind in der Kurzbeschreibung nachzulesen.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Wie hoch ist laut KRB II‑Bericht die mittlere Geländehöhe der Umgebung über NN in Metern?",
+      "answer": 431.5,
+      "level": "medium",
+      "justification": "Dieser numerische Wert wird in der Standortbeschreibung angegeben.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Wie breit ist das Donauried am Standort des KRB II in Kilometern?",
+      "answer": 8,
+      "level": "medium",
+      "justification": "Die Breite des Donaurieds wird in der Standortbeschreibung erwähnt.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Um wie viele Millionen Megawattstunden übertrifft die Gesamtstromproduktion des KRB II die des KKG?",
+      "answer": 282,
+      "level": "hard",
+      "justification": "Es muss 615 Mrd. kWh in Millionen MWh umgerechnet und die Differenz zu 333 Mio. MWh gebildet werden.",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Wie groß ist das Verhältnis der Gesamtproduktion des KRB II zur Produktion des KKG (gerundet)?",
+      "answer": 1.85,
+      "level": "hard",
+      "justification": "Das Verhältnis ergibt sich aus der Division von 615 Mio. MWh durch 333 Mio. MWh.",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Wie groß ist der Höhenunterschied in Metern zwischen Anlagenhöhe und durchschnittlicher Geländehöhe beim KRB II?",
+      "answer": 1.5,
+      "level": "hard",
+      "justification": "Die Differenz aus Anlagenhöhe (433,0 m) und mittlerer Geländehöhe (431,5 m) muss berechnet werden.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Wie viele Stilllegungsabschnitte ergeben sich insgesamt, wenn man die Zahl der Abbauphasen des KKG und die Zahl der Teilvorhaben des KRB II addiert?",
+      "answer": 5,
+      "level": "hard",
+      "justification": "Es ist die Summe aus den zwei Phasen des KKG und den drei Teilvorhaben des KRB II zu bilden.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10; Sicherheitsbericht KRB II, Kapitel 3"
+    },
+    {
+      "question": "Wie viele Jahre liegen zwischen der ersten nuklearen Kettenreaktion im Block B des Gundremmingen (9. März 1984) und dem Beginn des Betriebs von KKG‑BELLA (2006)?",
+      "answer": 22,
+      "level": "hard",
+      "justification": "Die Differenz zwischen 2006 und 1984 muss anhand zweier Daten aus unterschiedlichen Dokumenten ermittelt werden.",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    }
+  ],
+  "dataset3": [
+    {
+      "question": "War das Kernkraftwerk Grafenrheinfeld ein Druckwasserreaktor?",
+      "answer": "Ja",
+      "level": "simple",
+      "justification": "Der Reaktortyp wird ausdrücklich als Druckwasserreaktor angegeben.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Hat die 13. Atomgesetznovelle die Betriebsberechtigung des KKG auf den 31. Dezember 2015 begrenzt?",
+      "answer": "Ja",
+      "level": "simple",
+      "justification": "Die KKG‑Dokumente nennen den 31.12.2015 als Endtermin für den Leistungsbetrieb.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Ist die genehmigte Lagerzeit von KKG‑BELLA kürzer als 30 Jahre?",
+      "answer": "Nein",
+      "level": "simple",
+      "justification": "Die genehmigte Lagerzeit beträgt 40 Jahre und ist somit länger als 30.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Befindet sich das Reststoffbehandlungszentrum (RBZ) des KKG außerhalb der bestehenden Gebäude?",
+      "answer": "Nein",
+      "level": "simple",
+      "justification": "Das RBZ wird innerhalb bestehender Kontrollbereiche eingerichtet, nicht außerhalb.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Definiert das UVU‑Glossar den Sievert als Maß für die biologische Wirkung ionisierender Strahlung auf den Menschen?",
+      "answer": "Ja",
+      "level": "simple",
+      "justification": "Das Glossar definiert den Sievert eindeutig als Einheit für die biologische Strahlenwirkung.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Besteht die Abbauphase 1 des KKG aus nur einem Abschnitt?",
+      "answer": "Nein",
+      "level": "medium",
+      "justification": "Die Abbauphase 1 ist in drei Abschnitte (1A, 1B, 1C) unterteilt.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Ist der ‘Sichere Einschluss’ eine dauerhafte Einschließung ohne anschließenden Abbau?",
+      "answer": "Nein",
+      "level": "medium",
+      "justification": "Die Strategie sieht eine zeitlich begrenzte Einschließung (ca. 30 Jahre) vor; danach erfolgt der Abbau.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Sind laut KRB II‑Bericht Anlagenhöhe und durchschnittliche Geländehöhe exakt gleich hoch?",
+      "answer": "Nein",
+      "level": "medium",
+      "justification": "Die Anlagenhöhe (433,0 m) liegt über der durchschnittlichen Geländehöhe (431,5 m).",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Liegt der nächste Ort zum KRB II‑Standort weiter als 5 km entfernt?",
+      "answer": "Nein",
+      "level": "medium",
+      "justification": "Mehrere Dörfer befinden sich in 1–4 km Entfernung.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    },
+    {
+      "question": "Hat das KKG nach dem 27. Juni 2015 weiterhin Strom erzeugt?",
+      "answer": "Nein",
+      "level": "medium",
+      "justification": "Das Werk wurde am 27.06.2015 abgeschaltet und erzeugte danach keinen Strom mehr.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Gliedern sowohl KKG als auch KRB II ihre Stilllegungspläne in die gleiche Anzahl von Phasen bzw. Teilvorhaben?",
+      "answer": "Nein",
+      "level": "hard",
+      "justification": "Das KKG hat zwei Phasen, das KRB II hingegen drei Teilvorhaben.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10; Sicherheitsbericht KRB II, Kapitel 3"
+    },
+    {
+      "question": "Wurden sowohl das KKG als auch das KRB II von KWU (Kraftwerk Union) gebaut?",
+      "answer": "Ja",
+      "level": "hard",
+      "justification": "Beide Dokumente nennen KWU als ursprünglichen Hersteller.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Wurde der Sicherheitsbericht des KRB II vor der KKG‑Kurzbeschreibung (Mai 2016) veröffentlicht?",
+      "answer": "Nein",
+      "level": "hard",
+      "justification": "Der KRB II‑Bericht datiert vom 23. September 2016 und erschien somit später.",
+      "source": "Sicherheitsbericht KRB II, Titelblatt; Stilllegung und Abbau – Kurzbeschreibung, Titelblatt"
+    },
+    {
+      "question": "Sind die im KKG‑Bericht genannten Schutzziele nur auf Kontrolle der Reaktivität und Kühlung der Brennelemente beschränkt?",
+      "answer": "Nein",
+      "level": "hard",
+      "justification": "Die Liste umfasst außerdem den Einschluss radioaktiver Stoffe und die Begrenzung der Strahlenexposition.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 9–10"
+    },
+    {
+      "question": "Ist das Donauried am Standort des KRB II breiter als 10 km?",
+      "answer": "Nein",
+      "level": "hard",
+      "justification": "Im Bericht steht, dass das Donauried am Standort etwa 8 km breit ist.",
+      "source": "Sicherheitsbericht KRB II, Seite 18"
+    }
+  ],
+  "dataset4": [
+    {
+      "question": "Beschreiben Sie kurz, warum E.ON Kernkraft das Kernkraftwerk Grafenrheinfeld vor dem gesetzlich erlaubten Termin abgeschaltet hat.",
+      "answer": "Obwohl die 13. Atomgesetznovelle den Betrieb bis zum 31. Dezember 2015 erlaubte, nahm die Betreiberin E.ON Kernkraft GmbH das KKG am 27. Juni 2015 vom Netz. Der Sicherheitsbericht nennt wirtschaftliche Gründe: Der Weiterbetrieb unter den neuen gesetzlichen Rahmenbedingungen wäre unwirtschaftlich gewesen, daher entschied sich das Unternehmen für die vorzeitige Abschaltung und bereitete die Stilllegung vor.",
+      "level": "simple",
+      "justification": "Der Grund für die vorzeitige Abschaltung ist im KKG‑Bericht direkt angegeben und bedarf nur einer kurzen Erklärung.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8"
+    },
+    {
+      "question": "Fassen Sie zusammen, wofür die Abkürzung KKG‑BELLA steht und welche Rolle diese Einrichtung im Stilllegungsprozess spielt.",
+      "answer": "KKG‑BELLA ist das Standort‑Zwischenlager am Standort Grafenrheinfeld. Es ging 2006 in Betrieb, ist für 40 Jahre genehmigt und enthält 88 Stellplätze. Während der Stilllegung lagert es die bestrahlten Brennelemente und Sonderbrennstäbe aus dem Kraftwerk, bis ein Endlager zur Verfügung steht.",
+      "level": "simple",
+      "justification": "Die Funktion von KKG‑BELLA erfordert das Erinnern an Zweck und Genehmigungszeit aus der Kurzbeschreibung.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Erläutern Sie den Zweck des Reststoffbehandlungszentrums (RBZ) im Rahmen des KKG‑Stilllegungsprojekts.",
+      "answer": "Das Reststoffbehandlungszentrum (RBZ) wird innerhalb bestehender Kontrollbereiche eingerichtet, vor allem im Ringraum des Reaktorgebäudes, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Es dient dazu, die bei der Stilllegung entstehenden radioaktiven Materialien und Abfälle zu sortieren, zu dekontaminieren, zu behandeln und zu verpacken, sodass sie sicher transportiert und entsorgt werden können.",
+      "level": "simple",
+      "justification": "Die Frage verlangt eine Erklärung einer einzelnen Einrichtung; alle relevanten Informationen befinden sich in den KKG‑Unterlagen.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Beschreiben Sie, was in den Abschnitten 1A, 1B und 1C der Abbauphase 1 des KKG geschieht.",
+      "answer": "Die Abbauphase 1 ist in drei Abschnitte unterteilt. In Abschnitt 1A befinden sich sowohl bestrahlte Brennelemente als auch Sonderbrennstäbe im Brennelemente‑Lagerbecken; Kühlung und Abschirmung sind deshalb weiterhin erforderlich. In Abschnitt 1B sind die Brennelemente bereits abtransportiert, es verbleiben nur noch Sonderbrennstäbe, die eine ausreichende Wasserüberdeckung zur Abschirmung benötigen. Abschnitt 1C beginnt, wenn die Anlage frei von Kernbrennstoff ist; kontaminierte Bauteile können vor ihrer Demontage dekontaminiert werden.",
+      "level": "simple",
+      "justification": "Die Frage verlangt eine Beschreibung der drei Abschnitte der Abbauphase 1, die in der Kurzbeschreibung ausführlich erläutert werden.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Was misst die Einheit ‚Sievert‘ und warum ist sie im Kontext der Stilllegung von Kernkraftwerken wichtig?",
+      "answer": "Ein Sievert (Sv) drückt die biologische Wirkung ionisierender Strahlung auf menschliches Gewebe aus. Bei der Stilllegung wird mit dieser Einheit die Strahlendosis für Beschäftigte und Bevölkerung quantifiziert. Das Monitoring in Sievert stellt sicher, dass die Exposition unter den gesetzlichen Grenzwerten bleibt und dient als Grundlage für die Planung von Schutzmaßnahmen.",
+      "level": "simple",
+      "justification": "Die Definition des Sievert ist im UVU‑Glossar enthalten; seine Bedeutung muss mit dem Strahlenschutz während der Stilllegung verknüpft werden.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Erläutern Sie die Schutzziele für den Nachbetrieb des KKG und erklären Sie, wie sie zur Sicherheit beim Übergang vom Betrieb zur Stilllegung beitragen.",
+      "answer": "Der Sicherheitsbericht nennt vier Schutzziele für den Nachbetrieb: Kontrolle der Reaktivität, Kühlung der Brennelemente, Einschluss radioaktiver Stoffe und Begrenzung der Strahlenexposition. Zusammen gewährleisten diese Ziele, dass der Reaktor subkritisch bleibt, die Nachwärme abgeführt wird, radioaktive Stoffe eingeschlossen bleiben und die Dosis für Personal und Bevölkerung gering gehalten wird. Sie bilden den Rahmen für betriebliche Maßnahmen und technische Vorkehrungen, die während der Vorbereitung auf den Abbau die Sicherheit gewährleisten.",
+      "level": "medium",
+      "justification": "Es müssen mehrere Ziele zusammengefasst und deren gemeinsamer Zweck für die Übergangsphase erklärt werden.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 9–10"
+    },
+    {
+      "question": "Vergleichen Sie die Stilllegungsstrategien von KKG und KRB II, indem Sie erläutern, wie jedes Projekt seine Abbauarbeiten strukturiert (Phasen vs. Teilvorhaben) und was dies für das Projektmanagement bedeutet.",
+      "answer": "Das KKG organisiert seine Stilllegung in zwei Hauptphasen. Phase 1 ist in die Abschnitte 1A, 1B und 1C untergliedert, je nachdem, ob Brennelemente und Sonderbrennstäbe noch vorhanden sind. Phase 2 beginnt, sobald die Anlage frei von Kernbrennstoff ist. Das KRB II hingegen teilt seine Arbeiten in drei Teilvorhaben auf, die unterschiedliche Teile des Gesamtprogramms abdecken. Dies deutet darauf hin, dass das KKG einen sequentiellen Ansatz verfolgt, der sich auf die Brennstoffentnahme konzentriert, während das KRB II eine projektorientierte Struktur nutzt. Das Projektmanagement des KKG muss Aktivitäten über zwei Phasen und deren überschneidende Abschnitte koordinieren, während das KRB II parallele Arbeitspakete in seinen Teilvorhaben ermöglichen könnte.",
+      "level": "medium",
+      "justification": "Die Antwort erfordert das Zusammenführen von Informationen aus zwei Berichten und die Diskussion der strukturellen Unterschiede.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10; Sicherheitsbericht KRB II, Kapitel 3"
+    },
+    {
+      "question": "Im UVU‑Glossar wird der ‚Sichere Einschluss‘ definiert. Erläutern Sie, wie sich diese Strategie vom direkten Abbau unterscheidet und warum sie für manche Anlagen gewählt wird.",
+      "answer": "‚Sicherer Einschluss‘ bedeutet, dass eine kerntechnische Anlage für längere Zeit – typischerweise etwa 30 Jahre – versiegelt wird, bevor der eigentliche Rückbau beginnt. Dadurch kann die Radioaktivität abklingen, was die Strahlenbelastung der später beim Abbau Beschäftigten reduziert. Beim direkten Abbau wird der Rückbau unmittelbar nach der Abschaltung eingeleitet. Ein sicherer Einschluss kann gewählt werden, wenn der sofortige Abbau technisch oder logistisch nicht sinnvoll ist oder wenn das Abklingen eine deutliche Reduktion der Strahlenexposition und damit geringere Kosten ermöglicht.",
+      "level": "medium",
+      "justification": "Es gilt zwei Strategien gegenüberzustellen und Gründe für die Wahl zu erläutern.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Nutzen Sie die Angaben in den Sicherheitsberichten, um die Unterschiede zwischen dem KKG (Druckwasserreaktor) und dem KRB II (Siedewasserreaktor) zu skizzieren und nennen Sie eine Auswirkung dieser Unterschiede auf die Stilllegung.",
+      "answer": "Das KKG ist ein Druckwasserreaktor (Baulinie 3), der einen hochdruckigen Primärkreislauf nutzt, um das Wasser am Sieden zu hindern, und die Wärme über Dampferzeuger auf einen sekundären Kreislauf überträgt. Das KRB II besteht aus zwei Siedewasserreaktoren (Baulinie 72), in denen das Reaktorkühlmittel direkt im Kern siedet und der entstehende Dampf ohne Zwischenkreislauf die Turbine antreibt. Für die Stilllegung bedeutet das, dass das KRB II Komponenten besitzt, die spezifisch für Siedewasseranlagen sind, wie Feuchtabscheider und Dampftrockner, sowie größere Dampfrohrleitungen im Reaktorgebäude. Beim KKG hingegen müssen Primär- und Sekundärkreislauf mit Dampferzeugern demontiert werden. Die unterschiedlichen Konzepte wirken sich auf die Art der zu demontierenden Komponenten, die Kontaminationsmuster und die Abbautechniken aus.",
+      "level": "medium",
+      "justification": "Vergleich der Reaktortypen und Ableitung einer Stilllegungsfolge erfordert die Kombination technischer Beschreibungen aus zwei Berichten.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Erklären Sie die Bedeutung des Donaurieds für den Standort des KRB II und fassen Sie die im Sicherheitsbericht berücksichtigten Umweltfaktoren zusammen.",
+      "answer": "Der Standort Gundremmingen liegt im Donauried, einer breiten Auenlandschaft des Donautales, die am Werk etwa 8 km breit ist. Der Bericht beschreibt, dass das Gelände wenige Kilometer entfernt auf rund 500 m über NN ansteigt, während die durchschnittliche Geländehöhe in der Umgebung 431,5 m und die Anlagenhöhe 433,0 m beträgt. Er listet die Entfernungen zu benachbarten Ortschaften auf, weist auf die Nähe der Grenze zwischen Bayern und Baden‑Württemberg hin und beschreibt hydrologische Verhältnisse wie Flüsse und Grundwasser. Diese Faktoren fließen in die Risikobewertung für Hochwasser, seismische Ereignisse und die Notfallplanung ein.",
+      "level": "medium",
+      "justification": "Die Frage fordert eine Synthese geografischer und umweltbezogener Details aus der Standortbeschreibung.",
+      "source": "Sicherheitsbericht KRB II, Seiten 18–19"
+    },
+    {
+      "question": "Beurteilen Sie den Unterschied im Stromertrag zwischen KKG und KRB II und erläutern Sie, wie dieser Unterschied den Umfang und die Herausforderungen ihrer Stilllegungsprojekte beeinflussen könnte.",
+      "answer": "Das KKG produzierte vor seiner Abschaltung mehr als 333 Millionen Megawattstunden Strom, während die beiden Blöcke des KRB II zusammen etwa 615 Milliarden Kilowattstunden (615 Millionen Megawattstunden) erzeugten – fast doppelt so viel. Der höhere Ertrag des KRB II spiegelt eine größere installierte Leistung, zwei Einheiten und mehr Brennelemente (784 pro Reaktor) wider. Daher wird beim KRB II voraussichtlich eine größere radioaktive Inventarmenge, umfangreichere Infrastruktur und größere Abfallvolumina zu bewältigen sein. Dies vergrößert die Komplexität, die Dauer und die Kosten des Rückbaus im Vergleich zum KKG.",
+      "level": "hard",
+      "justification": "Die Frage erfordert den Vergleich von Zahlen aus unterschiedlichen Berichten und eine Schlussfolgerung hinsichtlich des Umfangs und der Komplexität der Stilllegung.",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34"
+    },
+    {
+      "question": "Berücksichtigen Sie die in den Berichten genannten Termine (erste Kettenreaktionen, Netzanbindungen) für das KRB II sowie den Genehmigungszeitraum von KKG‑BELLA. Erörtern Sie, was diese Daten über das relative Alter der beiden Anlagen aussagen und wie dies die Stilllegungsstrategie beeinflussen könnte.",
+      "answer": "Der Sicherheitsbericht des KRB II nennt die erste nukleare Kettenreaktion in Block B am 9. März 1984 und die erste Netzsynchronisierung am 16. März 1984; Block C folgte im Oktober/November 1984. Das KKG nahm bereits 1982 den kommerziellen Betrieb auf. Beide Anlagen sind somit ähnlich alt, doch das Standort‑Zwischenlager KKG‑BELLA ging erst 2006 in Betrieb und ist für 40 Jahre genehmigt. Daraus ergibt sich, dass das KRB II etwas später stillgelegt wird und wahrscheinlich mehr Zeit zur Planung der Brennstoffentnahme hatte, während das KKG für die Zwischenlagerung des Brennstoffs eine neue Einrichtung errichten musste. Diese unterschiedlichen Zeitlinien beeinflussen die Stilllegungsstrategie: Beim KRB II kann der Brennstoff unter Umständen schneller entfernt werden, während das KKG seine Planung eng mit dem Betrieb von KKG‑BELLA verzahnen muss.",
+      "level": "hard",
+      "justification": "Die Antwort kombiniert chronologische Daten aus beiden Projekten und interpretiert deren Auswirkungen auf die Stilllegungsplanung.",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Kurzbeschreibung, Seite 6"
+    },
+    {
+      "question": "Vergleichen Sie anhand der UVU‑Glossar‑Definitionen ‘Spaltprodukte’ und ‘Sievert’ und erklären Sie, welche Rolle beide Konzepte bei der Bewertung der Umwelt- und Gesundheitsauswirkungen während der Stilllegung spielen.",
+      "answer": "‘Spaltprodukte’ sind radioaktive Nuklide, die entweder direkt durch Kernspaltung oder durch den Zerfall der Spaltprodukte entstehen. Sie bilden einen wesentlichen Anteil der radioaktiven Kontamination. ‘Sievert’ ist die Einheit, mit der die biologische Wirkung ionisierender Strahlung auf den Menschen ausgedrückt wird. Bei Umwelt- und Gesundheitsbewertungen der Stilllegung ist es entscheidend zu wissen, welche Spaltprodukte vorhanden sind, welche Zerfallscharakteristika sie besitzen und wie hoch die dadurch verursachte Strahlendosis in Sievert ist. Dies ermöglicht genaue Dosisberechnungen für Beschäftigte und Bevölkerung und dient als Grundlage für Abschirmungs- und Einschlussmaßnahmen.",
+      "level": "hard",
+      "justification": "Die Antwort verlangt, zwei Glossarbegriffe zu verknüpfen und ihre gemeinsame Bedeutung für die Risikoanalyse zu erläutern.",
+      "source": "Stilllegung und Abbau – UVU, Glossar"
+    },
+    {
+      "question": "Analysieren Sie, warum im Abschnitt 1A der Abbauphase 1 des KKG sowohl bestrahlte Brennelemente als auch Sonderbrennstäbe im Becken verbleiben müssen, und beschreiben Sie die Auswirkungen auf den Strahlenschutz in diesem Zeitraum.",
+      "answer": "Im Abschnitt 1A der Abbauphase 1 verbleiben bestrahlte Brennelemente und Sonderbrennstäbe im Lagerbecken, weil sie weiterhin Nachzerfallswärme erzeugen und starke Strahlung abgeben. Eine Lagerung im Wasserbecken gewährleistet die notwendige Kühlung und Abschirmung. Ihre Präsenz erfordert den fortgesetzten Betrieb aktiver Kühlsysteme und eine strenge Kontrolle der Reaktivität. Für den Strahlenschutz bedeutet dies, dass Abschirmungen, Fernhantierung, Zutrittsbeschränkungen und engmaschige Überwachung notwendig sind, um das Personal vor hohen Dosisleistungen zu schützen, bis die Brennelemente abtransportiert werden und Abschnitt 1B beginnt.",
+      "level": "hard",
+      "justification": "Die Antwort fordert ein Verständnis der Reihenfolge der Brennstoffentnahme und eine Erläuterung der daraus resultierenden Sicherheitsmaßnahmen.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6"
+    },
+    {
+      "question": "Erläutern Sie, wie sich die Planung der Abfallbehandlung zwischen den Projekten KKG und KRB II unterscheidet, unter Berücksichtigung von Einrichtungen wie dem RBZ und KKG‑BELLA sowie der in den Sicherheitsberichten erwähnten Annahmen zum Abtransport von Brennstoff und Abfall.",
+      "answer": "Das KKG verfügt über eigene Einrichtungen für Abfallbehandlung und Lagerung: Die Bereitstellungshalle KKG‑BELLA für bestrahlte Brennelemente und Sonderbrennstäbe (88 Stellplätze, Genehmigung für 40 Jahre) und das Reststoffbehandlungszentrum (RBZ), das radioaktive Abfälle in bestehenden Gebäuden behandelt und verpackt. Damit kann das KKG Brennstoff und Abfälle vor Ort verwalten, ohne sofort auf externe Anlagen angewiesen zu sein. Der Sicherheitsbericht des KRB II geht davon aus, dass der Abtransport der Brennelemente aus den Lagerbecken zügig erfolgt und die erforderlichen Genehmigungen für Zwischen- oder Endlagerung rechtzeitig vorliegen. Eine Einrichtung wie das RBZ wird nicht erwähnt. Daher stützt sich das KRB II stärker auf externe Zwischen- oder Endlagerlösungen, während das KKG eine eigenständige Infrastruktur nutzt. Diese Unterschiede wirken sich auf Logistik, Zeitplanung und Genehmigungsverfahren aus.",
+      "level": "hard",
+      "justification": "Die Antwort erfordert den Vergleich der Abfallbehandlungsstrategien beider Projekte und die Interpretation ihrer Auswirkungen auf die Stilllegung.",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6; Sicherheitsbericht KRB II, Kapitel 3 und 5"
+    }
+  ]
+}
