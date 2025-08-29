@@ -85,6 +85,7 @@ Anweisungen:
 - Halte die Antwort dennoch gesprächig und hilfreich
 - Verwende deutsche Fachbegriffe für nukleartechnische Konzepte
 
+Frage des Nutzers: {query}                                                    
 Antwort:
 """)
 

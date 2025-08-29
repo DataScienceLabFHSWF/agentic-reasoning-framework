@@ -25,7 +25,7 @@ class RetrievalConfig:
     bm25_weight: float = 0.4
     enable_mmr: bool = False
     mmr_diversity_threshold: float = 0.8
-    context_window: int = 0  # 0 = no expansion, >0 = chunks before/after
+    context_window: int = 2  # 0 = no expansion, >0 = chunks before/after
     merge_strategy: str = "separate"  # "separate", "merge", "hierarchical"
 
 # ---------- Utilities
