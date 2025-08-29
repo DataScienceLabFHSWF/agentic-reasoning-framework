@@ -13,6 +13,7 @@ from .retriever_agent import RetrieverAgent
 from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
 from .intent_agent import IntentClassificationAgent
+from dotenv import load_dotenv
 from .final_answer_agent import FinalAnswerAgent # New import
 
 logger = logging.getLogger(__name__)
@@ -38,7 +39,8 @@ class RAGWorkflow:
         self.final_answer_agent = final_answer_agent # Assign the new agent
         
         # Check for the final_eval environment variable
-        self.final_eval = os.getenv("final_eval", "verbose")
+        load_dotenv()  # Load environment variables from .env file
+        self.final_eval = os.environ.get("final_eval", "succinct")  # Use os.environ.get instead of os.getenv
         
         logger.info("Building RAG workflow with intent classification")
         self.workflow = self._build_workflow()
