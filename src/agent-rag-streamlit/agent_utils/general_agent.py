@@ -50,7 +50,7 @@ class GeneralAgent:
             
             return {
                 **state,
-                "answer": answer,
+                "summarized_answer": answer,
                 "retrieved_docs": []
             }
             
@@ -58,7 +58,7 @@ class GeneralAgent:
             logger.error(f"General response error: {e}")
             return {
                 **state,
-                "answer": f"Es trat ein Fehler bei der Verarbeitung Ihrer Anfrage auf: {str(e)}",
+                "summarized_answer": f"Es trat ein Fehler bei der Verarbeitung Ihrer Anfrage auf: {str(e)}",
                 "retrieved_docs": []
             }
     

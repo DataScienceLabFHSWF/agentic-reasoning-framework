@@ -53,5 +53,5 @@ class SummarizerAgent:
         
         return {
             **state,
-            "answer": answer
+            "summarized_answer": answer
         }

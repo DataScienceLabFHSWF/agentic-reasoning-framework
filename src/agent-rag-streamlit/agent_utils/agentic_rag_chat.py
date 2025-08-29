@@ -125,7 +125,8 @@ class AgenticRAGChat:
             is_relevant=False,
             retrieved_docs=[],
             max_relevance_score=0.0,
-            answer="",
+            summarized_answer=None,
+            final_answer=None,
             chat_history=self.chat_history
         )
         
@@ -133,8 +134,8 @@ class AgenticRAGChat:
             # Run the workflow
             result = self.workflow.invoke(initial_state)
             
-            # Extract the answer
-            answer = result["answer"]
+            # Extract the answer - prefer final_answer if available, otherwise summarized_answer
+            answer = result.get("final_answer") or result.get("summarized_answer", "")
             
             # Update chat history
             self.chat_history.append({"user": user_input, "assistant": answer})
@@ -236,3 +237,4 @@ def create_rag_chat(
         retrieval_k=retrieval_k,
         relevance_threshold=relevance_threshold
     )
+

@@ -28,7 +28,7 @@ class FinalAnswerAgent:
         Generates a succinct answer based on the summarized response.
         """
         query = state["query"]
-        summarized_answer = state["answer"]
+        summarized_answer = state.get("summarized_answer", "")
         
         logger.info(f"Generating succinct final answer for query: '{query[:50]}...'")
         
@@ -44,12 +44,12 @@ class FinalAnswerAgent:
             
             return {
                 **state,
-                "answer": final_answer,
+                "final_answer": final_answer
             }
             
         except Exception as e:
             logger.error(f"Final answer generation error: {e}")
             return {
                 **state,
-                "answer": f"Error generating final answer: {str(e)}",
+                "final_answer": f"Error generating final answer: {str(e)}"
             }
