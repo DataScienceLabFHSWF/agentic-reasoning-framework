@@ -20,6 +20,7 @@ def main():
     parser.add_argument("--relevance_threshold", type=float, default=0.2, help="Relevance threshold")
     parser.add_argument("--retrieval_k", type=int, default=3, help="Number of documents to retrieve")
     parser.add_argument("--temperature", type=float, default=0.0, help="Model temperature")
+    parser.add_argument("--analyze", action="store_true", help="Run analysis after evaluation")
     
     args = parser.parse_args()
     
@@ -78,6 +79,20 @@ def main():
         evaluator.print_summary(results)
         
         print(f"\nEvaluation complete! Results saved to: {evaluator.results_output_path}")
+        
+        # Run analysis if requested
+        if args.analyze:
+            print("\nRunning analysis...")
+            try:
+                from analyze_results import ResultsAnalyzer
+                
+                output_file = evaluator.results_output_path.replace('.json', '_analysis.xlsx')
+                analyzer = ResultsAnalyzer(evaluator.results_output_path, qa_dataset_path)
+                analyzer.analyze(output_file)
+                print(f"Analysis complete! Results saved to: {output_file}")
+            except Exception as e:
+                print(f"Error during analysis: {e}")
+        
         return 0
     except Exception as e:
         print(f"Error during evaluation: {e}")
