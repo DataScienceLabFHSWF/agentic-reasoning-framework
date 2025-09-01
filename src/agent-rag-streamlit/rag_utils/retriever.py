@@ -20,12 +20,12 @@ logger = logging.getLogger(__name__)
 @dataclass
 class RetrievalConfig:
     """Configuration for retrieval behavior"""
-    k: int = 5
+    k: int = 3
     vector_weight: float = 0.6
     bm25_weight: float = 0.4
     enable_mmr: bool = False
     mmr_diversity_threshold: float = 0.8
-    context_window: int = 2  # 0 = no expansion, >0 = chunks before/after
+    context_window: int = 0  # 0 = no expansion, >0 = chunks before/after
     merge_strategy: str = "separate"  # "separate", "merge", "hierarchical"
 
 # ---------- Utilities

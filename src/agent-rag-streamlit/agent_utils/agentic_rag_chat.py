@@ -41,7 +41,7 @@ class AgenticRAGChat:
         general_model: str = "llama3.1:latest",
         final_answer_model: str = "llama3.1:latest", # New parameter
         temperature: float = 0.0,
-        retrieval_k: int = 5,
+        retrieval_k: int = 3,
         relevance_threshold: float = 0.05,
         force_german: bool = True  # New parameter
     ):
@@ -199,7 +199,7 @@ def create_rag_chat(
     chroma_dir: str,
     processed_dir: str,
     intent_model: str = "llama3.1:latest",
-    router_model: str = "gpt-oss:20b",
+    router_model: str = "llama3.1:latest",
     summarizer_model: str = "llama3.1:latest",
     general_model: str = "llama3.1:latest",
     final_answer_model: str = "llama3.1:latest", # New parameter
