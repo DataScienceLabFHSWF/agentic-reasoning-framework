@@ -53,14 +53,22 @@ class AgentEvaluator:
         logger.info(f"Processed documents directory: {processed_dir}")
         logger.info(f"QA dataset path: {qa_dataset_path}")
         
-        # Default output path if not provided
-        if results_output_path is None:
+        # Default output path if not provided - FIXED
+        if results_output_path is None or results_output_path.strip() == "":
             base_name = os.path.splitext(os.path.basename(qa_dataset_path))[0]
             results_dir = os.path.dirname(qa_dataset_path)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             self.results_output_path = os.path.join(results_dir, f"{base_name}_agent_results_{timestamp}.json")
         else:
             self.results_output_path = results_output_path
+            
+        # Ensure the output directory exists
+        output_dir = os.path.dirname(self.results_output_path)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir, exist_ok=True)
+            logger.info(f"Created output directory: {output_dir}")
+        
+        logger.info(f"Results will be saved to: {self.results_output_path}")
         
         # Initialize the RAG chat agent
         logger.info("Initializing RAG chat agent for evaluation...")
@@ -99,7 +107,7 @@ class AgentEvaluator:
         
         # Create initial state and run workflow
         try:
-            # We need to access the workflow directly to get both answers
+            # We need to access the workflow directly to get all answers
             from langchain_core.messages import HumanMessage
             from agent_utils.chat_state import ChatState
             
@@ -111,6 +119,7 @@ class AgentEvaluator:
                 is_relevant=False,
                 retrieved_docs=[],
                 max_relevance_score=0.0,
+                reasoning_answer=None,  # Added reasoning answer field
                 summarized_answer=None,
                 final_answer=None,
                 chat_history=[]
@@ -119,7 +128,8 @@ class AgentEvaluator:
             # Run the workflow
             result = self.agent.workflow.invoke(initial_state)
             
-            # Extract both answers and intent classification
+            # Extract all answers and metadata from the workflow
+            reasoning_answer = result.get("reasoning_answer", "")
             summarized_answer = result.get("summarized_answer", "")
             final_answer = result.get("final_answer", "")
             is_corpus_relevant = result.get("is_corpus_relevant", None)
@@ -134,12 +144,14 @@ class AgentEvaluator:
             
             logger.info(f"Question processed in {processing_time:.2f}s")
             logger.info(f"Intent classification: {'corpus-relevant' if is_corpus_relevant else 'general'}")
+            logger.info(f"Reasoning answer: {len(reasoning_answer)} characters")
             logger.info(f"Summarized answer: {summarized_answer[:100]}...")
             logger.info(f"Final answer: {final_answer}")
             
             return {
                 **question_data,  # Include original question data
                 "agent_responses": {
+                    "reasoning_answer": reasoning_answer,
                     "summarized_answer": summarized_answer,
                     "final_answer": final_answer
                 },
@@ -163,6 +175,7 @@ class AgentEvaluator:
             return {
                 **question_data,
                 "agent_responses": {
+                    "reasoning_answer": f"ERROR: {str(e)}",
                     "summarized_answer": f"ERROR: {str(e)}",
                     "final_answer": f"ERROR: {str(e)}"
                 },
@@ -271,16 +284,65 @@ class AgentEvaluator:
         return final_results
     
     def save_results(self, results: Dict[str, Any]):
-        """Save evaluation results to JSON file"""
-        logger.info(f"Saving evaluation results to: {self.results_output_path}")
-        
-        # Ensure output directory exists
-        os.makedirs(os.path.dirname(self.results_output_path), exist_ok=True)
-        
-        with open(self.results_output_path, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"Results saved successfully to {self.results_output_path}")
+        """Save evaluation results to JSON file with robust error handling"""
+        try:
+            # Double-check the output path is valid
+            if not self.results_output_path or self.results_output_path.strip() == "":
+                # Fallback to current directory if somehow the path is empty
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                self.results_output_path = f"agent_evaluation_results_{timestamp}.json"
+                logger.warning(f"Output path was empty, using fallback: {self.results_output_path}")
+            
+            # Ensure directory exists
+            output_dir = os.path.dirname(self.results_output_path)
+            if output_dir and not os.path.exists(output_dir):
+                os.makedirs(output_dir, exist_ok=True)
+                logger.info(f"Created directory: {output_dir}")
+            
+            # If no directory in path, save to current directory
+            if not output_dir:
+                current_dir = os.getcwd()
+                filename = os.path.basename(self.results_output_path)
+                self.results_output_path = os.path.join(current_dir, filename)
+                logger.info(f"Saving to current directory: {self.results_output_path}")
+            
+            logger.info(f"Saving evaluation results to: {self.results_output_path}")
+            
+            # Save the file
+            with open(self.results_output_path, 'w', encoding='utf-8') as f:
+                json.dump(results, f, ensure_ascii=False, indent=2)
+            
+            # Verify the file was created
+            if os.path.exists(self.results_output_path):
+                file_size = os.path.getsize(self.results_output_path)
+                logger.info(f"Results saved successfully! File size: {file_size} bytes")
+                print(f"✅ Results saved successfully to: {self.results_output_path}")
+                print(f"📁 File size: {file_size:,} bytes")
+            else:
+                raise FileNotFoundError(f"File was not created: {self.results_output_path}")
+                
+        except Exception as e:
+            # Last resort: save to current directory with timestamp
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            fallback_path = f"emergency_results_backup_{timestamp}.json"
+            
+            logger.error(f"Failed to save to {self.results_output_path}: {e}")
+            logger.info(f"Attempting emergency backup to: {fallback_path}")
+            
+            try:
+                with open(fallback_path, 'w', encoding='utf-8') as f:
+                    json.dump(results, f, ensure_ascii=False, indent=2)
+                
+                self.results_output_path = fallback_path
+                logger.info(f"Emergency backup saved successfully to: {fallback_path}")
+                print(f"⚠️  Original save failed, but emergency backup created: {fallback_path}")
+                
+            except Exception as backup_error:
+                logger.error(f"Emergency backup also failed: {backup_error}")
+                print(f"❌ Critical error: Could not save results anywhere!")
+                print(f"Original error: {e}")
+                print(f"Backup error: {backup_error}")
+                raise backup_error
     
     def print_summary(self, results: Dict[str, Any]):
         """Print a summary of evaluation results"""
@@ -312,16 +374,17 @@ def main():
     PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"  # Update this path
     QA_DATASET_PATH = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/qa_dataset/gpt_qa_datasets_de.json"
     
-    # Agent configuration
+    # Agent configuration - Updated to include reasoning agent
     agent_config = {
         "intent_model": "llama3.1:latest",
         "router_model": "llama3.1:latest", 
+        "reasoning_model": "qwen3:14b",  # Added reasoning model
         "summarizer_model": "llama3.1:latest",
         "general_model": "llama3.1:latest",
         "final_answer_model": "llama3.1:latest",
         "temperature": 0.0,
         "retrieval_k": 3,
-        "relevance_threshold": 0.5
+        "relevance_threshold": 0.15
     }
     
     # Initialize evaluator

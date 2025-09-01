@@ -101,11 +101,13 @@ class ResultsAnalyzer:
     
     def analyze_single_result(self, result: Dict[str, Any], expected_answer: Any) -> Dict[str, Any]:
         """Analyze a single question result"""
-        # Get both agent answers
+        # Get all agent answers
+        reasoning_answer = result.get("agent_responses", {}).get("reasoning_answer", "")
         summarized_answer = result.get("agent_responses", {}).get("summarized_answer", "")
         final_answer = result.get("agent_responses", {}).get("final_answer", "")
         
-        # Check accuracy for both answers
+        # Check accuracy for all answers
+        reasoning_correct = self.compare_answers(expected_answer, reasoning_answer)
         summarized_correct = self.compare_answers(expected_answer, summarized_answer)
         final_correct = self.compare_answers(expected_answer, final_answer)
         
@@ -122,6 +124,7 @@ class ResultsAnalyzer:
         num_retrieved_docs = result.get("workflow_metadata", {}).get("num_retrieved_docs", 0)
         
         return {
+            "reasoning_correct": reasoning_correct,
             "summarized_correct": summarized_correct,
             "final_correct": final_correct,
             "intent_correct": intent_correct,
@@ -130,6 +133,7 @@ class ResultsAnalyzer:
             "max_relevance_score": max_relevance_score,
             "num_retrieved_docs": num_retrieved_docs,
             "expected_answer": str(expected_answer),
+            "reasoning_answer": reasoning_answer,
             "summarized_answer": summarized_answer,
             "final_answer": final_answer
         }
@@ -171,6 +175,7 @@ class ResultsAnalyzer:
         # Overall summary
         overall_summary = {
             "Total Questions": len(df),
+            "Reasoning Answer Accuracy": f"{df['reasoning_correct'].mean():.2%}",
             "Summarized Answer Accuracy": f"{df['summarized_correct'].mean():.2%}",
             "Final Answer Accuracy": f"{df['final_correct'].mean():.2%}",
             "Intent Classification Accuracy": f"{df['intent_correct'].mean():.2%}",
@@ -182,7 +187,8 @@ class ResultsAnalyzer:
         
         # By Dataset
         dataset_summary = df.groupby('dataset').agg({
-            'summarized_correct': ['count', 'mean'],
+            'reasoning_correct': ['count', 'mean'],
+            'summarized_correct': 'mean',
             'final_correct': 'mean',
             'intent_correct': 'mean',
             'processing_time': 'mean',
@@ -191,7 +197,7 @@ class ResultsAnalyzer:
         }).round(3)
         
         dataset_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
+            'Total Questions', 'Reasoning Accuracy', 'Summarized Accuracy', 'Final Accuracy', 
             'Intent Accuracy', 'Avg Processing Time', 'Avg Relevance Score', 
             'Retrieval Success Rate'
         ]
@@ -199,7 +205,8 @@ class ResultsAnalyzer:
         
         # By Level
         level_summary = df.groupby('level').agg({
-            'summarized_correct': ['count', 'mean'],
+            'reasoning_correct': ['count', 'mean'],
+            'summarized_correct': ['mean'],
             'final_correct': 'mean',
             'intent_correct': 'mean',
             'processing_time': 'mean',
@@ -208,7 +215,7 @@ class ResultsAnalyzer:
         }).round(3)
         
         level_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
+            'Total Questions', 'Reasoning Accuracy', 'Summarized Accuracy', 'Final Accuracy', 
             'Intent Accuracy', 'Avg Processing Time', 'Avg Relevance Score', 
             'Retrieval Success Rate'
         ]
@@ -216,14 +223,15 @@ class ResultsAnalyzer:
         
         # By Dataset and Level
         dataset_level_summary = df.groupby(['dataset', 'level']).agg({
-            'summarized_correct': ['count', 'mean'],
+            'reasoning_correct': ['count', 'mean'],
+            'summarized_correct': ['mean'],
             'final_correct': 'mean',
             'intent_correct': 'mean',
             'processing_time': 'mean'
         }).round(3)
         
         dataset_level_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
+            'Total Questions', 'Reasoning Accuracy', 'Summarized Accuracy', 'Final Accuracy', 
             'Intent Accuracy', 'Avg Processing Time'
         ]
         tables["By Dataset and Level"] = dataset_level_summary

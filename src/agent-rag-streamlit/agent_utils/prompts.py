@@ -121,5 +121,6 @@ Ursprüngliche Frage: {query}
 Zusammengefasste Antwort: {summarized_answer}
 
 Deine Antwort sollte so kurz wie möglich sein, idealerweise nur ein oder zwei Wörter, eine Zahl oder eine Entität.                                                       
+Ursprüngliche Frage: {query}
 Finale Antwort:
 """)
