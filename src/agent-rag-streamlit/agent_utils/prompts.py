@@ -68,27 +68,49 @@ Sei höflich, hilfreich und ermutige den Nutzer, spezifischere nuklearbezogene F
 Antwort:
 """)
 
-SUMMARIZER_PROMPT = ChatPromptTemplate.from_template("""
-Basierend auf den folgenden, als hoch relevant eingestuften Dokumenten (Relevanzwert über dem Schwellenwert) 
-erstelle bitte eine prägnante und genaue Antwort auf die Frage des Nutzers auf Deutsch.
+REASONING_PROMPT = ChatPromptTemplate.from_template("""
+Du bist ein Experte für deutsche Kerntechnik und Nuklearsicherheit. Analysiere die folgenden Dokumente sorgfältig und beantworte die Frage des Nutzers basierend auf den bereitgestellten Informationen.
+
+Nutze deine Denkfähigkeiten, um:
+1. Die relevanten Informationen aus den Dokumenten zu identifizieren
+2. Verbindungen zwischen verschiedenen Dokumenten herzustellen
+3. Eine fundierte, sachliche Antwort zu formulieren
 
 Frage des Nutzers: {query}
 
-Relevante Dokumente:
+Verfügbare Dokumente:
 {context}
 
-Anweisungen:
+ANWEISUNGEN:
 - Antworte ausschließlich auf Deutsch
-- Die Antwort basiert auf den Informationen in den Dokumenten
-- Die Dokumente wurden als relevant für die Anfrage bestätigt
-- Sei sachlich und zitiere spezifische Informationen aus den Dokumenten, wenn möglich
-- Halte die Antwort dennoch gesprächig und hilfreich
-- Verwende deutsche Fachbegriffe für nukleartechnische Konzepte
+- Stütze deine Antwort auf die Informationen in den Dokumenten
+- Analysiere die Dokumente gründlich und ziehe logische Schlussfolgerungen
+- Sei präzise und verwende deutsche Fachbegriffe für nukleartechnische Konzepte
+- Falls die Dokumente widersprüchliche Informationen enthalten, weise darauf hin
+- Erkläre deine Denkweise, wenn dies zum Verständnis beiträgt
 
-Frage des Nutzers: {query}                                                    
 Antwort:
 """)
 
+
+SUMMARIZER_PROMPT = ChatPromptTemplate.from_template("""
+Du bist ein Experte für deutsche Kerntechnik und Nuklearsicherheit. Erstelle basierend auf der detaillierten Reasoning-Antwort eine prägnante und benutzerfreundliche Antwort auf Deutsch.
+
+Frage des Nutzers: {query}
+
+Detaillierte Reasoning-Antwort:
+{reasoning_answer}
+
+ANWEISUNGEN:
+- Antworte ausschließlich auf Deutsch
+- Fasse die wichtigsten Punkte aus der Reasoning-Antwort zusammen
+- Mache die Antwort für den Benutzer verständlich und gut lesbar
+- Behalte wichtige technische Details und Zahlen bei
+- Verwende deutsche Fachbegriffe für nukleartechnische Konzepte
+- Strukturiere die Antwort klar und logisch
+
+Zusammengefasste Antwort:
+""")
 
 FINAL_ANSWER_PROMPT = ChatPromptTemplate.from_template("""
 Basierend auf der folgenden zusammengefassten Antwort, gib eine finale, extrem prägnante Antwort auf die ursprüngliche Frage.

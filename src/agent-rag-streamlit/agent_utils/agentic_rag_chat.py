@@ -12,9 +12,10 @@ from .chat_state import ChatState
 from .workflow import RAGWorkflow
 from .router_agent import RouterAgent
 from .retriever_agent import RetrieverAgent
+from .reasoning_agent import ReasoningAgent  # New import
 from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
-from .final_answer_agent import FinalAnswerAgent # New import
+from .final_answer_agent import FinalAnswerAgent
 from .model_factory import create_model
 from .intent_agent import IntentClassificationAgent
 
@@ -37,13 +38,14 @@ class AgenticRAGChat:
         processed_dir: str,
         intent_model: str = "llama3.1:latest",
         router_model: str = "llama3.1:latest",
+        reasoning_model: str = "llama3.1:latest",  # New parameter
         summarizer_model: str = "llama3.1:latest",
         general_model: str = "llama3.1:latest",
-        final_answer_model: str = "llama3.1:latest", # New parameter
+        final_answer_model: str = "llama3.1:latest",
         temperature: float = 0.0,
-        retrieval_k: int = 3,
+        retrieval_k: int = 5,
         relevance_threshold: float = 0.05,
-        force_german: bool = True  # New parameter
+        force_german: bool = True
     ):
         self.chroma_dir = chroma_dir
         self.processed_dir = processed_dir
@@ -54,6 +56,7 @@ class AgenticRAGChat:
         logger.info("Initializing Agentic RAG Chat")
         logger.info(f"Intent model: {intent_model}")
         logger.info(f"Router model: {router_model}")
+        logger.info(f"Reasoning model: {reasoning_model}")
         logger.info(f"Summarizer model: {summarizer_model}")
         logger.info(f"General model: {general_model}")
         logger.info(f"Final answer model: {final_answer_model}")
@@ -63,18 +66,20 @@ class AgenticRAGChat:
         logger.info("Loading models into memory...")
         self.intent_llm = self._preload_model(intent_model, temperature, "Intent")
         self.router_llm = self._preload_model(router_model, temperature, "Router")
+        self.reasoning_llm = self._preload_model(reasoning_model, temperature, "Reasoning")  # New model loading
         self.summarizer_llm = self._preload_model(summarizer_model, temperature, "Summarizer")
         self.general_llm = self._preload_model(general_model, temperature, "General")
-        self.final_answer_llm = self._preload_model(final_answer_model, temperature, "Final Answer") # New model loading
+        self.final_answer_llm = self._preload_model(final_answer_model, temperature, "Final Answer")
         
         # Initialize agents
         logger.info("Initializing agents...")
         self.intent_agent = IntentClassificationAgent(self.intent_llm)
         self.router_agent = RouterAgent(self.router_llm, relevance_threshold)
         self.retriever_agent = RetrieverAgent(chroma_dir, processed_dir, k=retrieval_k)
+        self.reasoning_agent = ReasoningAgent(self.reasoning_llm)  # New agent initialization
         self.summarizer_agent = SummarizerAgent(self.summarizer_llm)
         self.general_agent = GeneralAgent(self.general_llm)
-        self.final_answer_agent = FinalAnswerAgent(self.final_answer_llm) # New agent initialization
+        self.final_answer_agent = FinalAnswerAgent(self.final_answer_llm)
         
         # Initialize workflow
         logger.info("Building workflow...")
@@ -82,9 +87,10 @@ class AgenticRAGChat:
             intent_agent=self.intent_agent,
             router_agent=self.router_agent,
             retriever_agent=self.retriever_agent,
+            reasoning_agent=self.reasoning_agent,  # Pass the new agent to workflow
             summarizer_agent=self.summarizer_agent,
             general_agent=self.general_agent,
-            final_answer_agent=self.final_answer_agent # Pass the new agent to workflow
+            final_answer_agent=self.final_answer_agent
         )
         
         logger.info("All models loaded and ready. Agentic RAG Chat initialized successfully")
@@ -120,11 +126,12 @@ class AgenticRAGChat:
         initial_state = ChatState(
             messages=[HumanMessage(content=user_input)],
             query=user_input,
-            is_corpus_relevant=None,  # New field
-            intent_reasoning=None,    # New field
+            is_corpus_relevant=None,
+            intent_reasoning=None,
             is_relevant=False,
             retrieved_docs=[],
             max_relevance_score=0.0,
+            reasoning_answer=None,  # New field
             summarized_answer=None,
             final_answer=None,
             chat_history=self.chat_history
@@ -199,10 +206,11 @@ def create_rag_chat(
     chroma_dir: str,
     processed_dir: str,
     intent_model: str = "llama3.1:latest",
-    router_model: str = "llama3.1:latest",
+    router_model: str = "gpt-oss:20b",
+    reasoning_model: str = "deepseek-r1:8b",  # New parameter
     summarizer_model: str = "llama3.1:latest",
     general_model: str = "llama3.1:latest",
-    final_answer_model: str = "llama3.1:latest", # New parameter
+    final_answer_model: str = "llama3.1:latest",
     temperature: float = 0.0,
     retrieval_k: int = 3,
     relevance_threshold: float = 0.5
@@ -215,6 +223,7 @@ def create_rag_chat(
         processed_dir: Path to processed documents directory
         intent_model: Model for intent classification
         router_model: Model for routing decisions
+        reasoning_model: Model for reasoning over documents
         summarizer_model: Model for summarization
         general_model: Model for general responses
         final_answer_model: Model for the succinct final answer
@@ -230,6 +239,7 @@ def create_rag_chat(
         processed_dir=processed_dir,
         intent_model=intent_model,
         router_model=router_model,
+        reasoning_model=reasoning_model,
         summarizer_model=summarizer_model,
         general_model=general_model,
         final_answer_model=final_answer_model,
@@ -237,4 +247,3 @@ def create_rag_chat(
         retrieval_k=retrieval_k,
         relevance_threshold=relevance_threshold
     )
-
