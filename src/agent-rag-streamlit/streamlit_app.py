@@ -12,7 +12,7 @@ from agent_utils.agentic_rag_chat import create_rag_chat
 
 # Page configuration
 st.set_page_config(
-    page_title="Agentic RAG Chat System",
+    page_title="Agentic Reasoning Chat System",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -91,7 +91,7 @@ def initialize_rag_chat():
         status_container = st.container()
         
         with status_container:
-            st.info("Initializing Agentic RAG Chat System...")
+            st.info("Initializing Agentic Reasoning Chat System...")
             
             # Model loading status
             model_status = st.empty()
@@ -228,7 +228,7 @@ def get_system_info(rag_chat):
         }
 
 def main():
-    st.title("Agentic RAG Chat System")
+    st.title("Agentic Reasoning Chat System")
     st.markdown("**Intelligent Document Retrieval and Conversational AI**")
     
     # Initialize session state
