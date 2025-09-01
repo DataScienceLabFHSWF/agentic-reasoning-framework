@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class RetrievalConfig:
     """Configuration for retrieval behavior"""
-    k: int = 5
+    k: int = 3
     vector_weight: float = 0.6
     bm25_weight: float = 0.4
     enable_mmr: bool = False
