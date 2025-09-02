@@ -24,3 +24,9 @@ class ChatState(TypedDict):
     followup_questions: Optional[List[str]]      # All follow-up questions generated during ReAct loop
     additional_retrieved_context: Optional[int]  # Number of additional documents retrieved
     react_iterations: Optional[int]              # Number of ReAct iterations performed
+
+    # Enhanced workflow tracking fields
+    tool_calls: List[Dict[str, Any]]
+    follow_up_questions: List[str]  # Store the actual follow-up questions
+    additional_context: List[Dict[str, Any]]  # Store additional retrieved context
+    workflow_metadata: Dict[str, Any]

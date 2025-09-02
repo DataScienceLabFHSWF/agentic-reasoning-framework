@@ -12,7 +12,7 @@ from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 from .chat_state import ChatState
 from .prompts import REASONING_PROMPT, REACT_REASONING_PROMPT
 from .retriever_tool import RetrieverTool
-
+import time
 logger = logging.getLogger(__name__)
 
 
@@ -93,6 +93,16 @@ class ReasoningAgent:
         
         print(f"📄 Initial context length: {len(current_context)} characters")
         
+        # Initialize enhanced tracking if not present
+        if "tool_calls" not in state:
+            state["tool_calls"] = []
+        if "follow_up_questions" not in state:
+            state["follow_up_questions"] = []
+        if "additional_context" not in state:
+            state["additional_context"] = []
+        if "workflow_metadata" not in state:
+            state["workflow_metadata"] = {}
+        
         try:
             while iteration < self.max_iterations:
                 iteration += 1
@@ -108,8 +118,26 @@ class ReasoningAgent:
                     print(f"🤔 Generated follow-up: {followup_question}")
                     followup_questions.append(followup_question)
                     
+                    # FIXED: Track the tool call properly
+                    tool_start_time = time.time()
+                    
                     # Retrieve additional documents
                     new_docs = self.retriever_tool.retrieve(followup_question)
+                    
+                    tool_execution_time = time.time() - tool_start_time
+                    
+                    # Track this tool call
+                    state["tool_calls"].append({
+                        "name": "retrieve_documents",
+                        "tool_name": "retrieve_documents",
+                        "args": {"query": followup_question},
+                        "input": {"query": followup_question},
+                        "output": f"Retrieved {len(new_docs)} documents",
+                        "success": len(new_docs) > 0,
+                        "execution_time": tool_execution_time,
+                        "timestamp": time.time(),
+                        "iteration": iteration
+                    })
                     
                     if new_docs:
                         print(f"📚 Retrieved {len(new_docs)} additional documents")
@@ -249,11 +277,49 @@ class ReasoningAgent:
         all_docs: List[Any], 
         followup_questions: List[str]
     ) -> Dict[str, Any]:
-        """Create the response state"""
+        """Create the response state with proper tracking"""
+        
+        # Calculate additional context count
+        initial_docs_count = len(state.get("retrieved_docs", []))
+        additional_retrieved_context = len(all_docs) - initial_docs_count
+        
+        # Initialize tracking fields if not present
+        if "tool_calls" not in state:
+            state["tool_calls"] = []
+        if "follow_up_questions" not in state:
+            state["follow_up_questions"] = []
+        if "additional_context" not in state:
+            state["additional_context"] = []
+        if "workflow_metadata" not in state:
+            state["workflow_metadata"] = {}
+        
+        # Add follow-up questions to state tracking
+        for question in followup_questions:
+            state["follow_up_questions"].append(question)
+        
+        # Add additional context information for any new documents
+        if additional_retrieved_context > 0:
+            new_docs = all_docs[initial_docs_count:]  # Get only the new documents
+            for doc in new_docs:
+                state["additional_context"].append({
+                    "source": doc.metadata.get('filename', 'unknown'),
+                    "content": doc.page_content,
+                    "relevance_score": doc.metadata.get('score', 0.0),
+                    "context_type": "follow_up_retrieval",
+                    "retrieved_by": "reasoning_agent"
+                })
+        
+        # Update workflow metadata
+        state["workflow_metadata"].update({
+            "total_follow_up_questions": len(state["follow_up_questions"]),
+            "total_additional_context": len(state["additional_context"]),
+            "additional_retrieved_context": additional_retrieved_context
+        })
+        
         return {
             **state,
             "reasoning_answer": reasoning_answer,
             "retrieved_docs": all_docs,  # Update with all retrieved docs
-            "followup_questions": followup_questions,  # Add new state field
-            "additional_retrieved_context": len(all_docs) - len(state.get("retrieved_docs", []))
+            "followup_questions": followup_questions,  # Keep for backward compatibility
+            "additional_retrieved_context": additional_retrieved_context  # Keep for backward compatibility
         }
