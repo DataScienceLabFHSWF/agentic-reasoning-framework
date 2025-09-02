@@ -53,6 +53,59 @@ class RAGWorkflow:
         # Generate workflow diagram
         self._generate_workflow_diagram()
     
+    def _get_agent_tools(self):
+        """Extract tool information from agents"""
+        agent_tools = {}
+        
+        # Check each agent for available tools
+        for agent_name, agent in [
+            ("intent_classifier", self.intent_agent),
+            ("rag_retriever", self.retriever_agent),
+            ("router", self.router_agent),
+            ("reasoning", self.reasoning_agent),
+            ("summarizer", self.summarizer_agent),
+            ("general_response", self.general_agent),
+            ("final_answer", self.final_answer_agent)
+        ]:
+            tools = []
+            
+            # Try to get tools from different possible attributes
+            if hasattr(agent, 'tools') and agent.tools:
+                tools = [tool.name if hasattr(tool, 'name') else str(tool) for tool in agent.tools]
+            elif hasattr(agent, 'tool_names') and agent.tool_names:
+                tools = agent.tool_names
+            elif hasattr(agent, '_tools') and agent._tools:
+                tools = [tool.name if hasattr(tool, 'name') else str(tool) for tool in agent._tools]
+            elif hasattr(agent, 'llm') and hasattr(agent.llm, 'tools') and agent.llm.tools:
+                tools = [tool.name if hasattr(tool, 'name') else str(tool) for tool in agent.llm.tools]
+            
+            # Special handling for reasoning agent with retriever_tool
+            if agent_name == "reasoning" and hasattr(agent, 'retriever_tool'):
+                tools.append("retriever_tool")
+                logger.info(f"Found retriever_tool in reasoning agent")
+            
+            # Check for llm_with_tools (bound tools)
+            if hasattr(agent, 'llm_with_tools') and agent.llm_with_tools:
+                # Try to extract tool info from bound LLM
+                if hasattr(agent.llm_with_tools, 'bound_tools'):
+                    bound_tools = [tool.name if hasattr(tool, 'name') else str(tool) for tool in agent.llm_with_tools.bound_tools]
+                    tools.extend(bound_tools)
+                elif hasattr(agent.llm_with_tools, 'kwargs') and 'tools' in agent.llm_with_tools.kwargs:
+                    bound_tools = [tool.name if hasattr(tool, 'name') else str(tool) for tool in agent.llm_with_tools.kwargs['tools']]
+                    tools.extend(bound_tools)
+                else:
+                    # If we can't extract specific tool names but know tools are bound
+                    tools.append("bound_tools")
+            
+            # Remove duplicates while preserving order
+            tools = list(dict.fromkeys(tools))
+            
+            if tools:
+                agent_tools[agent_name] = tools
+                logger.info(f"Found tools for {agent_name}: {tools}")
+        
+        return agent_tools
+    
     def _build_workflow(self) -> StateGraph:
         """Build the LangGraph workflow: intent -> [retrieve -> route -> [reasoning -> summarize|general]] | general"""
         workflow = StateGraph(ChatState)
@@ -111,17 +164,60 @@ class RAGWorkflow:
         return workflow
     
     def _generate_workflow_diagram(self):
-        """Generate and save workflow diagram automatically"""
+        """Generate and save workflow diagram with tool information"""
         try:
             graph = self.app.get_graph()
+            
+            # Get tool information
+            agent_tools = self._get_agent_tools()
+            
+            # REMOVED: Don't try to modify immutable graph nodes
+            if agent_tools:
+                logger.info(f"Including tools in workflow diagram: {agent_tools}")
+            
+            # Generate the diagram
             png_bytes = graph.draw_mermaid_png()
             out_path = "current_workflow.png"
             with open(out_path, "wb") as f:
                 f.write(png_bytes)
+            
+            # Also save a text version with tool information
+            self._save_workflow_text_with_tools(agent_tools)
+            
             logger.info(f"Workflow diagram saved to {out_path}")
+            if agent_tools:
+                logger.info(f"Tool information saved to current_workflow_tools.txt")
+                
         except Exception as e:
             logger.warning(f"Failed to generate workflow diagram: {e}")
-    
+
+    def _save_workflow_text_with_tools(self, agent_tools):
+        """Save a text representation of the workflow with tool information"""
+        try:
+            with open("current_workflow_tools.txt", "w") as f:
+                f.write("RAG WORKFLOW WITH TOOLS\n")
+                f.write("=" * 50 + "\n\n")
+                
+                f.write("WORKFLOW FLOW:\n")
+                f.write("intent_classifier -> [rag_retriever -> router -> reasoning -> summarizer") 
+                if self.final_eval == "succinct":
+                    f.write(" -> final_answer")
+                f.write("] | general_response\n\n")
+                
+                f.write("AGENT TOOLS:\n")
+                f.write("-" * 30 + "\n")
+                
+                for agent_name, tools in agent_tools.items():
+                    f.write(f"\n{agent_name.upper()}:\n")
+                    for tool in tools:
+                        f.write(f"  • {tool}\n")
+                
+                if not agent_tools:
+                    f.write("No tools detected in agents\n")
+                    
+        except Exception as e:
+            logger.warning(f"Failed to save workflow text with tools: {e}")
+
     def invoke(self, initial_state: ChatState) -> ChatState:
         """Execute the workflow with the given initial state"""
         print("\n" + "="*80)
