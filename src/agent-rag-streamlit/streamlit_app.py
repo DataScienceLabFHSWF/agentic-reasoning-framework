@@ -12,7 +12,7 @@ from agent_utils.agentic_rag_chat import create_rag_chat
 
 # Page configuration
 st.set_page_config(
-    page_title="Agentic RAG Chat System",
+    page_title="Agentic Reasoning Chat System",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -55,9 +55,12 @@ st.markdown("""
 # Constants
 CHROMA_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
 PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
-ROUTER_MODEL = "qwen3:14b"
-SUMMARIZER_MODEL = "mistral:latest"
-GENERAL_MODEL = "mistral:latest"
+INTENT_MODEL = "llama3.1:latest"
+ROUTER_MODEL = "llama3.1:latest"
+REASONING_MODEL = "qwen3:14b"
+SUMMARIZER_MODEL = "llama3.1:latest"
+GENERAL_MODEL = "llama3.1:latest"
+FINAL_ANSWER_MODEL = "llama3.1:latest"
 RELEVANCE_THRESHOLD = 0.15
 
 def show_agent_status(agent_type: str, status: str, details: str = ""):
@@ -91,7 +94,7 @@ def initialize_rag_chat():
         status_container = st.container()
         
         with status_container:
-            st.info("Initializing Agentic RAG Chat System...")
+            st.info("Initializing Agentic Reasoning Chat System...")
             
             # Model loading status
             model_status = st.empty()
@@ -100,11 +103,14 @@ def initialize_rag_chat():
             progress_bar = st.progress(0)
             status_text = st.empty()
             
-            # Simulate model loading stages
+            # Updated stages to include all agents
             stages = [
+                ("Intent Agent (llama3.1:latest)", "Loading intent classification model..."),
                 ("Router Agent (qwen3:14b)", "Preparing routing intelligence..."),
+                ("Reasoning Agent (deepseek-r1:8b)", "Loading reasoning capabilities..."),
                 ("Summarizer Agent (mistral:latest)", "Loading document summarization capabilities..."),
-                ("General Agent (qwen3:14b)", "Initializing conversational AI..."),
+                ("General Agent (mistral:latest)", "Initializing conversational AI..."),
+                ("Final Answer Agent (llama3.1:latest)", "Loading final answer generation..."),
                 ("Vector Database", "Connecting to ChromaDB..."),
                 ("RAG Pipeline", "Assembling retrieval-augmented generation system...")
             ]
@@ -114,13 +120,16 @@ def initialize_rag_chat():
                 progress_bar.progress((i + 1) / len(stages))
                 time.sleep(0.5)  # Simulate loading time
             
-            # Create the actual RAG chat
+            # Create the actual RAG chat with all models
             rag_chat = create_rag_chat(
                 chroma_dir=CHROMA_DIR,
                 processed_dir=PROCESSED_DIR,
+                intent_model=INTENT_MODEL,
                 router_model=ROUTER_MODEL,
+                reasoning_model=REASONING_MODEL,
                 summarizer_model=SUMMARIZER_MODEL,
                 general_model=GENERAL_MODEL,
+                final_answer_model=FINAL_ANSWER_MODEL,
                 relevance_threshold=RELEVANCE_THRESHOLD
             )
             
@@ -189,30 +198,30 @@ def get_system_info(rag_chat):
         # Extract actual configuration from the rag_chat object
         agents = []
         
-        # Get router model if available
-        if hasattr(rag_chat, 'router') and hasattr(rag_chat.router, 'model'):
-            agents.append(f"Router Agent ({rag_chat.router.model})")
-        elif hasattr(rag_chat, 'router_model'):
-            agents.append(f"Router Agent ({rag_chat.router_model})")
+        # Get all agent information from the rag_chat instance
+        if hasattr(rag_chat, 'intent_agent'):
+            agents.append(f"Intent Agent ({INTENT_MODEL})")
         
-        # Get retrieval/vector database info
-        if hasattr(rag_chat, 'vector_store') or hasattr(rag_chat, 'chroma_client'):
-            agents.append("Retrieval Agent (ChromaDB)")
+        if hasattr(rag_chat, 'router_agent'):
+            agents.append(f"Router Agent ({ROUTER_MODEL})")
+            
+        if hasattr(rag_chat, 'retriever_agent'):
+            agents.append("Retrieval Agent (ChromaDB + Hybrid Search)")
+            
+        if hasattr(rag_chat, 'reasoning_agent'):
+            agents.append(f"Reasoning Agent ({REASONING_MODEL})")
         
-        # Get summarizer model if available
-        if hasattr(rag_chat, 'summarizer') and hasattr(rag_chat.summarizer, 'model'):
-            agents.append(f"Summarizer Agent ({rag_chat.summarizer.model})")
-        elif hasattr(rag_chat, 'summarizer_model'):
-            agents.append(f"Summarizer Agent ({rag_chat.summarizer_model})")
+        if hasattr(rag_chat, 'summarizer_agent'):
+            agents.append(f"Summarizer Agent ({SUMMARIZER_MODEL})")
         
-        # Get general model if available
-        if hasattr(rag_chat, 'general_agent') and hasattr(rag_chat.general_agent, 'model'):
-            agents.append(f"General Agent ({rag_chat.general_agent.model})")
-        elif hasattr(rag_chat, 'general_model'):
-            agents.append(f"General Agent ({rag_chat.general_model})")
+        if hasattr(rag_chat, 'general_agent'):
+            agents.append(f"General Agent ({GENERAL_MODEL})")
+            
+        if hasattr(rag_chat, 'final_answer_agent'):
+            agents.append(f"Final Answer Agent ({FINAL_ANSWER_MODEL})")
         
         # Get threshold
-        threshold = getattr(rag_chat, 'relevance_threshold', 0.3)
+        threshold = getattr(rag_chat, 'relevance_threshold', RELEVANCE_THRESHOLD)
         
         return {
             "agents": agents if agents else ["Configuration not accessible"],
@@ -228,7 +237,7 @@ def get_system_info(rag_chat):
         }
 
 def main():
-    st.title("Agentic RAG Chat System")
+    st.title("Agentic Reasoning Chat System")
     st.markdown("**Intelligent Document Retrieval and Conversational AI**")
     
     # Initialize session state
@@ -250,20 +259,34 @@ def main():
         
         st.markdown("---")
         st.subheader("System Information")
-        st.markdown(f"""
-        **Active Agents:**
-        - Router Agent ({ROUTER_MODEL})
-        - Retrieval Agent (ChromaDB)
-        - Summarizer Agent ({SUMMARIZER_MODEL})
-        - General Agent ({GENERAL_MODEL})
         
-        **Relevance Threshold:** {RELEVANCE_THRESHOLD}
-        """)
+        # Get dynamic system info
+        system_info = get_system_info(st.session_state.get("rag_chat"))
         
-        if st.session_state.get("rag_chat"):
-            st.success("All agents operational")
+        st.markdown("**Active Agents:**")
+        for agent in system_info["agents"]:
+            st.markdown(f"- {agent}")
+        
+        st.markdown(f"**Relevance Threshold:** {system_info['threshold']}")
+        
+        # System status indicator
+        if system_info["status"] == "operational":
+            st.success("✅ All agents operational")
         else:
-            st.error("System initialization required")
+            st.error("❌ System initialization required")
+        
+        # Additional workflow info
+        st.markdown("---")
+        st.subheader("Workflow Overview")
+        st.markdown("""
+        **Processing Flow:**
+        1. **Intent Classification** - Determines query type
+        2. **Document Retrieval** - Finds relevant content
+        3. **Relevance Routing** - Decides processing path
+        4. **Reasoning** - Analyzes documents and context
+        5. **Summarization** - Creates user-friendly response
+        6. **Final Answer** - Provides concise output
+        """)
     
     # Check if RAG system is ready
     if not st.session_state.rag_chat:

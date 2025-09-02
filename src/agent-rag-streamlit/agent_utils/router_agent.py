@@ -26,14 +26,23 @@ class RouterAgent:
         query = state["query"]
         max_score = state.get("max_relevance_score", 0.0)
         
+        print("\n🔀 ROUTER AGENT")
+        print("-" * 50)
+        print(f"📊 Max Relevance Score: {max_score:.3f}")
+        print(f"🎯 Threshold: {self.relevance_threshold}")
+        
         logger.info(f"Router evaluating relevance: score={max_score:.3f}, threshold={self.relevance_threshold}")
         
         # Primary decision based on relevance score
         is_relevant = max_score >= self.relevance_threshold
         
         if is_relevant:
+            print("✅ DECISION: Documents meet relevance threshold")
+            print("→→→ Routing to REASONING AGENT...")
             logger.info("Documents meet relevance threshold - using RAG")
         else:
+            print("❌ DECISION: Documents below relevance threshold")
+            print("→→→ Routing to GENERAL RESPONSE...")
             logger.info("Documents below relevance threshold - using general response")
             
             # Use LLM to provide context about why docs weren't relevant

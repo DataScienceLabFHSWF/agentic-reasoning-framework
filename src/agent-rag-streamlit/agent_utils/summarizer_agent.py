@@ -1,6 +1,6 @@
 """
 summarizer_agent.py
-Agent for summarizing retrieved documents to answer queries
+Agent for summarizing reasoning responses to create user-friendly answers
 """
 
 import logging
@@ -14,42 +14,52 @@ logger = logging.getLogger(__name__)
 
 
 class SummarizerAgent:
-    """Agent for generating responses based on retrieved documents"""
+    """Agent for generating user-friendly responses based on reasoning answers"""
     
     def __init__(self, llm: BaseChatModel):
         self.llm = llm
         logger.info("Summarizer agent initialized")
     
     def summarize_response(self, state: ChatState) -> Dict[str, Any]:
-        """Summarize the retrieved documents to answer the query"""
+        """Summarize the reasoning answer to create a user-friendly response"""
         query = state["query"]
-        docs = state["retrieved_docs"]
+        reasoning_answer = state.get("reasoning_answer", "")
         
-        logger.info(f"Summarizing response for query: '{query[:50]}...'")
-        logger.info(f"Processing {len(docs)} documents")
+        print("\n📝 SUMMARIZER AGENT")
+        print("-" * 50)
+        print(f"📏 Input Length: {len(reasoning_answer)} characters")
         
-        if not docs:
-            logger.warning("No documents available for summarization")
-            answer = "No relevant documents were found in the knowledge base for your query."
+        logger.info(f"Summarizing reasoning answer for query: '{query[:50]}...'")
+        
+        if not reasoning_answer:
+            logger.warning("No reasoning answer available for summarization")
+            answer = "Keine Antwort vom Reasoning-System erhalten."
+            print("❌ No reasoning answer to summarize")
+            print("→→→ Proceeding with empty response...")
         else:
             try:
-                # Combine document contents
-                context = "\n\n".join([
-                    f"Document {i+1}:\n{doc.page_content}" 
-                    for i, doc in enumerate(docs)
-                ])
+                logger.info(f"Reasoning answer length: {len(reasoning_answer)} characters")
                 
-                logger.info(f"Context length: {len(context)} characters")
-                
-                messages = SUMMARIZER_PROMPT.format_messages(query=query, context=context)
+                print("🔄 Processing summarization request...")
+                messages = SUMMARIZER_PROMPT.format_messages(
+                    query=query, 
+                    reasoning_answer=reasoning_answer
+                )
                 response = self.llm.invoke(messages)
                 answer = response.content
+                
+                print(f"✅ SUMMARIZATION COMPLETE")
+                print(f"📏 Summary Length: {len(answer)} characters")
+                print(f"🎯 Summary Preview: {answer[:200]}...")
+                print("→→→ Proceeding to FINAL ANSWER AGENT...")
                 
                 logger.info("Summarization completed successfully")
                 
             except Exception as e:
                 logger.error(f"Summarization error: {e}")
-                answer = f"An error occurred while processing the documents: {str(e)}"
+                answer = f"Fehler beim Zusammenfassen der Antwort: {str(e)}"
+                print(f"❌ Summarization Error: {str(e)}")
+                print("→→→ Proceeding with error message...")
         
         return {
             **state,

@@ -24,6 +24,8 @@ class IntentClassificationAgent:
         """Classify user intent and determine if query is relevant to document corpus"""
         query = state["query"]
         
+        print("\n🧭 INTENT CLASSIFICATION AGENT")
+        print("-" * 50)
         logger.info(f"Classifying intent for query: '{query[:50]}...'")
         
         try:
@@ -33,6 +35,10 @@ class IntentClassificationAgent:
             # Parse response to determine relevance
             response_text = response.content.lower().strip()
             is_corpus_relevant = "relevant" in response_text and "not relevant" not in response_text
+            
+            print(f"📊 Classification Result: {'✅ CORPUS-RELEVANT' if is_corpus_relevant else '❌ NOT CORPUS-RELEVANT'}")
+            print(f"💭 Reasoning: {response.content[:150]}...")
+            print("→→→ Proceeding to next agent..." if is_corpus_relevant else "→→→ Routing to general response...")
             
             logger.info(f"Intent classification result: {'corpus-relevant' if is_corpus_relevant else 'general'}")
             logger.info(f"Classification reasoning: {response.content[:100]}...")
@@ -45,6 +51,8 @@ class IntentClassificationAgent:
             
         except Exception as e:
             logger.error(f"Intent classification error: {e}")
+            print(f"❌ Error in classification: {str(e)}")
+            print("→→→ Defaulting to corpus-relevant...")
             # Default to corpus-relevant on error to avoid blocking legitimate queries
             return {
                 **state,

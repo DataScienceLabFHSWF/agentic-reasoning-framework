@@ -17,6 +17,7 @@ class ChatState(TypedDict):
     is_relevant: Optional[bool]
     retrieved_docs: List[Any]
     max_relevance_score: Optional[float]
+    reasoning_answer: Optional[str]     # Answer from reasoning agent
     summarized_answer: Optional[str]    # Summarized response from documents
     final_answer: Optional[str]         # Final succinct answer
     chat_history: Optional[List[Dict[str, str]]]

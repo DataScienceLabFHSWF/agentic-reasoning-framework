@@ -63,15 +63,18 @@ class ResultsAnalyzer:
             return float(numbers[0])
         return None
     
-    def compare_answers(self, expected: Any, actual: str, question_type: str = "general") -> bool:
-        """Compare expected and actual answers"""
+    def compare_answers(self, expected: Any, actual: str, question_type: str = "general", match_type: str = 'near') -> bool:
+        """Compare expected and actual answers with different matching strategies."""
         if actual is None:
             return False
         
         expected_norm = self.normalize_answer(str(expected))
         actual_norm = self.normalize_answer(actual)
-        
-        # Handle different answer types
+
+        if match_type == 'exact':
+            return expected_norm == actual_norm
+
+        # 'near' match logic (the previous default)
         if question_type == "numeric":
             expected_num = self.extract_numeric_value(expected)
             actual_num = self.extract_numeric_value(actual)
@@ -101,13 +104,16 @@ class ResultsAnalyzer:
     
     def analyze_single_result(self, result: Dict[str, Any], expected_answer: Any) -> Dict[str, Any]:
         """Analyze a single question result"""
-        # Get both agent answers
+        # Get all agent answers from the result payload
+        reasoning_answer = result.get("agent_responses", {}).get("reasoning_answer", "")
         summarized_answer = result.get("agent_responses", {}).get("summarized_answer", "")
         final_answer = result.get("agent_responses", {}).get("final_answer", "")
         
-        # Check accuracy for both answers
-        summarized_correct = self.compare_answers(expected_answer, summarized_answer)
-        final_correct = self.compare_answers(expected_answer, final_answer)
+        # Differentiated accuracy checks
+        final_answer_exact_correct = self.compare_answers(expected_answer, final_answer, match_type='exact')
+        final_answer_near_correct = self.compare_answers(expected_answer, final_answer, match_type='near')
+        reasoning_contains_answer = self.compare_answers(expected_answer, reasoning_answer, match_type='near')
+        summarized_contains_answer = self.compare_answers(expected_answer, summarized_answer, match_type='near')
         
         # Intent classification accuracy
         is_corpus_relevant = result.get("intent_classification", {}).get("is_corpus_relevant")
@@ -122,14 +128,17 @@ class ResultsAnalyzer:
         num_retrieved_docs = result.get("workflow_metadata", {}).get("num_retrieved_docs", 0)
         
         return {
-            "summarized_correct": summarized_correct,
-            "final_correct": final_correct,
+            "final_answer_exact_correct": final_answer_exact_correct,
+            "final_answer_near_correct": final_answer_near_correct,
+            "reasoning_contains_answer": reasoning_contains_answer,
+            "summarized_contains_answer": summarized_contains_answer,
             "intent_correct": intent_correct,
             "processing_time": processing_time,
             "is_relevant": is_relevant,
             "max_relevance_score": max_relevance_score,
             "num_retrieved_docs": num_retrieved_docs,
             "expected_answer": str(expected_answer),
+            "reasoning_answer": reasoning_answer,
             "summarized_answer": summarized_answer,
             "final_answer": final_answer
         }
@@ -163,68 +172,79 @@ class ResultsAnalyzer:
         return all_metrics
     
     def create_summary_tables(self, metrics: List[Dict[str, Any]]) -> Dict[str, pd.DataFrame]:
-        """Create summary tables"""
+        """Create summary tables with micro and macro averages"""
         df = pd.DataFrame(metrics)
         
         tables = {}
         
-        # Overall summary
+        # Overall summary (Micro-average)
         overall_summary = {
             "Total Questions": len(df),
-            "Summarized Answer Accuracy": f"{df['summarized_correct'].mean():.2%}",
-            "Final Answer Accuracy": f"{df['final_correct'].mean():.2%}",
-            "Intent Classification Accuracy": f"{df['intent_correct'].mean():.2%}",
+            "Final Answer Exact Acc.": f"{df['final_answer_exact_correct'].mean():.2%}",
+            "Final Answer Near Acc.": f"{df['final_answer_near_correct'].mean():.2%}",
+            "Reasoning Containment Acc.": f"{df['reasoning_contains_answer'].mean():.2%}",
+            "Summarized Containment Acc.": f"{df['summarized_contains_answer'].mean():.2%}",
+            "Intent Classification Acc.": f"{df['intent_correct'].mean():.2%}",
             "Avg Processing Time (s)": f"{df['processing_time'].mean():.2f}",
-            "Avg Relevance Score": f"{df['max_relevance_score'].mean():.3f}",
-            "Successful Retrievals": f"{df['is_relevant'].mean():.2%}"
         }
         tables["Overall Summary"] = pd.DataFrame([overall_summary])
         
+        # --- Micro vs. Macro Accuracy Calculation ---
+        def calculate_accuracies(grouped_df, group_col):
+            # Micro: total correct / total questions
+            micro_acc = grouped_df['final_answer_near_correct'].sum() / grouped_df['final_answer_near_correct'].count()
+            
+            # Macro: mean of per-group accuracies
+            per_group_acc = df.groupby(group_col)['final_answer_near_correct'].mean()
+            macro_acc = per_group_acc.mean()
+            
+            return pd.Series({'Micro Accuracy': micro_acc, 'Macro Accuracy': macro_acc})
+
         # By Dataset
         dataset_summary = df.groupby('dataset').agg({
-            'summarized_correct': ['count', 'mean'],
-            'final_correct': 'mean',
-            'intent_correct': 'mean',
+            'final_answer_near_correct': ['count', 'mean'],
+            'final_answer_exact_correct': 'mean',
+            'reasoning_contains_answer': 'mean',
             'processing_time': 'mean',
-            'max_relevance_score': 'mean',
-            'is_relevant': 'mean'
         }).round(3)
-        
         dataset_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
-            'Intent Accuracy', 'Avg Processing Time', 'Avg Relevance Score', 
-            'Retrieval Success Rate'
+            'Total Questions', 'Final Near Acc.', 'Final Exact Acc.', 
+            'Reasoning Containment', 'Avg Processing Time'
         ]
-        tables["By Dataset"] = dataset_summary
         
+        dataset_acc_type = calculate_accuracies(df, 'dataset')
+        dataset_summary['Micro Accuracy'] = dataset_acc_type['Micro Accuracy']
+        dataset_summary['Macro Accuracy'] = dataset_acc_type['Macro Accuracy']
+        tables["By Dataset"] = dataset_summary
+
         # By Level
         level_summary = df.groupby('level').agg({
-            'summarized_correct': ['count', 'mean'],
-            'final_correct': 'mean',
-            'intent_correct': 'mean',
+            'final_answer_near_correct': ['count', 'mean'],
+            'final_answer_exact_correct': 'mean',
+            'reasoning_contains_answer': 'mean',
             'processing_time': 'mean',
-            'max_relevance_score': 'mean',
-            'is_relevant': 'mean'
         }).round(3)
-        
         level_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
-            'Intent Accuracy', 'Avg Processing Time', 'Avg Relevance Score', 
-            'Retrieval Success Rate'
+            'Total Questions', 'Final Near Acc.', 'Final Exact Acc.', 
+            'Reasoning Containment', 'Avg Processing Time'
         ]
+        
+        level_acc_type = calculate_accuracies(df, 'level')
+        level_summary['Micro Accuracy'] = level_acc_type['Micro Accuracy']
+        level_summary['Macro Accuracy'] = level_acc_type['Macro Accuracy']
         tables["By Level"] = level_summary
         
         # By Dataset and Level
         dataset_level_summary = df.groupby(['dataset', 'level']).agg({
-            'summarized_correct': ['count', 'mean'],
-            'final_correct': 'mean',
-            'intent_correct': 'mean',
+            'final_answer_near_correct': ['count', 'mean'],
+            'final_answer_exact_correct': 'mean',
+            'reasoning_contains_answer': 'mean',
             'processing_time': 'mean'
         }).round(3)
         
         dataset_level_summary.columns = [
-            'Total Questions', 'Summarized Accuracy', 'Final Accuracy', 
-            'Intent Accuracy', 'Avg Processing Time'
+            'Total Questions', 'Final Near Acc.', 'Final Exact Acc.', 
+            'Reasoning Containment', 'Avg Processing Time'
         ]
         tables["By Dataset and Level"] = dataset_level_summary
         
@@ -251,19 +271,19 @@ class ResultsAnalyzer:
         fig.suptitle('Agent Performance Analysis', fontsize=16, fontweight='bold')
         
         # Accuracy by Dataset
-        dataset_acc = df.groupby('dataset')[['summarized_correct', 'final_correct']].mean()
+        dataset_acc = df.groupby('dataset')[['final_answer_exact_correct', 'final_answer_near_correct']].mean()
         dataset_acc.plot(kind='bar', ax=axes[0,0], title='Accuracy by Dataset')
         axes[0,0].set_ylabel('Accuracy Rate')
         axes[0,0].set_xlabel('Dataset')
-        axes[0,0].legend(['Summarized Answer', 'Final Answer'])
+        axes[0,0].legend(['Final Exact Match', 'Final Near Match'])
         axes[0,0].tick_params(axis='x', rotation=45)
         
         # Accuracy by Level
-        level_acc = df.groupby('level')[['summarized_correct', 'final_correct']].mean()
+        level_acc = df.groupby('level')[['final_answer_exact_correct', 'final_answer_near_correct']].mean()
         level_acc.plot(kind='bar', ax=axes[0,1], title='Accuracy by Difficulty Level')
         axes[0,1].set_ylabel('Accuracy Rate')
         axes[0,1].set_xlabel('Difficulty Level')
-        axes[0,1].legend(['Summarized Answer', 'Final Answer'])
+        axes[0,1].legend(['Final Exact Match', 'Final Near Match'])
         axes[0,1].tick_params(axis='x', rotation=45)
         
         # Processing Time Distribution
@@ -293,12 +313,12 @@ class ResultsAnalyzer:
         # 2. Heatmap of Accuracy by Dataset and Level
         fig, ax = plt.subplots(figsize=(12, 8))
         
-        pivot_data = df.pivot_table(values='final_correct', index='level', 
+        pivot_data = df.pivot_table(values='final_answer_near_correct', index='level', 
                                    columns='dataset', aggfunc='mean')
         
         sns.heatmap(pivot_data, annot=True, cmap='RdYlGn', center=0.5, 
-                   ax=ax, fmt='.2f', cbar_kws={'label': 'Accuracy Rate'})
-        ax.set_title('Final Answer Accuracy: Dataset vs Difficulty Level', 
+                   ax=ax, fmt='.2f', cbar_kws={'label': 'Near Match Accuracy Rate'})
+        ax.set_title('Final Answer Near Match Accuracy: Dataset vs Difficulty Level', 
                     fontsize=14, fontweight='bold')
         ax.set_xlabel('Dataset')
         ax.set_ylabel('Difficulty Level')
@@ -325,13 +345,13 @@ class ResultsAnalyzer:
         axes[1].set_ylabel('Processing Time (seconds)')
         
         # Correlation between processing time and accuracy
-        axes[2].scatter(df['processing_time'], df['final_correct'], alpha=0.6)
+        axes[2].scatter(df['processing_time'], df['final_answer_near_correct'], alpha=0.6)
         axes[2].set_xlabel('Processing Time (seconds)')
-        axes[2].set_ylabel('Final Answer Accuracy')
+        axes[2].set_ylabel('Final Answer Near Accuracy')
         axes[2].set_title('Processing Time vs Accuracy')
         
         # Add correlation coefficient
-        corr = df['processing_time'].corr(df['final_correct'])
+        corr = df['processing_time'].corr(df['final_answer_near_correct'])
         axes[2].text(0.05, 0.95, f'Correlation: {corr:.3f}', 
                     transform=axes[2].transAxes, fontsize=10,
                     bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
@@ -361,13 +381,13 @@ class ResultsAnalyzer:
         axes[0,1].tick_params(axis='x', rotation=45)
         
         # Relevance score vs accuracy
-        axes[1,0].scatter(df['max_relevance_score'], df['final_correct'], alpha=0.6)
+        axes[1,0].scatter(df['max_relevance_score'], df['final_answer_near_correct'], alpha=0.6)
         axes[1,0].set_xlabel('Max Relevance Score')
-        axes[1,0].set_ylabel('Final Answer Accuracy')
+        axes[1,0].set_ylabel('Final Answer Near Accuracy')
         axes[1,0].set_title('Document Relevance vs Answer Accuracy')
         
         # Add correlation
-        corr = df['max_relevance_score'].corr(df['final_correct'])
+        corr = df['max_relevance_score'].corr(df['final_answer_near_correct'])
         axes[1,0].text(0.05, 0.95, f'Correlation: {corr:.3f}', 
                       transform=axes[1,0].transAxes, fontsize=10,
                       bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
@@ -399,8 +419,8 @@ class ResultsAnalyzer:
                 if len(subset) > 0:
                     breakdown_data.append({
                         'Dataset_Level': f"{dataset}\n{level}",
-                        'Summarized': subset['summarized_correct'].mean(),
-                        'Final': subset['final_correct'].mean(),
+                        'Exact Match': subset['final_answer_exact_correct'].mean(),
+                        'Near Match': subset['final_answer_near_correct'].mean(),
                         'Count': len(subset)
                     })
         
@@ -409,10 +429,10 @@ class ResultsAnalyzer:
         x = np.arange(len(breakdown_df))
         width = 0.35
         
-        bars1 = ax.bar(x - width/2, breakdown_df['Summarized'], width, 
-                      label='Summarized Answer', alpha=0.8)
-        bars2 = ax.bar(x + width/2, breakdown_df['Final'], width, 
-                      label='Final Answer', alpha=0.8)
+        bars1 = ax.bar(x - width/2, breakdown_df['Exact Match'], width, 
+                      label='Final Exact Match', alpha=0.8)
+        bars2 = ax.bar(x + width/2, breakdown_df['Near Match'], width, 
+                      label='Final Near Match', alpha=0.8)
         
         ax.set_xlabel('Dataset and Difficulty Level')
         ax.set_ylabel('Accuracy Rate')
@@ -442,13 +462,15 @@ class ResultsAnalyzer:
         # Select relevant columns for detailed view
         detailed_df = df[[
             'dataset', 'level', 'question', 'expected_answer', 
-            'summarized_answer', 'final_answer', 'summarized_correct', 
-            'final_correct', 'intent_correct', 'processing_time', 
+            'final_answer', 'reasoning_answer', 'summarized_answer',
+            'final_answer_exact_correct', 'final_answer_near_correct',
+            'reasoning_contains_answer', 'summarized_contains_answer',
+            'intent_correct', 'processing_time', 
             'max_relevance_score', 'is_relevant'
         ]].copy()
         
         # Truncate long answers for readability
-        for col in ['question', 'expected_answer', 'summarized_answer', 'final_answer']:
+        for col in ['question', 'expected_answer', 'final_answer', 'reasoning_answer', 'summarized_answer']:
             detailed_df[col] = detailed_df[col].astype(str).str[:100] + "..."
         
         return detailed_df
@@ -494,28 +516,49 @@ class ResultsAnalyzer:
             print("-" * len(table_name))
             print(table.to_string())
     
-    def analyze(self, output_file: str = None, create_plots: bool = True):
+    def analyze(self, output_file: str = None, create_plots: bool = True, output_folder: str = None):
         """Run complete analysis"""
         metrics = self.generate_metrics()
+        
+        if not metrics:
+            print("No valid results found to analyze.")
+            return None, None, None
+
         tables = self.create_summary_tables(metrics)
         detailed_df = self.create_detailed_analysis(metrics)
         
+        # Determine output directory
+        if output_folder:
+            output_dir = Path(output_folder)
+        elif output_file:
+            output_dir = Path(output_file).parent
+        else:
+            output_dir = Path(self.results_file).parent
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Determine output file path
+        if output_file:
+            output_filepath = Path(output_file)
+            if not output_filepath.is_absolute():
+                 output_filepath = output_dir / output_filepath.name
+        else:
+            results_path = Path(self.results_file)
+            output_filepath = output_dir / f"{results_path.stem}_analysis.xlsx"
+
         # Print summary
         self.print_summary(tables)
         
         plot_files = []
         if create_plots:
             try:
-                output_dir = Path(output_file).parent if output_file else Path(self.results_file).parent
                 plot_files = self.create_plots(metrics, str(output_dir))
-                print(f"\nCreated {len(plot_files)} visualization plots")
+                print(f"\nCreated {len(plot_files)} visualization plots in {output_dir}")
             except Exception as e:
                 print(f"Warning: Could not create plots: {e}")
                 print("Analysis will continue without plots...")
         
         # Save to file if specified
-        if output_file:
-            self.save_analysis(tables, detailed_df, plot_files, output_file)
+        self.save_analysis(tables, detailed_df, plot_files, str(output_filepath))
         
         return tables, detailed_df, plot_files
 
@@ -524,7 +567,8 @@ def main():
     parser = argparse.ArgumentParser(description="Analyze agent evaluation results")
     parser.add_argument("--results_file", required=True, help="Path to evaluation results JSON file")
     parser.add_argument("--qa_dataset", default="gpt_qa_datasets_de.json", help="Path to QA dataset JSON file")
-    parser.add_argument("--output", help="Output Excel file path (optional)")
+    parser.add_argument("--output", help="Output Excel file name (e.g., analysis.xlsx). Saved in --output_folder.")
+    parser.add_argument("--output_folder", help="Folder to save all analysis results (Excel, plots). Defaults to results_file directory.")
     parser.add_argument("--no-plots", action="store_true", help="Skip creating plots")
     
     args = parser.parse_args()
@@ -536,20 +580,16 @@ def main():
     else:
         qa_dataset_path = Path(args.qa_dataset)
     
-    # Default output file if not specified
-    if not args.output:
-        results_path = Path(args.results_file)
-        output_file = results_path.parent / f"{results_path.stem}_analysis.xlsx"
-    else:
-        output_file = args.output
-    
     # Run analysis
     analyzer = ResultsAnalyzer(args.results_file, str(qa_dataset_path))
-    tables, detailed_df, plot_files = analyzer.analyze(str(output_file), create_plots=not args.no_plots)
+    tables, detailed_df, plot_files = analyzer.analyze(
+        output_file=args.output, 
+        create_plots=not args.no_plots,
+        output_folder=args.output_folder
+    )
     
-    print(f"\nAnalysis complete! Results saved to: {output_file}")
-    if plot_files:
-        print(f"Created {len(plot_files)} plots in the same directory")
+    if tables:
+        print(f"\nAnalysis complete! Results saved.")
 
 
 if __name__ == "__main__":

@@ -30,16 +30,26 @@ class FinalAnswerAgent:
         query = state["query"]
         summarized_answer = state.get("summarized_answer", "")
         
+        print("\n🎯 FINAL ANSWER AGENT")
+        print("-" * 50)
+        print(f"📏 Input Length: {len(summarized_answer)} characters")
+        
         logger.info(f"Generating succinct final answer for query: '{query[:50]}...'")
         
         try:
+            print("🔄 Processing final answer request...")
             messages = FINAL_ANSWER_PROMPT.format_messages(
                 query=query,
                 summarized_answer=summarized_answer
             )
             response = self.llm.invoke(messages)
             
-            final_answer = response.content
+            final_answer = response.content.strip()
+            
+            print(f"✅ FINAL ANSWER COMPLETE")
+            print(f"🏆 FINAL ANSWER: '{final_answer}'")
+            print("→→→ WORKFLOW COMPLETE!")
+            
             logger.info(f"Final succinct answer: {final_answer}")
             
             return {
@@ -49,7 +59,10 @@ class FinalAnswerAgent:
             
         except Exception as e:
             logger.error(f"Final answer generation error: {e}")
+            error_msg = f"Error generating final answer: {str(e)}"
+            print(f"❌ Final Answer Error: {str(e)}")
+            print("→→→ WORKFLOW COMPLETE WITH ERROR!")
             return {
                 **state,
-                "final_answer": f"Error generating final answer: {str(e)}"
+                "final_answer": error_msg
             }

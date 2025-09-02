@@ -27,16 +27,22 @@ class GeneralAgent:
         is_corpus_relevant = state.get("is_corpus_relevant", True)
         intent_reasoning = state.get("intent_reasoning", "")
         
+        print("\n🤖 GENERAL RESPONSE AGENT")
+        print("-" * 50)
+        
         logger.info(f"Generating general response for: '{query[:50]}...'")
         
         if not is_corpus_relevant:
+            print("📋 Reason: Query not relevant to nuclear corpus")
             logger.info("Query not relevant to nuclear corpus - providing general guidance")
             context = f"Die Anfrage wurde als nicht relevant für unsere Nuklear-Wissensdatenbank eingestuft. Grund: {intent_reasoning}"
         else:
+            print(f"📋 Reason: Documents insufficient relevance (score: {max_score:.3f})")
             logger.info(f"Documents insufficient relevance (score: {max_score:.3f}) - suggesting rephrase")
             context = f"Dokumente hatten einen maximalen Relevanzwert von {max_score:.3f}, der unter dem Schwellenwert lag. Bitte formulieren Sie die Frage spezifischer."
         
         try:
+            print("🔄 Processing general response request...")
             messages = GENERAL_PROMPT.format_messages(query=query, context=context)
             response = self.llm.invoke(messages)
             answer = response.content
@@ -45,6 +51,11 @@ class GeneralAgent:
             if not self._is_german_response(answer):
                 logger.warning("Response not in German, requesting German translation")
                 answer = self._ensure_german_response(answer, query)
+            
+            print(f"✅ GENERAL RESPONSE COMPLETE")
+            print(f"📏 Response Length: {len(answer)} characters")
+            print(f"🎯 Response Preview: {answer[:200]}...")
+            print("→→→ WORKFLOW COMPLETE!")
             
             logger.info("General response generated successfully")
             
@@ -56,9 +67,12 @@ class GeneralAgent:
             
         except Exception as e:
             logger.error(f"General response error: {e}")
+            error_msg = f"Es trat ein Fehler bei der Verarbeitung Ihrer Anfrage auf: {str(e)}"
+            print(f"❌ General Response Error: {str(e)}")
+            print("→→→ WORKFLOW COMPLETE WITH ERROR!")
             return {
                 **state,
-                "summarized_answer": f"Es trat ein Fehler bei der Verarbeitung Ihrer Anfrage auf: {str(e)}",
+                "summarized_answer": error_msg,
                 "retrieved_docs": []
             }
     
