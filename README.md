@@ -174,9 +174,4 @@ This shows that multi-agent systems can handle complex reasoning tasks in specia
 }
 ```
 
-## Team
-
-- **Rohil Rao** - Developer
-- **Prof. Dr. Thomas Kopinski** - Supervisor
-
 *University of Applied Sciences Südwestfalen*
