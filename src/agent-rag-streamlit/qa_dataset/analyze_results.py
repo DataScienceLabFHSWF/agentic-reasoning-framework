@@ -127,6 +127,27 @@ class ResultsAnalyzer:
         max_relevance_score = result.get("workflow_metadata", {}).get("max_relevance_score", 0)
         num_retrieved_docs = result.get("workflow_metadata", {}).get("num_retrieved_docs", 0)
         
+        # Enhanced workflow metrics
+        num_tool_calls = result.get("workflow_metadata", {}).get("num_tool_calls", 0)
+        num_follow_up_questions = result.get("workflow_metadata", {}).get("num_follow_up_questions", 0)
+        num_additional_context = result.get("workflow_metadata", {}).get("num_additional_context", 0)
+        total_tool_execution_time = result.get("workflow_metadata", {}).get("total_tool_execution_time", 0.0)
+        
+        # Tool call analysis
+        tool_calls = result.get("detailed_workflow_data", {}).get("tool_calls", [])
+        unique_tools_used = len(set(tc.get("tool_name", "unknown") for tc in tool_calls))
+        successful_tool_calls = sum(1 for tc in tool_calls if tc.get("success", True))
+        failed_tool_calls = len(tool_calls) - successful_tool_calls
+        
+        # Follow-up question analysis
+        follow_ups = result.get("detailed_workflow_data", {}).get("follow_up_questions", [])
+        unique_follow_up_generators = len(set(fq.get("generated_by", "unknown") for fq in follow_ups))
+        
+        # Additional context analysis
+        additional_context = result.get("detailed_workflow_data", {}).get("additional_context", [])
+        avg_context_relevance = np.mean([ac.get("relevance_score", 0.0) for ac in additional_context]) if additional_context else 0.0
+        total_context_length = sum(ac.get("content_length", 0) for ac in additional_context)
+        
         return {
             "final_answer_exact_correct": final_answer_exact_correct,
             "final_answer_near_correct": final_answer_near_correct,
@@ -137,6 +158,19 @@ class ResultsAnalyzer:
             "is_relevant": is_relevant,
             "max_relevance_score": max_relevance_score,
             "num_retrieved_docs": num_retrieved_docs,
+            # Enhanced workflow metrics
+            "num_tool_calls": num_tool_calls,
+            "num_follow_up_questions": num_follow_up_questions,
+            "num_additional_context": num_additional_context,
+            "total_tool_execution_time": total_tool_execution_time,
+            "tool_execution_percentage": (total_tool_execution_time / processing_time * 100) if processing_time > 0 else 0,
+            "unique_tools_used": unique_tools_used,
+            "successful_tool_calls": successful_tool_calls,
+            "failed_tool_calls": failed_tool_calls,
+            "tool_success_rate": (successful_tool_calls / num_tool_calls * 100) if num_tool_calls > 0 else 100,
+            "unique_follow_up_generators": unique_follow_up_generators,
+            "avg_context_relevance": avg_context_relevance,
+            "total_context_length": total_context_length,
             "expected_answer": str(expected_answer),
             "reasoning_answer": reasoning_answer,
             "summarized_answer": summarized_answer,
@@ -177,6 +211,9 @@ class ResultsAnalyzer:
         
         tables = {}
         
+        # Check if enhanced metrics are available
+        has_enhanced_metrics = 'num_tool_calls' in df.columns and df['num_tool_calls'].notna().any()
+        
         # Overall summary (Micro-average)
         overall_summary = {
             "Total Questions": len(df),
@@ -187,6 +224,17 @@ class ResultsAnalyzer:
             "Intent Classification Acc.": f"{df['intent_correct'].mean():.2%}",
             "Avg Processing Time (s)": f"{df['processing_time'].mean():.2f}",
         }
+        
+        # Add enhanced metrics if available
+        if has_enhanced_metrics:
+            overall_summary.update({
+                "Avg Tool Calls": f"{df['num_tool_calls'].mean():.1f}",
+                "Avg Follow-ups": f"{df['num_follow_up_questions'].mean():.1f}",
+                "Avg Additional Context": f"{df['num_additional_context'].mean():.1f}",
+                "Tool Success Rate": f"{df['tool_success_rate'].mean():.1f}%",
+                "Tool Execution Time %": f"{df['tool_execution_percentage'].mean():.1f}%"
+            })
+        
         tables["Overall Summary"] = pd.DataFrame([overall_summary])
         
         # --- Micro vs. Macro Accuracy Calculation ---
@@ -247,6 +295,27 @@ class ResultsAnalyzer:
             'Reasoning Containment', 'Avg Processing Time'
         ]
         tables["By Dataset and Level"] = dataset_level_summary
+        
+        # Enhanced workflow summary (if metrics available)
+        if has_enhanced_metrics:
+            workflow_summary = df.groupby('dataset').agg({
+                'num_tool_calls': ['count', 'mean', 'sum'],
+                'num_follow_up_questions': ['mean', 'sum'],
+                'num_additional_context': ['mean', 'sum'],
+                'tool_success_rate': 'mean',
+                'tool_execution_percentage': 'mean',
+                'unique_tools_used': 'mean',
+                'avg_context_relevance': 'mean'
+            }).round(3)
+            
+            workflow_summary.columns = [
+                'Questions', 'Avg Tool Calls', 'Total Tool Calls',
+                'Avg Follow-ups', 'Total Follow-ups',
+                'Avg Additional Context', 'Total Additional Context',
+                'Tool Success Rate %', 'Tool Execution Time %',
+                'Avg Unique Tools', 'Avg Context Relevance'
+            ]
+            tables["Enhanced Workflow Metrics"] = workflow_summary
         
         return tables
     
@@ -453,25 +522,131 @@ class ResultsAnalyzer:
         plot_files.append(str(plot_file))
         plt.close()
         
+        # Check if enhanced metrics are available
+        has_enhanced_metrics = 'num_tool_calls' in df.columns and df['num_tool_calls'].notna().any()
+        
+        if has_enhanced_metrics:
+            # 6. Enhanced Workflow Analysis
+            fig, axes = plt.subplots(2, 3, figsize=(20, 12))
+            
+            # Tool calls distribution
+            axes[0,0].hist(df['num_tool_calls'], bins=max(1, int(df['num_tool_calls'].max())), alpha=0.7, edgecolor='black')
+            axes[0,0].set_title('Tool Calls Distribution')
+            axes[0,0].set_xlabel('Number of Tool Calls')
+            axes[0,0].set_ylabel('Frequency')
+            axes[0,0].axvline(df['num_tool_calls'].mean(), color='red', linestyle='--',
+                             label=f'Mean: {df["num_tool_calls"].mean():.1f}')
+            axes[0,0].legend()
+            
+            # Follow-up questions distribution
+            axes[0,1].hist(df['num_follow_up_questions'], bins=max(1, int(df['num_follow_up_questions'].max())), alpha=0.7, edgecolor='black')
+            axes[0,1].set_title('Follow-up Questions Distribution')
+            axes[0,1].set_xlabel('Number of Follow-up Questions')
+            axes[0,1].set_ylabel('Frequency')
+            axes[0,1].axvline(df['num_follow_up_questions'].mean(), color='red', linestyle='--',
+                             label=f'Mean: {df["num_follow_up_questions"].mean():.1f}')
+            axes[0,1].legend()
+            
+            # Additional context distribution
+            axes[0,2].hist(df['num_additional_context'], bins=max(1, int(df['num_additional_context'].max())), alpha=0.7, edgecolor='black')
+            axes[0,2].set_title('Additional Context Distribution')
+            axes[0,2].set_xlabel('Number of Additional Context Items')
+            axes[0,2].set_ylabel('Frequency')
+            axes[0,2].axvline(df['num_additional_context'].mean(), color='red', linestyle='--',
+                             label=f'Mean: {df["num_additional_context"].mean():.1f}')
+            axes[0,2].legend()
+            
+            # Tool calls vs accuracy
+            axes[1,0].scatter(df['num_tool_calls'], df['final_answer_near_correct'], alpha=0.6)
+            axes[1,0].set_xlabel('Number of Tool Calls')
+            axes[1,0].set_ylabel('Final Answer Near Accuracy')
+            axes[1,0].set_title('Tool Calls vs Answer Accuracy')
+            corr = df['num_tool_calls'].corr(df['final_answer_near_correct'])
+            axes[1,0].text(0.05, 0.95, f'Correlation: {corr:.3f}', 
+                          transform=axes[1,0].transAxes, fontsize=10,
+                          bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.8))
+            
+            # Tool execution time percentage
+            axes[1,1].hist(df['tool_execution_percentage'], bins=20, alpha=0.7, edgecolor='black')
+            axes[1,1].set_title('Tool Execution Time as % of Total')
+            axes[1,1].set_xlabel('Tool Execution Time (%)')
+            axes[1,1].set_ylabel('Frequency')
+            axes[1,1].axvline(df['tool_execution_percentage'].mean(), color='red', linestyle='--',
+                             label=f'Mean: {df["tool_execution_percentage"].mean():.1f}%')
+            axes[1,1].legend()
+            
+            # Tool success rate
+            axes[1,2].hist(df['tool_success_rate'], bins=10, alpha=0.7, edgecolor='black')
+            axes[1,2].set_title('Tool Success Rate Distribution')
+            axes[1,2].set_xlabel('Tool Success Rate (%)')
+            axes[1,2].set_ylabel('Frequency')
+            axes[1,2].axvline(df['tool_success_rate'].mean(), color='red', linestyle='--',
+                             label=f'Mean: {df["tool_success_rate"].mean():.1f}%')
+            axes[1,2].legend()
+            
+            plt.suptitle('Enhanced Workflow Analysis', fontsize=16, fontweight='bold')
+            plt.tight_layout()
+            plot_file = output_dir / 'enhanced_workflow_analysis.png'
+            plt.savefig(plot_file, dpi=300, bbox_inches='tight')
+            plot_files.append(str(plot_file))
+            plt.close()
+            
+            # 7. Workflow Efficiency Heatmap
+            fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+            
+            # Tool calls heatmap
+            tool_pivot = df.pivot_table(values='num_tool_calls', index='level', 
+                                       columns='dataset', aggfunc='mean')
+            sns.heatmap(tool_pivot, annot=True, cmap='YlOrRd', 
+                       ax=axes[0], fmt='.1f', cbar_kws={'label': 'Average Tool Calls'})
+            axes[0].set_title('Average Tool Calls: Dataset vs Difficulty Level')
+            
+            # Follow-up questions heatmap
+            followup_pivot = df.pivot_table(values='num_follow_up_questions', index='level', 
+                                           columns='dataset', aggfunc='mean')
+            sns.heatmap(followup_pivot, annot=True, cmap='Blues', 
+                       ax=axes[1], fmt='.1f', cbar_kws={'label': 'Average Follow-up Questions'})
+            axes[1].set_title('Average Follow-up Questions: Dataset vs Difficulty Level')
+            
+            plt.tight_layout()
+            plot_file = output_dir / 'workflow_efficiency_heatmap.png'
+            plt.savefig(plot_file, dpi=300, bbox_inches='tight')
+            plot_files.append(str(plot_file))
+            plt.close()
+        
         return plot_files
     
     def create_detailed_analysis(self, metrics: List[Dict[str, Any]]) -> pd.DataFrame:
         """Create detailed question-by-question analysis"""
         df = pd.DataFrame(metrics)
         
+        # Check if enhanced metrics are available
+        has_enhanced_metrics = 'num_tool_calls' in df.columns and df['num_tool_calls'].notna().any()
+        
         # Select relevant columns for detailed view
-        detailed_df = df[[
+        detailed_columns = [
             'dataset', 'level', 'question', 'expected_answer', 
             'final_answer', 'reasoning_answer', 'summarized_answer',
             'final_answer_exact_correct', 'final_answer_near_correct',
             'reasoning_contains_answer', 'summarized_contains_answer',
             'intent_correct', 'processing_time', 
             'max_relevance_score', 'is_relevant'
-        ]].copy()
+        ]
+        
+        # Add enhanced columns if available
+        if has_enhanced_metrics:
+            detailed_columns.extend([
+                'num_tool_calls', 'num_follow_up_questions', 'num_additional_context',
+                'tool_success_rate', 'tool_execution_percentage', 'unique_tools_used',
+                'avg_context_relevance', 'total_context_length'
+            ])
+        
+        detailed_df = df[detailed_columns].copy()
         
         # Truncate long answers for readability
         for col in ['question', 'expected_answer', 'final_answer', 'reasoning_answer', 'summarized_answer']:
-            detailed_df[col] = detailed_df[col].astype(str).str[:100] + "..."
+            if col in detailed_df.columns:
+                detailed_df[col] = detailed_df[col].astype(str).str[:100] + "..."
         
         return detailed_df
     

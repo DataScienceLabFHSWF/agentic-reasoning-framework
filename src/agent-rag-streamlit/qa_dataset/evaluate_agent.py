@@ -105,9 +105,8 @@ class AgentEvaluator:
         # Clear chat history before each question to ensure clean state
         self.agent.clear_chat_history()
         
-        # Create initial state and run workflow
         try:
-            # We need to access the workflow directly to get all answers
+            # Run workflow directly to capture full state in one execution
             from langchain_core.messages import HumanMessage
             from agent_utils.chat_state import ChatState
             
@@ -119,34 +118,70 @@ class AgentEvaluator:
                 is_relevant=False,
                 retrieved_docs=[],
                 max_relevance_score=0.0,
-                reasoning_answer=None,  # Added reasoning answer field
+                reasoning_answer=None,
                 summarized_answer=None,
                 final_answer=None,
-                chat_history=[]
+                chat_history=[],
+                # Enhanced workflow tracking fields
+                tool_calls=[],
+                follow_up_questions=[],
+                additional_context=[],
+                workflow_metadata={}
             )
             
-            # Run the workflow
-            result = self.agent.workflow.invoke(initial_state)
+            # Run the workflow and capture the full state
+            logger.info("Running workflow to capture complete state...")
+            latest_state = self.agent.workflow.invoke(initial_state)
             
-            # Extract all answers and metadata from the workflow
-            reasoning_answer = result.get("reasoning_answer", "")
-            summarized_answer = result.get("summarized_answer", "")
-            final_answer = result.get("final_answer", "")
-            is_corpus_relevant = result.get("is_corpus_relevant", None)
-            intent_reasoning = result.get("intent_reasoning", "")
+            # Extract basic answers and metadata
+            reasoning_answer = latest_state.get("reasoning_answer", "")
+            summarized_answer = latest_state.get("summarized_answer", "")
+            final_answer = latest_state.get("final_answer", "")
+            is_corpus_relevant = latest_state.get("is_corpus_relevant", None)
+            intent_reasoning = latest_state.get("intent_reasoning", "")
             
-            # Additional metadata from workflow
-            is_relevant = result.get("is_relevant", None)
-            max_relevance_score = result.get("max_relevance_score", 0.0)
-            num_retrieved_docs = len(result.get("retrieved_docs", []))
+            # Traditional workflow metadata
+            is_relevant = latest_state.get("is_relevant", None)
+            max_relevance_score = latest_state.get("max_relevance_score", 0.0)
+            
+            # Handle retrieved_docs properly
+            retrieved_docs = latest_state.get("retrieved_docs", [])
+            if isinstance(retrieved_docs, int):
+                num_retrieved_docs = retrieved_docs
+            elif isinstance(retrieved_docs, list):
+                num_retrieved_docs = len(retrieved_docs)
+            else:
+                num_retrieved_docs = 0
+            
+            # FIXED: Get enhanced tracking data directly from state
+            tool_calls = latest_state.get("tool_calls", [])
+            follow_up_questions = latest_state.get("follow_up_questions", [])
+            additional_context = latest_state.get("additional_context", [])
+            
+            # Ensure they're lists (defensive programming)
+            if not isinstance(tool_calls, list):
+                tool_calls = []
+            if not isinstance(follow_up_questions, list):
+                follow_up_questions = []
+            if not isinstance(additional_context, list):
+                additional_context = []
             
             processing_time = time.time() - start_time
             
+            # Log enhanced information
             logger.info(f"Question processed in {processing_time:.2f}s")
             logger.info(f"Intent classification: {'corpus-relevant' if is_corpus_relevant else 'general'}")
-            logger.info(f"Reasoning answer: {len(reasoning_answer)} characters")
-            logger.info(f"Summarized answer: {summarized_answer[:100]}...")
+            logger.info(f"Tool calls made: {len(tool_calls)}")
+            logger.info(f"Follow-up questions generated: {len(follow_up_questions)}")
+            logger.info(f"Additional context retrieved: {len(additional_context)}")
+            logger.info(f"Retrieved docs: {num_retrieved_docs}")
             logger.info(f"Final answer: {final_answer}")
+            
+            # Calculate tool execution time
+            total_tool_execution_time = sum(
+                tc.get("execution_time", 0.0) if isinstance(tc, dict) else 0.0 
+                for tc in tool_calls
+            )
             
             return {
                 **question_data,  # Include original question data
@@ -163,7 +198,18 @@ class AgentEvaluator:
                     "is_relevant": is_relevant,
                     "max_relevance_score": max_relevance_score,
                     "num_retrieved_docs": num_retrieved_docs,
-                    "processing_time_seconds": processing_time
+                    "processing_time_seconds": processing_time,
+                    # Enhanced tracking
+                    "num_tool_calls": len(tool_calls),
+                    "num_follow_up_questions": len(follow_up_questions),
+                    "num_additional_context": len(additional_context),
+                    "total_tool_execution_time": total_tool_execution_time,
+                    "custom_metadata": latest_state.get("workflow_metadata", {})
+                },
+                "detailed_workflow_data": {
+                    "tool_calls": tool_calls,  # Save raw tool calls with all details
+                    "follow_up_questions": follow_up_questions,  # Save raw follow-up questions
+                    "additional_context": additional_context  # Save raw additional context
                 },
                 "evaluation_timestamp": datetime.now().isoformat()
             }

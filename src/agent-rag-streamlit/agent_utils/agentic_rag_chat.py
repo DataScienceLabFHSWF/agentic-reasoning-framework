@@ -1,6 +1,6 @@
 """
 agentic_rag_chat.py
-Main RAG chat class that orchestrates the workflow
+Main RAG chat class that orchestrates the workflow with ReAct reasoning
 """
 
 import logging
@@ -12,7 +12,7 @@ from .chat_state import ChatState
 from .workflow import RAGWorkflow
 from .router_agent import RouterAgent
 from .retriever_agent import RetrieverAgent
-from .reasoning_agent import ReasoningAgent  # New import
+from .reasoning_agent import ReasoningAgent  # Enhanced with ReAct
 from .summarizer_agent import SummarizerAgent
 from .general_agent import GeneralAgent
 from .final_answer_agent import FinalAnswerAgent
@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 class AgenticRAGChat:
     """
-    Main RAG chat class that orchestrates the entire workflow with intent classification
+    Main RAG chat class that orchestrates the entire workflow with intent classification and ReAct reasoning
     """
     
     def __init__(
@@ -38,35 +38,42 @@ class AgenticRAGChat:
         processed_dir: str,
         intent_model: str = "llama3.1:latest",
         router_model: str = "llama3.1:latest",
-        reasoning_model: str = "llama3.1:latest",  # New parameter
+        reasoning_model: str = "llama3.1:latest",
         summarizer_model: str = "llama3.1:latest",
         general_model: str = "llama3.1:latest",
         final_answer_model: str = "llama3.1:latest",
         temperature: float = 0.0,
         retrieval_k: int = 5,
         relevance_threshold: float = 0.05,
-        force_german: bool = True
+        force_german: bool = True,
+        # NEW: ReAct configuration parameters
+        max_react_iterations: int = 3,
+        react_relevance_threshold: float = 0.3
     ):
         self.chroma_dir = chroma_dir
         self.processed_dir = processed_dir
         self.chat_history = []
         self.relevance_threshold = relevance_threshold
         self.force_german = force_german
+        self.max_react_iterations = max_react_iterations
+        self.react_relevance_threshold = react_relevance_threshold
 
-        logger.info("Initializing Agentic RAG Chat")
+        logger.info("Initializing Agentic RAG Chat with ReAct")
         logger.info(f"Intent model: {intent_model}")
         logger.info(f"Router model: {router_model}")
-        logger.info(f"Reasoning model: {reasoning_model}")
+        logger.info(f"Reasoning model (ReAct): {reasoning_model}")
         logger.info(f"Summarizer model: {summarizer_model}")
         logger.info(f"General model: {general_model}")
         logger.info(f"Final answer model: {final_answer_model}")
         logger.info(f"Relevance threshold: {relevance_threshold}")
+        logger.info(f"ReAct max iterations: {max_react_iterations}")
+        logger.info(f"ReAct relevance threshold: {react_relevance_threshold}")
         
         # Preload all models into memory
         logger.info("Loading models into memory...")
         self.intent_llm = self._preload_model(intent_model, temperature, "Intent")
         self.router_llm = self._preload_model(router_model, temperature, "Router")
-        self.reasoning_llm = self._preload_model(reasoning_model, temperature, "Reasoning")  # New model loading
+        self.reasoning_llm = self._preload_model(reasoning_model, temperature, "Reasoning (ReAct)")
         self.summarizer_llm = self._preload_model(summarizer_model, temperature, "Summarizer")
         self.general_llm = self._preload_model(general_model, temperature, "General")
         self.final_answer_llm = self._preload_model(final_answer_model, temperature, "Final Answer")
@@ -76,24 +83,33 @@ class AgenticRAGChat:
         self.intent_agent = IntentClassificationAgent(self.intent_llm)
         self.router_agent = RouterAgent(self.router_llm, relevance_threshold)
         self.retriever_agent = RetrieverAgent(chroma_dir, processed_dir, k=retrieval_k)
-        self.reasoning_agent = ReasoningAgent(self.reasoning_llm)  # New agent initialization
+        
+        # NEW: Initialize ReAct-enabled reasoning agent with additional parameters
+        self.reasoning_agent = ReasoningAgent(
+            llm=self.reasoning_llm,
+            chroma_dir=chroma_dir,
+            processed_dir=processed_dir,
+            max_iterations=max_react_iterations,
+            relevance_threshold=react_relevance_threshold
+        )
+        
         self.summarizer_agent = SummarizerAgent(self.summarizer_llm)
         self.general_agent = GeneralAgent(self.general_llm)
         self.final_answer_agent = FinalAnswerAgent(self.final_answer_llm)
         
         # Initialize workflow
-        logger.info("Building workflow...")
+        logger.info("Building workflow with ReAct reasoning...")
         self.workflow = RAGWorkflow(
             intent_agent=self.intent_agent,
             router_agent=self.router_agent,
             retriever_agent=self.retriever_agent,
-            reasoning_agent=self.reasoning_agent,  # Pass the new agent to workflow
+            reasoning_agent=self.reasoning_agent,  # ReAct-enabled agent
             summarizer_agent=self.summarizer_agent,
             general_agent=self.general_agent,
             final_answer_agent=self.final_answer_agent
         )
         
-        logger.info("All models loaded and ready. Agentic RAG Chat initialized successfully")
+        logger.info("All models loaded and ready. Agentic RAG Chat with ReAct initialized successfully")
     
     def _preload_model(self, model_name: str, temperature: float, model_type: str):
         """Preload model and test with a simple query to ensure it's ready"""
@@ -122,7 +138,7 @@ class AgenticRAGChat:
         """
         logger.info(f"Processing user input: '{user_input[:50]}...'")
         
-        # Create initial state
+        # Create initial state with ReAct fields
         initial_state = ChatState(
             messages=[HumanMessage(content=user_input)],
             query=user_input,
@@ -131,10 +147,14 @@ class AgenticRAGChat:
             is_relevant=False,
             retrieved_docs=[],
             max_relevance_score=0.0,
-            reasoning_answer=None,  # New field
+            reasoning_answer=None,
             summarized_answer=None,
             final_answer=None,
-            chat_history=self.chat_history
+            chat_history=self.chat_history,
+            # NEW: Initialize ReAct tracking fields
+            followup_questions=[],
+            additional_retrieved_context=0,
+            react_iterations=0
         )
         
         try:
@@ -144,6 +164,16 @@ class AgenticRAGChat:
             # Extract the answer - prefer final_answer if available, otherwise summarized_answer
             answer = result.get("final_answer") or result.get("summarized_answer", "")
             
+            # Log ReAct statistics
+            followup_questions = result.get("followup_questions", [])
+            additional_context = result.get("additional_retrieved_context", 0)
+            
+            if followup_questions:
+                logger.info(f"ReAct generated {len(followup_questions)} follow-up questions")
+                logger.info(f"ReAct retrieved {additional_context} additional documents")
+                for i, question in enumerate(followup_questions, 1):
+                    logger.info(f"  Follow-up {i}: {question[:60]}...")
+            
             # Update chat history
             self.chat_history.append({"user": user_input, "assistant": answer})
             
@@ -152,17 +182,18 @@ class AgenticRAGChat:
                 self.chat_history = self.chat_history[-10:]
                 logger.info("Chat history trimmed to last 10 exchanges")
             
-            logger.info("Chat response generated successfully")
+            logger.info("Chat response generated successfully with ReAct")
             return answer
             
         except Exception as e:
-            logger.error(f"Error processing chat: {e}")
+            logger.error(f"Error processing chat with ReAct: {e}")
             return f"I encountered an error while processing your request: {str(e)}"
     
     def start_chat(self):
         """Start an interactive chat loop"""
-        logger.info("Starting interactive chat session")
-        print("RAG Chat Assistant is ready! Type 'quit', 'exit', or 'bye' to end the conversation.\n")
+        logger.info("Starting interactive chat session with ReAct")
+        print(f"RAG Chat Assistant with ReAct is ready! (Max {self.max_react_iterations} reasoning iterations)")
+        print("Type 'quit', 'exit', or 'bye' to end the conversation.\n")
         
         while True:
             try:
@@ -206,33 +237,38 @@ def create_rag_chat(
     chroma_dir: str,
     processed_dir: str,
     intent_model: str = "llama3.1:latest",
-    router_model: str = "gpt-oss:20b",
-    reasoning_model: str = "deepseek-r1:8b",  # New parameter
+    router_model: str = "llama3.1:latest",
+    reasoning_model: str = "deepseek-r1:8b",  # ReAct-capable model
     summarizer_model: str = "llama3.1:latest",
     general_model: str = "llama3.1:latest",
     final_answer_model: str = "llama3.1:latest",
     temperature: float = 0.0,
     retrieval_k: int = 3,
-    relevance_threshold: float = 0.5
+    relevance_threshold: float = 0.5,
+    # NEW: ReAct configuration parameters
+    max_react_iterations: int = 3,
+    react_relevance_threshold: float = 0.3
 ) -> AgenticRAGChat:
     """
-    Create and return a RAG chat instance with intent classification
+    Create and return a RAG chat instance with intent classification and ReAct reasoning
     
     Args:
         chroma_dir: Path to ChromaDB directory
         processed_dir: Path to processed documents directory
         intent_model: Model for intent classification
         router_model: Model for routing decisions
-        reasoning_model: Model for reasoning over documents
+        reasoning_model: Model for ReAct reasoning over documents (should support tool calling)
         summarizer_model: Model for summarization
         general_model: Model for general responses
         final_answer_model: Model for the succinct final answer
         temperature: Temperature for response generation
-        retrieval_k: Number of documents to retrieve
+        retrieval_k: Number of documents to retrieve initially
         relevance_threshold: Minimum relevance score to use RAG
+        max_react_iterations: Maximum number of ReAct loop iterations (default: 3)
+        react_relevance_threshold: Relevance threshold for additional document retrieval (default: 0.3)
         
     Returns:
-        Configured AgenticRAGChat instance
+        Configured AgenticRAGChat instance with ReAct capabilities
     """
     return AgenticRAGChat(
         chroma_dir=chroma_dir,
@@ -245,5 +281,7 @@ def create_rag_chat(
         final_answer_model=final_answer_model,
         temperature=temperature,
         retrieval_k=retrieval_k,
-        relevance_threshold=relevance_threshold
+        relevance_threshold=relevance_threshold,
+        max_react_iterations=max_react_iterations,
+        react_relevance_threshold=react_relevance_threshold
     )
