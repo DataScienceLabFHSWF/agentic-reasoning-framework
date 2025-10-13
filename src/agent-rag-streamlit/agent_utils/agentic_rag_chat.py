@@ -43,7 +43,7 @@ class AgenticRAGChat:
         general_model: str = "llama3.1:latest",
         final_answer_model: str = "llama3.1:latest",
         temperature: float = 0.0,
-        retrieval_k: int = 5,
+        retrieval_k: int = 3,
         relevance_threshold: float = 0.05,
         force_german: bool = True,
         # NEW: ReAct configuration parameters

@@ -21,8 +21,8 @@ from rag_utils.retriever import (
 query = "Welche Regelungen gelten für die Lagerung von Atommüll in Deutschland??"
 query = "Wer sind die Genehmigungsinhaber (Antragsteller) der Anlage KRB II?"
 query = "Wie viele Blöcke gehören zur Anlage KRB II und welche elektrische Leistung hat jeder Block?"
-chroma_dir = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-processed_dir = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
+chroma_dir = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
+processed_dir = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
 
 # --- Check ChromaDB compatibility ---
 print("=== ChromaDB Compatibility Check ===")
