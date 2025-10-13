@@ -63,8 +63,8 @@ def main():
         "intent_model": "llama3.1:latest",
         "router_model": "llama3.1:latest",
         "reasoning_model": "qwen3:14b",  # Added reasoning model
-        "summarizer_model": "llama3.1:latest", 
-        "general_model": "llama3.1:latest",
+        "summarizer_model": "qwen3:14b", # Summarization model
+        "general_model": "llama3.1:latest",     # General conversation model
         "final_answer_model": "llama3.1:latest",
         "temperature": args.temperature,
         "retrieval_k": args.retrieval_k,
@@ -133,3 +133,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+      
