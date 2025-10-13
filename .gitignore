@@ -1,5 +1,6 @@
 arf-env*
 arf-env/*
+*/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/models/*
 notebooks/.ipynb_checkpoints/*
 *.pdf*
 notebooks/models/*
@@ -11,3 +12,4 @@ src/ma-rag/markdown/*
 src/agent-rag-streamlit/chroma_db/*
 src/agent-rag-streamlit/.env
 src/agent-rag-streamlit/tests/src/agent-rag-streamlit/chroma_db/chroma.sqlite3
+src/agent-rag-streamlit/models/*
