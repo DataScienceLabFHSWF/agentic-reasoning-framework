@@ -1,6 +1,8 @@
 arf-env*
 arf-env/*
 notebooks/.ipynb_checkpoints/*
+src/agent-rag-streamlit/models/*
+src/agent-rag-streamlit/chroma_db/*
 *.pdf*
 notebooks/models/*
 notebooks/models/.locks/models--sentence-transformers--all-MiniLM-L6-v2/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db.lock
@@ -11,3 +13,5 @@ src/ma-rag/markdown/*
 src/agent-rag-streamlit/chroma_db/*
 src/agent-rag-streamlit/.env
 src/agent-rag-streamlit/tests/src/agent-rag-streamlit/chroma_db/chroma.sqlite3
+src/agent-rag-streamlit/tests/test_vectorizer.py
+.python-version

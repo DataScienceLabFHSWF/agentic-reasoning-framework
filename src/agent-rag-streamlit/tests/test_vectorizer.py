@@ -12,9 +12,9 @@ embedding_model = load_hf_embeddings_from_env()
 
 # 2. Call the main function with the configured model
 my_vector_store = create_chromadb_from_markdown(
-    folder_path="/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files",
+    folder_path="/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files",
     embedding_model=embedding_model,
-    persist_directory="/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
+    persist_directory="/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
 )
 
 if my_vector_store:
