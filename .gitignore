@@ -1,9 +1,9 @@
 arf-env*
 arf-env/*
-notebooks/.ipynb_checkpoints/*
+example_notebooks/.ipynb_checkpoints/*
 *.pdf*
-notebooks/models/*
-notebooks/models/.locks/models--sentence-transformers--all-MiniLM-L6-v2/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db.lock
+example_notebooks/models/*
+example_notebooks/models/.locks/models--sentence-transformers--all-MiniLM-L6-v2/53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db.lock
 *.pyc*
 src/ma-rag/utils/chroma/*
 src/ma-rag/markdown/*
