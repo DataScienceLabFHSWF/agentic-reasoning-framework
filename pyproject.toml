@@ -1,0 +1,29 @@
+[project]
+name = "agentic-reasoning-framework"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "PyMuPDF==1.24.1",
+  "ipython==8.12.3",
+  "langchain==1.0.3",
+  "langchain-community==0.4.1",
+  "langchain-core==1.0.2",
+  "langchain-openai>=1.0.1",
+  "langchain_huggingface==1.0.0",
+  "langchain_ollama==1.0.0",
+  "langgraph==1.0.2",
+  "markdownify==1.2.0",
+  "matplotlib==3.10.7",
+  "numpy==2.3.4",
+  "pandas==2.3.3",
+  "python-dotenv==1.2.1",
+  "python_docx==1.2.0",
+  "python_pptx==1.0.2",
+  "rank_bm25==0.2.2",
+  "seaborn==0.13.2",
+  "streamlit==1.48.0",
+  "tqdm==4.67.1",
+]
+
+[tool.uv.sources]
+pypi = { url = "https://pypi.org/simple" }
