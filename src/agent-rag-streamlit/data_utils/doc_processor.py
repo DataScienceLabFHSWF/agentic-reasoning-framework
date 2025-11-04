@@ -137,8 +137,6 @@ class DocProcessor:
         }
 
     # Public API
-    from tqdm import tqdm
-
     def process_directory(self, input_dir: str, output_dir: str) -> List[ProcessedDocument]:
         in_path = Path(input_dir)
         out_path = Path(output_dir)
