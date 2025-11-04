@@ -238,7 +238,7 @@ def create_rag_chat(
     processed_dir: str,
     intent_model: str = "llama3.1:latest",
     router_model: str = "llama3.1:latest",
-    reasoning_model: str = "deepseek-r1:8b",  # ReAct-capable model
+    reasoning_model: str = "qwen3:14b",  # ReAct-capable model
     summarizer_model: str = "llama3.1:latest",
     general_model: str = "llama3.1:latest",
     final_answer_model: str = "llama3.1:latest",
