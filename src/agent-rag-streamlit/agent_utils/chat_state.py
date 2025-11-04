@@ -5,7 +5,7 @@ State definition for the RAG chat workflow with ReAct support
 
 from typing import Dict, Any, List, TypedDict, Optional
 from langchain_core.messages import BaseMessage
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 
 class ChatState(TypedDict):

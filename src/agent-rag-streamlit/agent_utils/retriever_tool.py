@@ -6,7 +6,7 @@ Tool wrapper for the retrieval functionality to be used by ReAct reasoning agent
 import logging
 from typing import List, Any, Dict
 from langchain_core.tools import Tool
-from langchain.schema import Document
+from langchain_core.documents import Document
 import sys
 import os
 
