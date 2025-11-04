@@ -1,6 +1,6 @@
 import sys
 import os
-from langchain.schema import Document
+from langchain_core.documents import Document
 from dotenv import load_dotenv
 
 # Load environment variables from a .env file
@@ -21,8 +21,8 @@ from rag_utils.retriever import (
 query = "Welche Regelungen gelten für die Lagerung von Atommüll in Deutschland??"
 query = "Wer sind die Genehmigungsinhaber (Antragsteller) der Anlage KRB II?"
 query = "Wie viele Blöcke gehören zur Anlage KRB II und welche elektrische Leistung hat jeder Block?"
-chroma_dir = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-processed_dir = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
+chroma_dir = "../chroma_db"
+processed_dir = "../processed_files"
 
 # --- Check ChromaDB compatibility ---
 print("=== ChromaDB Compatibility Check ===")

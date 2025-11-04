@@ -1,10 +1,10 @@
 import os
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from typing import Optional, List
-from langchain.schema import Document
+from langchain_core.documents import Document
 from dotenv import load_dotenv
 
 def load_hf_embeddings_from_env() -> HuggingFaceEmbeddings:
@@ -15,13 +15,29 @@ def load_hf_embeddings_from_env() -> HuggingFaceEmbeddings:
     Returns:
         HuggingFaceEmbeddings: A configured embedding model.
     """
-    load_dotenv(dotenv_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))  # Load environment variables from .env file located one folder upstream
+    # Find .env file - look in src directory (two levels up from this file)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    src_dir = os.path.dirname(os.path.dirname(current_dir))
+    env_path = os.path.join(src_dir, ".env")
+    
+    if not os.path.exists(env_path):
+        raise FileNotFoundError(f".env file not found at {env_path}")
+    
+    load_dotenv(dotenv_path=env_path)
+    print(f"Loaded environment variables from: {env_path}")
 
     # Get the cache folder path from the environment variables
-    # We use os.getenv to safely retrieve the value
-    cache_folder = os.getenv("HUGGINGFACE_HUB_CACHE") or os.getenv("HF_HOME") or os.getenv("TRANSFORMERS_CACHE")
+    cache_folder = os.getenv("HF_HOME") or os.getenv("HUGGINGFACE_HUB_CACHE") or os.getenv("TRANSFORMERS_CACHE")
     if not cache_folder:
         raise ValueError("Hugging Face cache folder environment variable not set. Please set HF_HOME, TRANSFORMERS_CACHE, or HUGGINGFACE_HUB_CACHE in your .env file.")
+
+    # Convert relative path to absolute path if needed
+    if not os.path.isabs(cache_folder):
+        cache_folder = os.path.abspath(os.path.join(src_dir, cache_folder))
+    
+    # Ensure the cache directory exists
+    os.makedirs(cache_folder, exist_ok=True)
+    print(f"Using HuggingFace cache directory: {cache_folder}")
 
     embedding_model = HuggingFaceEmbeddings(
         model_name="intfloat/multilingual-e5-large-instruct",

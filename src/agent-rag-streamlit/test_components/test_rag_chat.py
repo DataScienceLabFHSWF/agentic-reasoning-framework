@@ -5,8 +5,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from agent_utils.agentic_rag_chat import create_rag_chat
 
-CHROMA_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
+CHROMA_DIR = "../chroma_db"
+PROCESSED_DIR = "../processed_files"
 
 print("Initializing RAG Chat System...")
 print("This may take a moment as we load all models into memory...")

@@ -14,3 +14,8 @@ src/agent-rag-streamlit/chroma_db/*
 src/agent-rag-streamlit/.env
 src/agent-rag-streamlit/tests/src/agent-rag-streamlit/chroma_db/chroma.sqlite3
 src/agent-rag-streamlit/models/*
+*agentic-reasoning-framework/src/models/*
+
+*.lock*
+src/models/*
+src/agent-rag-streamlit/test_components/models/*

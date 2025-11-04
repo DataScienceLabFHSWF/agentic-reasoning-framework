@@ -11,8 +11,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from rag_utils.retriever import hybrid_retrieve
 
 # Configuration
-CHROMA_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
+CHROMA_DIR = "../chroma_db"
+PROCESSED_DIR = "../processed_files"
 MODEL = "qwen3:32b"
 MAX_ITERATIONS = 20
 

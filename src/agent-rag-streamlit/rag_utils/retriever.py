@@ -14,8 +14,49 @@ from langchain_community.vectorstores import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
+
+def load_hf_embeddings_from_env() -> HuggingFaceEmbeddings:
+    """
+    Loads environment variables from a .env file and creates a
+    HuggingFaceEmbeddings instance with cached model path.
+
+    Returns:
+        HuggingFaceEmbeddings: A configured embedding model.
+    """
+    # Find .env file - look in src directory (two levels up from this file)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    src_dir = os.path.dirname(os.path.dirname(current_dir))
+    env_path = os.path.join(src_dir, ".env")
+    
+    if not os.path.exists(env_path):
+        logger.warning(f".env file not found at {env_path}, using default cache location")
+        cache_folder = None
+    else:
+        load_dotenv(dotenv_path=env_path)
+        
+        # Get the cache folder path from the environment variables
+        cache_folder = os.getenv("HF_HOME") or os.getenv("HUGGINGFACE_HUB_CACHE") or os.getenv("TRANSFORMERS_CACHE")
+        
+        if cache_folder:
+            # Convert relative path to absolute path if needed
+            if not os.path.isabs(cache_folder):
+                cache_folder = os.path.abspath(os.path.join(src_dir, cache_folder))
+            
+            # Ensure the cache directory exists
+            os.makedirs(cache_folder, exist_ok=True)
+            logger.info(f"Using HuggingFace cache directory: {cache_folder}")
+        else:
+            logger.warning("No HuggingFace cache folder found in .env file")
+
+    # Create embedding model with or without cache folder
+    embedding_kwargs = {"model_name": "intfloat/multilingual-e5-large-instruct"}
+    if cache_folder:
+        embedding_kwargs["cache_folder"] = cache_folder
+    
+    return HuggingFaceEmbeddings(**embedding_kwargs)
 
 @dataclass
 class RetrievalConfig:
@@ -110,7 +151,7 @@ def get_vector_scores(query: str, chroma_dir: str, k: int = 5) -> List[Tuple[Doc
     Retrieve K docs from Chroma with a robust similarity mapping.
     Handles both legacy documents (without chunk_id) and new documents (with chunk_id).
     """
-    embedding_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
+    embedding_model = load_hf_embeddings_from_env()
     vectorstore = Chroma(persist_directory=chroma_dir, embedding_function=embedding_model)
 
     docs_and_scores = vectorstore.similarity_search_with_score(query, k=k)
@@ -607,7 +648,7 @@ def check_chromadb_chunk_compatibility(chroma_dir: str) -> bool:
     Returns True if chunk-aware, False if legacy.
     """
     try:
-        embedding_model = HuggingFaceEmbeddings(model_name="intfloat/multilingual-e5-large-instruct")
+        embedding_model = load_hf_embeddings_from_env()
         vectorstore = Chroma(persist_directory=chroma_dir, embedding_function=embedding_model)
         
         # Sample a few documents
