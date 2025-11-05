@@ -3,9 +3,38 @@ import os
 import sys
 import time
 import logging
+import yaml  # <-- Import
 from typing import Generator, Dict, Any
 
-# Add the current directory to Python path
+# --- Start: Load Configuration ---
+def load_config():
+    """Loads config from YAML file."""
+    with open("config.yaml", 'r') as f:
+        config = yaml.safe_load(f)
+    return config
+
+# Load config globally
+CONFIG = load_config()
+
+# Use config values
+paths = CONFIG['paths']
+models = CONFIG['models']
+settings = CONFIG['settings']
+
+CHROMA_DIR = os.environ.get("CHROMA_DIR", paths['chroma_db'])
+PROCESSED_DIR = os.environ.get("PROCESSED_DIR", paths['processed_files'])
+
+INTENT_MODEL = os.environ.get("INTENT_MODEL", models['intent'])
+ROUTER_MODEL = os.environ.get("ROUTER_MODEL", models['router'])
+REASONING_MODEL = os.environ.get("REASONING_MODEL", models['reasoning'])
+SUMMARIZER_MODEL = os.environ.get("SUMMARIZER_MODEL", models['summarizer'])
+GENERAL_MODEL = os.environ.get("GENERAL_MODEL", models['general'])
+FINAL_ANSWER_MODEL = os.environ.get("FINAL_ANSWER_MODEL", models['final_answer'])
+
+RELEVANCE_THRESHOLD = os.environ.get("RELEVANCE_THRESHOLD", settings['relevance_threshold'])
+# --- End: Load Configuration ---
+
+
 sys.path.append(os.path.dirname(__file__))
 
 from agent_utils.agentic_rag_chat import create_rag_chat
@@ -52,21 +81,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Constants
-CHROMA_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-PROCESSED_DIR = "/mnt/data3/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
-INTENT_MODEL = "llama3.1:latest"
-ROUTER_MODEL = "llama3.1:latest"
-REASONING_MODEL = "qwen3:14b"
-SUMMARIZER_MODEL = "llama3.1:latest"
-GENERAL_MODEL = "llama3.1:latest"
-FINAL_ANSWER_MODEL = "llama3.1:latest"
-CHROMA_DIR = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/chroma_db"
-PROCESSED_DIR = "/home/rrao/projects/agentic-reasoning-framework/src/agent-rag-streamlit/processed_files"
-ROUTER_MODEL = "qwen3:14b"
-SUMMARIZER_MODEL = "mistral:latest"
-GENERAL_MODEL = "mistral:latest"
-RELEVANCE_THRESHOLD = 0.15
+
 
 def show_agent_status(agent_type: str, status: str, details: str = ""):
     """Display agent status with professional styling"""

@@ -1,0 +1,17 @@
+# Configuration for file paths
+paths:
+  chroma_db: "./chroma_db" 
+  processed_files: "./processed_files"
+
+# Model names for different agents
+models:
+  intent: "llama3.1:latest"
+  router: "qwen3:14b"
+  reasoning: "qwen3:14b" 
+  summarizer: "mistral:latest"
+  general: "mistral:latest"
+  final_answer: "llama3.1:latest"
+
+# Application thresholds
+settings:
+  relevance_threshold: 0.15
