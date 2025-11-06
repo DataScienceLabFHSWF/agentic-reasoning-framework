@@ -1,11 +1,8 @@
 # Agentic Reasoning Framework for German Nuclear Documents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 A multi-agent system that answers complex questions about German nuclear decommissioning documents using iterative reasoning and retrieval-augmented generation (RAG).
-
-![System Architecture](Agents%20framework%20(1).jpg)
 
 ## Quick Setup
 
