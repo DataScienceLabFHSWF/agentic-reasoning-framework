@@ -5,13 +5,13 @@ paths:
 
 # Model names for different agents
 models:
-  intent: "llama3.1:latest"
+  intent: "mistral:latest"
   router: "qwen3:14b"
   reasoning: "qwen3:14b" 
   summarizer: "mistral:latest"
   general: "mistral:latest"
-  final_answer: "llama3.1:latest"
+  final_answer: "mistral:latest"
 
 # Application thresholds
 settings:
-  relevance_threshold: 0.15
+  relevance_threshold: 0.1

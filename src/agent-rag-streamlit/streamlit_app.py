@@ -125,12 +125,12 @@ def initialize_rag_chat():
             
             # Updated stages to include all agents
             stages = [
-                ("Intent Agent (llama3.1:latest)", "Loading intent classification model..."),
-                ("Router Agent (qwen3:14b)", "Preparing routing intelligence..."),
-                ("Reasoning Agent (deepseek-r1:8b)", "Loading reasoning capabilities..."),
-                ("Summarizer Agent (mistral:latest)", "Loading document summarization capabilities..."),
-                ("General Agent (mistral:latest)", "Initializing conversational AI..."),
-                ("Final Answer Agent (llama3.1:latest)", "Loading final answer generation..."),
+                ("Intent Agent", "Loading intent classification model..."),
+                ("Router Agent", "Preparing routing intelligence..."),
+                ("Reasoning Agent", "Loading reasoning capabilities..."),
+                ("Summarizer Agent", "Loading document summarization capabilities..."),
+                ("General Agent", "Initializing conversational AI..."),
+                ("Final Answer Agent", "Loading final answer generation..."),
                 ("Vector Database", "Connecting to ChromaDB..."),
                 ("RAG Pipeline", "Assembling retrieval-augmented generation system...")
             ]

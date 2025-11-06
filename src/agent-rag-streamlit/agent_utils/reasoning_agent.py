@@ -90,6 +90,7 @@ class ReasoningAgent:
         all_retrieved_docs = initial_docs.copy()
         followup_questions = []
         iteration = 0
+        reasoning_answer = ""  # Initialize reasoning_answer before try block
         
         print(f"📄 Initial context length: {len(current_context)} characters")
         
@@ -147,7 +148,8 @@ class ReasoningAgent:
                         all_retrieved_docs.extend(new_docs)
                     else:
                         print("❌ No additional documents found")
-                        # No new information, exit loop
+                        # No new information, generate final answer with current context
+                        reasoning_answer = self._generate_final_answer(query, current_context)
                         break
                 else:
                     # Got a satisfactory answer
