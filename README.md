@@ -7,6 +7,70 @@ A multi-agent system that answers complex questions about German nuclear decommi
 
 ![System Architecture](Agents%20framework%20(1).jpg)
 
+## Quick Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/DataScienceLabFHSWF/agentic-reasoning-framework.git
+cd agentic-reasoning-framework
+
+# Install dependencies with uv
+uv sync
+```
+
+## Detailed Setup & Usage
+
+The system processes documents through several stages before you can query them:
+
+### 1. Document Processing Pipeline
+
+The repository includes raw PDF files that need to be processed:
+
+**Step 1: Convert PDFs to Markdown**
+```bash
+python run_individual_components/run_doc_processor.py
+```
+This converts the raw PDF files to structured Markdown (.md) files.
+
+**Step 2: Vectorize Documents**
+```bash
+python run_individual_components/run_vectorizer.py
+```
+This vectorizes the .md files and stores them in a Chroma DB vector store.
+
+**Step 3: Test Retrievers (Optional)**
+```bash
+python run_individual_components/run_retrievers.py
+```
+You can run individual retrievers to test chunk retrieval from the vector store.
+
+**Step 4: Run the RAG Chat Workflow**
+```bash
+python run_individual_components/run_rag_chat.py
+```
+This assembles the entire LangGraph workflow to run the agentic RAG chat.
+
+### 2. Why "Agentic"?
+
+The system is **agentic** because the agent can autonomously decide whether to fetch more context during the reasoning process. This "RAG-as-a-tool" approach allows the agent to:
+- Determine if initial retrieved context is sufficient
+- Request additional document chunks when needed
+- Iterate through reasoning steps with selective retrieval
+
+### 3. Running the Streamlit Interface
+
+The RAG chat is wrapped in a user-friendly Streamlit frontend.
+
+```bash
+cd src/agent-rag-streamlit
+streamlit run streamlit_app.py
+```
+
+**Example Questions:**
+- `Welches Unternehmen betreibt das Kernkraftwerk Grafenrheinfeld (KKG)?`
+- `Welcher Reaktortyp ist das Kernkraftwerk Grafenrheinfeld?`
+- `Was ist die thermische Leistung des Kernkraftwerks?`
+
 ## What it does
 
 This framework uses multiple AI agents working together to:
