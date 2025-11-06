@@ -48,7 +48,7 @@ class AgenticRAGChat:
         force_german: bool = True,
         # NEW: ReAct configuration parameters
         max_react_iterations: int = 3,
-        react_relevance_threshold: float = 0.3
+        react_relevance_threshold: float = 0.1
     ):
         self.chroma_dir = chroma_dir
         self.processed_dir = processed_dir
@@ -247,7 +247,7 @@ def create_rag_chat(
     relevance_threshold: float = 0.1,
     # NEW: ReAct configuration parameters
     max_react_iterations: int = 3,
-    react_relevance_threshold: float = 0.3
+    react_relevance_threshold: float = 0.1
 ) -> AgenticRAGChat:
     """
     Create and return a RAG chat instance with intent classification and ReAct reasoning
@@ -265,7 +265,7 @@ def create_rag_chat(
         retrieval_k: Number of documents to retrieve initially
         relevance_threshold: Minimum relevance score to use RAG
         max_react_iterations: Maximum number of ReAct loop iterations (default: 3)
-        react_relevance_threshold: Relevance threshold for additional document retrieval (default: 0.3)
+        react_relevance_threshold: Relevance threshold for additional document retrieval (default: 0.1)
         
     Returns:
         Configured AgenticRAGChat instance with ReAct capabilities
