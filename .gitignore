@@ -7,3 +7,5 @@ src/agent-rag-streamlit/models/*
 *agentic-reasoning-framework/src/models/*
 src/models/*
 src/agent-rag-streamlit/run_individual_components/models/*
+
+src/agent-rag-streamlit/data*

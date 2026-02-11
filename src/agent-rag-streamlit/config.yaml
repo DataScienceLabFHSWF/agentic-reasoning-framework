@@ -5,12 +5,12 @@ paths:
 
 # Model names for different agents
 models:
-  intent: "models--mistralai--Mistral-7B-v0.3" #"mistral:latest"
-  router: "models--mistralai--Mistral-Small-3.2-24B-Instruct-2506" #"qwen3:14b"
-  reasoning: "models--mistralai--Mistral-Small-3.2-24B-Instruct-2506" #"qwen3:14b" 
-  summarizer: "models--mistralai--Mistral-7B-v0.3"
-  general: "models--mistralai--Mistral-7B-v0.3"
-  final_answer: "models--mistralai--Mistral-7B-v0.3"
+  intent: "mistral:v0.3" 
+  router: "mistral-small3.2" #"qwen3:14b"
+  reasoning: "mistral-small3.2" #"qwen3:14b" 
+  summarizer: "mistral:v0.3"
+  general: "mistral:v0.3"
+  final_answer: "mistral:v0.3"
 
 # Application thresholds
 settings:
