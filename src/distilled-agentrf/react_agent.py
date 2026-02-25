@@ -7,8 +7,11 @@ from langchain.tools import tool
 from langchain_ollama.chat_models import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import AIMessage
+from langgraph.errors import GraphRecursionError
 
 from rag_utils.retriever import hybrid_retrieve
+from langchain_core.messages import AIMessage, ToolMessage
+
 
 # ── Config ────────────────────────────────────────────────────────────────────
 CHROMA_DIR    = os.environ.get("CHROMA_DIR",    "/home/rrao/projects/agents/agentic-reasoning-framework/src/distilled-agentrf/chroma_db")
@@ -18,7 +21,7 @@ PROCESSED_DIR = os.environ.get("PROCESSED_DIR", "/home/rrao/projects/agents/agen
 @tool
 def retrieve_documents(query: str) -> str:
     """Search the nuclear engineering and safety knowledge base for facts, technical specifications, or safety reports."""
-    docs = hybrid_retrieve(query=query, chroma_dir=CHROMA_DIR, processed_dir=PROCESSED_DIR, k=3)
+    docs = hybrid_retrieve(query=query, chroma_dir=CHROMA_DIR, processed_dir=PROCESSED_DIR, k=5)
     if not docs:
         return "Keine relevanten Dokumente gefunden."
     return "\n\n".join(
@@ -43,16 +46,18 @@ FINAL_ANSWER_PROMPT = ChatPromptTemplate.from_messages([
 ])
 
 # ── Models ────────────────────────────────────────────────────────────────────
-REACT_MODEL = ChatOllama(model="qwen3:30b",    temperature=0.0)
+REACT_MODEL = ChatOllama(model="qwen3:30b",    temperature=0.0) #
 SUMMARY_LLM = ChatOllama(model="mistral:v0.3", temperature=0.0)
 FINAL_LLM   = ChatOllama(model="mistral:v0.3", temperature=0.0)
 
 # ── Agent ─────────────────────────────────────────────────────────────────────
-SYSTEM_PROMPT = (
-    "Du bist ein Experte fuer deutsche Kerntechnik und Nuklearsicherheit. Antworte immer auf Deutsch. "
-    "Nutze das 'retrieve_documents' Tool, um Fakten nachzuschlagen. "
-    "Fuehre bei Bedarf mehrere Suchen mit abgewandelten Begriffen durch, bevor du eine finale Antwort gibst."
-)
+SYSTEM_PROMPT = """
+    Du bist ein Experte für deutsche Kerntechnik und Nuklearsicherheit. Antworte immer auf Deutsch.
+
+Wenn die Frage Fakten, Normen, Grenzwerte, Definitionen, Ereignisse, Institutionen oder konkrete Behauptungen enthält, nutze zuerst das Tool „retrieve_documents", um die relevanten Quellenstellen zu finden.
+Wenn du nach der ersten Suche nicht genügend Informationen hast, um die Frage zu beantworten, formuliere eine neue, präzisere Suchanfrage und verwende das Tool „retrieve_documents" erneut, um weitere Informationen zu finden.
+Wenn du genügend Informationen hast, um die Frage zu beantworten, gib eine klare und präzise Antwort auf Deutsch. Beziehe dich dabei auf die gefundenen Dokumente und zitiere sie, wenn möglich.
+"""
 
 agent = create_agent(
     model=REACT_MODEL,
@@ -62,21 +67,33 @@ agent = create_agent(
 
 # ── Pipeline ──────────────────────────────────────────────────────────────────
 def run(user_input: str) -> dict:
-    raw_answer = ""
-
-    # 1. ReAct agent — stream intermediate steps, capture final AI message
     print("\n[Agent]", flush=True)
-    for chunk in agent.stream(
-        {"messages": [{"role": "user", "content": user_input}]},
-        stream_mode="values",
-    ):
-        latest = chunk["messages"][-1]
-        if isinstance(latest, AIMessage):
-            if latest.tool_calls:
-                print(f"  → calling tool: {[tc['name'] for tc in latest.tool_calls]}", flush=True)
-            elif latest.content:
-                print(f"  {latest.content}", flush=True)
-                raw_answer = latest.content   # last AI text = final reasoning answer
+    try:
+        raw_parts = []
+        for chunk in agent.stream(
+            {"messages": [{"role": "user", "content": user_input}]},
+            stream_mode="values",
+            config={"recursion_limit": 6},  # ~5 tool calls
+        ):
+            latest = chunk["messages"][-1]
+            if isinstance(latest, AIMessage):
+                if latest.tool_calls:
+                    for tc in latest.tool_calls:
+                        name = tc['name']
+                        args = tc.get('args', {})
+                        query = args.get('query', args)  # fallback to full args if no 'query' key
+                        print(f"  → [{name}] query: \"{query}\"", flush=True)
+                elif latest.content:
+                    print(f"  {latest.content}")
+                    raw_parts.append(latest.content)
+            elif isinstance(latest, ToolMessage):
+                raw_parts.append(f"[Retrieved Documents]\n{latest.content}")
+    except GraphRecursionError:
+        print("  [recursion limit reached, using last answer so far]", flush=True)
+        if not raw_parts:
+            raw_parts.append("Keine ausreichenden Informationen gefunden.")
+
+    raw_answer = "\n".join(raw_parts)
 
     # 2. Summarizer
     summarized = (SUMMARIZER_PROMPT | SUMMARY_LLM).invoke(
