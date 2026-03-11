@@ -46,7 +46,7 @@ FINAL_ANSWER_PROMPT = ChatPromptTemplate.from_messages([
 ])
 
 # ── Models ────────────────────────────────────────────────────────────────────
-REACT_MODEL = ChatOllama(model="qwen3:30b",    temperature=0.0) #
+REACT_MODEL = ChatOllama(model="mistramistral-small3.2:latest",    temperature=0.0) #qwen3:30b
 SUMMARY_LLM = ChatOllama(model="mistral:v0.3", temperature=0.0)
 FINAL_LLM   = ChatOllama(model="mistral:v0.3", temperature=0.0)
 
