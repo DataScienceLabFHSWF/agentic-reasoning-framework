@@ -9,3 +9,4 @@ src/models/*
 src/agent-rag-streamlit/run_individual_components/models/*
 
 src/agent-rag-streamlit/data*
+src/distilled-agentrf/chroma_db/chroma.sqlite3
