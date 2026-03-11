@@ -1,0 +1,1023 @@
+{
+  "dataset": "dataset1",
+  "timestamp": "20260311_144114",
+  "counts": {
+    "correct": 4,
+    "total": 15,
+    "by_level": {
+      "simple": {
+        "correct": 4,
+        "total": 5
+      },
+      "medium": {
+        "correct": 0,
+        "total": 5
+      },
+      "hard": {
+        "correct": 0,
+        "total": 5
+      }
+    }
+  },
+  "results": [
+    {
+      "question_index": 1,
+      "question": "Welcher Reaktortyp ist das Kernkraftwerk Grafenrheinfeld (KKG)?",
+      "expected": "Druckwasserreaktor",
+      "level": "simple",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8",
+      "justification": "Der Reaktortyp ist im einführenden Abschnitt des KKG eindeutig angegeben, es ist keine Synthese nötig.",
+      "final_answer": " DWR (Druckwasserreaktor)",
+      "summarized": " Das Kernkraftwerk Grafenrheinfeld ist ein Druckwasserreaktor.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.3204] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.2504] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.1717] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=46] [score=0.1644] ---\n(X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der Auslegungsstörfälle ist ein gestaffeltes Notstromsystem mit 4 x 10 kV die- selgetriebener Notstromgeneratoren und 4 x 380 V dieselgetriebener Notspeisenotstromgeneratoren eingesetzt. Das Reaktorgebäude wird durch einen Zylinder mit aufgesetzter Halbkugel gebildet (siehe Abbil- dung 6). Die Außenstrukturen von Zylinderwand und Halbkugel bestehen aus meterdickem Stahlbe- ton und werden als Stahlbetonhülle bezeichnet. Wesentlicher Bestandteil des Reaktorgebäudes ist der kugelförmige Reaktorsicherheitsbehälter aus Stahl mit dem darin befindlichen nuklearen Dampferzeugungssystem. Der Ringraum umschließt den Sicherheitsbehälter. Die Stahlbetonhülle umschließt Sicherheitsbehälter und Ringraum. Im Inneren des Sicherheitsbehälters sind das Reaktorkühlsystem, Teile der unmittelbar anschlie- ßenden\nDas Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) [0][39][10].",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Kernkraftwerk Grafenrheinfeld Reaktortyp"
+          },
+          "id": "0bbc33d5-4105-43d0-af2c-8bc7d32e6d8a"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "0bbc33d5-4105-43d0-af2c-8bc7d32e6d8a",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.3204] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.2504] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.1717] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=46] [score=0.1644] ---\n(X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der Auslegungsstörfälle ist ein gestaffeltes Notstromsystem mit 4 x 10 kV die- selgetriebener Notstromgeneratoren und 4 x 380 V dieselgetriebener Notspeisenotstromgeneratoren eingesetzt. Das Reaktorgebäude wird durch einen Zylinder mit aufgesetzter Halbkugel gebildet (siehe Abbil- dung 6). Die Außenstrukturen von Zylinderwand und Halbkugel bestehen aus meterdickem Stahlbe- ton und werden als Stahlbetonhülle bezeichnet. Wesentlicher Bestandteil des Reaktorgebäudes ist der kugelförmige Reaktorsicherheitsbehälter aus Stahl mit dem darin befindlichen nuklearen Dampferzeugungssystem. Der Ringraum umschließt den Sicherheitsbehälter. Die Stahlbetonhülle umschließt Sicherheitsbehälter und Ringraum. Im Inneren des Sicherheitsbehälters sind das Reaktorkühlsystem, Teile der unmittelbar anschlie- ßenden"
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) [0][39][10]."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "0",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "21",
+          "score": 0.3204
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "39",
+          "score": 0.2504
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "10",
+          "score": 0.1717
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "46",
+          "score": 0.1644
+        }
+      ],
+      "correct": true,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 2,
+      "question": "Welches Unternehmen betreibt das Kernkraftwerk Grafenrheinfeld (KKG)?",
+      "expected": "E.ON Kernkraft GmbH",
+      "level": "simple",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8",
+      "justification": "Der Betreiber wird im einleitenden Abschnitt des KKG klar genannt.",
+      "final_answer": " E.ON",
+      "summarized": " Das Kernkraftwerk Grafenrheinfeld wird von der E.ON Kernkraft GmbH (EKK) betrieben.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.3877] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.2649] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.1461] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- sicherheitsbericht.md [chunk_id=223] [score=0.0984] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 73 von 149 23.09.2016\n\ntierenden Strahlenexposition der umliegenden Bevölkerung und gewährleistet eine Kontrolle der Einhaltung vorgegebener Grenzwerte der Strahlenschutzverordnung. Die Überwachung besteht aus zwei Programmen:  ein Programm, welches vom Betreiber der Kraftwerksanlage durchgeführt wird und  ein ergänzendes und kontrollierendes Programm, welches von unabhängigen Stellen durchgeführt wird. Diese Programme werden unter Berücksichtigung der örtlichen und anlagenspezifischen Gege- benheiten auf der Grundlage der REI erstellt und umgesetzt. Solange Kernbrennstoffe in einem der Blöcke sind, ist darüber hinaus ein spezielles Überwachungsprogramm, das nur bei Störfällen anzuwenden ist, vorgesehen.\n\nAbbildung 15: Wesentliche Elemente der Umgebungsüberwachung im Fernbereich\nDas Kernkraftwerk Grafenrheinfeld (KKG) wird von der E.ON Kernkraft GmbH (EKK) betrieben. Diese Information stammt aus einem Dokument zur Stilllegung und zum Abbau des KKG, das bestätigt, dass die EKK der Betreiber der Anlage ist.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Betreiber Kernkraftwerk Grafenrheinfeld"
+          },
+          "id": "a2b3752b-e82d-4587-8535-1e7c2b41ea49"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "a2b3752b-e82d-4587-8535-1e7c2b41ea49",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.3877] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.2649] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.1461] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- sicherheitsbericht.md [chunk_id=223] [score=0.0984] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 73 von 149 23.09.2016\n\ntierenden Strahlenexposition der umliegenden Bevölkerung und gewährleistet eine Kontrolle der Einhaltung vorgegebener Grenzwerte der Strahlenschutzverordnung. Die Überwachung besteht aus zwei Programmen:  ein Programm, welches vom Betreiber der Kraftwerksanlage durchgeführt wird und  ein ergänzendes und kontrollierendes Programm, welches von unabhängigen Stellen durchgeführt wird. Diese Programme werden unter Berücksichtigung der örtlichen und anlagenspezifischen Gege- benheiten auf der Grundlage der REI erstellt und umgesetzt. Solange Kernbrennstoffe in einem der Blöcke sind, ist darüber hinaus ein spezielles Überwachungsprogramm, das nur bei Störfällen anzuwenden ist, vorgesehen.\n\nAbbildung 15: Wesentliche Elemente der Umgebungsüberwachung im Fernbereich"
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Kernkraftwerk Grafenrheinfeld (KKG) wird von der E.ON Kernkraft GmbH (EKK) betrieben. Diese Information stammt aus einem Dokument zur Stilllegung und zum Abbau des KKG, das bestätigt, dass die EKK der Betreiber der Anlage ist."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "0",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "10",
+          "score": 0.3877
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "21",
+          "score": 0.2649
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "39",
+          "score": 0.1461
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "223",
+          "score": 0.0984
+        }
+      ],
+      "correct": true,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 3,
+      "question": "In welchem Jahr ging das Kernkraftwerk Grafenrheinfeld in den kommerziellen Betrieb?",
+      "expected": "1982",
+      "level": "simple",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8",
+      "justification": "Das Jahr des kommerziellen Betriebsbeginns ist im KKG‑Bericht direkt angegeben.",
+      "final_answer": " 1982",
+      "summarized": " Das Kernkraftwerk Grafenrheinfeld ging 1982 in den kommerziellen Betrieb.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.3898] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.1094] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=46] [score=0.0755] ---\n(X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der Auslegungsstörfälle ist ein gestaffeltes Notstromsystem mit 4 x 10 kV die- selgetriebener Notstromgeneratoren und 4 x 380 V dieselgetriebener Notspeisenotstromgeneratoren eingesetzt. Das Reaktorgebäude wird durch einen Zylinder mit aufgesetzter Halbkugel gebildet (siehe Abbil- dung 6). Die Außenstrukturen von Zylinderwand und Halbkugel bestehen aus meterdickem Stahlbe- ton und werden als Stahlbetonhülle bezeichnet. Wesentlicher Bestandteil des Reaktorgebäudes ist der kugelförmige Reaktorsicherheitsbehälter aus Stahl mit dem darin befindlichen nuklearen Dampferzeugungssystem. Der Ringraum umschließt den Sicherheitsbehälter. Die Stahlbetonhülle umschließt Sicherheitsbehälter und Ringraum. Im Inneren des Sicherheitsbehälters sind das Reaktorkühlsystem, Teile der unmittelbar anschlie- ßenden\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=45] [score=0.0714] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 19 3.3. Die Gesamtanordnung Das KKG besteht aus unterschiedlichen Bauwerken (siehe Abbildung 3), vorwiegend getrennt nach den darin befindlichen Einrichtungen: nukleare und konventionelle Anlagenteile, Einrichtungen der Kühlwasserkette sowie für die allgemeine Versorgung und Verwaltung. Die darin befindlichen Ein- richtungen bestimmen auch die sicherheitstechnische Bedeutung dieser Bauwerke. Die wichtigsten Anlagenstrukturen und Gebäude sind: • Reaktorgebäude (A/B) • Frischdampf- und Speisewasser-Armaturenkammer (B9) • Reaktorhilfsanlagengebäude (C) mit Fortluftkamin (Q1) • Entsorgungsgebäude (D) • Maschinenhaus (F) • Schaltanlagengebäude mit Hauptwarte (E) • Notstromdieselgebäude mit Kaltwasserzentrale (K) • Notspeisegebäude (X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der\nDas Kernkraftwerk Grafenrheinfeld ging 1982 in den kommerziellen Betrieb.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Grafenrheinfeld kommerzieller Betrieb"
+          },
+          "id": "5c171885-27d1-43a5-a792-b68f185f67b8"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "5c171885-27d1-43a5-a792-b68f185f67b8",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=0] [score=0.4000] ---\nKernkraftwerk Grafenrheinfeld Stilllegung und Abbau\n\nKurzbeschreibung\n\nMai 2016\n\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 2 INHALTSVERZEICHNIS\n\nDAS VORHABEN IM ÜBERBLICK ...................................................................................... 4\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=21] [score=0.3898] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 8 2. Standort 2.1. Geografische Lage Der Standort des Kraftwerks befindet sich auf dem Gebiet der Gemeinde Grafenrheinfeld, die zum Landkreis Schweinfurt im Regierungsbezirk Unterfranken gehört. Das Kraftwerk liegt am östlichen Mainufer bei Flusskilometer 324,5, ca. 5,5 km südwestlich von Schweinfurt, ca. 1,7 km südwestlich von Grafenrheinfeld sowie ca. 2 km westlich von Röthlein. Der Standort des KKG ist auf dem Kar- tenausschnitt in Abbildung 2 gekennzeichnet. Abbildung 2: Lageplan des Standorts Grafenrheinfeld mit 10 km-Umkreis\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.1094] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=46] [score=0.0755] ---\n(X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der Auslegungsstörfälle ist ein gestaffeltes Notstromsystem mit 4 x 10 kV die- selgetriebener Notstromgeneratoren und 4 x 380 V dieselgetriebener Notspeisenotstromgeneratoren eingesetzt. Das Reaktorgebäude wird durch einen Zylinder mit aufgesetzter Halbkugel gebildet (siehe Abbil- dung 6). Die Außenstrukturen von Zylinderwand und Halbkugel bestehen aus meterdickem Stahlbe- ton und werden als Stahlbetonhülle bezeichnet. Wesentlicher Bestandteil des Reaktorgebäudes ist der kugelförmige Reaktorsicherheitsbehälter aus Stahl mit dem darin befindlichen nuklearen Dampferzeugungssystem. Der Ringraum umschließt den Sicherheitsbehälter. Die Stahlbetonhülle umschließt Sicherheitsbehälter und Ringraum. Im Inneren des Sicherheitsbehälters sind das Reaktorkühlsystem, Teile der unmittelbar anschlie- ßenden\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=45] [score=0.0714] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 19 3.3. Die Gesamtanordnung Das KKG besteht aus unterschiedlichen Bauwerken (siehe Abbildung 3), vorwiegend getrennt nach den darin befindlichen Einrichtungen: nukleare und konventionelle Anlagenteile, Einrichtungen der Kühlwasserkette sowie für die allgemeine Versorgung und Verwaltung. Die darin befindlichen Ein- richtungen bestimmen auch die sicherheitstechnische Bedeutung dieser Bauwerke. Die wichtigsten Anlagenstrukturen und Gebäude sind: • Reaktorgebäude (A/B) • Frischdampf- und Speisewasser-Armaturenkammer (B9) • Reaktorhilfsanlagengebäude (C) mit Fortluftkamin (Q1) • Entsorgungsgebäude (D) • Maschinenhaus (F) • Schaltanlagengebäude mit Hauptwarte (E) • Notstromdieselgebäude mit Kaltwasserzentrale (K) • Notspeisegebäude (X) • Naturzugkühltürme (P1/P2) • Kühlwasserbauwerke (M0, M3, M2, M5, M8) Die Sicherheitssysteme der Anlage Grafenrheinfeld sind vierfach redundant (4 x 50 %) aufgebaut. Zur Beherrschung der"
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Kernkraftwerk Grafenrheinfeld ging 1982 in den kommerziellen Betrieb."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "0",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "21",
+          "score": 0.3898
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "39",
+          "score": 0.1094
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "46",
+          "score": 0.0755
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "45",
+          "score": 0.0714
+        }
+      ],
+      "correct": true,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 4,
+      "question": "Wie heißt das Standort‑Zwischenlager am KKG, das 88 Stellplätze besitzt?",
+      "expected": "KKG‑BELLA",
+      "level": "simple",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6",
+      "justification": "Der Name des Standort‑Zwischenlagers wird in den KKG‑Dokumenten klar erwähnt.",
+      "final_answer": " BELLA",
+      "summarized": " Das Standort-Zwischenlager am Kernkraftwerk Gundremmingen, das 88 Stellplätze besitzt, heißt **KKG-BELLA**.",
+      "raw": "[Retrieved Documents]\n--- uvu.md [chunk_id=240] [score=0.4000] ---\nsind die Kernkraftwerke Grafenrheinfeld, Neckar- westheim und Isar. Aufgrund der großen Entfernung liefern diese Anlagen über den Fort- luftpfad keinen Beitrag zur radiologischen Vorbelastung am Standort. Am Standort selbst ist außer der Anlage KRB II das Standort-Zwischenlager zu Aufbewahrung von Kern- brennstoffen in Betrieb. Dieses Standort-Zwischenlager ist im Zusammenhang mit einer Strahlenexposition durch Direktstrahlung zu sehen. Aus den kontinuierlichen Messungen während des Leistungsbetriebes KRB II geht hervor, dass die Ableitung radioaktiver Stoffe über den Luft- und Wasserpfad im bestimmungs- gemäßen Leistungsbetrieb deutlich unterhalb der genehmigten Abgabemengen liegen und die Strahlenexposition in der Umgebung der Anlage durch Aktivitätsableitung eben- falls unterhalb des zulässigen Grenzwertes nach § 47 StrlSchV liegt. Für die am Kraftwerksstandort befindlichen kerntechnischen Anlagen KRB II und das Standort-Zwischenlager ist im Sicherheitsbericht (KGG/RWE 2016)\n\n--- sicherheitsbericht.md [chunk_id=270] [score=0.3406] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 88 von 149 23.09.2016\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=18] [score=0.2612] ---\n(KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren genehmigt. Das Lager besitzt 88 Stellplätze. Die Kapazität ist so bemessen, dass alle bestrahlten BE und Sonderbrennstäbe des KKG zwischengelagert werden können, die bis zum Ende der Betriebszeit des KKG angefallen sind. Für nicht-wärmeentwickelnde radioaktive Abfälle wurde eine Genehmigung nach § 7 Abs. 1 StrlSchV für den Umgang mit radioaktiven Stoffen in einer noch zu errichtenden Bereitstellungs- halle (BeHa) zur späteren Einlagerung in ein Bundesendlager beantragt. Für die Errichtung ist fer- ner eine Baugenehmigung nach Bayerischer Bauordnung erforderlich. Eine Entscheidung über die Errichtung der BeHa wird zu einem späteren Zeitpunkt getroffen. Bei den radioaktiven Abfällen handelt es sich um Abfälle aus dem Betrieb, dem Restbetrieb und\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.1192] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren\n\n--- uvu.md [chunk_id=241] [score=0.0895] ---\ndes zulässigen Grenzwertes nach § 47 StrlSchV liegt. Für die am Kraftwerksstandort befindlichen kerntechnischen Anlagen KRB II und das Standort-Zwischenlager ist im Sicherheitsbericht (KGG/RWE 2016) dargelegt, dass die Exposition in der Umgebung der Anlagen aus Direktstrahlung aufgrund der Abschirmwir- kung der Gebäude vernachlässigbar ist. Im Rahmen eines behördlich angeordneten Messprogramms zur Umgebungsüberwachung wird die Ortsdosis am Kraftwerkszaun er- mittelt. Die Messergebnisse werden an die zuständige Aufsichtsbehörde berichtet. Aus den vorliegenden Daten geht hervor, dass die resultierende Direktstrahlung an der Gren- ze des Betriebsgeländes zwischen 0,03 und 0,06 mSv/a liegt.\nDas Standort-Zwischenlager am Kernkraftwerk Gundremmingen (KKG), das 88 Stellplätze besitzt, heißt **KKG-BELLA**.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Standort-Zwischenlager am KKG mit 88 Stellplätzen"
+          },
+          "id": "f6610f70-41d7-43d3-a031-de8b4fe03eae"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "f6610f70-41d7-43d3-a031-de8b4fe03eae",
+          "content": "--- uvu.md [chunk_id=240] [score=0.4000] ---\nsind die Kernkraftwerke Grafenrheinfeld, Neckar- westheim und Isar. Aufgrund der großen Entfernung liefern diese Anlagen über den Fort- luftpfad keinen Beitrag zur radiologischen Vorbelastung am Standort. Am Standort selbst ist außer der Anlage KRB II das Standort-Zwischenlager zu Aufbewahrung von Kern- brennstoffen in Betrieb. Dieses Standort-Zwischenlager ist im Zusammenhang mit einer Strahlenexposition durch Direktstrahlung zu sehen. Aus den kontinuierlichen Messungen während des Leistungsbetriebes KRB II geht hervor, dass die Ableitung radioaktiver Stoffe über den Luft- und Wasserpfad im bestimmungs- gemäßen Leistungsbetrieb deutlich unterhalb der genehmigten Abgabemengen liegen und die Strahlenexposition in der Umgebung der Anlage durch Aktivitätsableitung eben- falls unterhalb des zulässigen Grenzwertes nach § 47 StrlSchV liegt. Für die am Kraftwerksstandort befindlichen kerntechnischen Anlagen KRB II und das Standort-Zwischenlager ist im Sicherheitsbericht (KGG/RWE 2016)\n\n--- sicherheitsbericht.md [chunk_id=270] [score=0.3406] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 88 von 149 23.09.2016\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=18] [score=0.2612] ---\n(KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren genehmigt. Das Lager besitzt 88 Stellplätze. Die Kapazität ist so bemessen, dass alle bestrahlten BE und Sonderbrennstäbe des KKG zwischengelagert werden können, die bis zum Ende der Betriebszeit des KKG angefallen sind. Für nicht-wärmeentwickelnde radioaktive Abfälle wurde eine Genehmigung nach § 7 Abs. 1 StrlSchV für den Umgang mit radioaktiven Stoffen in einer noch zu errichtenden Bereitstellungs- halle (BeHa) zur späteren Einlagerung in ein Bundesendlager beantragt. Für die Errichtung ist fer- ner eine Baugenehmigung nach Bayerischer Bauordnung erforderlich. Eine Entscheidung über die Errichtung der BeHa wird zu einem späteren Zeitpunkt getroffen. Bei den radioaktiven Abfällen handelt es sich um Abfälle aus dem Betrieb, dem Restbetrieb und\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.1192] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren\n\n--- uvu.md [chunk_id=241] [score=0.0895] ---\ndes zulässigen Grenzwertes nach § 47 StrlSchV liegt. Für die am Kraftwerksstandort befindlichen kerntechnischen Anlagen KRB II und das Standort-Zwischenlager ist im Sicherheitsbericht (KGG/RWE 2016) dargelegt, dass die Exposition in der Umgebung der Anlagen aus Direktstrahlung aufgrund der Abschirmwir- kung der Gebäude vernachlässigbar ist. Im Rahmen eines behördlich angeordneten Messprogramms zur Umgebungsüberwachung wird die Ortsdosis am Kraftwerkszaun er- mittelt. Die Messergebnisse werden an die zuständige Aufsichtsbehörde berichtet. Aus den vorliegenden Daten geht hervor, dass die resultierende Direktstrahlung an der Gren- ze des Betriebsgeländes zwischen 0,03 und 0,06 mSv/a liegt."
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Standort-Zwischenlager am Kernkraftwerk Gundremmingen (KKG), das 88 Stellplätze besitzt, heißt **KKG-BELLA**."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "uvu.md",
+          "chunk_id": "240",
+          "score": 0.4
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "270",
+          "score": 0.3406
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "18",
+          "score": 0.2612
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "17",
+          "score": 0.1192
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "241",
+          "score": 0.0895
+        }
+      ],
+      "correct": true,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 5,
+      "question": "Wofür steht die Abkürzung RBZ in den KKG‑Unterlagen?",
+      "expected": "Reststoffbehandlungszentrum",
+      "level": "simple",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6",
+      "justification": "Die vollständige Bezeichnung des RBZ ist in der Beschreibung der Abfallbehandlungsanlagen angegeben.",
+      "final_answer": " RBZ",
+      "summarized": " Die Abkürzung RBZ in den KKG-Unterlagen steht für \"Reststoffbehandlungszentrum\". Dieses Zentrum ist für die Behandlung von Reststoffen und Abfällen erforderlich, die während der Stilllegung und des Abbaus des KKG anfallen. Das RBZ wird in bestehenden Kontrollbereichen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäuderingraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=65] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 28 Um einen effektiven und störungsfreien Materialfluss zu erreichen, werden bei der Planung Trans- porte aller Materialien berücksichtigt. Es werden geeignete Transportwege, Transporteinrichtungen und Hebezeuge bereitgestellt und eingesetzt. Die Arbeitsbereiche werden unter Beachtung der erforderlichen Arbeitssicherheits-, Brandschutz- und Strahlenschutzmaßnahmen ausgestattet und eingerichtet. Die im KKG vorhandenen Gefahrstof- fe werden bei den durchzuführenden Arbeitsschritten beachtet. In den Bereichen innerhalb des Kontrollbereichs, in denen die verbliebenen Anlagenteile abgebaut und aus dem Kontrollbereich abtransportiert werden, werden erforderliche systemtechnische Ände- rungen durchgeführt. Diese Änderungen können z.B. • die Lüftungsanlage, • die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=73] [score=0.3755] ---\n4.6. Die technische Vorgehensweise Es wird eine geeignete Infrastruktur geschaffen, damit in verschiedenen Räumen und Raum- bereichen in den Gebäuden des KKG gleichzeitig Abbauarbeiten durchgeführt werden können. Da- für werden Nutzungsänderungen in den entsprechenden Raumbereichen erforderlich. Diese Nut- zungsänderungen schließen die erforderlichen Änderungen bzw. die Schaffung von Pufferlagerflä- chen und Transportwegen ein. Bereits vorhandene Einrichtungen in der Anlage und am Standort werden, soweit sie geeignet sind, weiter genutzt. Innerhalb des KKG und auch für das RBZ werden verschiedene Arbeitsbereiche unter Beachtung der erforderlichen Arbeitssicherheits-, Brandschutz- und Strahlenschutzmaßnahmen ausgestattet und eingerichtet: • Bereiche für die Zerlegung einschließlich Zerlegeplätze, • Pufferlagerflächen, • Bereiche zur Dekontamination, • Bereiche zur Konditionierung,\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.3089] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=111] [score=0.2784] ---\nals der einzuhaltende Grenzwert für die effektive Dosis von 1 mSv pro Kalenderjahr, entsprechend § 46 Abs. 1 StrlSchV. Ereignisse, die im Restbetrieb und Abbau von KKG zu unerwarteten Freisetzungen radioaktiver Stoffe in die Umgebung führen könnten, wurden ebenfalls untersucht. Bei allen Ereignissen werden die Störfallplanungswerte für die Strahlenexposition nach § 50 in Verbindung mit § 117 Abs. 16 StrlSchV weit unterschritten. Der überwiegende Teil der Abbautätigkeiten erfolgt innerhalb der bestehenden Gebäude. Dabei fallen schwach- und mittelradioaktive Abfälle an, die nach der Behandlung im RBZ zwischengela- gert werden. Durch die Transporte und durch die späteren Verladungen kommt es zu einer hohen Anzahl von Transportbewegungen auf den Straßen des Anlagengeländes des Standorts KKG, welche in der Re- gel tagsüber durchgeführt werden. Es wird davon ausgegangen, dass sich durch den bau- und be- triebsbedingten Verkehr die lufthygienische Situation im Umfeld des KKG nicht wesentlich\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.2021] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren\nDie Abkürzung RBZ in den KKG-Unterlagen steht für \"Reststoffbehandlungszentrum\". Dieses Zentrum ist für die Behandlung von Reststoffen und Abfällen erforderlich, die während der Stilllegung und des Abbaus des KKG anfallen. Das RBZ wird in bestehenden Kontrollbereichen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäuderingraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "RBZ Abkürzung KKG"
+          },
+          "id": "e9be45a6-c9d4-4fad-83aa-e0a741b15e8c"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "e9be45a6-c9d4-4fad-83aa-e0a741b15e8c",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=65] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 28 Um einen effektiven und störungsfreien Materialfluss zu erreichen, werden bei der Planung Trans- porte aller Materialien berücksichtigt. Es werden geeignete Transportwege, Transporteinrichtungen und Hebezeuge bereitgestellt und eingesetzt. Die Arbeitsbereiche werden unter Beachtung der erforderlichen Arbeitssicherheits-, Brandschutz- und Strahlenschutzmaßnahmen ausgestattet und eingerichtet. Die im KKG vorhandenen Gefahrstof- fe werden bei den durchzuführenden Arbeitsschritten beachtet. In den Bereichen innerhalb des Kontrollbereichs, in denen die verbliebenen Anlagenteile abgebaut und aus dem Kontrollbereich abtransportiert werden, werden erforderliche systemtechnische Ände- rungen durchgeführt. Diese Änderungen können z.B. • die Lüftungsanlage, • die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=73] [score=0.3755] ---\n4.6. Die technische Vorgehensweise Es wird eine geeignete Infrastruktur geschaffen, damit in verschiedenen Räumen und Raum- bereichen in den Gebäuden des KKG gleichzeitig Abbauarbeiten durchgeführt werden können. Da- für werden Nutzungsänderungen in den entsprechenden Raumbereichen erforderlich. Diese Nut- zungsänderungen schließen die erforderlichen Änderungen bzw. die Schaffung von Pufferlagerflä- chen und Transportwegen ein. Bereits vorhandene Einrichtungen in der Anlage und am Standort werden, soweit sie geeignet sind, weiter genutzt. Innerhalb des KKG und auch für das RBZ werden verschiedene Arbeitsbereiche unter Beachtung der erforderlichen Arbeitssicherheits-, Brandschutz- und Strahlenschutzmaßnahmen ausgestattet und eingerichtet: • Bereiche für die Zerlegung einschließlich Zerlegeplätze, • Pufferlagerflächen, • Bereiche zur Dekontamination, • Bereiche zur Konditionierung,\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.3089] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=111] [score=0.2784] ---\nals der einzuhaltende Grenzwert für die effektive Dosis von 1 mSv pro Kalenderjahr, entsprechend § 46 Abs. 1 StrlSchV. Ereignisse, die im Restbetrieb und Abbau von KKG zu unerwarteten Freisetzungen radioaktiver Stoffe in die Umgebung führen könnten, wurden ebenfalls untersucht. Bei allen Ereignissen werden die Störfallplanungswerte für die Strahlenexposition nach § 50 in Verbindung mit § 117 Abs. 16 StrlSchV weit unterschritten. Der überwiegende Teil der Abbautätigkeiten erfolgt innerhalb der bestehenden Gebäude. Dabei fallen schwach- und mittelradioaktive Abfälle an, die nach der Behandlung im RBZ zwischengela- gert werden. Durch die Transporte und durch die späteren Verladungen kommt es zu einer hohen Anzahl von Transportbewegungen auf den Straßen des Anlagengeländes des Standorts KKG, welche in der Re- gel tagsüber durchgeführt werden. Es wird davon ausgegangen, dass sich durch den bau- und be- triebsbedingten Verkehr die lufthygienische Situation im Umfeld des KKG nicht wesentlich\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.2021] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren"
+        },
+        {
+          "type": "ai_message",
+          "content": "Die Abkürzung RBZ in den KKG-Unterlagen steht für \"Reststoffbehandlungszentrum\". Dieses Zentrum ist für die Behandlung von Reststoffen und Abfällen erforderlich, die während der Stilllegung und des Abbaus des KKG anfallen. Das RBZ wird in bestehenden Kontrollbereichen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäuderingraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "65",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "73",
+          "score": 0.3755
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "66",
+          "score": 0.3089
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "111",
+          "score": 0.2784
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "17",
+          "score": 0.2021
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 6,
+      "question": "Nennen Sie zwei der Schutzziele für den Nachbetrieb des KKG.",
+      "expected": "Kontrolle der Reaktivität und Kühlung der Brennelemente",
+      "level": "medium",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 9–10",
+      "justification": "Die Ziele sind als Liste im Sicherheitsbericht aufgeführt; es müssen zwei ausgewählt werden.",
+      "final_answer": " Einhaltung, Unterstützung",
+      "summarized": " Die beiden Schutzziele für den Nachbetrieb des KKG sind die Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=12] [score=0.4000] ---\nlich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den Auswirkungen des Vorhabens betroffen sein könnte. Für die insgesamt geplanten Maßnahmen ergibt sich aus dem Gesetz über die Umweltverträglich- keitsprüfung (UVPG) eine Verpflichtung zur Durchführung einer Umweltverträglichkeitsprüfung (UVP). Nach Vorliegen der atomrechtlichen Genehmigungen können dann die Arbeiten in den zwei Ab- bauphasen auch parallel durchgeführt werden, wenn sie sich nicht gegenseitig beeinträchtigen und die Schutzziele sowie die Belange des Strahlen-, Arbeits- und Brandschutzes eingehalten werden.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=14] [score=0.3747] ---\nNach Beendigung des Leistungsbetriebs des KKG beginnt der Nichtleistungs- bzw. Nachbetrieb. Die Arbeiten des Nichtleistungs- bzw. Nachbetriebs sind nicht Gegenstand des Antrags auf Stillle- gung und Abbau gemäß § 7 Abs. 3 AtG. Sie werden aber hier zum besseren Verständnis des Ge- samtprozesses kurz erläutert. Dafür wird im Weiteren anstelle des Begriffs „Nichtleistungs- / Nach- betrieb“ die Bezeichnung „Nachbetrieb“ verwendet. Der Nachbetrieb umfasst alle im Rahmen der weiterhin geltenden Betriebsgenehmigung gestatteten Maßnahmen zur Vorbereitung auf die Stilllegung und den Abbau der Anlage. Er endet mit der Inan- spruchnahme einer Stilllegungs- und Abbaugenehmigung. Der Restbetrieb erstreckt sich über den gesamten Zeitraum der Stilllegung und des Abbaus. Aufga- be des Restbetriebs ist die Sicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=15] [score=0.2751] ---\nSicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die Stillsetzung von Systemen vor dem Abbau. Der Restbetrieb des KKG beginnt mit der Inanspruchnahme der 1. Stilllegungs- und Abbaugenehmigung (siehe Ab- bildung 1). Gleichzeitig kann mit den Abbauarbeiten der Abbauphase 1 begonnen werden. Die Bedingungen für den Restbetrieb und die Abbaumaßnahmen sind durch den Anlagenstatus des KKG zum Zeitpunkt der Inanspruchnahme der Genehmigung geprägt:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.1152] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.1042] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den\nZwei der Schutzziele für den Nachbetrieb des KKG sind die Einhaltung der Schutzziele sowie die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Zwei Schutzziele für den Nachbetrieb des KKG"
+          },
+          "id": "9c81f40c-649c-428b-b42e-3be7966ec576"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "9c81f40c-649c-428b-b42e-3be7966ec576",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=12] [score=0.4000] ---\nlich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den Auswirkungen des Vorhabens betroffen sein könnte. Für die insgesamt geplanten Maßnahmen ergibt sich aus dem Gesetz über die Umweltverträglich- keitsprüfung (UVPG) eine Verpflichtung zur Durchführung einer Umweltverträglichkeitsprüfung (UVP). Nach Vorliegen der atomrechtlichen Genehmigungen können dann die Arbeiten in den zwei Ab- bauphasen auch parallel durchgeführt werden, wenn sie sich nicht gegenseitig beeinträchtigen und die Schutzziele sowie die Belange des Strahlen-, Arbeits- und Brandschutzes eingehalten werden.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=14] [score=0.3747] ---\nNach Beendigung des Leistungsbetriebs des KKG beginnt der Nichtleistungs- bzw. Nachbetrieb. Die Arbeiten des Nichtleistungs- bzw. Nachbetriebs sind nicht Gegenstand des Antrags auf Stillle- gung und Abbau gemäß § 7 Abs. 3 AtG. Sie werden aber hier zum besseren Verständnis des Ge- samtprozesses kurz erläutert. Dafür wird im Weiteren anstelle des Begriffs „Nichtleistungs- / Nach- betrieb“ die Bezeichnung „Nachbetrieb“ verwendet. Der Nachbetrieb umfasst alle im Rahmen der weiterhin geltenden Betriebsgenehmigung gestatteten Maßnahmen zur Vorbereitung auf die Stilllegung und den Abbau der Anlage. Er endet mit der Inan- spruchnahme einer Stilllegungs- und Abbaugenehmigung. Der Restbetrieb erstreckt sich über den gesamten Zeitraum der Stilllegung und des Abbaus. Aufga- be des Restbetriebs ist die Sicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=15] [score=0.2751] ---\nSicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die Stillsetzung von Systemen vor dem Abbau. Der Restbetrieb des KKG beginnt mit der Inanspruchnahme der 1. Stilllegungs- und Abbaugenehmigung (siehe Ab- bildung 1). Gleichzeitig kann mit den Abbauarbeiten der Abbauphase 1 begonnen werden. Die Bedingungen für den Restbetrieb und die Abbaumaßnahmen sind durch den Anlagenstatus des KKG zum Zeitpunkt der Inanspruchnahme der Genehmigung geprägt:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.1152] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.1042] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den"
+        },
+        {
+          "type": "ai_message",
+          "content": "Zwei der Schutzziele für den Nachbetrieb des KKG sind die Einhaltung der Schutzziele sowie die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "12",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "14",
+          "score": 0.3747
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "15",
+          "score": 0.2751
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "66",
+          "score": 0.1152
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "11",
+          "score": 0.1042
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 7,
+      "question": "Welche Teilsektion der Abbauphase 1 des KKG entspricht dem kernbrennstofffreien Zustand?",
+      "expected": "Abschnitt 1C",
+      "level": "medium",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6",
+      "justification": "Man muss die drei Abschnitte der Abbauphase 1 verstehen und denjenigen mit kernbrennstofffreier Anlage identifizieren.",
+      "final_answer": " Unbekannt",
+      "summarized": " Es ist nicht möglich, direkt aus den bereitgestellten Informationen heraus zu bestimmen, welche Teilsektion der Abbauphase 1 des Kernkraftwerks (KKG) dem kernbrennstofffreien Zustand entspricht. Die Dokumente beschreiben allgemein die Abbauphasen und deren Aktivitäten, aber sie spezifizieren nicht eine bestimmte Teilsektion, die dem kernbrennstofffreien Zustand entspricht. Eine genauere Suche in den Dokumenten oder eine spezifischere Anfrage an die Wissensbasis könnte notwendig sein, um diese Information zu finden.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.4000] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=15] [score=0.2977] ---\nSicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die Stillsetzung von Systemen vor dem Abbau. Der Restbetrieb des KKG beginnt mit der Inanspruchnahme der 1. Stilllegungs- und Abbaugenehmigung (siehe Ab- bildung 1). Gleichzeitig kann mit den Abbauarbeiten der Abbauphase 1 begonnen werden. Die Bedingungen für den Restbetrieb und die Abbaumaßnahmen sind durch den Anlagenstatus des KKG zum Zeitpunkt der Inanspruchnahme der Genehmigung geprägt:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=98] [score=0.2509] ---\nMaterial) ermittelt. Die radiologische Vorbelastung am Standort u.a. durch das Zwischenlager KKG-BELLA wurde mit berücksichtigt. Radiologische Auswirkungen der Ableitungen Die effektive Dosis unter Ausschöpfung aller beantragten Werte für Ableitungen mit der Fortluft wurde für KKG mit ca. 0,059 mSv/a für Säuglinge (Altersgruppe < 1 Jahr; entspricht ca. 20 % des Grenzwerts des § 47 StrlSchV) und mit ca. 0,046 mSv/a für Erwachsene (Altersgruppe > 17 Jahre; entspricht ca. 15 % des Grenzwerts des § 47 StrlSchV) berechnet. Radiologische Vorbelastungen durch andere Anlagen liegen am Standort nicht vor. Der entsprechende Grenzwert des § 47 StrlSchV beträgt 0,3 mSv/a. Für die Ableitung mit Abwasser ergibt sich für den Nahbereich des Standorts KKG infolge geneh- migter radioaktiver Ableitungen unter Einbeziehung der Vorbelastungen die maximale effektive Jahresdosis von ca. 0,083 mSv (entspricht ca. 28 % des Grenzwerts des § 47 StrlSchV) für Säuglin- ge (< 1 Jahr). Für den Fernbereich des\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=125] [score=0.2368] ---\ndie noch in der Anlage vorhandenen Was- sersysteme so schnell wie möglich entleert werden können. Dies bewog die EKK zu der geplanten Abbaustrategie, die RDB-Einbauten bereits in der Abbauphase 1 des Abbauprozesses zu demontie- ren. Die Abbautätigkeiten im Rahmen der Stilllegung und des Abbaus des KKG finden im Wesentlichen innerhalb der geschlossenen Gebäude des Kontrollbereichs statt. Auswirkungen auf die Umwelt außerhalb der Gebäude bzw. außerhalb des KKG sind von der Wahl des Abbauverfahrens unabhän- gig. Daher ist eine vertiefte Betrachtung von technischen Verfahrensalternativen nicht erforderlich.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=70] [score=0.2155] ---\nund Lagerbehälter verpackt. Nach der Beladung der Transport- und Lagerbehälter werden die Behälter in das Standort- Zwischenlager KKG-BELLA transportiert und dort zwischengelagert. 4.5. Der Abbau in der Abbauphase 2 Die Abbauphase 2 umfasst zusätzlich zu den bereits in Abbauphase 1 begonnenen Arbeiten im We- sentlichen: • den Abbau des RDB, • das Fortsetzen des Freiräumens des Sicherheitsbehälters und Abbau des biologischen Schilds. Im Verlauf der Abbauphase 2 werden die sich auf dem Anlagengelände befindlichen Kontrollbe- reichsgebäude freigeräumt von kontaminierten und/oder aktivierten Bauteilen oder Materialien und deren Baustrukturen, falls notwendig, dekontaminiert. Der Nachweis der geforderten Kontamina- tions-freiheit wird zu diesem Zeitpunkt durch erfolgreichen Abschluss des Freigabeverfahrens nach § 29 StrlSchV erbracht. Anschließend werden alle Strahlenschutzbereiche in den Gebäuden aufge- hoben. Mit Abschluss der Abbauphasen 1 und 2 kann die Entlassung aus der\nDie Teilsektion der Abbauphase 1 des Kernkraftwerks (KKG), die dem kernbrennstofffreien Zustand entspricht, ist nicht direkt in den bereitgestellten Informationen enthalten. Die Dokumente beschreiben allgemein die Abbauphasen und deren Aktivitäten, aber sie spezifizieren nicht eine bestimmte Teilsektion, die dem kernbrennstofffreien Zustand entspricht.\n\nUm diese Information zu finden, könnte eine genauere Suche in den Dokumenten oder eine spezifischere Anfrage an die Wissensbasis notwendig sein. Möchtest du, dass ich eine verfeinerte Suche durchführe?",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Teilsektion der Abbauphase 1 des KKG entspricht dem kernbrennstofffreien Zustand"
+          },
+          "id": "4611c189-23cc-47f5-831f-023656a93861"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "4611c189-23cc-47f5-831f-023656a93861",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=66] [score=0.4000] ---\n• die Beleuchtung, • die Elektrotechnik und Stromversorgung, • den Brandschutz, • die Zugangsregelungen betreffen. Innerhalb des Kontrollbereichs des KKG wird ein RBZ eingerichtet. Der Hauptumfang dieses Zent- rums wird sich im Ringraum des Reaktorgebäudes befinden, Teile werden aber auch im Hilfsanla- gen- sowie im Entsorgungsgebäude eingerichtet. 4.4. Der Abbau in der Abbauphase 1 In der Abbauphase 1 werden sowohl nicht-kontaminierte als auch aktivierte und/oder kontaminierte Anlagenteile im Kontrollbereich des KKG sowie Anlagenteile abgebaut, deren Bau, Errichtung und Betrieb atomrechtlich genehmigt wurden. Abbauvorhaben während der Abbauphase 1 werden in allen Gebäuden oder Gebäudebereichen ab- gewickelt. Es werden nur Systeme, Einrichtungen und Anlagenteile mit den zugehörigen Versor- gungseinrichtungen abgebaut, die nicht mehr für den Restbetrieb benötigt werden. Dies erfolgt un- ter der Maßgabe der Rückwirkungsfreiheit hinsichtlich der einzuhaltenden Schutzziele gegenüber den\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=15] [score=0.2977] ---\nSicherstellung des technischen Anlagenbetriebs zur Gewährleistung der Einhaltung aller Schutzziele und die Unterstützung der Abbautätigkeiten durch den Aufbau und Betrieb von Hilfssystemen sowie die Stillsetzung von Systemen vor dem Abbau. Der Restbetrieb des KKG beginnt mit der Inanspruchnahme der 1. Stilllegungs- und Abbaugenehmigung (siehe Ab- bildung 1). Gleichzeitig kann mit den Abbauarbeiten der Abbauphase 1 begonnen werden. Die Bedingungen für den Restbetrieb und die Abbaumaßnahmen sind durch den Anlagenstatus des KKG zum Zeitpunkt der Inanspruchnahme der Genehmigung geprägt:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=98] [score=0.2509] ---\nMaterial) ermittelt. Die radiologische Vorbelastung am Standort u.a. durch das Zwischenlager KKG-BELLA wurde mit berücksichtigt. Radiologische Auswirkungen der Ableitungen Die effektive Dosis unter Ausschöpfung aller beantragten Werte für Ableitungen mit der Fortluft wurde für KKG mit ca. 0,059 mSv/a für Säuglinge (Altersgruppe < 1 Jahr; entspricht ca. 20 % des Grenzwerts des § 47 StrlSchV) und mit ca. 0,046 mSv/a für Erwachsene (Altersgruppe > 17 Jahre; entspricht ca. 15 % des Grenzwerts des § 47 StrlSchV) berechnet. Radiologische Vorbelastungen durch andere Anlagen liegen am Standort nicht vor. Der entsprechende Grenzwert des § 47 StrlSchV beträgt 0,3 mSv/a. Für die Ableitung mit Abwasser ergibt sich für den Nahbereich des Standorts KKG infolge geneh- migter radioaktiver Ableitungen unter Einbeziehung der Vorbelastungen die maximale effektive Jahresdosis von ca. 0,083 mSv (entspricht ca. 28 % des Grenzwerts des § 47 StrlSchV) für Säuglin- ge (< 1 Jahr). Für den Fernbereich des\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=125] [score=0.2368] ---\ndie noch in der Anlage vorhandenen Was- sersysteme so schnell wie möglich entleert werden können. Dies bewog die EKK zu der geplanten Abbaustrategie, die RDB-Einbauten bereits in der Abbauphase 1 des Abbauprozesses zu demontie- ren. Die Abbautätigkeiten im Rahmen der Stilllegung und des Abbaus des KKG finden im Wesentlichen innerhalb der geschlossenen Gebäude des Kontrollbereichs statt. Auswirkungen auf die Umwelt außerhalb der Gebäude bzw. außerhalb des KKG sind von der Wahl des Abbauverfahrens unabhän- gig. Daher ist eine vertiefte Betrachtung von technischen Verfahrensalternativen nicht erforderlich.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=70] [score=0.2155] ---\nund Lagerbehälter verpackt. Nach der Beladung der Transport- und Lagerbehälter werden die Behälter in das Standort- Zwischenlager KKG-BELLA transportiert und dort zwischengelagert. 4.5. Der Abbau in der Abbauphase 2 Die Abbauphase 2 umfasst zusätzlich zu den bereits in Abbauphase 1 begonnenen Arbeiten im We- sentlichen: • den Abbau des RDB, • das Fortsetzen des Freiräumens des Sicherheitsbehälters und Abbau des biologischen Schilds. Im Verlauf der Abbauphase 2 werden die sich auf dem Anlagengelände befindlichen Kontrollbe- reichsgebäude freigeräumt von kontaminierten und/oder aktivierten Bauteilen oder Materialien und deren Baustrukturen, falls notwendig, dekontaminiert. Der Nachweis der geforderten Kontamina- tions-freiheit wird zu diesem Zeitpunkt durch erfolgreichen Abschluss des Freigabeverfahrens nach § 29 StrlSchV erbracht. Anschließend werden alle Strahlenschutzbereiche in den Gebäuden aufge- hoben. Mit Abschluss der Abbauphasen 1 und 2 kann die Entlassung aus der"
+        },
+        {
+          "type": "ai_message",
+          "content": "Die Teilsektion der Abbauphase 1 des Kernkraftwerks (KKG), die dem kernbrennstofffreien Zustand entspricht, ist nicht direkt in den bereitgestellten Informationen enthalten. Die Dokumente beschreiben allgemein die Abbauphasen und deren Aktivitäten, aber sie spezifizieren nicht eine bestimmte Teilsektion, die dem kernbrennstofffreien Zustand entspricht.\n\nUm diese Information zu finden, könnte eine genauere Suche in den Dokumenten oder eine spezifischere Anfrage an die Wissensbasis notwendig sein. Möchtest du, dass ich eine verfeinerte Suche durchführe?"
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "66",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "15",
+          "score": 0.2977
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "98",
+          "score": 0.2509
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "125",
+          "score": 0.2368
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "70",
+          "score": 0.2155
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 8,
+      "question": "Was beschreibt der Begriff ‘Sicherer Einschluss’ laut Glossar der UVU?",
+      "expected": "Eine Stilllegungsstrategie, bei der die Anlage für eine gewisse Zeit (typischerweise 30 Jahre) sicher eingeschlossen wird",
+      "level": "medium",
+      "source": "Stilllegung und Abbau – UVU, Glossar",
+      "justification": "Man muss das Glossar der UVU konsultieren und die Definition wiedergeben.",
+      "final_answer": " Sicherer Einschluss - kein direkter Beleg in der UVU-Glossar-Definition gefunden.",
+      "summarized": " Ja, ich kann eine erweiterte Suche durchführen, um weitere Informationen zum Begriff \"Sicherer Einschluss\" zu finden. Es ist jedoch wichtig zu beachten, dass der Begriff möglicherweise nicht im Kontext der UVU (Umweltverträglichkeitsuntersuchung) verwendet wird. Ich werde versuchen, weitere Dokumente zu finden, die den Begriff \"Sicherer Einschluss\" in Bezug auf die UVU erwähnen.",
+      "raw": "[Retrieved Documents]\n--- uvu.md [chunk_id=57] [score=0.4000] ---\ndie Anlage KRB II aus der atomrechtlichen Überwachung entlassen. Damit ist eine sinnvolle Reihenfolge aller Abbaumaßnahmen vorgesehen. 1.3.4 Zielzustand Nach Durchführung der „Insgesamt geplanten Maßnahmen“ (Teilvorhaben 1 bis 3) wird die Anlage KRB II aus der atomrechtlichen Überwachung entlassen. Der Abbruch der Gebäude ist nicht Bestandteil der „Insgesamt geplanten Maßnahmen“ und erfolgt in einem eigenen baurechtlichen Verfahren. 1.4 Gegenstand der UVU Gegenstand der UVU ist das Gesamtvorhaben Abbau KRB II unter Berücksichtigung und umweltseitiger Bewertung aller im Rahmen des atomrechtlichen Verfahrens insgesamt geplanten Maßnahmen. Die Auswirkungen der im Rahmen der atomrechtlichen Geneh- migungen beantragten Abbauschritte werden abdeckend in der UVU behandelt. Die UVU beschreibt und bewertet damit auch die über den Gegenstand des ersten Antrages hin- ausgehenden insgesamt geplanten Maßnahmen zum Abbau von KRB II. Der anschließende Abriss der Gebäude unterliegt nicht mehr dem\n\n--- uvu.md [chunk_id=3] [score=0.3513] ---\nDas Vorhaben im Überblick 15 1.3.1 Teilvorhaben 1 16 1.3.2 Teilvorhaben 2 17 1.3.3 Teilvorhaben 3 18 1.3.4 Zielzustand 19 1.4 Gegenstand der UVU 19 2 Inhalte und Methoden der UVU 20 2.1 Gesetzliche Anforderungen 20 2.2 Ergebnisse des Scoping-Prozesses 21 2.3 Methodisches Vorgehen 22 2.4 Vorgehensweise bei der Beurteilung der Umweltauswirkungen 23\n\n--- uvu.md [chunk_id=68] [score=0.2879] ---\nbezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die aufgelisteten ergänzenden Anforderungen sind in die vorliegende UVU entsprechend der verfolgten Konzeption des Vorhabens eingearbeitet worden. 2.3 Methodisches Vorgehen Die UVU beinhaltet die Informationen, die zur Beurteilung der erheblichen Umweltauswir- kungen des Vorhabens erforderlich sind. Die darzustellenden Umweltauswirkungen wer- den durch die o.g. Anforderungen in der AtVfV sowie dem UVPG bestimmt. Die UVU hat daher folgenden Aufbau:  Zusammenfassende Projektbeschreibung, in der im Wesentlichen die vorhabenbe- dingten Wirkungen nach Art, Menge und Dauer ihres Auftretens dargestellt werden.  Darstellung der vom Vorhabenträger gegebenenfalls geprüften technischen Alternati- ven einschließlich der Angabe der wesentlichen Auswahlgründe unter dem Gesichts- punkt der Wirkungen auf die\n\n--- uvu.md [chunk_id=72] [score=0.1800] ---\n2016) mit Verweis auf dieses Dokument zusammenfas- send übernommen. Die Anforderungen der §§ 34 und 44 BNatSchG zum Artenschutz und Schutz von Natura 2000-Gebieten werden dabei sowohl bei der Beschreibung und Beurteilung der Ist- Situation als auch bei der Beschreibung und Beurteilung der vorhabenbedingten Auswir- kungen berücksichtigt. Dies erfolgt im Rahmen von zwei entsprechenden Fachgutachten, die in die UVU integriert sind (vgl. Kap. 6 und 7 Natura 2000-Verträglichkeitsuntersuchung und Artenschutzrechtliches Fachgutachten). 2.4 Vorgehensweise bei der Beurteilung der Umweltauswirkungen Die Methoden der Erhebung, Prognose und Beurteilung im Rahmen der UVU sind zum einen auf die entscheidungserheblichen Sachverhalte des Genehmigungsverfahrens aus- gerichtet, zum anderen integrieren sie durch die Auswahl der Bewertungsmaßstäbe die schutzgutbezogenen Vorsorgeaspekte in den Genehmigungsprozess gemäß der Grund- idee des UVPG (wirksame Umweltvorsorge).\n\n--- uvu.md [chunk_id=462] [score=0.1520] ---\nProjekt-Nr. 10019 05 23. September 2016 10019 UVU_KRBII 2016-09-23.docx Abbau Kernkraftwerk Gundremmingen (KRB II) Seite 139 von 149 erstellt: wp-hk/kj Umweltverträglichkeitsuntersuchung, RWE Power AG 8 Kenntnisstand und Schwierigkeiten bei der Zusammenstellung der Angaben Gemäß dem UVPG erfolgt die Beurteilung in der UVU unter Berücksichtigung des allge- meinen Kenntnisstandes und (soweit vorhanden) der allgemein anerkannten Prüfungs- schritte und -methoden. Für den Fall, dass solche Methoden nicht für alle in der UVU zu betrachtenden Aspekte vorliegen oder auf die vorhandenen Grundlagendaten anwendbar sind, werden unter Umständen abgeleitete Prüfmethoden verwendet, die in den entspre- chenden Kapiteln erläutert werden. Kenntnislücken bei der Beurteilung der vorhabenbedingten Umweltauswirkungen sind bei der schutzgutbezogenen Auswirkungsprognose aufgeführt. Diese Kenntnislücken betref- fen Sachverhalte, die auch ohne quantitativ belegte Aussagen keine erheblichen Auswir- kungen auf\nIch habe keine spezifische Definition oder Beschreibung des Begriffs „Sicherer Einschluss“ im Glossar der UVU gefunden. Die abgerufenen Dokumente enthalten keine direkten Informationen zu diesem Begriff.\n\nMöchtest du, dass ich eine erweiterte Suche durchführe, um weitere Informationen zu finden?",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "'Sicherer Einschluss' laut Glossar der UVU"
+          },
+          "id": "aab36679-cf7a-4b3d-8a7e-3991f4bee0ab"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "aab36679-cf7a-4b3d-8a7e-3991f4bee0ab",
+          "content": "--- uvu.md [chunk_id=57] [score=0.4000] ---\ndie Anlage KRB II aus der atomrechtlichen Überwachung entlassen. Damit ist eine sinnvolle Reihenfolge aller Abbaumaßnahmen vorgesehen. 1.3.4 Zielzustand Nach Durchführung der „Insgesamt geplanten Maßnahmen“ (Teilvorhaben 1 bis 3) wird die Anlage KRB II aus der atomrechtlichen Überwachung entlassen. Der Abbruch der Gebäude ist nicht Bestandteil der „Insgesamt geplanten Maßnahmen“ und erfolgt in einem eigenen baurechtlichen Verfahren. 1.4 Gegenstand der UVU Gegenstand der UVU ist das Gesamtvorhaben Abbau KRB II unter Berücksichtigung und umweltseitiger Bewertung aller im Rahmen des atomrechtlichen Verfahrens insgesamt geplanten Maßnahmen. Die Auswirkungen der im Rahmen der atomrechtlichen Geneh- migungen beantragten Abbauschritte werden abdeckend in der UVU behandelt. Die UVU beschreibt und bewertet damit auch die über den Gegenstand des ersten Antrages hin- ausgehenden insgesamt geplanten Maßnahmen zum Abbau von KRB II. Der anschließende Abriss der Gebäude unterliegt nicht mehr dem\n\n--- uvu.md [chunk_id=3] [score=0.3513] ---\nDas Vorhaben im Überblick 15 1.3.1 Teilvorhaben 1 16 1.3.2 Teilvorhaben 2 17 1.3.3 Teilvorhaben 3 18 1.3.4 Zielzustand 19 1.4 Gegenstand der UVU 19 2 Inhalte und Methoden der UVU 20 2.1 Gesetzliche Anforderungen 20 2.2 Ergebnisse des Scoping-Prozesses 21 2.3 Methodisches Vorgehen 22 2.4 Vorgehensweise bei der Beurteilung der Umweltauswirkungen 23\n\n--- uvu.md [chunk_id=68] [score=0.2879] ---\nbezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die aufgelisteten ergänzenden Anforderungen sind in die vorliegende UVU entsprechend der verfolgten Konzeption des Vorhabens eingearbeitet worden. 2.3 Methodisches Vorgehen Die UVU beinhaltet die Informationen, die zur Beurteilung der erheblichen Umweltauswir- kungen des Vorhabens erforderlich sind. Die darzustellenden Umweltauswirkungen wer- den durch die o.g. Anforderungen in der AtVfV sowie dem UVPG bestimmt. Die UVU hat daher folgenden Aufbau:  Zusammenfassende Projektbeschreibung, in der im Wesentlichen die vorhabenbe- dingten Wirkungen nach Art, Menge und Dauer ihres Auftretens dargestellt werden.  Darstellung der vom Vorhabenträger gegebenenfalls geprüften technischen Alternati- ven einschließlich der Angabe der wesentlichen Auswahlgründe unter dem Gesichts- punkt der Wirkungen auf die\n\n--- uvu.md [chunk_id=72] [score=0.1800] ---\n2016) mit Verweis auf dieses Dokument zusammenfas- send übernommen. Die Anforderungen der §§ 34 und 44 BNatSchG zum Artenschutz und Schutz von Natura 2000-Gebieten werden dabei sowohl bei der Beschreibung und Beurteilung der Ist- Situation als auch bei der Beschreibung und Beurteilung der vorhabenbedingten Auswir- kungen berücksichtigt. Dies erfolgt im Rahmen von zwei entsprechenden Fachgutachten, die in die UVU integriert sind (vgl. Kap. 6 und 7 Natura 2000-Verträglichkeitsuntersuchung und Artenschutzrechtliches Fachgutachten). 2.4 Vorgehensweise bei der Beurteilung der Umweltauswirkungen Die Methoden der Erhebung, Prognose und Beurteilung im Rahmen der UVU sind zum einen auf die entscheidungserheblichen Sachverhalte des Genehmigungsverfahrens aus- gerichtet, zum anderen integrieren sie durch die Auswahl der Bewertungsmaßstäbe die schutzgutbezogenen Vorsorgeaspekte in den Genehmigungsprozess gemäß der Grund- idee des UVPG (wirksame Umweltvorsorge).\n\n--- uvu.md [chunk_id=462] [score=0.1520] ---\nProjekt-Nr. 10019 05 23. September 2016 10019 UVU_KRBII 2016-09-23.docx Abbau Kernkraftwerk Gundremmingen (KRB II) Seite 139 von 149 erstellt: wp-hk/kj Umweltverträglichkeitsuntersuchung, RWE Power AG 8 Kenntnisstand und Schwierigkeiten bei der Zusammenstellung der Angaben Gemäß dem UVPG erfolgt die Beurteilung in der UVU unter Berücksichtigung des allge- meinen Kenntnisstandes und (soweit vorhanden) der allgemein anerkannten Prüfungs- schritte und -methoden. Für den Fall, dass solche Methoden nicht für alle in der UVU zu betrachtenden Aspekte vorliegen oder auf die vorhandenen Grundlagendaten anwendbar sind, werden unter Umständen abgeleitete Prüfmethoden verwendet, die in den entspre- chenden Kapiteln erläutert werden. Kenntnislücken bei der Beurteilung der vorhabenbedingten Umweltauswirkungen sind bei der schutzgutbezogenen Auswirkungsprognose aufgeführt. Diese Kenntnislücken betref- fen Sachverhalte, die auch ohne quantitativ belegte Aussagen keine erheblichen Auswir- kungen auf"
+        },
+        {
+          "type": "ai_message",
+          "content": "Ich habe keine spezifische Definition oder Beschreibung des Begriffs „Sicherer Einschluss“ im Glossar der UVU gefunden. Die abgerufenen Dokumente enthalten keine direkten Informationen zu diesem Begriff.\n\nMöchtest du, dass ich eine erweiterte Suche durchführe, um weitere Informationen zu finden?"
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "uvu.md",
+          "chunk_id": "57",
+          "score": 0.4
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "3",
+          "score": 0.3513
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "68",
+          "score": 0.2879
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "72",
+          "score": 0.18
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "462",
+          "score": 0.152
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 9,
+      "question": "Welche Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen nennt das UVU‑Glossar?",
+      "expected": "Sievert",
+      "level": "medium",
+      "source": "Stilllegung und Abbau – UVU, Glossar",
+      "justification": "Das Glossar liefert die Definition dieser Einheit.",
+      "final_answer": " Becquerel (Bq)",
+      "summarized": " Die Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen, die im UVU-Glossar genannt wird, ist der **Becquerel (Bq)**.",
+      "raw": "[Retrieved Documents]\n--- uvu.md [chunk_id=297] [score=0.4000] ---\ntion) und den Berechnungen und Untersuchungen der IAEO (Internationale Atomenergie Organisation) von 2007 und der UNSCEAR (United Nations Scientific Committee on the Effects of Atomic Radiation) von 2008 beschrieben sind, ist der Schutz von Populationen vor der schädigenden Wirkung ionisierender Strahlungen dann gegeben, wenn das Strah- lenschutzkonzept der ICRP umgesetzt ist. Dies wird durch die deutsche Gesetzgebung in Form der Strahlenschutzverordnung sicher gestellt. Sofern in § 5 StrlSchV genannte Dosisgrenzwerte sowie die Regelungen zur Vermeidung unnötiger Strahlenexposition und zur Dosisreduzierung gemäß § 6 StrlSchV eingehalten werden, ist damit auch der Schutz von Tieren und Pflanzen sichergestellt. Aus diesem Grund werden die für den Menschen geltenden Kriterien und Grenzwerte auf das Schutzgut Pflanzen und Tiere übertragen. Die BfS-Studie „Systematische Untersuchung der Exposition von Flora und Fauna bei Einhaltung der Grenzwerte der StrlSchV für den Menschen - Vorhaben\n\n--- uvu.md [chunk_id=67] [score=0.2663] ---\n Ermittlung und Bewertung der zu erwartenden Verkehrsbelastung auf den Erschlie- ßungsstraßen und deren mögliche Auswirkungen in Bezug auf die Luftreinhaltung.  Darstellung der erwarteten Menge und des geplanten Umgangs mit relevanten, beim Abbau anfallenden Gefahrstoffen.  Erstellung von Unterlagen als Grundlage für eine Verträglichkeitsprüfung im Falle er- heblicher Beeinträchtigungen eines Natura 2000-Gebietes (§ 34 BNatSchG) sowie zur möglichen Artenschutzrelevanz, insbesondere dem besonderen Artenschutz (§ 44 BNatSchG) einschließlich einer Berücksichtigung von Lichteinwirkungen auf geschützte Arten bei nächtlichen Abbauarbeiten.  Ausführungen, dass der Schutz von Tieren und Pflanzen vor radioaktiven Stoffen bzw. ionisierender Strahlung bei Einhaltung der auf den Schutz des Menschen bezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.2537] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- sicherheitsbericht.md [chunk_id=452] [score=0.2320] ---\naus Energiedosis und Qualitätsfaktor. Mit dem Qualitätsfaktor wird die unterschiedliche biologische Wirkung der verschiedenen Strah- lungsarten berücksichtigt. AtG Atomgesetz AtVfV Atomrechtliche Verfahrensverordnung Bearbeitung Nachzerlegung, Pufferung und Dekontamination von radioaktiven Rest- stoffen Becquerel Einheit für die Aktivität eines Radionuklids; benannt nach dem Entdecker der Radioaktivität, Henri Becquerel. Die Aktivität beträgt 1 Becquerel (Bq), wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt. Behandlung Verarbeitung von radioaktiven Abfällen zu Abfallprodukten (z.B. durch Verpressen, Verfestigen oder Trocknen) und deren Verpackung\n\n--- uvu.md [chunk_id=220] [score=0.2167] ---\nErholung. 5.1.2.2 Auswirkungen durch Strahlenexposition Die Strahlenexposition für den Menschen ergibt sich aus den Wirkungen der Direktstrah- lung (Emission ionisierender Strahlung), der Ableitung radioaktiver Stoffe mit Luft und der Ableitung von radioaktiven Stoffen mit Wasser. Mögliche Auswirkungen werden entspre- chend der Vorgaben der StrlSchV (KGG/RWE 2016) ermittelt und dargestellt. Grundlage\n[Retrieved Documents]\n--- uvu.md [chunk_id=297] [score=0.4000] ---\ntion) und den Berechnungen und Untersuchungen der IAEO (Internationale Atomenergie Organisation) von 2007 und der UNSCEAR (United Nations Scientific Committee on the Effects of Atomic Radiation) von 2008 beschrieben sind, ist der Schutz von Populationen vor der schädigenden Wirkung ionisierender Strahlungen dann gegeben, wenn das Strah- lenschutzkonzept der ICRP umgesetzt ist. Dies wird durch die deutsche Gesetzgebung in Form der Strahlenschutzverordnung sicher gestellt. Sofern in § 5 StrlSchV genannte Dosisgrenzwerte sowie die Regelungen zur Vermeidung unnötiger Strahlenexposition und zur Dosisreduzierung gemäß § 6 StrlSchV eingehalten werden, ist damit auch der Schutz von Tieren und Pflanzen sichergestellt. Aus diesem Grund werden die für den Menschen geltenden Kriterien und Grenzwerte auf das Schutzgut Pflanzen und Tiere übertragen. Die BfS-Studie „Systematische Untersuchung der Exposition von Flora und Fauna bei Einhaltung der Grenzwerte der StrlSchV für den Menschen - Vorhaben\n\n--- sicherheitsbericht.md [chunk_id=452] [score=0.2672] ---\naus Energiedosis und Qualitätsfaktor. Mit dem Qualitätsfaktor wird die unterschiedliche biologische Wirkung der verschiedenen Strah- lungsarten berücksichtigt. AtG Atomgesetz AtVfV Atomrechtliche Verfahrensverordnung Bearbeitung Nachzerlegung, Pufferung und Dekontamination von radioaktiven Rest- stoffen Becquerel Einheit für die Aktivität eines Radionuklids; benannt nach dem Entdecker der Radioaktivität, Henri Becquerel. Die Aktivität beträgt 1 Becquerel (Bq), wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt. Behandlung Verarbeitung von radioaktiven Abfällen zu Abfallprodukten (z.B. durch Verpressen, Verfestigen oder Trocknen) und deren Verpackung\n\n--- uvu.md [chunk_id=220] [score=0.2300] ---\nErholung. 5.1.2.2 Auswirkungen durch Strahlenexposition Die Strahlenexposition für den Menschen ergibt sich aus den Wirkungen der Direktstrah- lung (Emission ionisierender Strahlung), der Ableitung radioaktiver Stoffe mit Luft und der Ableitung von radioaktiven Stoffen mit Wasser. Mögliche Auswirkungen werden entspre- chend der Vorgaben der StrlSchV (KGG/RWE 2016) ermittelt und dargestellt. Grundlage\n\n--- uvu.md [chunk_id=67] [score=0.2269] ---\n Ermittlung und Bewertung der zu erwartenden Verkehrsbelastung auf den Erschlie- ßungsstraßen und deren mögliche Auswirkungen in Bezug auf die Luftreinhaltung.  Darstellung der erwarteten Menge und des geplanten Umgangs mit relevanten, beim Abbau anfallenden Gefahrstoffen.  Erstellung von Unterlagen als Grundlage für eine Verträglichkeitsprüfung im Falle er- heblicher Beeinträchtigungen eines Natura 2000-Gebietes (§ 34 BNatSchG) sowie zur möglichen Artenschutzrelevanz, insbesondere dem besonderen Artenschutz (§ 44 BNatSchG) einschließlich einer Berücksichtigung von Lichteinwirkungen auf geschützte Arten bei nächtlichen Abbauarbeiten.  Ausführungen, dass der Schutz von Tieren und Pflanzen vor radioaktiven Stoffen bzw. ionisierender Strahlung bei Einhaltung der auf den Schutz des Menschen bezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.1981] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\nDie Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen, die im UVU-Glossar genannt wird, ist der **Becquerel (Bq)**. Diese Einheit misst die Aktivität eines Radionuklids, wobei 1 Becquerel (Bq) entspricht, wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "biologische Wirkung ionisierender Strahlung auf den Menschen Einheit"
+          },
+          "id": "4f758e65-7b71-404f-851c-a6f72784def1"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "4f758e65-7b71-404f-851c-a6f72784def1",
+          "content": "--- uvu.md [chunk_id=297] [score=0.4000] ---\ntion) und den Berechnungen und Untersuchungen der IAEO (Internationale Atomenergie Organisation) von 2007 und der UNSCEAR (United Nations Scientific Committee on the Effects of Atomic Radiation) von 2008 beschrieben sind, ist der Schutz von Populationen vor der schädigenden Wirkung ionisierender Strahlungen dann gegeben, wenn das Strah- lenschutzkonzept der ICRP umgesetzt ist. Dies wird durch die deutsche Gesetzgebung in Form der Strahlenschutzverordnung sicher gestellt. Sofern in § 5 StrlSchV genannte Dosisgrenzwerte sowie die Regelungen zur Vermeidung unnötiger Strahlenexposition und zur Dosisreduzierung gemäß § 6 StrlSchV eingehalten werden, ist damit auch der Schutz von Tieren und Pflanzen sichergestellt. Aus diesem Grund werden die für den Menschen geltenden Kriterien und Grenzwerte auf das Schutzgut Pflanzen und Tiere übertragen. Die BfS-Studie „Systematische Untersuchung der Exposition von Flora und Fauna bei Einhaltung der Grenzwerte der StrlSchV für den Menschen - Vorhaben\n\n--- uvu.md [chunk_id=67] [score=0.2663] ---\n Ermittlung und Bewertung der zu erwartenden Verkehrsbelastung auf den Erschlie- ßungsstraßen und deren mögliche Auswirkungen in Bezug auf die Luftreinhaltung.  Darstellung der erwarteten Menge und des geplanten Umgangs mit relevanten, beim Abbau anfallenden Gefahrstoffen.  Erstellung von Unterlagen als Grundlage für eine Verträglichkeitsprüfung im Falle er- heblicher Beeinträchtigungen eines Natura 2000-Gebietes (§ 34 BNatSchG) sowie zur möglichen Artenschutzrelevanz, insbesondere dem besonderen Artenschutz (§ 44 BNatSchG) einschließlich einer Berücksichtigung von Lichteinwirkungen auf geschützte Arten bei nächtlichen Abbauarbeiten.  Ausführungen, dass der Schutz von Tieren und Pflanzen vor radioaktiven Stoffen bzw. ionisierender Strahlung bei Einhaltung der auf den Schutz des Menschen bezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.2537] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- sicherheitsbericht.md [chunk_id=452] [score=0.2320] ---\naus Energiedosis und Qualitätsfaktor. Mit dem Qualitätsfaktor wird die unterschiedliche biologische Wirkung der verschiedenen Strah- lungsarten berücksichtigt. AtG Atomgesetz AtVfV Atomrechtliche Verfahrensverordnung Bearbeitung Nachzerlegung, Pufferung und Dekontamination von radioaktiven Rest- stoffen Becquerel Einheit für die Aktivität eines Radionuklids; benannt nach dem Entdecker der Radioaktivität, Henri Becquerel. Die Aktivität beträgt 1 Becquerel (Bq), wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt. Behandlung Verarbeitung von radioaktiven Abfällen zu Abfallprodukten (z.B. durch Verpressen, Verfestigen oder Trocknen) und deren Verpackung\n\n--- uvu.md [chunk_id=220] [score=0.2167] ---\nErholung. 5.1.2.2 Auswirkungen durch Strahlenexposition Die Strahlenexposition für den Menschen ergibt sich aus den Wirkungen der Direktstrah- lung (Emission ionisierender Strahlung), der Ableitung radioaktiver Stoffe mit Luft und der Ableitung von radioaktiven Stoffen mit Wasser. Mögliche Auswirkungen werden entspre- chend der Vorgaben der StrlSchV (KGG/RWE 2016) ermittelt und dargestellt. Grundlage"
+        },
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen"
+          },
+          "id": "6eabb7d2-7100-4998-8c42-188d50514fa7"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "6eabb7d2-7100-4998-8c42-188d50514fa7",
+          "content": "--- uvu.md [chunk_id=297] [score=0.4000] ---\ntion) und den Berechnungen und Untersuchungen der IAEO (Internationale Atomenergie Organisation) von 2007 und der UNSCEAR (United Nations Scientific Committee on the Effects of Atomic Radiation) von 2008 beschrieben sind, ist der Schutz von Populationen vor der schädigenden Wirkung ionisierender Strahlungen dann gegeben, wenn das Strah- lenschutzkonzept der ICRP umgesetzt ist. Dies wird durch die deutsche Gesetzgebung in Form der Strahlenschutzverordnung sicher gestellt. Sofern in § 5 StrlSchV genannte Dosisgrenzwerte sowie die Regelungen zur Vermeidung unnötiger Strahlenexposition und zur Dosisreduzierung gemäß § 6 StrlSchV eingehalten werden, ist damit auch der Schutz von Tieren und Pflanzen sichergestellt. Aus diesem Grund werden die für den Menschen geltenden Kriterien und Grenzwerte auf das Schutzgut Pflanzen und Tiere übertragen. Die BfS-Studie „Systematische Untersuchung der Exposition von Flora und Fauna bei Einhaltung der Grenzwerte der StrlSchV für den Menschen - Vorhaben\n\n--- sicherheitsbericht.md [chunk_id=452] [score=0.2672] ---\naus Energiedosis und Qualitätsfaktor. Mit dem Qualitätsfaktor wird die unterschiedliche biologische Wirkung der verschiedenen Strah- lungsarten berücksichtigt. AtG Atomgesetz AtVfV Atomrechtliche Verfahrensverordnung Bearbeitung Nachzerlegung, Pufferung und Dekontamination von radioaktiven Rest- stoffen Becquerel Einheit für die Aktivität eines Radionuklids; benannt nach dem Entdecker der Radioaktivität, Henri Becquerel. Die Aktivität beträgt 1 Becquerel (Bq), wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt. Behandlung Verarbeitung von radioaktiven Abfällen zu Abfallprodukten (z.B. durch Verpressen, Verfestigen oder Trocknen) und deren Verpackung\n\n--- uvu.md [chunk_id=220] [score=0.2300] ---\nErholung. 5.1.2.2 Auswirkungen durch Strahlenexposition Die Strahlenexposition für den Menschen ergibt sich aus den Wirkungen der Direktstrah- lung (Emission ionisierender Strahlung), der Ableitung radioaktiver Stoffe mit Luft und der Ableitung von radioaktiven Stoffen mit Wasser. Mögliche Auswirkungen werden entspre- chend der Vorgaben der StrlSchV (KGG/RWE 2016) ermittelt und dargestellt. Grundlage\n\n--- uvu.md [chunk_id=67] [score=0.2269] ---\n Ermittlung und Bewertung der zu erwartenden Verkehrsbelastung auf den Erschlie- ßungsstraßen und deren mögliche Auswirkungen in Bezug auf die Luftreinhaltung.  Darstellung der erwarteten Menge und des geplanten Umgangs mit relevanten, beim Abbau anfallenden Gefahrstoffen.  Erstellung von Unterlagen als Grundlage für eine Verträglichkeitsprüfung im Falle er- heblicher Beeinträchtigungen eines Natura 2000-Gebietes (§ 34 BNatSchG) sowie zur möglichen Artenschutzrelevanz, insbesondere dem besonderen Artenschutz (§ 44 BNatSchG) einschließlich einer Berücksichtigung von Lichteinwirkungen auf geschützte Arten bei nächtlichen Abbauarbeiten.  Ausführungen, dass der Schutz von Tieren und Pflanzen vor radioaktiven Stoffen bzw. ionisierender Strahlung bei Einhaltung der auf den Schutz des Menschen bezo- genen Dosisgrenzwerte in § 5 StrlSchV sichergestellt ist.  Beschreibung des mit den Abbaugenehmigungen nach § 7 Abs. 3 AtG angestrebten technischen und baulichen Endzustands der Anlage. Die\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.1981] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -"
+        },
+        {
+          "type": "ai_message",
+          "content": "Die Einheit für die biologische Wirkung ionisierender Strahlung auf den Menschen, die im UVU-Glossar genannt wird, ist der **Becquerel (Bq)**. Diese Einheit misst die Aktivität eines Radionuklids, wobei 1 Becquerel (Bq) entspricht, wenn von der vorliegenden Menge eines Radionuklids 1 Atomkern pro Sekunde zerfällt."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "uvu.md",
+          "chunk_id": "297",
+          "score": 0.4
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "67",
+          "score": 0.2663
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "88",
+          "score": 0.2537
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "452",
+          "score": 0.232
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "220",
+          "score": 0.2167
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "297",
+          "score": 0.4
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "452",
+          "score": 0.2672
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "220",
+          "score": 0.23
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "67",
+          "score": 0.2269
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "88",
+          "score": 0.1981
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 10,
+      "question": "In welcher Naturlandschaft liegt der Standort des KRB II und wie breit ist diese dort?",
+      "expected": "Im Donauried, etwa 8 km breit",
+      "level": "medium",
+      "source": "Sicherheitsbericht KRB II, Seite 18",
+      "justification": "Man muss den Standortabschnitt des KRB II lesen, um sowohl Region als auch Breite zu ermitteln.",
+      "final_answer": " Gundremmingen, Schwaben, 9,3 km",
+      "summarized": " Der Standort des KRB II liegt in der Gemeinde Gundremmingen, Landkreis Günzburg, im bayerischen Regierungsbezirk Schwaben. Die Naturlandschaft in dieser Region ist eben und liegt am rechten Donauufer bei Flusskilometer 2.551. Die Breite der Nachttiefflugstrecke, die den 10-km-Bereich um das Kernkraftwerk Gundremmingen im Norden tangiert, beträgt ca. 9,3 km.",
+      "raw": "[Retrieved Documents]\n--- sicherheitsbericht.md [chunk_id=49] [score=0.4000] ---\nversorgt sind, er seine eigen- ständige Siedlungs- und Wirtschaftsstruktur bewahren und seine landschaftliche Vielfalt sichern kann. Eine zeitgemäße Informations- und Kommunikationsstruktur soll geschaffen und erhalten werden. 4.2 Geographische Lage Der Standort des Kernkraftwerks Gundremmingen liegt auf dem Gebiet der Gemeinde Gundrem- mingen, Landkreis Günzburg, im bayerischen Regierungsbezirk Schwaben. Der Standort weist die Koordinaten 10°24‘ östlicher Länge und 48°31‘ nördlicher Breite auf und liegt am rechten Donauufer bei Flusskilometer 2.551. Die Umgebung des Standortes ist eben, die\n\n--- sicherheitsbericht.md [chunk_id=478] [score=0.1436] ---\nAbbildungsverzeichnis Abbildung 1: Schematische Darstellung der geplanten Teilvorhaben (Zeitangaben geschätzt) 12 Abbildung 2: Standort Gundremmingen mit 10-km-Bereich 19 Abbildung 3: Wetterstatistik am Standort KRB II für das Gesamtjahr 28 Abbildung 4: Wetterstatistik am Standort KRB II für das Sommerhalbjahr 29 Abbildung 5: Erdbebenzonen in der Bundesrepublik Deutschland 32 Abbildung 6: Prinzipielle Darstellung der Arbeitsweise eines Siedewasserreaktors 35 Abbildung 7: Lageplan des Kraftwerksstandorts Gundremmingen 36 Abbildung 8: Querschnitt durch den Kontrollbereich der Blöcke B und C 37\n\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 149 von 149 23.09.2016\n\n--- sicherheitsbericht.md [chunk_id=75] [score=0.1190] ---\nNachttiefflugstrecke tangiert den 10–km-Bereich um das Kernkraftwerk Gundremmingen im Norden. Die Strecke führt von West nach Ost. Sie hat eine Breite von ca. 9,3 km und eine Min- desthöhe von ca. 1200 m über Grund. Zusätzlich können dort Geländefolgeflüge in einer Höhe von\n\n--- sicherheitsbericht.md [chunk_id=432] [score=0.1071] ---\n11.6 Gegenseitige Beeinflussung von Mehrblockanlagen und benachbarten Anlagen am Standort Umstürzen baulicher Einrichtungen Am Standort Gundremmingen befinden sich neben den Gebäuden der Anlage KRB II (umfasst die Blöcke B, C und das Technologiezentrum) die der Altanlage KRB A zugeordneten Gebäude und das Standort-Zwischenlager. Mögliche Rückwirkungen aufgrund des Betriebs oder aufgrund der baulichen Ausführungen dieser Anlagen sind durch deren Betriebsgenehmigungen abgedeckt. Ebenso wurden mögliche Störungen und Ausfälle an den bestehenden Sicherheitseinrichtungen, die gemeinsam von mehreren Anlagen bzw. Blöcken genutzt werden, für den Leistungsbetrieb der Blöcke B und C umfassend bewertet. Radiologische Auswirkungen auf die Umgebung infolge des Umstürzens baulicher Einrichtungen sind damit ausgeschlossen. Versagen von Behältern und Anlagenteilen mit hohem Energieinhalt Während des Abbaus der Anlage KRB II werden am Standort Gundremmingen keine Bauwerke errichtet, die aufgrund ihrer\n\n--- sicherheitsbericht.md [chunk_id=74] [score=0.0881] ---\n4.6.4 Luftverkehr Luftverkehrsstraßen Im 10-km-Radius um den Standort befinden sich mehrere Luftverkehrsstraßen des oberen und unteren Luftraums. Dabei ist anzumerken, dass der Luftverkehr zunehmend im sogenannten Di- rektflug abgewickelt wird, bei dem Luftverkehrsstraßen immer häufiger eine untergeordnete Rolle spielen. Tieffluggebiete Grundsätzlich werden Tiefflüge mit militärischen Strahl- und Propellerflugzeugen tagsüber auf- grund der gerechten Lastverteilung über dem gesamten Bundesgebiet durchgeführt. Ausnahmen gelten für Luftraumbeschränkungsgebiete, siehe Abschnitt „Kontrollzonen und Luftraumbeschrän- kungsgebiete“. Tiefflüge werden bis zu einer Flughöhe von 150 Metern über Grund durchgeführt und unterliegen der Genehmigungspflicht durch das Bundesministerium der Verteidigung. Eine Nachttiefflugstrecke tangiert den 10–km-Bereich um das Kernkraftwerk Gundremmingen im Norden. Die Strecke führt von West nach Ost. Sie hat eine Breite von ca. 9,3 km und eine Min- desthöhe von ca.\nDer Standort des KRB II liegt in der Gemeinde Gundremmingen, Landkreis Günzburg, im bayerischen Regierungsbezirk Schwaben. Die Naturlandschaft in dieser Region ist eben und liegt am rechten Donauufer bei Flusskilometer 2.551.\n\nDie Breite der Nachttiefflugstrecke, die den 10-km-Bereich um das Kernkraftwerk Gundremmingen im Norden tangiert, beträgt ca. 9,3 km.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Standort KRB II Naturlandschaft Breite"
+          },
+          "id": "15c28c70-4211-412f-bbe5-755933585970"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "15c28c70-4211-412f-bbe5-755933585970",
+          "content": "--- sicherheitsbericht.md [chunk_id=49] [score=0.4000] ---\nversorgt sind, er seine eigen- ständige Siedlungs- und Wirtschaftsstruktur bewahren und seine landschaftliche Vielfalt sichern kann. Eine zeitgemäße Informations- und Kommunikationsstruktur soll geschaffen und erhalten werden. 4.2 Geographische Lage Der Standort des Kernkraftwerks Gundremmingen liegt auf dem Gebiet der Gemeinde Gundrem- mingen, Landkreis Günzburg, im bayerischen Regierungsbezirk Schwaben. Der Standort weist die Koordinaten 10°24‘ östlicher Länge und 48°31‘ nördlicher Breite auf und liegt am rechten Donauufer bei Flusskilometer 2.551. Die Umgebung des Standortes ist eben, die\n\n--- sicherheitsbericht.md [chunk_id=478] [score=0.1436] ---\nAbbildungsverzeichnis Abbildung 1: Schematische Darstellung der geplanten Teilvorhaben (Zeitangaben geschätzt) 12 Abbildung 2: Standort Gundremmingen mit 10-km-Bereich 19 Abbildung 3: Wetterstatistik am Standort KRB II für das Gesamtjahr 28 Abbildung 4: Wetterstatistik am Standort KRB II für das Sommerhalbjahr 29 Abbildung 5: Erdbebenzonen in der Bundesrepublik Deutschland 32 Abbildung 6: Prinzipielle Darstellung der Arbeitsweise eines Siedewasserreaktors 35 Abbildung 7: Lageplan des Kraftwerksstandorts Gundremmingen 36 Abbildung 8: Querschnitt durch den Kontrollbereich der Blöcke B und C 37\n\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 149 von 149 23.09.2016\n\n--- sicherheitsbericht.md [chunk_id=75] [score=0.1190] ---\nNachttiefflugstrecke tangiert den 10–km-Bereich um das Kernkraftwerk Gundremmingen im Norden. Die Strecke führt von West nach Ost. Sie hat eine Breite von ca. 9,3 km und eine Min- desthöhe von ca. 1200 m über Grund. Zusätzlich können dort Geländefolgeflüge in einer Höhe von\n\n--- sicherheitsbericht.md [chunk_id=432] [score=0.1071] ---\n11.6 Gegenseitige Beeinflussung von Mehrblockanlagen und benachbarten Anlagen am Standort Umstürzen baulicher Einrichtungen Am Standort Gundremmingen befinden sich neben den Gebäuden der Anlage KRB II (umfasst die Blöcke B, C und das Technologiezentrum) die der Altanlage KRB A zugeordneten Gebäude und das Standort-Zwischenlager. Mögliche Rückwirkungen aufgrund des Betriebs oder aufgrund der baulichen Ausführungen dieser Anlagen sind durch deren Betriebsgenehmigungen abgedeckt. Ebenso wurden mögliche Störungen und Ausfälle an den bestehenden Sicherheitseinrichtungen, die gemeinsam von mehreren Anlagen bzw. Blöcken genutzt werden, für den Leistungsbetrieb der Blöcke B und C umfassend bewertet. Radiologische Auswirkungen auf die Umgebung infolge des Umstürzens baulicher Einrichtungen sind damit ausgeschlossen. Versagen von Behältern und Anlagenteilen mit hohem Energieinhalt Während des Abbaus der Anlage KRB II werden am Standort Gundremmingen keine Bauwerke errichtet, die aufgrund ihrer\n\n--- sicherheitsbericht.md [chunk_id=74] [score=0.0881] ---\n4.6.4 Luftverkehr Luftverkehrsstraßen Im 10-km-Radius um den Standort befinden sich mehrere Luftverkehrsstraßen des oberen und unteren Luftraums. Dabei ist anzumerken, dass der Luftverkehr zunehmend im sogenannten Di- rektflug abgewickelt wird, bei dem Luftverkehrsstraßen immer häufiger eine untergeordnete Rolle spielen. Tieffluggebiete Grundsätzlich werden Tiefflüge mit militärischen Strahl- und Propellerflugzeugen tagsüber auf- grund der gerechten Lastverteilung über dem gesamten Bundesgebiet durchgeführt. Ausnahmen gelten für Luftraumbeschränkungsgebiete, siehe Abschnitt „Kontrollzonen und Luftraumbeschrän- kungsgebiete“. Tiefflüge werden bis zu einer Flughöhe von 150 Metern über Grund durchgeführt und unterliegen der Genehmigungspflicht durch das Bundesministerium der Verteidigung. Eine Nachttiefflugstrecke tangiert den 10–km-Bereich um das Kernkraftwerk Gundremmingen im Norden. Die Strecke führt von West nach Ost. Sie hat eine Breite von ca. 9,3 km und eine Min- desthöhe von ca."
+        },
+        {
+          "type": "ai_message",
+          "content": "Der Standort des KRB II liegt in der Gemeinde Gundremmingen, Landkreis Günzburg, im bayerischen Regierungsbezirk Schwaben. Die Naturlandschaft in dieser Region ist eben und liegt am rechten Donauufer bei Flusskilometer 2.551.\n\nDie Breite der Nachttiefflugstrecke, die den 10-km-Bereich um das Kernkraftwerk Gundremmingen im Norden tangiert, beträgt ca. 9,3 km."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "49",
+          "score": 0.4
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "478",
+          "score": 0.1436
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "75",
+          "score": 0.119
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "432",
+          "score": 0.1071
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "74",
+          "score": 0.0881
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 11,
+      "question": "Welches Projekt gliedert den Abbau in zwei Phasen und welches in drei Teilvorhaben?",
+      "expected": "Das KKG nutzt zwei Abbauphasen, das KRB II drei Teilvorhaben",
+      "level": "hard",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seiten 8–10; Sicherheitsbericht KRB II, Kapitel 3",
+      "justification": "Die Antwort erfordert den Vergleich der Strukturen zweier unterschiedlicher Projekte.",
+      "final_answer": " KRB II (drei Teilvorhaben)",
+      "summarized": " Das Projekt, das den Abbau in drei Teilvorhaben gliedert, ist der Abbau der Anlage KRB II. Diese Teilvorhaben richten sich insbesondere nach dem Betriebszustand der Anlage.",
+      "raw": "[Retrieved Documents]\n--- sicherheitsbericht.md [chunk_id=151] [score=0.4000] ---\nbleiben wäh- rend des Abbaus langfristig in Betrieb. Weiterhin bleiben Neben- und Hilfssysteme zur Erwärmung, Kühlung und Befeuchtung der Luft im erforderlichen Umfang in Betrieb. Die während des Leis- tungsbetriebes vorhandene Unterdruckstaffelung zwischen den einzelnen Gebäuden kann in den einzelnen Phasen des Abbaus im Zuge der Optimierung durch eine gerichtete Luftströmung ersetzt werden. 6.3.3 Energieversorgungssysteme Für die Stromversorgung während des Abbaus wird zunächst der Hauptnetzanschluss an das 400 kV-Übertragungsnetz als Regeleinspeisung genutzt. Als Reserveeinspeisung steht das 110 kV-Netz zur Verfügung. Im Laufe des Abbaus wird die Netzversorgung des KRB II dem kleiner werdenden Leistungsbedarf angepasst. Die vorhandene elektrotechnische Infrastruktur wird für den Abbau des KRB II weiter genutzt und ebenfalls im Laufe des Abbaus angepasst. Die zur Ver- fügung stehende Netz-Anschlussleistung ist für den Leistungsbedarf während des Abbaus des KRB II ausreichend. Im\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=122] [score=0.3628] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 49 ne maßgeblichen Bestandteile der Natura 2000-Gebiete betroffen sind. Erhebliche Beeinträchtigun- gen der für die Erhaltungsziele der Natura 2000-Gebiete maßgeblichen Bestandteile können somit ausgeschlossen werden. Artenschutzrechtlicher Fachbeitrag Da durch die geplanten Vorhaben auch Pflanzen- und Tierarten betroffen sein können, die arten- schutzrechtlichen Bestimmungen im Sinne des § 44 BNatSchG unterliegen, wurde für die relevan- ten Arten eine Artenschutzprüfung durchgeführt. Fachliche Grundlage der Artenschutzprüfung war die artenschutzfachliche Betrachtung. Die artgruppenspezifische Prüfung zeigte, dass für alle durch die geplanten Projekt betroffenen Arten relevante Beeinträchtigungen – und somit Verbotstatbe- stände des § 44 Abs. 1 BNatSchG – vollständig ausgeschlossen werden können.\n\n--- uvu.md [chunk_id=43] [score=0.3374] ---\n1.3 Das Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesondere nach dem Betriebszustand der Anlage richten, siehe Abb. 1. Es sind drei Teilvorhaben vorgesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagen- teile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren expli- zit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Die- se Vorgehensweise stellt die Rückwirkungsfreiheit des Vorhabens auf den Leistungsbe- trieb von Block C, auf den Umgang mit Kernbrennstoffen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- uvu.md [chunk_id=492] [score=0.3223] ---\nBearbeiter: Dipl.-Ing. Kanderske Dipl.-Geogr. Wolpert\n\nDonau-Auen zwischen Thalfingen und H|chstldt 7428-301.01 Standort Kernkraftwerk FFH-Gebiet Nr. 7428-301 Donau-Auen zwischen Thalfingen und H|chstldt 7428-301 FFH-Gebiete PLANBEZEICHNUNG: PROJECT NO.: PROJEKT NR.: DRAWING TITLE: PROJECT TITLE: PROJEKT TITEL: ORDERED BY: AUFTRAGGEBER: INDEX D B A C GEZEICHNET (35h)7 DATUM b1'(581 BEARBEITER ALTERNATION PRINCIPAL DRAWN BY DATE CHECKED BY CHECKED BY: ZEICHNUNG NR: DRAWING NO: (35h)7 PRINCIPAL: BEARBEITER: DRAWN BY: GEZEICHNET: MASSTAB: SCALE: DATE DATUM LEGENDE Burgauer Str. 30 . 86381 Krumbach . Tel.: 0 82 82 / 9 94 - 0 Fax: 0 82 82 / 9 94 - 110 . KC@klingconsult.de . www.klingconsult.de PLANUNGS- UND INGENIEUR- (6(//6&+$)7)h5%$8:(6(10%+ BAUGRUNDINSTITUT NACH DIN 1054\n\nNATURA 2000 Bayern Gebietsbezogene Konkretisierung der Erhaltungsziele\n\nSeite 1 von 4\n\nGebietstyp: B\n\nStand: 19.02.2016\n\nGebietsnummer: DE7428301\n\nGebietsname: Donau-Auen zwischen Thalfingen und Höchstädt\n\n--- uvu.md [chunk_id=268] [score=0.2892] ---\nLeistungsbetrieb beider Blöcke (Stand 2000) Anlagenzustand: Block B abgeschaltet Block C im Leis- tungsbetrieb (2018 bis etwa 2021) Anlagenzustand: beide Blöcke abge- schaltet (2022 bis etwa 2025) Anlagenzustand Anlage kernbrenn- stofffrei (ab etwa 2026) Projekt beendet (ca. 2040) 1 2 3 4 5 6 Statische Schallquellen der Anlage Wesentliche Schall- quellen sind Kühltür- me, Maschinentrans- formatoren und Dieselaggregate Es entfallen u.a. ein Kühlturm und Maschi- nentransformator Es entfallen u.a. beide Kühltürme und Ma- schinentransforma- toren Weitere Reduzierungen Geräuschemissionen aus statischen Schallquellen Der beantragte Abbau von Anlagenteilen des KRB II findet praktisch ausnahmslos im In- neren der Gebäude statt. Es sind keine zusätzlichen Gerätschaften für den Abbau außer- halb der Gebäude sowie keine Erschütterungs- oder schallrelevanten Abbaumaßnahmen vorgesehen. Alle Aktivitäten von Abbau und Behandlung der Reststoffe sind außen nicht hörbar. Im Kontrollbereich des\n[Retrieved Documents]\n--- uvu.md [chunk_id=43] [score=0.4000] ---\n1.3 Das Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesondere nach dem Betriebszustand der Anlage richten, siehe Abb. 1. Es sind drei Teilvorhaben vorgesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagen- teile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren expli- zit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Die- se Vorgehensweise stellt die Rückwirkungsfreiheit des Vorhabens auf den Leistungsbe- trieb von Block C, auf den Umgang mit Kernbrennstoffen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- uvu.md [chunk_id=268] [score=0.3402] ---\nLeistungsbetrieb beider Blöcke (Stand 2000) Anlagenzustand: Block B abgeschaltet Block C im Leis- tungsbetrieb (2018 bis etwa 2021) Anlagenzustand: beide Blöcke abge- schaltet (2022 bis etwa 2025) Anlagenzustand Anlage kernbrenn- stofffrei (ab etwa 2026) Projekt beendet (ca. 2040) 1 2 3 4 5 6 Statische Schallquellen der Anlage Wesentliche Schall- quellen sind Kühltür- me, Maschinentrans- formatoren und Dieselaggregate Es entfallen u.a. ein Kühlturm und Maschi- nentransformator Es entfallen u.a. beide Kühltürme und Ma- schinentransforma- toren Weitere Reduzierungen Geräuschemissionen aus statischen Schallquellen Der beantragte Abbau von Anlagenteilen des KRB II findet praktisch ausnahmslos im In- neren der Gebäude statt. Es sind keine zusätzlichen Gerätschaften für den Abbau außer- halb der Gebäude sowie keine Erschütterungs- oder schallrelevanten Abbaumaßnahmen vorgesehen. Alle Aktivitäten von Abbau und Behandlung der Reststoffe sind außen nicht hörbar. Im Kontrollbereich des\n\n--- uvu.md [chunk_id=492] [score=0.3179] ---\nBearbeiter: Dipl.-Ing. Kanderske Dipl.-Geogr. Wolpert\n\nDonau-Auen zwischen Thalfingen und H|chstldt 7428-301.01 Standort Kernkraftwerk FFH-Gebiet Nr. 7428-301 Donau-Auen zwischen Thalfingen und H|chstldt 7428-301 FFH-Gebiete PLANBEZEICHNUNG: PROJECT NO.: PROJEKT NR.: DRAWING TITLE: PROJECT TITLE: PROJEKT TITEL: ORDERED BY: AUFTRAGGEBER: INDEX D B A C GEZEICHNET (35h)7 DATUM b1'(581 BEARBEITER ALTERNATION PRINCIPAL DRAWN BY DATE CHECKED BY CHECKED BY: ZEICHNUNG NR: DRAWING NO: (35h)7 PRINCIPAL: BEARBEITER: DRAWN BY: GEZEICHNET: MASSTAB: SCALE: DATE DATUM LEGENDE Burgauer Str. 30 . 86381 Krumbach . Tel.: 0 82 82 / 9 94 - 0 Fax: 0 82 82 / 9 94 - 110 . KC@klingconsult.de . www.klingconsult.de PLANUNGS- UND INGENIEUR- (6(//6&+$)7)h5%$8:(6(10%+ BAUGRUNDINSTITUT NACH DIN 1054\n\nNATURA 2000 Bayern Gebietsbezogene Konkretisierung der Erhaltungsziele\n\nSeite 1 von 4\n\nGebietstyp: B\n\nStand: 19.02.2016\n\nGebietsnummer: DE7428301\n\nGebietsname: Donau-Auen zwischen Thalfingen und Höchstädt\n\n--- sicherheitsbericht.md [chunk_id=31] [score=0.3019] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 12 von 149 23.09.2016\n\nDas Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesonde- re nach dem Betriebszustand der Anlage richten, siehe Abbildung 1. Es sind drei Teilvorhaben vor- gesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagenteile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren explizit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Diese Vorgehensweise stellt die Rückwirkungs- freiheit des Vorhabens auf den Leistungsbetrieb von Block C, auf den Umgang mit Kernbrennstof- fen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele (siehe Kapitel 6.2 ) sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=122] [score=0.2698] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 49 ne maßgeblichen Bestandteile der Natura 2000-Gebiete betroffen sind. Erhebliche Beeinträchtigun- gen der für die Erhaltungsziele der Natura 2000-Gebiete maßgeblichen Bestandteile können somit ausgeschlossen werden. Artenschutzrechtlicher Fachbeitrag Da durch die geplanten Vorhaben auch Pflanzen- und Tierarten betroffen sein können, die arten- schutzrechtlichen Bestimmungen im Sinne des § 44 BNatSchG unterliegen, wurde für die relevan- ten Arten eine Artenschutzprüfung durchgeführt. Fachliche Grundlage der Artenschutzprüfung war die artenschutzfachliche Betrachtung. Die artgruppenspezifische Prüfung zeigte, dass für alle durch die geplanten Projekt betroffenen Arten relevante Beeinträchtigungen – und somit Verbotstatbe- stände des § 44 Abs. 1 BNatSchG – vollständig ausgeschlossen werden können.\nDas Projekt, das den Abbau in drei Teilvorhaben gliedert, ist der Abbau der Anlage KRB II. Diese Teilvorhaben richten sich insbesondere nach dem Betriebszustand der Anlage. Mit den ersten beiden Teilvorhaben werden Anlagenteile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren explizit beantragt und genehmigt worden sind. Der Abbau erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\nLeider konnte ich keine Informationen zu einem Projekt finden, das den Abbau in zwei Phasen gliedert. Wenn du weitere Details oder einen spezifischen Kontext hast, lass es mich wissen, damit ich die Suche weiter verfeinern kann.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Projekt mit zwei Phasen und Projekt mit drei Teilvorhaben im Bereich des Abbaus"
+          },
+          "id": "fed9969d-ef79-4088-9f58-d1fefcfd8fb5"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "fed9969d-ef79-4088-9f58-d1fefcfd8fb5",
+          "content": "--- sicherheitsbericht.md [chunk_id=151] [score=0.4000] ---\nbleiben wäh- rend des Abbaus langfristig in Betrieb. Weiterhin bleiben Neben- und Hilfssysteme zur Erwärmung, Kühlung und Befeuchtung der Luft im erforderlichen Umfang in Betrieb. Die während des Leis- tungsbetriebes vorhandene Unterdruckstaffelung zwischen den einzelnen Gebäuden kann in den einzelnen Phasen des Abbaus im Zuge der Optimierung durch eine gerichtete Luftströmung ersetzt werden. 6.3.3 Energieversorgungssysteme Für die Stromversorgung während des Abbaus wird zunächst der Hauptnetzanschluss an das 400 kV-Übertragungsnetz als Regeleinspeisung genutzt. Als Reserveeinspeisung steht das 110 kV-Netz zur Verfügung. Im Laufe des Abbaus wird die Netzversorgung des KRB II dem kleiner werdenden Leistungsbedarf angepasst. Die vorhandene elektrotechnische Infrastruktur wird für den Abbau des KRB II weiter genutzt und ebenfalls im Laufe des Abbaus angepasst. Die zur Ver- fügung stehende Netz-Anschlussleistung ist für den Leistungsbedarf während des Abbaus des KRB II ausreichend. Im\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=122] [score=0.3628] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 49 ne maßgeblichen Bestandteile der Natura 2000-Gebiete betroffen sind. Erhebliche Beeinträchtigun- gen der für die Erhaltungsziele der Natura 2000-Gebiete maßgeblichen Bestandteile können somit ausgeschlossen werden. Artenschutzrechtlicher Fachbeitrag Da durch die geplanten Vorhaben auch Pflanzen- und Tierarten betroffen sein können, die arten- schutzrechtlichen Bestimmungen im Sinne des § 44 BNatSchG unterliegen, wurde für die relevan- ten Arten eine Artenschutzprüfung durchgeführt. Fachliche Grundlage der Artenschutzprüfung war die artenschutzfachliche Betrachtung. Die artgruppenspezifische Prüfung zeigte, dass für alle durch die geplanten Projekt betroffenen Arten relevante Beeinträchtigungen – und somit Verbotstatbe- stände des § 44 Abs. 1 BNatSchG – vollständig ausgeschlossen werden können.\n\n--- uvu.md [chunk_id=43] [score=0.3374] ---\n1.3 Das Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesondere nach dem Betriebszustand der Anlage richten, siehe Abb. 1. Es sind drei Teilvorhaben vorgesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagen- teile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren expli- zit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Die- se Vorgehensweise stellt die Rückwirkungsfreiheit des Vorhabens auf den Leistungsbe- trieb von Block C, auf den Umgang mit Kernbrennstoffen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- uvu.md [chunk_id=492] [score=0.3223] ---\nBearbeiter: Dipl.-Ing. Kanderske Dipl.-Geogr. Wolpert\n\nDonau-Auen zwischen Thalfingen und H|chstldt 7428-301.01 Standort Kernkraftwerk FFH-Gebiet Nr. 7428-301 Donau-Auen zwischen Thalfingen und H|chstldt 7428-301 FFH-Gebiete PLANBEZEICHNUNG: PROJECT NO.: PROJEKT NR.: DRAWING TITLE: PROJECT TITLE: PROJEKT TITEL: ORDERED BY: AUFTRAGGEBER: INDEX D B A C GEZEICHNET (35h)7 DATUM b1'(581 BEARBEITER ALTERNATION PRINCIPAL DRAWN BY DATE CHECKED BY CHECKED BY: ZEICHNUNG NR: DRAWING NO: (35h)7 PRINCIPAL: BEARBEITER: DRAWN BY: GEZEICHNET: MASSTAB: SCALE: DATE DATUM LEGENDE Burgauer Str. 30 . 86381 Krumbach . Tel.: 0 82 82 / 9 94 - 0 Fax: 0 82 82 / 9 94 - 110 . KC@klingconsult.de . www.klingconsult.de PLANUNGS- UND INGENIEUR- (6(//6&+$)7)h5%$8:(6(10%+ BAUGRUNDINSTITUT NACH DIN 1054\n\nNATURA 2000 Bayern Gebietsbezogene Konkretisierung der Erhaltungsziele\n\nSeite 1 von 4\n\nGebietstyp: B\n\nStand: 19.02.2016\n\nGebietsnummer: DE7428301\n\nGebietsname: Donau-Auen zwischen Thalfingen und Höchstädt\n\n--- uvu.md [chunk_id=268] [score=0.2892] ---\nLeistungsbetrieb beider Blöcke (Stand 2000) Anlagenzustand: Block B abgeschaltet Block C im Leis- tungsbetrieb (2018 bis etwa 2021) Anlagenzustand: beide Blöcke abge- schaltet (2022 bis etwa 2025) Anlagenzustand Anlage kernbrenn- stofffrei (ab etwa 2026) Projekt beendet (ca. 2040) 1 2 3 4 5 6 Statische Schallquellen der Anlage Wesentliche Schall- quellen sind Kühltür- me, Maschinentrans- formatoren und Dieselaggregate Es entfallen u.a. ein Kühlturm und Maschi- nentransformator Es entfallen u.a. beide Kühltürme und Ma- schinentransforma- toren Weitere Reduzierungen Geräuschemissionen aus statischen Schallquellen Der beantragte Abbau von Anlagenteilen des KRB II findet praktisch ausnahmslos im In- neren der Gebäude statt. Es sind keine zusätzlichen Gerätschaften für den Abbau außer- halb der Gebäude sowie keine Erschütterungs- oder schallrelevanten Abbaumaßnahmen vorgesehen. Alle Aktivitäten von Abbau und Behandlung der Reststoffe sind außen nicht hörbar. Im Kontrollbereich des"
+        },
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Projekt mit zwei Phasen im Abbau und Projekt mit drei Teilvorhaben im Abbau"
+          },
+          "id": "aa5e896d-d17f-4413-b94f-dba1e78ae76e"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "aa5e896d-d17f-4413-b94f-dba1e78ae76e",
+          "content": "--- uvu.md [chunk_id=43] [score=0.4000] ---\n1.3 Das Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesondere nach dem Betriebszustand der Anlage richten, siehe Abb. 1. Es sind drei Teilvorhaben vorgesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagen- teile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren expli- zit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Die- se Vorgehensweise stellt die Rückwirkungsfreiheit des Vorhabens auf den Leistungsbe- trieb von Block C, auf den Umgang mit Kernbrennstoffen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- uvu.md [chunk_id=268] [score=0.3402] ---\nLeistungsbetrieb beider Blöcke (Stand 2000) Anlagenzustand: Block B abgeschaltet Block C im Leis- tungsbetrieb (2018 bis etwa 2021) Anlagenzustand: beide Blöcke abge- schaltet (2022 bis etwa 2025) Anlagenzustand Anlage kernbrenn- stofffrei (ab etwa 2026) Projekt beendet (ca. 2040) 1 2 3 4 5 6 Statische Schallquellen der Anlage Wesentliche Schall- quellen sind Kühltür- me, Maschinentrans- formatoren und Dieselaggregate Es entfallen u.a. ein Kühlturm und Maschi- nentransformator Es entfallen u.a. beide Kühltürme und Ma- schinentransforma- toren Weitere Reduzierungen Geräuschemissionen aus statischen Schallquellen Der beantragte Abbau von Anlagenteilen des KRB II findet praktisch ausnahmslos im In- neren der Gebäude statt. Es sind keine zusätzlichen Gerätschaften für den Abbau außer- halb der Gebäude sowie keine Erschütterungs- oder schallrelevanten Abbaumaßnahmen vorgesehen. Alle Aktivitäten von Abbau und Behandlung der Reststoffe sind außen nicht hörbar. Im Kontrollbereich des\n\n--- uvu.md [chunk_id=492] [score=0.3179] ---\nBearbeiter: Dipl.-Ing. Kanderske Dipl.-Geogr. Wolpert\n\nDonau-Auen zwischen Thalfingen und H|chstldt 7428-301.01 Standort Kernkraftwerk FFH-Gebiet Nr. 7428-301 Donau-Auen zwischen Thalfingen und H|chstldt 7428-301 FFH-Gebiete PLANBEZEICHNUNG: PROJECT NO.: PROJEKT NR.: DRAWING TITLE: PROJECT TITLE: PROJEKT TITEL: ORDERED BY: AUFTRAGGEBER: INDEX D B A C GEZEICHNET (35h)7 DATUM b1'(581 BEARBEITER ALTERNATION PRINCIPAL DRAWN BY DATE CHECKED BY CHECKED BY: ZEICHNUNG NR: DRAWING NO: (35h)7 PRINCIPAL: BEARBEITER: DRAWN BY: GEZEICHNET: MASSTAB: SCALE: DATE DATUM LEGENDE Burgauer Str. 30 . 86381 Krumbach . Tel.: 0 82 82 / 9 94 - 0 Fax: 0 82 82 / 9 94 - 110 . KC@klingconsult.de . www.klingconsult.de PLANUNGS- UND INGENIEUR- (6(//6&+$)7)h5%$8:(6(10%+ BAUGRUNDINSTITUT NACH DIN 1054\n\nNATURA 2000 Bayern Gebietsbezogene Konkretisierung der Erhaltungsziele\n\nSeite 1 von 4\n\nGebietstyp: B\n\nStand: 19.02.2016\n\nGebietsnummer: DE7428301\n\nGebietsname: Donau-Auen zwischen Thalfingen und Höchstädt\n\n--- sicherheitsbericht.md [chunk_id=31] [score=0.3019] ---\nRWE Power AG Kernkraftwerk Gundremmingen GmbH Abbau des Kernkraftwerks Gundremmingen Sicherheitsbericht Berichts-Nr.: Akten-Nr.: Seite: Datum: GV-1 A-20/330-213 12 von 149 23.09.2016\n\nDas Vorhaben im Überblick Der gesamte Abbau der Anlage KRB II soll in Teilvorhaben gegliedert werden, die sich insbesonde- re nach dem Betriebszustand der Anlage richten, siehe Abbildung 1. Es sind drei Teilvorhaben vor- gesehen. Mit den ersten beiden Teilvorhaben 1 und 2 werden Anlagenteile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren explizit und AKZ-zugeordnet beantragt, bewertet und zum Abbau genehmigt worden sind. Diese Vorgehensweise stellt die Rückwirkungs- freiheit des Vorhabens auf den Leistungsbetrieb von Block C, auf den Umgang mit Kernbrennstof- fen (z.B. Lagerung, Handhabung) in den Blöcken B und C sowie auf die Einhaltung der relevanten Schutzziele (siehe Kapitel 6.2 ) sicher. Der Abbau von Anlagenteilen erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=122] [score=0.2698] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 49 ne maßgeblichen Bestandteile der Natura 2000-Gebiete betroffen sind. Erhebliche Beeinträchtigun- gen der für die Erhaltungsziele der Natura 2000-Gebiete maßgeblichen Bestandteile können somit ausgeschlossen werden. Artenschutzrechtlicher Fachbeitrag Da durch die geplanten Vorhaben auch Pflanzen- und Tierarten betroffen sein können, die arten- schutzrechtlichen Bestimmungen im Sinne des § 44 BNatSchG unterliegen, wurde für die relevan- ten Arten eine Artenschutzprüfung durchgeführt. Fachliche Grundlage der Artenschutzprüfung war die artenschutzfachliche Betrachtung. Die artgruppenspezifische Prüfung zeigte, dass für alle durch die geplanten Projekt betroffenen Arten relevante Beeinträchtigungen – und somit Verbotstatbe- stände des § 44 Abs. 1 BNatSchG – vollständig ausgeschlossen werden können."
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Projekt, das den Abbau in drei Teilvorhaben gliedert, ist der Abbau der Anlage KRB II. Diese Teilvorhaben richten sich insbesondere nach dem Betriebszustand der Anlage. Mit den ersten beiden Teilvorhaben werden Anlagenteile und deren Infrastruktur abgebaut, die im Rahmen der Genehmigungsverfahren explizit beantragt und genehmigt worden sind. Der Abbau erfolgt grundsätzlich innerhalb der bestehenden Gebäude.\n\nLeider konnte ich keine Informationen zu einem Projekt finden, das den Abbau in zwei Phasen gliedert. Wenn du weitere Details oder einen spezifischen Kontext hast, lass es mich wissen, damit ich die Suche weiter verfeinern kann."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "151",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "122",
+          "score": 0.3628
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "43",
+          "score": 0.3374
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "492",
+          "score": 0.3223
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "268",
+          "score": 0.2892
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "43",
+          "score": 0.4
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "268",
+          "score": 0.3402
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "492",
+          "score": 0.3179
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "31",
+          "score": 0.3019
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "122",
+          "score": 0.2698
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 12,
+      "question": "Nennen Sie das Jahr der ersten nuklearen Kettenreaktion in Block B des Gundremmingen und das Jahr, in dem das KKG in Betrieb ging.",
+      "expected": "1984 und 1982",
+      "level": "hard",
+      "source": "Sicherheitsbericht KRB II, Seite 34; Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8",
+      "justification": "Man kombiniert historische Daten aus zwei Berichten.",
+      "final_answer": " 1982, 1984",
+      "summarized": " Die erste nukleare Kettenreaktion in Block B des Gundremmingen fand am 09.03.1984 statt. Das KKG (Kernkraftwerk Gundremmingen) ging 1982 in Betrieb.",
+      "raw": "[Retrieved Documents]\n--- sicherheitsbericht.md [chunk_id=95] [score=0.4000] ---\nKurzbeschreibung der Anlage KRB II 5.1 Zusammenfassung und Historie Die Doppelblockanlage Gundremmingen KRB II ist ein Wärmekraftwerk mit einer installierten elektrischen Leistung von 2 x 1.344 MW. Es handelt sich um zwei baugleiche Siedewasserreakto- ren des Herstellers KWU (Kraftwerk Union, jetzt AREVA) der Baulinie 72 mit je einem Reaktorkern aus 784 Brennelementen und einer thermischen Leistung von jeweils 3.840 MW. Eine tabellarische Aufstellung der wichtigsten historischen Daten gibt Tabelle 4. Datum Ereignis 25.02.1974 Vertragsunterzeichnung zwischen der KRB II GbR und dem Baukonsortium Siemens KWU / Hochtief 19.07.1976 Baubeginn auf der damals größten Baustelle Europas 09.03.1984 Block B: Erste nukleare Kettenreaktion 16.03.1984 Block B: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C:\n\n--- sicherheitsbericht.md [chunk_id=96] [score=0.2510] ---\nder ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C: Erzeugung der 250 Milliardsten Kilowattstunde Strom 17.07.2010 Blöcke B und C: Erzeugung der 500 Milliardsten Kilowattstunde Strom 31.03.2016 Erzeugung der 615 Milliardsten Kilowattstunde Strom am Standort Tabelle 4: Bedeutende Ereignisse in der Historie des KRB II 5.2 Funktionsprinzip Die Siedewasserreaktoranlage besitzt einen nuklearen Kreislauf. Die Kühlmittelumwälzpumpen fördern im Reaktordruckbehälter das Kühlmittel durch den Reaktorkern. Im Reaktordruckbehälter wird Wärme durch Kernspaltung erzeugt. Dadurch wird das Kühlmittel Wasser auf Siedetempera- tur erhitzt, wobei ein Teil verdampft. Dieser Dampf wird getrocknet und verlässt den Reaktordruck- behälter als Sattdampf und wird direkt dem Hochdruckteil der Turbine zugeführt. Nach dem Hoch- druckteil strömt der teilweise entspannte\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=40] [score=0.1679] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 17 Einige wesentliche Betriebsdaten des KKG: 1975 – 1982 Errichtung durch Siemens/KWU 1981 Erste Kritikalität 1982 Beginn des kommerziellen Leistungsbetriebs (bei der Inbetriebnahme war der Reaktor der leistungsstärkste der Welt) 1983, 1984 KKG ist Weltmeister bzgl. der erzeugten Jahresstrommenge 2003 – 2006 Errichtung des Standort-Zwischenlagers (KKG-BELLA) für abgebrannte BE, erste Einlagerung im Februar 2006 16.03.2012 300 Milliarden kWh erzeugte Gesamtstrommenge als weltweit dritte Ein- zelblockanlage 28.03.2014 E.ON Kernkraft GmbH beantragt die Stilllegung und den direkten Abbau des KKG 27.06.2015 Einstellung des Leistungsbetriebs 31.12.2015 Mit Inkrafttreten der 13. Novelle des Atomgesetzes erlischt für KKG die Berechtigung zum Leistungsbetrieb. 3.2. Die Kraftwerksanlage Das KKG ist ein Wärmekraftwerk zur Umwandlung von Wärme in elektrische Energie. In einem Kernkraftwerk entsteht die Wärme durch Kernspaltung im Reaktorkern\n\n--- uvu.md [chunk_id=50] [score=0.0474] ---\n(Elektro- und Leit- technikkomponenten, Versorgungs- und Überwachungseinrichtungen, Halterungen, etc.) sowie u.a. Isolierungen, transportable Einrichtungen, Abschirmungen, Stahlbaukompo- nenten und Werkzeuge, die nicht mehr benötigt werden. 1.3.2 Teilvorhaben 2 Nach Erlöschen der Berechtigung zum Leistungsbetrieb von Block C und Genehmigung des Abbaus sollen in Block C erste Systeme und Anlagenteile dauerhaft außer Betrieb genommen und abgebaut werden. Dabei handelt es sich um einen analogen Umfang zu dem, der in Teilvorhaben 1 für Block B vorgesehen ist. Es werden nur Systeme und Anla- genteile abgebaut, die  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Hand- habung von Brennelementen in Block C oder deren Sicherheit haben und dauerhaft außer Betrieb genommen werden können,  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Hand- habung von Brennelementen in Block B oder deren Sicherheit haben und dauerhaft außer Betrieb\n\n--- sicherheitsbericht.md [chunk_id=37] [score=0.0349] ---\ntechnische Bewertung insbesondere bezüglich der Rückwirkungsfreiheit auf den Leistungsbetrieb von Block C sicherzustellen. Zu den zum Abbau vorgesehenen Anlagenteilen gehören auch die direkt zu diesen Systemen und Anlagenteilen zugehörigen Hilfs- und Infrastruktursysteme (Elektro- und Leittechnikkomponenten, Versorgungs- und Überwachungseinrichtungen, Halterungen, etc.) sowie u.a. Isolierungen, trans- portable Einrichtungen, Abschirmungen, Stahlbaukomponenten und Werkzeuge, die nicht mehr benötigt werden. 3.2 Teilvorhaben 2 Nach Erlöschen der Berechtigung zum Leistungsbetrieb von Block C und Genehmigung des Ab- baus sollen in Block C erste Systeme und Anlagenteile dauerhaft außer Betrieb genommen und abgebaut werden. Dabei handelt es sich um einen analogen Umfang zu dem, der in Teilvorhaben 1 für Block B vorgesehen ist. Es werden nur Systeme und Anlagenteile abgebaut, die  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Handha- bung von Brennelementen in\nDie erste nukleare Kettenreaktion in Block B des Gundremmingen fand am 09.03.1984 statt. Das KKG (Kernkraftwerk Gundremmingen) ging 1982 in Betrieb.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Erste nukleare Kettenreaktion Block B Gundremmingen + Jahr der Inbetriebnahme KKG"
+          },
+          "id": "fb641b8f-dc7e-401d-9bf2-b8dc622f71e8"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "fb641b8f-dc7e-401d-9bf2-b8dc622f71e8",
+          "content": "--- sicherheitsbericht.md [chunk_id=95] [score=0.4000] ---\nKurzbeschreibung der Anlage KRB II 5.1 Zusammenfassung und Historie Die Doppelblockanlage Gundremmingen KRB II ist ein Wärmekraftwerk mit einer installierten elektrischen Leistung von 2 x 1.344 MW. Es handelt sich um zwei baugleiche Siedewasserreakto- ren des Herstellers KWU (Kraftwerk Union, jetzt AREVA) der Baulinie 72 mit je einem Reaktorkern aus 784 Brennelementen und einer thermischen Leistung von jeweils 3.840 MW. Eine tabellarische Aufstellung der wichtigsten historischen Daten gibt Tabelle 4. Datum Ereignis 25.02.1974 Vertragsunterzeichnung zwischen der KRB II GbR und dem Baukonsortium Siemens KWU / Hochtief 19.07.1976 Baubeginn auf der damals größten Baustelle Europas 09.03.1984 Block B: Erste nukleare Kettenreaktion 16.03.1984 Block B: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C:\n\n--- sicherheitsbericht.md [chunk_id=96] [score=0.2510] ---\nder ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C: Erzeugung der 250 Milliardsten Kilowattstunde Strom 17.07.2010 Blöcke B und C: Erzeugung der 500 Milliardsten Kilowattstunde Strom 31.03.2016 Erzeugung der 615 Milliardsten Kilowattstunde Strom am Standort Tabelle 4: Bedeutende Ereignisse in der Historie des KRB II 5.2 Funktionsprinzip Die Siedewasserreaktoranlage besitzt einen nuklearen Kreislauf. Die Kühlmittelumwälzpumpen fördern im Reaktordruckbehälter das Kühlmittel durch den Reaktorkern. Im Reaktordruckbehälter wird Wärme durch Kernspaltung erzeugt. Dadurch wird das Kühlmittel Wasser auf Siedetempera- tur erhitzt, wobei ein Teil verdampft. Dieser Dampf wird getrocknet und verlässt den Reaktordruck- behälter als Sattdampf und wird direkt dem Hochdruckteil der Turbine zugeführt. Nach dem Hoch- druckteil strömt der teilweise entspannte\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=40] [score=0.1679] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 17 Einige wesentliche Betriebsdaten des KKG: 1975 – 1982 Errichtung durch Siemens/KWU 1981 Erste Kritikalität 1982 Beginn des kommerziellen Leistungsbetriebs (bei der Inbetriebnahme war der Reaktor der leistungsstärkste der Welt) 1983, 1984 KKG ist Weltmeister bzgl. der erzeugten Jahresstrommenge 2003 – 2006 Errichtung des Standort-Zwischenlagers (KKG-BELLA) für abgebrannte BE, erste Einlagerung im Februar 2006 16.03.2012 300 Milliarden kWh erzeugte Gesamtstrommenge als weltweit dritte Ein- zelblockanlage 28.03.2014 E.ON Kernkraft GmbH beantragt die Stilllegung und den direkten Abbau des KKG 27.06.2015 Einstellung des Leistungsbetriebs 31.12.2015 Mit Inkrafttreten der 13. Novelle des Atomgesetzes erlischt für KKG die Berechtigung zum Leistungsbetrieb. 3.2. Die Kraftwerksanlage Das KKG ist ein Wärmekraftwerk zur Umwandlung von Wärme in elektrische Energie. In einem Kernkraftwerk entsteht die Wärme durch Kernspaltung im Reaktorkern\n\n--- uvu.md [chunk_id=50] [score=0.0474] ---\n(Elektro- und Leit- technikkomponenten, Versorgungs- und Überwachungseinrichtungen, Halterungen, etc.) sowie u.a. Isolierungen, transportable Einrichtungen, Abschirmungen, Stahlbaukompo- nenten und Werkzeuge, die nicht mehr benötigt werden. 1.3.2 Teilvorhaben 2 Nach Erlöschen der Berechtigung zum Leistungsbetrieb von Block C und Genehmigung des Abbaus sollen in Block C erste Systeme und Anlagenteile dauerhaft außer Betrieb genommen und abgebaut werden. Dabei handelt es sich um einen analogen Umfang zu dem, der in Teilvorhaben 1 für Block B vorgesehen ist. Es werden nur Systeme und Anla- genteile abgebaut, die  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Hand- habung von Brennelementen in Block C oder deren Sicherheit haben und dauerhaft außer Betrieb genommen werden können,  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Hand- habung von Brennelementen in Block B oder deren Sicherheit haben und dauerhaft außer Betrieb\n\n--- sicherheitsbericht.md [chunk_id=37] [score=0.0349] ---\ntechnische Bewertung insbesondere bezüglich der Rückwirkungsfreiheit auf den Leistungsbetrieb von Block C sicherzustellen. Zu den zum Abbau vorgesehenen Anlagenteilen gehören auch die direkt zu diesen Systemen und Anlagenteilen zugehörigen Hilfs- und Infrastruktursysteme (Elektro- und Leittechnikkomponenten, Versorgungs- und Überwachungseinrichtungen, Halterungen, etc.) sowie u.a. Isolierungen, trans- portable Einrichtungen, Abschirmungen, Stahlbaukomponenten und Werkzeuge, die nicht mehr benötigt werden. 3.2 Teilvorhaben 2 Nach Erlöschen der Berechtigung zum Leistungsbetrieb von Block C und Genehmigung des Ab- baus sollen in Block C erste Systeme und Anlagenteile dauerhaft außer Betrieb genommen und abgebaut werden. Dabei handelt es sich um einen analogen Umfang zu dem, der in Teilvorhaben 1 für Block B vorgesehen ist. Es werden nur Systeme und Anlagenteile abgebaut, die  keine Bedeutung mehr für den Betrieb und insbesondere für die Lagerung und Handha- bung von Brennelementen in"
+        },
+        {
+          "type": "ai_message",
+          "content": "Die erste nukleare Kettenreaktion in Block B des Gundremmingen fand am 09.03.1984 statt. Das KKG (Kernkraftwerk Gundremmingen) ging 1982 in Betrieb."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "95",
+          "score": 0.4
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "96",
+          "score": 0.251
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "40",
+          "score": 0.1679
+        },
+        {
+          "filename": "uvu.md",
+          "chunk_id": "50",
+          "score": 0.0474
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "37",
+          "score": 0.0349
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 13,
+      "question": "Nennen Sie zwei Gebäude, in denen das Reststoffbehandlungszentrum (RBZ) des KKG hauptsächlich eingerichtet ist.",
+      "expected": "Reaktorgebäude‑Ringraum und Reaktorhilfsanlagengebäude",
+      "level": "hard",
+      "source": "Stilllegung und Abbau – Kurzbeschreibung des KKG, Seite 6",
+      "justification": "Die Lage des RBZ muss aus der Beschreibung der Reststoffbehandlung entnommen werden.",
+      "final_answer": " 1. Reaktorgebäude-Ringraum\n2. Reaktorhilfsanlagengebäude",
+      "summarized": " Das Reststoffbehandlungszentrum (RBZ) des KKG ist hauptsächlich in zwei Gebäuden eingerichtet:\n\n1. **Reaktorgebäude-Ringraum**\n2. **Reaktorhilfsanlagengebäude**",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.4000] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.2343] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=125] [score=0.1777] ---\ndie noch in der Anlage vorhandenen Was- sersysteme so schnell wie möglich entleert werden können. Dies bewog die EKK zu der geplanten Abbaustrategie, die RDB-Einbauten bereits in der Abbauphase 1 des Abbauprozesses zu demontie- ren. Die Abbautätigkeiten im Rahmen der Stilllegung und des Abbaus des KKG finden im Wesentlichen innerhalb der geschlossenen Gebäude des Kontrollbereichs statt. Auswirkungen auf die Umwelt außerhalb der Gebäude bzw. außerhalb des KKG sind von der Wahl des Abbauverfahrens unabhän- gig. Daher ist eine vertiefte Betrachtung von technischen Verfahrensalternativen nicht erforderlich.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=101] [score=0.0881] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 41 Insgesamt wurde für den Fortluft- und Abwasserpfad nachgewiesen, dass im Rahmen von Stillle- gung und Abbau des KKG für alle Organdosen sowie für die effektive Dosis und für alle Alters- gruppen die Grenzwerte nach § 47 Abs. 1 StrlSchV deutlich unterschritten werden. Radiologische Auswirkungen der Direktstrahlung Die von Systemen, Anlagenteilen, Reststoffen oder radioaktiven Abfällen innerhalb der Gebäude des KKG ausgehende Direktstrahlung wird durch die Gebäudestrukturen wirkungsvoll abgeschirmt. Im Laufe der Stilllegung und des Abbaus können Reststoffe oder radioaktive Abfälle in hierfür zu- gelassenen Behältern bzw. Containern auf entsprechend ausgewiesenen Flächen im Überwachungs- bereich innerhalb und außerhalb von Gebäuden, wie z.B. zum An- und Abtransport, abgestellt wer- den. Von diesen Stoffen ausgehende Direktstrahlung wird durch betriebliche Strahlenschutzmaß- nahmen so begrenzt, dass unter Einbeziehung der oben\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=40] [score=0.0394] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 17 Einige wesentliche Betriebsdaten des KKG: 1975 – 1982 Errichtung durch Siemens/KWU 1981 Erste Kritikalität 1982 Beginn des kommerziellen Leistungsbetriebs (bei der Inbetriebnahme war der Reaktor der leistungsstärkste der Welt) 1983, 1984 KKG ist Weltmeister bzgl. der erzeugten Jahresstrommenge 2003 – 2006 Errichtung des Standort-Zwischenlagers (KKG-BELLA) für abgebrannte BE, erste Einlagerung im Februar 2006 16.03.2012 300 Milliarden kWh erzeugte Gesamtstrommenge als weltweit dritte Ein- zelblockanlage 28.03.2014 E.ON Kernkraft GmbH beantragt die Stilllegung und den direkten Abbau des KKG 27.06.2015 Einstellung des Leistungsbetriebs 31.12.2015 Mit Inkrafttreten der 13. Novelle des Atomgesetzes erlischt für KKG die Berechtigung zum Leistungsbetrieb. 3.2. Die Kraftwerksanlage Das KKG ist ein Wärmekraftwerk zur Umwandlung von Wärme in elektrische Energie. In einem Kernkraftwerk entsteht die Wärme durch Kernspaltung im Reaktorkern\nDas Reststoffbehandlungszentrum (RBZ) des KKG ist hauptsächlich in zwei Gebäuden eingerichtet:\n\n1. **Reaktorgebäude-Ringraum**\n2. **Reaktorhilfsanlagengebäude**\n\nDiese Informationen stammen aus der Kurzbeschreibung zur Stilllegung und zum Abbau des KKG.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Reststoffbehandlungszentrum (RBZ) des KKG Gebäude"
+          },
+          "id": "7c1bfb57-a55b-4ad0-9bfb-a0e27b3c2eac"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "7c1bfb57-a55b-4ad0-9bfb-a0e27b3c2eac",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=17] [score=0.4000] ---\nvorhanden. Sie erfordern auch nach Abtransport der BE eine angemessene Wasserüberdeckung zur Abschirmung der ionisierenden Strahlung. − Abschnitt 1C: Die Anlage ist frei von Kernbrennstoff. • Die radioaktiv kontaminierten Anlagenteile werden bei Bedarf bereits vor ihrer Demontage dekontaminiert. • In der Abbauphase 2 ist die Anlage kernbrennstofffrei und die Abbaugenehmigung für Pha- se 2 liegt vor. Für die während der Stilllegung und des Abbaus des KKG anfallenden Reststoffe und Abfälle ist ein Reststoffbehandlungszentrum (RBZ) erforderlich. Das RBZ wird in bestehenden Kontrollberei- chen eingerichtet und verteilt sich im Wesentlichen auf Raumbereiche im Reaktorgebäude- Ringraum, im Reaktorhilfsanlagengebäude und im Entsorgungsgebäude. Am Standort existiert ein Standort-Zwischenlager (KKG-BELLA) für die nach § 6 AtG genehmigte Aufbewahrung von Kernbrennstoffen aus dem KKG. Der Betrieb des KKG-BELLA ist ab Beginn des Einlagerungsbetriebs 2006 für einen Zeitraum von 40 Jahren\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.2343] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=125] [score=0.1777] ---\ndie noch in der Anlage vorhandenen Was- sersysteme so schnell wie möglich entleert werden können. Dies bewog die EKK zu der geplanten Abbaustrategie, die RDB-Einbauten bereits in der Abbauphase 1 des Abbauprozesses zu demontie- ren. Die Abbautätigkeiten im Rahmen der Stilllegung und des Abbaus des KKG finden im Wesentlichen innerhalb der geschlossenen Gebäude des Kontrollbereichs statt. Auswirkungen auf die Umwelt außerhalb der Gebäude bzw. außerhalb des KKG sind von der Wahl des Abbauverfahrens unabhän- gig. Daher ist eine vertiefte Betrachtung von technischen Verfahrensalternativen nicht erforderlich.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=101] [score=0.0881] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 41 Insgesamt wurde für den Fortluft- und Abwasserpfad nachgewiesen, dass im Rahmen von Stillle- gung und Abbau des KKG für alle Organdosen sowie für die effektive Dosis und für alle Alters- gruppen die Grenzwerte nach § 47 Abs. 1 StrlSchV deutlich unterschritten werden. Radiologische Auswirkungen der Direktstrahlung Die von Systemen, Anlagenteilen, Reststoffen oder radioaktiven Abfällen innerhalb der Gebäude des KKG ausgehende Direktstrahlung wird durch die Gebäudestrukturen wirkungsvoll abgeschirmt. Im Laufe der Stilllegung und des Abbaus können Reststoffe oder radioaktive Abfälle in hierfür zu- gelassenen Behältern bzw. Containern auf entsprechend ausgewiesenen Flächen im Überwachungs- bereich innerhalb und außerhalb von Gebäuden, wie z.B. zum An- und Abtransport, abgestellt wer- den. Von diesen Stoffen ausgehende Direktstrahlung wird durch betriebliche Strahlenschutzmaß- nahmen so begrenzt, dass unter Einbeziehung der oben\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=40] [score=0.0394] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 17 Einige wesentliche Betriebsdaten des KKG: 1975 – 1982 Errichtung durch Siemens/KWU 1981 Erste Kritikalität 1982 Beginn des kommerziellen Leistungsbetriebs (bei der Inbetriebnahme war der Reaktor der leistungsstärkste der Welt) 1983, 1984 KKG ist Weltmeister bzgl. der erzeugten Jahresstrommenge 2003 – 2006 Errichtung des Standort-Zwischenlagers (KKG-BELLA) für abgebrannte BE, erste Einlagerung im Februar 2006 16.03.2012 300 Milliarden kWh erzeugte Gesamtstrommenge als weltweit dritte Ein- zelblockanlage 28.03.2014 E.ON Kernkraft GmbH beantragt die Stilllegung und den direkten Abbau des KKG 27.06.2015 Einstellung des Leistungsbetriebs 31.12.2015 Mit Inkrafttreten der 13. Novelle des Atomgesetzes erlischt für KKG die Berechtigung zum Leistungsbetrieb. 3.2. Die Kraftwerksanlage Das KKG ist ein Wärmekraftwerk zur Umwandlung von Wärme in elektrische Energie. In einem Kernkraftwerk entsteht die Wärme durch Kernspaltung im Reaktorkern"
+        },
+        {
+          "type": "ai_message",
+          "content": "Das Reststoffbehandlungszentrum (RBZ) des KKG ist hauptsächlich in zwei Gebäuden eingerichtet:\n\n1. **Reaktorgebäude-Ringraum**\n2. **Reaktorhilfsanlagengebäude**\n\nDiese Informationen stammen aus der Kurzbeschreibung zur Stilllegung und zum Abbau des KKG."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "17",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "26",
+          "score": 0.2343
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "125",
+          "score": 0.1777
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "101",
+          "score": 0.0881
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "40",
+          "score": 0.0394
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 14,
+      "question": "Welches der beiden Werke, KKG oder KRB II, hat vor der Stilllegung mehr Strom produziert?",
+      "expected": "KRB II",
+      "level": "hard",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34",
+      "justification": "Man muss die Produktionsdaten aus zwei Berichten vergleichen.",
+      "final_answer": " Keine Antwort gefunden",
+      "summarized": " Ich habe keine spezifischen Informationen über die Stromproduktion des KKG oder des KRB II vor der Stilllegung gefunden. Es ist notwendig, eine verfeinerte Suche durchzuführen, um genauere Daten zu erhalten.",
+      "raw": "[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=104] [score=0.1966] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 42 • Überwachung der am Boden und auf Bewuchs abgelagerten Aerosolaktivität, • Überwachung durch Messung der meteorologischen Verhältnisse, • Überwachung von Fischen, Sedimenten, Milch und Futtermitteln, • Überwachung von Grundwasser, Trinkwasser und von Wasserpflanzen, • Überwachung von Nahrungsmitteln (Obst, Gemüse). Hierzu wird ein Umgebungsüberwachungsprogramm entsprechend den Anforderungen und Vorga- ben der Richtlinie zur Emissions- und Immissionsüberwachung kerntechnischer Anlagen durchge- führt. 5.6. Die Ereignisanalyse Der Nachweis, dass die Stilllegung und der Abbau des KKG mit keinen unzulässigen Aus- wirkungen auf die Umgebung in Form erhöhter Strahlenexpositionen durchgeführt werden kann, wurde mit einer Ereignisanalyse erbracht. Dabei wurden auch Ereignisse aufgrund der Lagerung und Handhabung bestrahlter BE im BE-Lagerbecken zu Beginn der Stilllegung und des Abbau des KKG betrachtet. Es wurden folgende\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.1813] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=13] [score=0.1798] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 5 Abbildung 1: Vorgesehener genehmigungstechnischer Ablauf der Stilllegung KKG.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.0252] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den\n[Retrieved Documents]\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=104] [score=0.1966] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 42 • Überwachung der am Boden und auf Bewuchs abgelagerten Aerosolaktivität, • Überwachung durch Messung der meteorologischen Verhältnisse, • Überwachung von Fischen, Sedimenten, Milch und Futtermitteln, • Überwachung von Grundwasser, Trinkwasser und von Wasserpflanzen, • Überwachung von Nahrungsmitteln (Obst, Gemüse). Hierzu wird ein Umgebungsüberwachungsprogramm entsprechend den Anforderungen und Vorga- ben der Richtlinie zur Emissions- und Immissionsüberwachung kerntechnischer Anlagen durchge- führt. 5.6. Die Ereignisanalyse Der Nachweis, dass die Stilllegung und der Abbau des KKG mit keinen unzulässigen Aus- wirkungen auf die Umgebung in Form erhöhter Strahlenexpositionen durchgeführt werden kann, wurde mit einer Ereignisanalyse erbracht. Dabei wurden auch Ereignisse aufgrund der Lagerung und Handhabung bestrahlter BE im BE-Lagerbecken zu Beginn der Stilllegung und des Abbau des KKG betrachtet. Es wurden folgende\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.1813] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=13] [score=0.1798] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 5 Abbildung 1: Vorgesehener genehmigungstechnischer Ablauf der Stilllegung KKG.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.0252] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den\nIch habe keine spezifischen Informationen über die Stromproduktion des KKG oder des KRB II vor der Stilllegung gefunden. Ich werde eine verfeinerte Suche durchführen, um genauere Daten zu erhalten. Einen Moment bitte.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "KKG und KRB II Stromproduktion vor der Stilllegung"
+          },
+          "id": "b0f57376-e352-4f68-84ce-8b85b76fc68a"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "b0f57376-e352-4f68-84ce-8b85b76fc68a",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=104] [score=0.1966] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 42 • Überwachung der am Boden und auf Bewuchs abgelagerten Aerosolaktivität, • Überwachung durch Messung der meteorologischen Verhältnisse, • Überwachung von Fischen, Sedimenten, Milch und Futtermitteln, • Überwachung von Grundwasser, Trinkwasser und von Wasserpflanzen, • Überwachung von Nahrungsmitteln (Obst, Gemüse). Hierzu wird ein Umgebungsüberwachungsprogramm entsprechend den Anforderungen und Vorga- ben der Richtlinie zur Emissions- und Immissionsüberwachung kerntechnischer Anlagen durchge- führt. 5.6. Die Ereignisanalyse Der Nachweis, dass die Stilllegung und der Abbau des KKG mit keinen unzulässigen Aus- wirkungen auf die Umgebung in Form erhöhter Strahlenexpositionen durchgeführt werden kann, wurde mit einer Ereignisanalyse erbracht. Dabei wurden auch Ereignisse aufgrund der Lagerung und Handhabung bestrahlter BE im BE-Lagerbecken zu Beginn der Stilllegung und des Abbau des KKG betrachtet. Es wurden folgende\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.1813] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=13] [score=0.1798] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 5 Abbildung 1: Vorgesehener genehmigungstechnischer Ablauf der Stilllegung KKG.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.0252] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den"
+        },
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "Stromproduktion KKG und KRB II vor der Stilllegung"
+          },
+          "id": "e1f3e5ba-1d50-4fab-95d2-d2bd2f4a3bd1"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "e1f3e5ba-1d50-4fab-95d2-d2bd2f4a3bd1",
+          "content": "--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=88] [score=0.4000] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 37 5. Die Sicherheit 5.1. Die Schutzziele Die Arbeiten beim Restbetrieb und Abbau des KKG werden so durchgeführt, dass • die Bevölkerung in der Umgebung und die Mitarbeiter in der Anlage vor ionisierender Strah- lung geschützt werden und • keine unzulässigen Mengen radioaktiver Stoffe und keine unzulässige ionisierende Strahlung in die Arbeitsbereiche oder in die Umgebung dringen können. Das Gefährdungspotential einer im Restbetrieb und im Abbau befindlichen kerntechnischen Anlage beruht fast ausschließlich auf ihrem Aktivitätsinventar und den Möglichkeiten, während des Restbe- triebs und des Abbaus der Anlage Radionuklide freizusetzen. Zum Schutz vor ionisierender Strah- lung und zur Begrenzung der Abgabe von radioaktiven Stoffen sind im KKG vielfältige Einrichtun- gen vorhanden und Maßnahmen festgelegt. Es gelten folgende Schutzziele, um das übergeordnete radiologische Sicherheitsziel - den Schutz vor ionisierender Strahlung -\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=104] [score=0.1966] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 42 • Überwachung der am Boden und auf Bewuchs abgelagerten Aerosolaktivität, • Überwachung durch Messung der meteorologischen Verhältnisse, • Überwachung von Fischen, Sedimenten, Milch und Futtermitteln, • Überwachung von Grundwasser, Trinkwasser und von Wasserpflanzen, • Überwachung von Nahrungsmitteln (Obst, Gemüse). Hierzu wird ein Umgebungsüberwachungsprogramm entsprechend den Anforderungen und Vorga- ben der Richtlinie zur Emissions- und Immissionsüberwachung kerntechnischer Anlagen durchge- führt. 5.6. Die Ereignisanalyse Der Nachweis, dass die Stilllegung und der Abbau des KKG mit keinen unzulässigen Aus- wirkungen auf die Umgebung in Form erhöhter Strahlenexpositionen durchgeführt werden kann, wurde mit einer Ereignisanalyse erbracht. Dabei wurden auch Ereignisse aufgrund der Lagerung und Handhabung bestrahlter BE im BE-Lagerbecken zu Beginn der Stilllegung und des Abbau des KKG betrachtet. Es wurden folgende\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.1813] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=13] [score=0.1798] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 5 Abbildung 1: Vorgesehener genehmigungstechnischer Ablauf der Stilllegung KKG.\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=11] [score=0.0252] ---\ngegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer Genehmigung. Diese wurde am 28.03.2014 beantragt. Es ist seitens der EKK beabsichtigt, das KKG im direkten Abbau abzubauen. Der Abbau soll in zwei Abbauphasen erfolgen, deren atomrechtliche Genehmigungen jeweils ge- sondert nach § 7 Abs. 3 AtG beantragt werden (Abbildung 1) und die sich zeitlich überlagern. Für die Beteiligung der Öffentlichkeit wurden die Unterlagen Kurzbeschreibung, Sicherheitsbericht und Umweltverträglichkeitsprüfung (mit den Anlagen B: FFH-Verträglichkeitsabschätzung und C: Artenschutzrechtlicher Fachbeitrag) erstellt und im Rahmen der Öffentlichkeitsbeteiligung öffent- lich ausgelegt. Ziel ist, den interessierten Anwohner umfassend über die Stilllegung und den Abbau des KKG zu informieren und ihm die Beurteilung zu ermöglichen, ob und in welchem Umfang er von den"
+        },
+        {
+          "type": "ai_message",
+          "content": "Ich habe keine spezifischen Informationen über die Stromproduktion des KKG oder des KRB II vor der Stilllegung gefunden. Ich werde eine verfeinerte Suche durchführen, um genauere Daten zu erhalten. Einen Moment bitte."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "88",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "104",
+          "score": 0.1966
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "26",
+          "score": 0.1813
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "13",
+          "score": 0.1798
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "11",
+          "score": 0.0252
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "88",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "104",
+          "score": 0.1966
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "26",
+          "score": 0.1813
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "13",
+          "score": 0.1798
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "11",
+          "score": 0.0252
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    },
+    {
+      "question_index": 15,
+      "question": "Welchen Baulinien der KWU gehören KKG bzw. KRB II an?",
+      "expected": "KKG: Baulinie 3 (Vor‑Konvoi); KRB II: Baulinie 72",
+      "level": "hard",
+      "source": "Stilllegung und Abbau – Sicherheitsbericht des KKG, Seite 8; Sicherheitsbericht KRB II, Seite 34",
+      "justification": "Die jeweiligen Baulinien sind in beiden Berichten zu entnehmen und zu unterscheiden.",
+      "final_answer": " 72, 3",
+      "summarized": " Die KRB II gehört der Baulinie 72 der KWU (Kraftwerk Union) an, während das KKG (Kernkraftwerk Grafenrheinfeld) der Baulinie 3 (Vor-Konvoi) der KWU angehört.",
+      "raw": "[Retrieved Documents]\n--- sicherheitsbericht.md [chunk_id=95] [score=0.4000] ---\nKurzbeschreibung der Anlage KRB II 5.1 Zusammenfassung und Historie Die Doppelblockanlage Gundremmingen KRB II ist ein Wärmekraftwerk mit einer installierten elektrischen Leistung von 2 x 1.344 MW. Es handelt sich um zwei baugleiche Siedewasserreakto- ren des Herstellers KWU (Kraftwerk Union, jetzt AREVA) der Baulinie 72 mit je einem Reaktorkern aus 784 Brennelementen und einer thermischen Leistung von jeweils 3.840 MW. Eine tabellarische Aufstellung der wichtigsten historischen Daten gibt Tabelle 4. Datum Ereignis 25.02.1974 Vertragsunterzeichnung zwischen der KRB II GbR und dem Baukonsortium Siemens KWU / Hochtief 19.07.1976 Baubeginn auf der damals größten Baustelle Europas 09.03.1984 Block B: Erste nukleare Kettenreaktion 16.03.1984 Block B: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.2794] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.1931] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.0390] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- sicherheitsbericht.md [chunk_id=430] [score=0.0268] ---\nmit entsprechendem Gefährdungspotential befinden, sind größere Brände bzw. deren Rückwirkungen auf die Anlage KRB II nicht zu unterstellen. Radiologische Auswirkungen auf die Umgebung infolge anlagenexterner Brände sind damit ausge- schlossen. Elektromagnetische Einwirkungen Da sich in der näheren Umgebung der Anlage KRB II keine technischen Einrichtungen mit ent- sprechendem Gefährdungspotential befinden, sind entsprechende Rückwirkungen auf die Anlage KRB II nicht zu unterstellen. Radiologische Auswirkungen auf die Umgebung infolge elektromagnetischer Einwirkungen sind damit ausgeschlossen.\nDie KRB II gehört zur Baulinie 72 der KWU. Das KKG (Kernkraftwerk Grafenrheinfeld) gehört zur Baulinie 3 (Vor-Konvoi) der KWU.",
+      "steps": [
+        {
+          "type": "tool_call",
+          "tool": "retrieve_documents",
+          "args": {
+            "query": "KKG KRB II Baulinien KWU"
+          },
+          "id": "36006ef9-96d0-40a1-a239-34a43d796ec5"
+        },
+        {
+          "type": "tool_result",
+          "tool_call_id": "36006ef9-96d0-40a1-a239-34a43d796ec5",
+          "content": "--- sicherheitsbericht.md [chunk_id=95] [score=0.4000] ---\nKurzbeschreibung der Anlage KRB II 5.1 Zusammenfassung und Historie Die Doppelblockanlage Gundremmingen KRB II ist ein Wärmekraftwerk mit einer installierten elektrischen Leistung von 2 x 1.344 MW. Es handelt sich um zwei baugleiche Siedewasserreakto- ren des Herstellers KWU (Kraftwerk Union, jetzt AREVA) der Baulinie 72 mit je einem Reaktorkern aus 784 Brennelementen und einer thermischen Leistung von jeweils 3.840 MW. Eine tabellarische Aufstellung der wichtigsten historischen Daten gibt Tabelle 4. Datum Ereignis 25.02.1974 Vertragsunterzeichnung zwischen der KRB II GbR und dem Baukonsortium Siemens KWU / Hochtief 19.07.1976 Baubeginn auf der damals größten Baustelle Europas 09.03.1984 Block B: Erste nukleare Kettenreaktion 16.03.1984 Block B: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 26.10.1984 Block C: Erste nukleare Kettenreaktion 02.11.1984 Block C: Erstmals am öffentlichen Netz und Einspeisung der ersten Kilowattstunde 19.08.1998 Blöcke B und C:\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=39] [score=0.2794] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 16 3. Das Kernkraftwerk KKG 3.1. Eine kurze Biografie Das KKG, das mit einem Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) ausgestattet ist, nahm 1982 den kommerziellen Leistungsbetrieb auf. In der Be- triebszeit bis zum 27. Juni 2015 wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Über alle Betriebsjahre ergibt sich eine Arbeitsverfügbarkeit der Anlage von 87,6 %. Während der gesamten Betriebszeit wurde die Anlage fortlaufend nachgerüstet, sodass zu jeder Zeit die nach dem Stand von Wissenschaft und Technik erforderliche Vorsorge gegen Schäden gewährleistet war. Abbildung 4: Das Kernkraftwerk Grafenrheinfeld\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=10] [score=0.1931] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 4 1. Das Vorhaben im Überblick Das Kernkraftwerk Grafenrheinfeld (KKG) ist ein Druckwasserreaktor des Herstellers KWU (Kraftwerk Union) der Baulinie 3 (Vor-Konvoi) und ging 1982 in den kommerziellen Leistungsbe- trieb. In der Betriebszeit wurden mehr als 333 Mio. MWh Strom (brutto) produziert. Betreiber der Anlage ist die E.ON Kernkraft GmbH, im Folgenden kurz als EKK bezeichnet. Mit Inkrafttreten der 13. Novelle des Atomgesetzes (AtG) vom 06.08.2011 wurde für das KKG aufgrund § 7 Abs. 1 a S. 1 Nr. 2 AtG die Berechtigung zum Leistungsbetrieb bis spätestens 31.12.2015 begrenzt. Aus wirtschaftlichen Gründen hat sich die EKK entschieden, das Kraftwerk bereits Ende Juni 2015 vom Netz zu nehmen. EKK plant – vorbehaltlich des Ausgangs der gegen die 13. Atomgesetznovelle gerichteten Verfas- sungsbeschwerde – die Stilllegung und den Abbau des KKG. Die Stilllegung des Kernkraftwerks und dessen Abbau bedürfen gemäß § 7 Abs. 3 AtG einer\n\n--- stilllegung_und_abbau_kurzbeschreibung.md [chunk_id=26] [score=0.0390] ---\nKurzbeschreibung – Stilllegung und Abbau des KKG Seite 10 Abbildung 3: Lageplan der Gebäude des KKG\n\n--- sicherheitsbericht.md [chunk_id=430] [score=0.0268] ---\nmit entsprechendem Gefährdungspotential befinden, sind größere Brände bzw. deren Rückwirkungen auf die Anlage KRB II nicht zu unterstellen. Radiologische Auswirkungen auf die Umgebung infolge anlagenexterner Brände sind damit ausge- schlossen. Elektromagnetische Einwirkungen Da sich in der näheren Umgebung der Anlage KRB II keine technischen Einrichtungen mit ent- sprechendem Gefährdungspotential befinden, sind entsprechende Rückwirkungen auf die Anlage KRB II nicht zu unterstellen. Radiologische Auswirkungen auf die Umgebung infolge elektromagnetischer Einwirkungen sind damit ausgeschlossen."
+        },
+        {
+          "type": "ai_message",
+          "content": "Die KRB II gehört zur Baulinie 72 der KWU. Das KKG (Kernkraftwerk Grafenrheinfeld) gehört zur Baulinie 3 (Vor-Konvoi) der KWU."
+        }
+      ],
+      "fetched_chunks": [
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "95",
+          "score": 0.4
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "39",
+          "score": 0.2794
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "10",
+          "score": 0.1931
+        },
+        {
+          "filename": "stilllegung_und_abbau_kurzbeschreibung.md",
+          "chunk_id": "26",
+          "score": 0.039
+        },
+        {
+          "filename": "sicherheitsbericht.md",
+          "chunk_id": "430",
+          "score": 0.0268
+        }
+      ],
+      "correct": false,
+      "dataset": "dataset1"
+    }
+  ]
+}
