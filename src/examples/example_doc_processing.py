@@ -1,21 +1,26 @@
+import yaml
 from pathlib import Path
-from config.loader import Config
+
+# Import the pure code from your framework
 from agentrf.doc_processing import DocProcessor
 
-config = Config(Path(__file__).resolve().parents[1] / "config" / "toy.yaml")
+# 1. Load the config strictly in the consumer application using an absolute path
+config_file = "/home/rrao/projects/agents/agentic-reasoning-framework/src/config/toy.yaml"
+
+with open(config_file, "r") as f:
+    config = yaml.safe_load(f)
+
+# 2. Extract paths (assuming toy.yaml provides absolute paths)
+kb_path = Path(config["paths"]["knowledge_base_raw"])
+output_path = Path(config["paths"]["uploads_tmp"])
+
+# 3. Pass raw paths to agentrf
 processor = DocProcessor()
 
-# Specify a single document file, not a directory
-file_path = Path(config.path("knowledge_base_raw")) / "uvu.pdf"
-
 doc = processor.process_document(
-    file_path=file_path,
-    output_dir=config.path("uploads_tmp"),
+    file_path=kb_path / "uvu.pdf",
+    output_dir=output_path,
 )
 
 if doc:
-    print(f"Source : {doc.source_path}")
-    print(f"Saved  : {doc.processed_path}")
-    print(f"Preview:\n{doc.text[:500]}")
-else:
-    print("Processing failed.")
+    print(f"Successfully processed to: {doc.processed_path}")
