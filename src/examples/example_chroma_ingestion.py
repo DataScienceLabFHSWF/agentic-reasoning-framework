@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # Import the pure framework code
-from agentrf.doc_storage.vector.chroma.ingestion import ChromaManager
+from agentrf.doc_storage import ChromaManager
 
 # 1. Load application environment and config
 load_dotenv("/home/rrao/projects/agents/agentic-reasoning-framework/src/.env") # Only the consumer app cares about .env
