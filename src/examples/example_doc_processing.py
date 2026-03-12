@@ -1,12 +1,15 @@
-from agentrf.config import load_config
+from pathlib import Path
+from config.loader import Config
 from agentrf.doc_processing import DocProcessor
 
-config = load_config()
-
+config = Config(Path(__file__).resolve().parents[1] / "config" / "toy.yaml")
 processor = DocProcessor()
 
+# Specify a single document file, not a directory
+file_path = Path(config.path("knowledge_base_raw")) / "uvu.pdf"
+
 doc = processor.process_document(
-    file_path=config.path("knowledge_base_raw") / "KKG_Stilllegung.pdf",
+    file_path=file_path,
     output_dir=config.path("uploads_tmp"),
 )
 

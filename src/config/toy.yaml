@@ -1,7 +1,7 @@
 paths:
-  knowledge_base_raw: data/knowledge_base
-  knowledge_base_processed: data/processed_kb
-  uploads_tmp: data/tmp_uploads
+  knowledge_base_raw: data/toy_set/knowledge_base
+  knowledge_base_processed: data/toy_set/processed_kb
+  uploads_tmp: data/toy_set/tmp_uploads
 
 processing:
   save_markdown: true
