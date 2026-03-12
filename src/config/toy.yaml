@@ -1,0 +1,16 @@
+paths:
+  knowledge_base_raw: data/knowledge_base
+  knowledge_base_processed: data/processed_kb
+  uploads_tmp: data/tmp_uploads
+
+processing:
+  save_markdown: true
+  supported_extensions:
+    - .pdf
+    - .docx
+    - .txt
+    - .md
+    - .html
+    - .csv
+    - .json
+    - .pptx
