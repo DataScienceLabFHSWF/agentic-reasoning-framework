@@ -20,8 +20,8 @@ class HybridRetriever:
         chroma_persist_dir: str | Path,
         processed_kb_dir: str | Path,
         embedding_function: Embeddings,
-        vector_k: int = 4,
-        bm25_k: int = 4,
+        vector_k: int = 5,
+        bm25_k: int = 5,
     ):
         self.chroma_dir = Path(chroma_persist_dir).resolve()
         self.processed_dir = Path(processed_kb_dir).resolve()

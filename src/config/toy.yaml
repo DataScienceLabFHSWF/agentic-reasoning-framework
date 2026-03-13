@@ -14,3 +14,17 @@ processing:
     - .csv
     - .json
     - .pptx
+
+rag:
+  retriever:
+    type: hybrid
+    top_k: 5
+  embedding:
+    model: sentence-transformers/all-MiniLM-L6-v2
+  llm:
+    provider: ollama
+    model: mistral-small3.2:latest
+    base_url: http://localhost:11434
+    temperature: 0.0
+  prompt:
+    system: "Du bist ein Experte für deutsche Kerntechnik. Antworte auf Deutsch. Antworte kurz."
