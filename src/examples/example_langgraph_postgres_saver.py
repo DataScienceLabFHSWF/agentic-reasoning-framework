@@ -23,6 +23,8 @@ llm = ChatOllama(
 )
 
 def chatbot(state: MessagesState):
+    print("Chatbot received messages:", state["messages"])
+    print("**********************************************")
     response = llm.invoke(state["messages"])
     return {"messages": [response]}
 
@@ -37,7 +39,7 @@ with PostgresSaver.from_conn_string(db_uri) as checkpointer:
 
     graph = builder.compile(checkpointer=checkpointer)
 
-    config = {"configurable": {"thread_id": "demo-thread-1"}}
+    config = {"configurable": {"thread_id": "demo-thread-2"}}
 
     result1 = graph.invoke(
         {"messages": [{"role": "user", "content": "Hi, my name is Alice."}]},
@@ -46,7 +48,15 @@ with PostgresSaver.from_conn_string(db_uri) as checkpointer:
     print("Run 1:", result1["messages"][-1].content)
 
     result2 = graph.invoke(
-        {"messages": [{"role": "user", "content": "What do you know about me?"}]},
+        {"messages": [{"role": "user", "content": "My name is Bob."}]},
         config=config,
     )
     print("Run 2:", result2["messages"][-1].content)
+
+    result3 = graph.invoke(
+        {"messages": [{"role": "user", "content": "List all the facts you know about me."}]},
+        config=config,
+    )
+    print("Run 3:", result3["messages"][-1].content)
+
+    
