@@ -1,0 +1,30 @@
+paths:
+  knowledge_base_raw: data/toy_set/knowledge_base
+  knowledge_base_processed: data/toy_set/processed_kb
+  uploads_tmp: data/toy_set/tmp_uploads
+  chroma_db_dir: data/toy_set/vector_store
+processing:
+  save_markdown: true
+  supported_extensions:
+    - .pdf
+    - .docx
+    - .txt
+    - .md
+    - .html
+    - .csv
+    - .json
+    - .pptx
+
+rag:
+  retriever:
+    type: hybrid
+    top_k: 5
+  embedding:
+    model: sentence-transformers/all-MiniLM-L6-v2
+  llm:
+    provider: ollama
+    model: mistral-small3.2:latest
+    base_url: http://localhost:11434
+    temperature: 0.0
+  prompt:
+    system: "Du bist ein Experte für deutsche Kerntechnik. Antworte auf Deutsch. Antworte kurz."
