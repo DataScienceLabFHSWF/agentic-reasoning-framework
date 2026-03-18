@@ -18,7 +18,6 @@ processing:
 
 rag:
   retriever:
-    type: vector
     top_k: 20
   embedding:
     model: sentence-transformers/all-MiniLM-L6-v2

@@ -22,6 +22,7 @@ llm = LLMFactory.create(
 )
 
 embeddings = HuggingFaceEmbeddings(model_name=settings.rag.embedding.model)
+
 retriever = VectorRetriever(
     chroma_persist_dir=settings.paths.chroma_db_dir,
     embedding_function=embeddings,
