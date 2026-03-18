@@ -3,6 +3,7 @@ paths:
   knowledge_base_processed: data/toy_set/processed_kb
   uploads_tmp: data/toy_set/tmp_uploads
   chroma_db_dir: data/toy_set/vector_store
+  
 processing:
   save_markdown: true
   supported_extensions:
