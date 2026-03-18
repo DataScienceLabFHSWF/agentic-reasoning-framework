@@ -1,24 +1,30 @@
 import logging
-from typing import Dict, Any
+from typing import Optional
 from langchain_core.language_models.chat_models import BaseChatModel
 
 logger = logging.getLogger(__name__)
 
 class LLMFactory:
-    """Factory to instantiate LLMs purely from configuration dictionaries."""
+    """Factory to instantiate LLMs based on provider and model name."""
     
     @staticmethod
-    def create(config: Dict[str, Any]) -> BaseChatModel:
-        provider = config.get("provider", "ollama").lower()
+    def create(
+        provider: str,
+        model: str,
+        *,
+        base_url: Optional[str] = None,
+        temperature: float = 0.0,
+    ) -> BaseChatModel:
+        provider_normalized = provider.lower()
         
-        if provider == "ollama":
+        if provider_normalized == "ollama":
             from langchain_ollama.chat_models import ChatOllama
             
-            logger.info(f"Initializing Ollama model: {config.get('model')} at {config.get('base_url')}")
+            logger.info(f"Initializing Ollama model: {model} at {base_url}")
             return ChatOllama(
-                model=config.get("model"),
-                temperature=config.get("temperature"),
-                base_url=config.get("base_url"),
+                model=model,
+                temperature=temperature,
+                base_url=base_url,
             )
         
         raise ValueError(f"Unsupported LLM provider: {provider}")

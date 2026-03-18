@@ -14,3 +14,6 @@ src/distilled-agentrf/chroma_db/chroma.sqlite3
 src/data/toy_set/vector_store*
 src/data/toy_set/vector_store/chroma.sqlite3
 src/data/toy_set/vector_store/
+
+models*
+models/*
