@@ -20,8 +20,8 @@ processing:
 
 rag:
   retriever:
-    type: "hybrid"
-    top_k: 5
+    type: "bm25"
+    top_k: 3
   chunking:
     chunk_size: 1000
     chunk_overlap: 200
