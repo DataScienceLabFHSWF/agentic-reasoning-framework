@@ -1,5 +1,5 @@
 config/*
-data/toy_set/vector_store/**
-data/toy_set/chunks/**
+**data/toy_set/vector_store/**
+**data/toy_set/chunks/**
 models/**
 **cpython**
