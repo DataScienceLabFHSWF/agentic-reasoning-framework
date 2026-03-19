@@ -1,5 +1,6 @@
-from __future__ import annotations
+# processes documents into markdown text, with metadata and provenance info
 
+from __future__ import annotations
 import csv
 import json
 import logging
