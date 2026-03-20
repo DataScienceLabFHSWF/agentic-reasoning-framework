@@ -5,6 +5,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph import MessagesState
 from langgraph.checkpoint.postgres import PostgresSaver
 from langchain_ollama import ChatOllama
+import psycopg2
 
 load_dotenv()
 
@@ -15,6 +16,11 @@ user = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 
 db_uri = f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
+
+with psycopg2.connect(db_uri) as conn:
+    with conn.cursor() as cur:
+        cur.execute("SELECT 1;")
+        print(cur.fetchone())
 
 llm = ChatOllama(
     model=os.getenv("OLLAMA_MODEL", "mistral-small3.2:24b"),
@@ -60,3 +66,5 @@ with PostgresSaver.from_conn_string(db_uri) as checkpointer:
     print("Run 3:", result3["messages"][-1].content)
 
     
+
+
