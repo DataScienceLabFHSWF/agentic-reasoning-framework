@@ -1,8 +1,11 @@
 import os
 
 from dotenv import load_dotenv
+from langchain_huggingface import HuggingFaceEmbeddings
 
 from agentrf.agents import RAGChatWithPostgres
+from agentrf.llm import LLMFactory
+from agentrf.rag_retrievers import RetrieverFactory
 from agentrf.settings import load_settings
 
 
@@ -23,7 +26,33 @@ db_uri = f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
 if __name__ == "__main__":
     thread_id = input("Thread ID: ").strip() or "demo-thread-1"
 
-    agent = RAGChatWithPostgres(settings=settings, db_uri=db_uri)
+    llm = LLMFactory.create(
+        provider=settings.rag.llm.provider,
+        model=settings.rag.llm.model,
+        base_url=settings.rag.llm.base_url,
+        temperature=settings.rag.llm.temperature,
+    )
+
+    embeddings = HuggingFaceEmbeddings(
+        model_name=settings.rag.embedding.model
+    )
+
+    retriever = RetrieverFactory.create(
+        retriever_type=settings.rag.retriever.type,
+        top_k=settings.rag.retriever.top_k,
+        chroma_persist_dir=settings.paths.chroma_db_dir,
+        chunks_path=settings.paths.knowledge_base_processed,
+        embedding_function=embeddings,
+        bm25_index_path=settings.paths.bm25_index_path,
+    )
+
+    agent = RAGChatWithPostgres(
+        llm=llm,
+        retriever=retriever,
+        system_prompt=settings.rag.prompt.system,
+        db_uri=db_uri,
+        top_k=settings.rag.retriever.top_k,
+    )
 
     print(
         f"RAG Chat with Postgres Memory "

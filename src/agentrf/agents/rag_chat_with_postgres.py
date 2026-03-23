@@ -1,39 +1,52 @@
 from __future__ import annotations
 
-from typing import Iterator
+from typing import Callable, Iterator, Sequence
 
+from langchain_core.documents import Document
+from langchain_core.language_models import BaseChatModel
+from langchain_core.messages import BaseMessage
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_huggingface import HuggingFaceEmbeddings
 from langgraph.checkpoint.postgres import PostgresSaver
 from langgraph.graph import START, StateGraph
 from langgraph.graph import MessagesState
 
-from agentrf.llm import LLMFactory
-from agentrf.rag_retrievers import RetrieverFactory
-
 
 class RAGChatWithPostgres:
-    def __init__(self, settings, db_uri: str) -> None:
-        self.settings = settings
+    def __init__(
+        self,
+        llm: BaseChatModel,
+        retriever,
+        system_prompt: str,
+        db_uri: str,
+        top_k: int = 5,
+        prompt: ChatPromptTemplate | None = None,
+    ) -> None:
+        """
+        RAG chat agent with Postgres-backed LangGraph memory.
+
+        Parameters
+        ----------
+        llm:
+            Already instantiated chat model.
+        retriever:
+            Retriever object exposing a `retrieve(query, top_k=...)` method.
+        system_prompt:
+            System prompt string used to build the chat prompt.
+        db_uri:
+            Postgres connection URI for LangGraph checkpointing.
+        top_k:
+            Number of documents to retrieve per query.
+        prompt:
+            Optional fully constructed prompt template. If omitted, a default
+            prompt is built from `system_prompt`.
+        """
+        self.llm = llm
+        self.retriever = retriever
+        self.system_prompt = system_prompt
         self.db_uri = db_uri
+        self.top_k = top_k
 
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name=settings.rag.embedding.model
-        )
-
-        self.retriever = RetrieverFactory.create(
-            settings=settings,
-            embedding_function=self.embeddings,
-        )
-
-        self.llm = LLMFactory.create(
-            provider=settings.rag.llm.provider,
-            model=settings.rag.llm.model,
-            base_url=settings.rag.llm.base_url,
-            temperature=settings.rag.llm.temperature,
-        )
-
-        self.prompt = self._build_prompt()
+        self.prompt = prompt or self._build_prompt()
 
         self._checkpointer_cm = PostgresSaver.from_conn_string(self.db_uri)
         self.checkpointer = self._checkpointer_cm.__enter__()
@@ -44,7 +57,7 @@ class RAGChatWithPostgres:
     def _build_prompt(self) -> ChatPromptTemplate:
         return ChatPromptTemplate.from_messages(
             [
-                ("system", self.settings.rag.prompt.system),
+                ("system", self.system_prompt),
                 (
                     "human",
                     "Kontext:\n{context}\n\n"
@@ -55,14 +68,14 @@ class RAGChatWithPostgres:
             ]
         )
 
-    def _format_history(self, messages) -> str:
+    def _format_history(self, messages: Sequence[BaseMessage]) -> str:
         return "\n".join(
             f"{getattr(msg, 'type', 'MESSAGE').upper()}: "
             f"{getattr(msg, 'content', '')}"
             for msg in messages[:-1]
         )
 
-    def _format_context(self, docs) -> str:
+    def _format_context(self, docs: Sequence[Document]) -> str:
         if not docs:
             return "Keine relevanten Dokumente gefunden."
 
@@ -78,11 +91,7 @@ class RAGChatWithPostgres:
         user_query = messages[-1].content
 
         history = self._format_history(messages)
-
-        docs = self.retriever.retrieve(
-            user_query,
-            top_k=self.settings.rag.retriever.top_k,
-        )
+        docs = self.retriever.retrieve(user_query, top_k=self.top_k)
         context = self._format_context(docs)
 
         chain = self.prompt | self.llm
@@ -104,8 +113,7 @@ class RAGChatWithPostgres:
 
     def invoke(self, user_input: str, thread_id: str) -> str:
         config = {"configurable": {"thread_id": thread_id}}
-
-        final_text_parts = []
+        final_text_parts: list[str] = []
 
         for chunk in self.graph.stream(
             {"messages": [{"role": "user", "content": user_input}]},
@@ -126,7 +134,7 @@ class RAGChatWithPostgres:
     def stream_answer(self, user_input: str, thread_id: str) -> Iterator[str]:
         config = {"configurable": {"thread_id": thread_id}}
 
-        for message_chunk, metadata in self.graph.stream(
+        for message_chunk, _metadata in self.graph.stream(
             {"messages": [{"role": "user", "content": user_input}]},
             config=config,
             stream_mode="messages",
