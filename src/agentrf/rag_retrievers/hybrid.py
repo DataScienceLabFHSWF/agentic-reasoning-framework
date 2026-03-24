@@ -4,8 +4,8 @@ from typing import List
 
 from langchain_core.documents import Document
 
-from .vector import VectorRetriever
 from .bm25 import BM25Retriever
+from .vector import VectorRetriever
 
 
 class HybridRetriever:

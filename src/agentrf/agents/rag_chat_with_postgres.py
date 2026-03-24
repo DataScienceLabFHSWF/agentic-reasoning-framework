@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from typing import Callable, Iterator, Sequence
+from typing import Iterator, Sequence
 
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import BaseMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.checkpoint.postgres import PostgresSaver
-from langgraph.graph import START, StateGraph
-from langgraph.graph import MessagesState
+from langgraph.graph import START, MessagesState, StateGraph
 
 
 class RAGChatWithPostgres:

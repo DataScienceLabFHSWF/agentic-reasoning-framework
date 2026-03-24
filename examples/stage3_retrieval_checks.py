@@ -1,9 +1,10 @@
-from agentrf.rag_retrievers import VectorRetriever, BM25Retriever, HybridRetriever
-from agentrf.settings import load_settings
-from langchain_community.embeddings import HuggingFaceEmbeddings
+import os
 
 from dotenv import load_dotenv
-import os
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+from agentrf.rag_retrievers import BM25Retriever, HybridRetriever, VectorRetriever
+from agentrf.settings import load_settings
 
 load_dotenv()
 config_path = os.getenv("AGENTRF_CONFIG")

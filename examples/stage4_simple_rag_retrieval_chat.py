@@ -4,10 +4,9 @@ from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from agentrf.rag_retrievers import VectorRetriever, BM25Retriever, HybridRetriever
 from agentrf.llm import LLMFactory
+from agentrf.rag_retrievers import BM25Retriever, HybridRetriever, VectorRetriever
 from agentrf.settings import load_settings
-
 
 load_dotenv()
 

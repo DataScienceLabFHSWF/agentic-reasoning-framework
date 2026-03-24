@@ -8,7 +8,6 @@ from agentrf.llm import LLMFactory
 from agentrf.rag_retrievers import RetrieverFactory
 from agentrf.settings import load_settings
 
-
 load_dotenv()
 
 config_path = os.getenv("AGENTRF_CONFIG")

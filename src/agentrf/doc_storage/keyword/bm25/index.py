@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import logging
-import pickle
 from pathlib import Path
+import pickle
 from typing import List
 
-from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
+from langchain_core.documents import Document
 
 logger = logging.getLogger(__name__)
 

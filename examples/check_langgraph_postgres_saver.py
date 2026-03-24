@@ -1,10 +1,9 @@
 import os
-from dotenv import load_dotenv
 
-from langgraph.graph import StateGraph, START, END
-from langgraph.graph import MessagesState
-from langgraph.checkpoint.postgres import PostgresSaver
+from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
+from langgraph.checkpoint.postgres import PostgresSaver
+from langgraph.graph import END, START, MessagesState, StateGraph
 import psycopg2
 
 load_dotenv()

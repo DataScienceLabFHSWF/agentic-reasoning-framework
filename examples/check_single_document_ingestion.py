@@ -1,8 +1,10 @@
+import os
+
+from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
+
 from agentrf.pipelines import DocumentIngestionPipeline
 from agentrf.settings import load_settings
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
 

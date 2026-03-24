@@ -1,9 +1,9 @@
-import yaml
-from pathlib import Path
+import os
+
+from dotenv import load_dotenv
+
 from agentrf.doc_processing import DocProcessor
 from agentrf.settings import load_settings
-from dotenv import load_dotenv
-import os
 
 # 1. Load the config dynamically
 load_dotenv()

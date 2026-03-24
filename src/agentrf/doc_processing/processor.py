@@ -1,11 +1,12 @@
 # processes documents into markdown text, with metadata and provenance info
 
 from __future__ import annotations
+
 import csv
 import json
 import logging
-import re
 from pathlib import Path
+import re
 from typing import Callable, Dict, List, Optional
 
 from tqdm import tqdm
