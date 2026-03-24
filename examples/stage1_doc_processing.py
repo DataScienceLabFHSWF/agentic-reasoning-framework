@@ -1,15 +1,16 @@
 import os
-from pathlib import Path
+
 from dotenv import load_dotenv
-from agentrf.settings import load_settings
+
 from agentrf.doc_processing import DocProcessor
+from agentrf.settings import load_settings
 
 # 1. Load the config dynamically
 load_dotenv()
 config_path = os.getenv("AGENTRF_CONFIG")
 settings = load_settings(config_path)
 
-# 2. Extract paths 
+# 2. Extract paths
 kb_path = settings.paths.knowledge_base_raw
 output_path = settings.paths.uploads_tmp
 

@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from typing import Callable, Iterator, Sequence
+from typing import Iterator, Sequence
 
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import BaseMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langgraph.checkpoint.postgres import PostgresSaver
-from langgraph.graph import START, StateGraph
-from langgraph.graph import MessagesState
+from langgraph.graph import START, MessagesState, StateGraph
 
 
 class RAGChatWithPostgres:
@@ -60,29 +59,20 @@ class RAGChatWithPostgres:
                 ("system", self.system_prompt),
                 (
                     "human",
-                    "Kontext:\n{context}\n\n"
-                    "Bisheriger Chat:\n{history}\n\n"
-                    "Frage: {query}\n\n"
-                    "Antwort:",
+                    "Kontext:\n{context}\n\nBisheriger Chat:\n{history}\n\nFrage: {query}\n\nAntwort:",
                 ),
             ]
         )
 
     def _format_history(self, messages: Sequence[BaseMessage]) -> str:
-        return "\n".join(
-            f"{getattr(msg, 'type', 'MESSAGE').upper()}: "
-            f"{getattr(msg, 'content', '')}"
-            for msg in messages[:-1]
-        )
+        return "\n".join(f"{getattr(msg, 'type', 'MESSAGE').upper()}: {getattr(msg, 'content', '')}" for msg in messages[:-1])
 
     def _format_context(self, docs: Sequence[Document]) -> str:
         if not docs:
             return "Keine relevanten Dokumente gefunden."
 
         return "\n\n".join(
-            f"--- {doc.metadata.get('filename', 'Unknown')} "
-            f"(chunk {doc.metadata.get('chunk_id', '?')}) ---\n"
-            f"{doc.page_content}"
+            f"--- {doc.metadata.get('filename', 'Unknown')} (chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
             for doc in docs
         )
 

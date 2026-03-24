@@ -5,9 +5,8 @@ from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from agentrf.llm import LLMFactory
-from agentrf.rag_retrievers import VectorRetriever, BM25Retriever, HybridRetriever
+from agentrf.rag_retrievers import BM25Retriever, HybridRetriever, VectorRetriever
 from agentrf.settings import load_settings
-
 
 load_dotenv()
 
@@ -91,8 +90,7 @@ if __name__ == "__main__":
         context_start = time.perf_counter()
         context = "\n\n".join(
             [
-                f"--- {d.metadata.get('filename', 'Unknown')} "
-                f"(chunk {d.metadata.get('chunk_id', '?')}) ---\n{d.page_content}"
+                f"--- {d.metadata.get('filename', 'Unknown')} (chunk {d.metadata.get('chunk_id', '?')}) ---\n{d.page_content}"
                 for d in docs
             ]
         )

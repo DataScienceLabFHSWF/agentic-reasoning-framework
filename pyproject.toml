@@ -44,3 +44,8 @@ package = true
 
 [tool.uv.sources]
 pypi = { url = "https://pypi.org/simple" }
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.7",
+]

@@ -8,7 +8,6 @@ from agentrf.llm import LLMFactory
 from agentrf.rag_retrievers import RetrieverFactory
 from agentrf.settings import load_settings
 
-
 load_dotenv()
 
 config_path = os.getenv("AGENTRF_CONFIG")
@@ -33,9 +32,7 @@ if __name__ == "__main__":
         temperature=settings.rag.llm.temperature,
     )
 
-    embeddings = HuggingFaceEmbeddings(
-        model_name=settings.rag.embedding.model
-    )
+    embeddings = HuggingFaceEmbeddings(model_name=settings.rag.embedding.model)
 
     retriever = RetrieverFactory.create(
         retriever_type=settings.rag.retriever.type,
@@ -54,10 +51,7 @@ if __name__ == "__main__":
         top_k=settings.rag.retriever.top_k,
     )
 
-    print(
-        f"RAG Chat with Postgres Memory "
-        f"({settings.rag.retriever.type}, thread_id={thread_id})"
-    )
+    print(f"RAG Chat with Postgres Memory ({settings.rag.retriever.type}, thread_id={thread_id})")
 
     try:
         while True:

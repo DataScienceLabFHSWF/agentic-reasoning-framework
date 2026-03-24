@@ -1,0 +1,22 @@
+line-length = 128
+
+[lint]
+# Select the rules you want to enforce
+select = [
+    "E501",  # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F401",  # pyflakes (unused imports, variables, etc.)
+    "F403",
+    "F405",
+    "I",     # isort (import sorting)
+]
+
+[lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+known-first-party = ["agentrf"]
+split-on-trailing-comma = true
+
+[format]
+# Use double quotes for strings (standard convention)
+quote-style = "preserve"
