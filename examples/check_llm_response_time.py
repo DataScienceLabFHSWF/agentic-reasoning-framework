@@ -91,8 +91,7 @@ if __name__ == "__main__":
         context_start = time.perf_counter()
         context = "\n\n".join(
             [
-                f"--- {d.metadata.get('filename', 'Unknown')} "
-                f"(chunk {d.metadata.get('chunk_id', '?')}) ---\n{d.page_content}"
+                f"--- {d.metadata.get('filename', 'Unknown')} (chunk {d.metadata.get('chunk_id', '?')}) ---\n{d.page_content}"
                 for d in docs
             ]
         )

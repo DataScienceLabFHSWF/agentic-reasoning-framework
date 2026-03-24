@@ -188,9 +188,7 @@ class DocumentIngestionPipeline:
             if processed_path:
                 chunk.metadata.setdefault("processed_path", processed_path)
 
-            chunk.metadata["content_hash"] = hashlib.sha256(
-                chunk.page_content.encode("utf-8")
-            ).hexdigest()
+            chunk.metadata["content_hash"] = hashlib.sha256(chunk.page_content.encode("utf-8")).hexdigest()
 
     @staticmethod
     def _build_doc_id(source_path: Path) -> str:

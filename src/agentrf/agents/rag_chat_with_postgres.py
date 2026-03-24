@@ -60,29 +60,20 @@ class RAGChatWithPostgres:
                 ("system", self.system_prompt),
                 (
                     "human",
-                    "Kontext:\n{context}\n\n"
-                    "Bisheriger Chat:\n{history}\n\n"
-                    "Frage: {query}\n\n"
-                    "Antwort:",
+                    "Kontext:\n{context}\n\nBisheriger Chat:\n{history}\n\nFrage: {query}\n\nAntwort:",
                 ),
             ]
         )
 
     def _format_history(self, messages: Sequence[BaseMessage]) -> str:
-        return "\n".join(
-            f"{getattr(msg, 'type', 'MESSAGE').upper()}: "
-            f"{getattr(msg, 'content', '')}"
-            for msg in messages[:-1]
-        )
+        return "\n".join(f"{getattr(msg, 'type', 'MESSAGE').upper()}: {getattr(msg, 'content', '')}" for msg in messages[:-1])
 
     def _format_context(self, docs: Sequence[Document]) -> str:
         if not docs:
             return "Keine relevanten Dokumente gefunden."
 
         return "\n\n".join(
-            f"--- {doc.metadata.get('filename', 'Unknown')} "
-            f"(chunk {doc.metadata.get('chunk_id', '?')}) ---\n"
-            f"{doc.page_content}"
+            f"--- {doc.metadata.get('filename', 'Unknown')} (chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
             for doc in docs
         )
 

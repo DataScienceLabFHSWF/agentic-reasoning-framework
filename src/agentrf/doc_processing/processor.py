@@ -54,7 +54,7 @@ class DocProcessor:
         self._dispatch: Dict[str, Callable[[Path], Optional[str]]] = {
             ".pdf": self._process_pdf,
             ".docx": self._process_docx,
-            ".doc": self._process_docx,   # best-effort only, old .doc may fail
+            ".doc": self._process_docx,  # best-effort only, old .doc may fail
             ".html": self._process_html,
             ".htm": self._process_html,
             ".md": self._process_md,
@@ -63,7 +63,7 @@ class DocProcessor:
             ".csv": self._process_csv,
             ".json": self._process_json,
             ".pptx": self._process_pptx,
-            ".ppt": self._process_pptx,   # best-effort only
+            ".ppt": self._process_pptx,  # best-effort only
         }
 
     def process_document(
@@ -122,10 +122,7 @@ class DocProcessor:
         if not input_dir.is_dir():
             raise NotADirectoryError(f"Expected a directory, got: {input_dir}")
 
-        all_files = [
-            f for f in input_dir.rglob("*")
-            if f.is_file() and f.suffix.lower() in self._dispatch
-        ]
+        all_files = [f for f in input_dir.rglob("*") if f.is_file() and f.suffix.lower() in self._dispatch]
 
         processed_docs: List[ProcessedDocument] = []
 
@@ -264,7 +261,7 @@ class DocProcessor:
 
         for row in body:
             padded = row + [""] * (len(header) - len(row))
-            padded = padded[:len(header)]
+            padded = padded[: len(header)]
             table_lines.append("|" + "|".join(self._escape_md_cell(cell) for cell in padded) + "|")
 
         return "\n".join(table_lines).strip()

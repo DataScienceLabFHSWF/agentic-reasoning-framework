@@ -15,10 +15,7 @@ config_path = os.getenv("AGENTRF_CONFIG")
 settings = load_settings(config_path)
 
 print("Loading HuggingFace embeddings...")
-embeddings = HuggingFaceEmbeddings(
-    model_name= settings.rag.embedding.model,
-    cache_folder=os.getenv("HF_HOME")
-)
+embeddings = HuggingFaceEmbeddings(model_name=settings.rag.embedding.model, cache_folder=os.getenv("HF_HOME"))
 
 docs = load_processed_markdown(settings.paths.knowledge_base_processed)
 chunks = chunk_documents(

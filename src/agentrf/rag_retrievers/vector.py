@@ -35,9 +35,7 @@ class VectorRetriever:
             persist_directory=str(self.chroma_dir),
             embedding_function=self.embedding_function,
         )
-        self.vector_retriever: VectorStoreRetriever = self.vectorstore.as_retriever(
-            search_kwargs={"k": self.vector_k}
-        )
+        self.vector_retriever: VectorStoreRetriever = self.vectorstore.as_retriever(search_kwargs={"k": self.vector_k})
 
     @staticmethod
     def _ensure_chunk_metadata(doc: Document, default_chunk_id: int = 0) -> Document:

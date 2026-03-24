@@ -28,11 +28,13 @@ llm = ChatOllama(
     temperature=0.0,
 )
 
+
 def chatbot(state: MessagesState):
     print("Chatbot received messages:", state["messages"])
     print("**********************************************")
     response = llm.invoke(state["messages"])
     return {"messages": [response]}
+
 
 builder = StateGraph(MessagesState)
 builder.add_node("chatbot", chatbot)
@@ -64,7 +66,3 @@ with PostgresSaver.from_conn_string(db_uri) as checkpointer:
         config=config,
     )
     print("Run 3:", result3["messages"][-1].content)
-
-    
-
-

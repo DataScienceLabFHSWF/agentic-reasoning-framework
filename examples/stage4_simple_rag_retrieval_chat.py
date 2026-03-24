@@ -63,10 +63,9 @@ llm = LLMFactory.create(
     temperature=settings.rag.llm.temperature,
 )
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", settings.rag.prompt.system),
-    ("human", "Kontext:\n{context}\n\nFrage: {query}\n\nAntwort:")
-])
+prompt = ChatPromptTemplate.from_messages(
+    [("system", settings.rag.prompt.system), ("human", "Kontext:\n{context}\n\nFrage: {query}\n\nAntwort:")]
+)
 
 
 def run(user_query: str, llm, retriever, prompt, top_k: int):
@@ -77,8 +76,7 @@ def run(user_query: str, llm, retriever, prompt, top_k: int):
         print("No documents retrieved.")
     else:
         context = "\n\n".join(
-            f"--- {doc.metadata.get('filename', 'Unknown')} "
-            f"(chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
+            f"--- {doc.metadata.get('filename', 'Unknown')} (chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
             for doc in docs
         )
         print(f"Retrieved {len(docs)} document(s).")

@@ -9,7 +9,7 @@ load_dotenv()
 config_path = os.getenv("AGENTRF_CONFIG")
 settings = load_settings(config_path)
 
-# 2. Extract paths 
+# 2. Extract paths
 kb_path = settings.paths.knowledge_base_raw
 output_path = settings.paths.knowledge_base_processed
 

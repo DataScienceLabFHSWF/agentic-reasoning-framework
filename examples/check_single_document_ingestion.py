@@ -3,6 +3,7 @@ from agentrf.pipelines import DocumentIngestionPipeline
 from agentrf.settings import load_settings
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 
 config_path = os.getenv("AGENTRF_CONFIG")
@@ -20,6 +21,5 @@ pipeline = DocumentIngestionPipeline(
     chunk_overlap=settings.rag.chunking.chunk_overlap,
 )
 
-result = pipeline.ingest_document(str(settings.paths.knowledge_base_raw / "filename"
-".pdf"))
+result = pipeline.ingest_document(str(settings.paths.knowledge_base_raw / "filename.pdf"))
 print(result)
