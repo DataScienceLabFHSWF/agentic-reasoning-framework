@@ -6,10 +6,10 @@ import logging
 from pathlib import Path
 from typing import List
 
+from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.vectorstores import VectorStoreRetriever
-from langchain_community.vectorstores import Chroma
 
 logger = logging.getLogger(__name__)
 
@@ -35,9 +35,7 @@ class VectorRetriever:
             persist_directory=str(self.chroma_dir),
             embedding_function=self.embedding_function,
         )
-        self.vector_retriever: VectorStoreRetriever = self.vectorstore.as_retriever(
-            search_kwargs={"k": self.vector_k}
-        )
+        self.vector_retriever: VectorStoreRetriever = self.vectorstore.as_retriever(search_kwargs={"k": self.vector_k})
 
     @staticmethod
     def _ensure_chunk_metadata(doc: Document, default_chunk_id: int = 0) -> Document:

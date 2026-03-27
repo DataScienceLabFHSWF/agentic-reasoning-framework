@@ -38,9 +38,7 @@ print("Tool calls:", resp.tool_calls)  # Must be non-empty to proceed
 
 # Step 2: test the agent with the correct input format
 if resp.tool_calls:
-    agent_response = agent.invoke({
-        "messages": [{"role": "user", "content": "What is 12456 divided by 7.143?"}]
-    })
+    agent_response = agent.invoke({"messages": [{"role": "user", "content": "What is 12456 divided by 7.143?"}]})
     # Print just the last message content (the final answer)
     print("Agent response:", agent_response["messages"][-1].content)
 else:

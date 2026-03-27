@@ -1,10 +1,9 @@
 import os
-from dotenv import load_dotenv
 
-from langgraph.graph import StateGraph, START, END
-from langgraph.graph import MessagesState
-from langgraph.checkpoint.postgres import PostgresSaver
+from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
+from langgraph.checkpoint.postgres import PostgresSaver
+from langgraph.graph import END, START, MessagesState, StateGraph
 import psycopg2
 
 load_dotenv()
@@ -28,11 +27,13 @@ llm = ChatOllama(
     temperature=0.0,
 )
 
+
 def chatbot(state: MessagesState):
     print("Chatbot received messages:", state["messages"])
     print("**********************************************")
     response = llm.invoke(state["messages"])
     return {"messages": [response]}
+
 
 builder = StateGraph(MessagesState)
 builder.add_node("chatbot", chatbot)
@@ -64,7 +65,3 @@ with PostgresSaver.from_conn_string(db_uri) as checkpointer:
         config=config,
     )
     print("Run 3:", result3["messages"][-1].content)
-
-    
-
-

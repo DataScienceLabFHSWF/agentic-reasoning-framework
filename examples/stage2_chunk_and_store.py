@@ -1,24 +1,22 @@
-from agentrf.doc_processing import load_processed_markdown, chunk_documents
+import os
+
+from dotenv import load_dotenv
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+from agentrf.doc_processing import chunk_documents, load_processed_markdown
 from agentrf.doc_storage import (
-    save_chunks_jsonl,
-    load_chunks_jsonl,
-    ChromaManager,
     BM25Index,
+    ChromaManager,
+    save_chunks_jsonl,
 )
 from agentrf.settings import load_settings
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
 config_path = os.getenv("AGENTRF_CONFIG")
 settings = load_settings(config_path)
 
 print("Loading HuggingFace embeddings...")
-embeddings = HuggingFaceEmbeddings(
-    model_name= settings.rag.embedding.model,
-    cache_folder=os.getenv("HF_HOME")
-)
+embeddings = HuggingFaceEmbeddings(model_name=settings.rag.embedding.model, cache_folder=os.getenv("HF_HOME"))
 
 docs = load_processed_markdown(settings.paths.knowledge_base_processed)
 chunks = chunk_documents(

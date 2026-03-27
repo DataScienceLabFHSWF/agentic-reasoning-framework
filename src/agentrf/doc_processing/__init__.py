@@ -1,7 +1,7 @@
+from .chunking import chunk_documents
+from .loaders import load_processed_markdown
 from .models import ProcessedDocument
 from .processor import DocProcessor
-from .loaders import load_processed_markdown
-from .chunking import chunk_documents
 
 __all__ = [
     "DocProcessor",

@@ -4,8 +4,8 @@ import logging
 from pathlib import Path
 from typing import List, Optional
 
-from langchain_core.documents import Document
 from langchain_community.retrievers import BM25Retriever
+from langchain_core.documents import Document
 
 from agentrf.doc_storage.chunks import load_chunks_jsonl
 from agentrf.doc_storage.keyword import BM25Index

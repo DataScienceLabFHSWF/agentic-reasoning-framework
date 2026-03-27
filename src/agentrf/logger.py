@@ -8,7 +8,6 @@ Call this before other scripts to use our custom logger
 
 import os
 
-
 # from agentrf.settings import LOG_PATH
 
 # _LOG_PATH = LOG_PATH
@@ -36,6 +35,7 @@ def validate_log_path(log_path: str):
 def reset_logger(level=INFO):
     """Re-initialize our logger with one of the above options"""
     import logging
+
     # Create a custom logger
     _logger = logging.getLogger(_DEFAULT_NAME)
 
@@ -61,6 +61,7 @@ def reset_logger(level=INFO):
 def get_logger():
     """Initialize our logger with one of the above options"""
     import logging
+
     # Create a custom logger
     _logger = logging.getLogger(_DEFAULT_NAME)
 
@@ -78,6 +79,7 @@ def log_to_file(log_path: str | None = None, level: str = INFO):
     Also specify a log level
     """
     import logging
+
     # Create a custom logger
     _logger = logging.getLogger(_DEFAULT_NAME)
 

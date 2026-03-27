@@ -5,8 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import List
 
-from langchain_core.documents import Document
 from langchain_community.document_loaders import DirectoryLoader, UnstructuredMarkdownLoader
+from langchain_core.documents import Document
 
 
 def load_processed_markdown(processed_dir: str | Path) -> List[Document]:

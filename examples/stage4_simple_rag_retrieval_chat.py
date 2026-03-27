@@ -4,10 +4,9 @@ from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from agentrf.rag_retrievers import VectorRetriever, BM25Retriever, HybridRetriever
 from agentrf.llm import LLMFactory
+from agentrf.rag_retrievers import BM25Retriever, HybridRetriever, VectorRetriever
 from agentrf.settings import load_settings
-
 
 load_dotenv()
 
@@ -63,10 +62,9 @@ llm = LLMFactory.create(
     temperature=settings.rag.llm.temperature,
 )
 
-prompt = ChatPromptTemplate.from_messages([
-    ("system", settings.rag.prompt.system),
-    ("human", "Kontext:\n{context}\n\nFrage: {query}\n\nAntwort:")
-])
+prompt = ChatPromptTemplate.from_messages(
+    [("system", settings.rag.prompt.system), ("human", "Kontext:\n{context}\n\nFrage: {query}\n\nAntwort:")]
+)
 
 
 def run(user_query: str, llm, retriever, prompt, top_k: int):
@@ -77,8 +75,7 @@ def run(user_query: str, llm, retriever, prompt, top_k: int):
         print("No documents retrieved.")
     else:
         context = "\n\n".join(
-            f"--- {doc.metadata.get('filename', 'Unknown')} "
-            f"(chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
+            f"--- {doc.metadata.get('filename', 'Unknown')} (chunk {doc.metadata.get('chunk_id', '?')}) ---\n{doc.page_content}"
             for doc in docs
         )
         print(f"Retrieved {len(docs)} document(s).")
