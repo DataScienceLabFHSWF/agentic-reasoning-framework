@@ -23,6 +23,7 @@ dependencies = [
   "matplotlib==3.10.7",
   "numpy==2.3.4",
   "pandas==2.3.3",
+  "pdfminer>=20191125",
   "psycopg>=3.3.3",
   "python-dotenv==1.2.1",
   "python_docx==1.2.0",
