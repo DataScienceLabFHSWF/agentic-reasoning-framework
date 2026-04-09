@@ -1,12 +1,13 @@
 from functools import lru_cache
-
 from langchain_core.tools import tool
 from langchain_huggingface import HuggingFaceEmbeddings
-
 from agentrf.rag_retrievers import VectorRetriever
 
+# Cache the embedding function to avoid redundant model loading across multiple tool calls.
+# The cache is keyed by the model name and cache folder, so different embedding models or cache locations will be cached separately.
+# We would have to examine how django uses this downstream to ensure that the caching works as intended and doesn't lead to memory bloat if many different models are used.
 
-@lru_cache(maxsize=4)
+@lru_cache(maxsize=2)
 def get_embedding_function(model_name: str, cache_folder: str | None = None):
     """
     Load and cache the embedding model once per unique argument combination.
@@ -24,7 +25,7 @@ def build_chroma_retriever_tool(
     cache_folder: str | None = None,
 ):
     """
-    Build an LLM-facing retrieval tool backed by the project's VectorRetriever.
+    Build an LLM-facing retrieval tool backed
     """
     embedding_function = get_embedding_function(
         model_name=model_name,
